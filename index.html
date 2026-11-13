@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP World History — Class Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+<style>
+  :root {
+    --paper: #edf1f3;
+    --surface: #ffffff;
+    --ink: #1b2a3f;
+    --muted: #4f5d6e;
+    --rule: #c7d0d8;
+    --gold: #b8862a;
+    --sea: #2e6c70;
+    --sea-soft: #d5e6e5;
+    --gold-soft: #f1e3c3;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #121a24;
+      --surface: #1a2532;
+      --ink: #e6ebf0;
+      --muted: #a6b2bf;
+      --rule: #34424f;
+      --gold: #d9ab52;
+      --sea: #6fb3b0;
+      --sea-soft: #1f3a3c;
+      --gold-soft: #3d3220;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Alegreya Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+
+  .topbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: .75rem clamp(1rem, 4vw, 2.5rem);
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .ai-label {
+    margin: 0;
+    font-size: .9rem;
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  main {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: clamp(1.75rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.5rem) 4rem;
+  }
+
+  .intro h1 {
+    font-family: "Alegreya", Georgia, "Times New Roman", serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 0 0 .6rem;
+  }
+  .intro p {
+    margin: 0;
+    max-width: 38rem;
+    color: var(--muted);
+    font-size: 1.15rem;
+  }
+
+  .course { margin-top: 2.5rem; }
+  .course h2 {
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0 0 .75rem;
+  }
+  .course .tools { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+
+  /* Timeline scale shared by every unit row */
+  .scale {
+    display: grid;
+    grid-template-columns: var(--label-col) 1fr;
+    gap: 1.25rem;
+    margin: 2.75rem 0 .5rem;
+    font-size: .85rem;
+    color: var(--muted);
+  }
+  .scale-years { position: relative; height: 1.4rem; border-bottom: 2px solid var(--ink); }
+  .scale-years span { position: absolute; bottom: .25rem; transform: translateX(-50%); font-variant-numeric: tabular-nums; }
+  .scale-years span:first-child { transform: none; }
+  .scale-years span:last-child { transform: translateX(-100%); }
+
+  :root { --label-col: 13.5rem; }
+
+  .unit {
+    display: grid;
+    grid-template-columns: var(--label-col) 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 0 1.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .unit-head .num {
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 800;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .unit-head h2 {
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin: .3rem 0 .2rem;
+  }
+  .unit-head .dates { color: var(--muted); font-size: .95rem; font-variant-numeric: tabular-nums; }
+
+  .span {
+    position: relative;
+    height: .6rem;
+    margin: .55rem 0 1.1rem;
+    background: repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 9.0909%);
+    border-radius: 1px;
+  }
+  .span::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: var(--from);
+    width: var(--width);
+    background: var(--sea);
+    border-radius: 1px;
+  }
+
+  .tools { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
+  .tools a {
+    display: block;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--sea);
+    padding: .8rem 1rem .85rem;
+    border-radius: 3px;
+  }
+  .tools a:hover { border-color: var(--sea); }
+  .tools a:hover .tool-name { text-decoration: underline; text-underline-offset: 3px; }
+  .tools a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .tool-name { font-weight: 700; font-size: 1.1rem; display: block; }
+  .tool-kind {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 500;
+    padding: .05rem .5rem;
+    border-radius: 2px;
+    margin: .2rem 0 .25rem;
+  }
+  .kind-study { background: var(--sea-soft); }
+  .kind-game { background: var(--gold-soft); }
+  .kind-print { background: transparent; border: 1px solid var(--rule); }
+  .tool-desc { display: block; color: var(--muted); font-size: .98rem; }
+
+
+  @media (max-width: 720px) {
+    :root { --label-col: 1fr; }
+    .scale { display: none; }
+    .unit { grid-template-columns: 1fr; gap: .5rem; }
+    .unit-head { display: flex; align-items: baseline; gap: .75rem; flex-wrap: wrap; }
+    .unit-head h2 { margin: 0; }
+    .unit-head .dates { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <p class="ai-label">Prepared with AI support, reviewed by Mr. Johnson</p>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>AP World History</h1>
+    <p>Study guides and review games for Mr. Johnson’s class: whole-course review first, then unit by unit.</p>
+  </section>
+
+  <section class="course" aria-labelledby="course">
+    <h2 id="course">Across the course</h2>
+    <ul class="tools">
+      <li><a href="globe-review.html">
+        <span class="tool-name">Chronicle: AP World History Globe</span>
+        <span class="tool-kind kind-game">Review game</span>
+        <span class="tool-desc">Place historical events on the globe, then pin them to the right time window. Review one period or the whole course, 1200 to the present.</span>
+      </a></li>
+      <li><a href="lucky-you.html">
+        <span class="tool-name">Lucky You?</span>
+        <span class="tool-kind kind-study">Self-assessment</span>
+        <span class="tool-desc">See how the circumstances you were born into compare with the rest of the world, using real global data.</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <div class="scale" aria-hidden="true">
+    <div></div>
+    <div class="scale-years">
+      <span style="left:0">1200</span>
+      <span style="left:27.27%">1350</span>
+      <span style="left:45.45%">1450</span>
+      <span style="left:72.73%">1600</span>
+      <span style="left:100%">1750</span>
+    </div>
+  </div>
+
+  <section class="unit" aria-labelledby="u1">
+    <div class="unit-head">
+      <div class="num">1</div>
+      <h2 id="u1">The Global Tapestry</h2>
+      <div class="dates">c. 1200–1450</div>
+    </div>
+    <div>
+      <div class="span" style="--from:0%;--width:45.45%" aria-hidden="true"></div>
+      <ul class="tools">
+        <li><a href="unit1-study-guide.html">
+          <span class="tool-name">Unit 1 Study Guide</span>
+          <span class="tool-kind kind-study">Study tool</span>
+          <span class="tool-desc">Flashcards, quizzes, fill-in-the-blank passages, and practice questions on Strayer’s <i>Ways of the World</i>.</span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="unit" aria-labelledby="u3">
+    <div class="unit-head">
+      <div class="num">3</div>
+      <h2 id="u3">Land-Based Empires</h2>
+      <div class="dates">c. 1450–1750</div>
+    </div>
+    <div>
+      <div class="span" style="--from:45.45%;--width:54.55%" aria-hidden="true"></div>
+      <ul class="tools">
+        <li><a href="unit3-study-guide.html">
+          <span class="tool-name">Unit 3 Study Guide</span>
+          <span class="tool-kind kind-study">Study tool</span>
+          <span class="tool-desc">Review of the Ottoman, Mughal, and other land-based empires, built from class notes and the review sheet.</span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="unit" aria-labelledby="u4">
+    <div class="unit-head">
+      <div class="num">4</div>
+      <h2 id="u4">Transoceanic Interconnections</h2>
+      <div class="dates">c. 1450–1750</div>
+    </div>
+    <div>
+      <div class="span" style="--from:45.45%;--width:54.55%" aria-hidden="true"></div>
+      <ul class="tools">
+        <li><a href="cargo-crossing.html">
+          <span class="tool-name">Cargo Crossing: The Columbian Exchange</span>
+          <span class="tool-kind kind-game">Review game</span>
+          <span class="tool-desc">Team game for the Crash Course World History video on the Columbian Exchange.</span>
+        </a></li>
+        <li><a href="colonial-societies-game.html">
+          <span class="tool-name">Building Colonial Societies</span>
+          <span class="tool-kind kind-game">Review game</span>
+          <span class="tool-desc">Team game comparing colonial societies in the Americas, Strayer pp. 209–219.</span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

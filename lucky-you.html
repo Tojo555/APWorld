@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky You?</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:32px 16px;background:#050a12;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:flex;justify-content:center}
+.tb-wrap{width:100%;max-width:640px;background:#0a1322;border:1px solid rgba(52,211,153,0.3);border-radius:16px;padding:20px 22px;color:#cfe8d8}
+.tb-card{background:#101d33;border:1px solid rgba(52,211,153,0.25);border-radius:12px;padding:1rem 1.25rem}
+.tb-btn{border-radius:999px;border:1px solid #34d399;background:transparent;color:#34d399;padding:9px 18px;font-size:14px;font-weight:500;cursor:pointer}
+.tb-btn:hover{background:rgba(52,211,153,0.12)}
+.tb-btn.secondary{border-color:rgba(52,211,153,0.4);color:#cfe8d8}
+.tb-btn:disabled{opacity:0.4;cursor:not-allowed}
+.era-btn{border-radius:999px;border:1px solid rgba(52,211,153,0.35);background:transparent;color:rgba(207,232,216,0.8);padding:4px 9px;font-size:11px;font-weight:500;cursor:pointer}
+.opt-btn{display:block;width:100%;text-align:left;padding:11px 14px;margin-bottom:8px;border-radius:10px;border:1px solid rgba(52,211,153,0.35);background:transparent;color:#cfe8d8;font-size:14px;cursor:pointer}
+.opt-btn:hover{border-color:rgba(52,211,153,0.6)}
+.opt-btn.selected{background:rgba(52,211,153,0.18);border-color:#34d399;color:#34d399;font-weight:600}
+.opt-grid{display:flex;flex-wrap:wrap;gap:6px}
+.opt-pill{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid rgba(52,211,153,0.35);background:transparent;color:#cfe8d8;font-size:12px;cursor:pointer}
+.opt-pill:hover{border-color:rgba(52,211,153,0.6)}
+.opt-pill.selected{background:rgba(52,211,153,0.18);border-color:#34d399;color:#34d399;font-weight:600}
+#opt-list{max-height:340px;overflow-y:auto;padding-right:4px;margin-bottom:1rem}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden}
+select.country-select{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(52,211,153,0.35);background:#0d1729;color:#cfe8d8;font-size:14px;margin-bottom:1rem}
+</style>
+</head>
+<body>
+<div class="tb-wrap">
+<h1 class="sr-only">Lucky You? A self-assessment of your own circumstances compared to global data.</h1>
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;gap:6px;">
+  <p style="margin:0;font-size:18px;font-weight:700;letter-spacing:0.5px;">LUCKY <span style="color:#34d399;">YOU?</span></p>
+  <span style="font-size:11px;color:rgba(207,232,216,0.5);">Prepared with AI support, reviewed by Mr. Johnson</span>
+</div>
+<div style="text-align:right;margin-bottom:8px;">
+  <button id="sources-btn" class="era-btn" style="font-size:11px;">Sources</button>
+</div>
+<div id="sources-panel" style="display:none;background:#0d1729;border:1px solid rgba(52,211,153,0.3);border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:12px;color:rgba(207,232,216,0.85);line-height:1.6;">
+  <p style="margin:0 0 6px;font-weight:700;color:#f2fbf6;">Sources</p>
+  <ol style="margin:0;padding-left:18px;">
+    <li>Currie, C. et al. Family Affluence Scale (FAS), developed for the WHO-collaborative Health Behaviour in School-Aged Children (HBSC) study. This tool uses a simplified, classroom adaptation of FAS combining vacation frequency, own bedroom, vehicles, and household devices &mdash; not the full validated instrument or its official scoring.</li>
+    <li>O*NET OnLine (U.S. Department of Labor), Job Zones. Used to estimate a typical education level from occupation category only when the person answers "I don't know" for parent/guardian education.</li>
+    <li>World Bank / UNESCO Institute for Statistics. Global gross tertiary enrollment ratio (43%, 2023) and regional variation (e.g., Sub-Saharan Africa at 9%).</li>
+    <li>OECD, "Education at a Glance 2025." Intergenerational education attainment (college completion rates by parent's education level) and unemployment rates by education level.</li>
+    <li>World Bank, Country and Lending Groups classification, FY2026&ndash;27. Country income tiers.</li>
+    <li>UN Inter-agency Group for Child Mortality Estimation (UN IGME), via Our World in Data. Country infant mortality rates.</li>
+    <li>United Nations, World Urbanization Prospects. Global urban/rural population share context.</li>
+    <li>U.S. Census Bureau, "America's Families and Living Arrangements: 2023." Share of U.S. children living with two parents.</li>
+    <li>National Center for Education Statistics (NCES); The Association of Boarding Schools. U.S. public/private school enrollment shares and the very small number of U.S. boarding-school students relative to total K-12 enrollment.</li>
+    <li>Pew Research Center analysis of U.S. Bureau of Labor Statistics data, "Is teen summer employment in the U.S. rebounding?" (2026). Share of U.S. teens (16&ndash;19) holding a summer job.</li>
+    <li>World Bank / World Development Indicators. Approximate share of world population living in high-, middle-, and low-income countries.</li>
+    <li>Estimates aggregated from Harvard University/Asian Development Bank research and World Bank educational-attainment data: roughly 7% of the global adult population has completed a bachelor's degree or higher; graduate/professional degree attainment is a rougher estimate, roughly 1&ndash;2% globally. Used only in the combined "overall privilege" estimate.</li>
+    <li>National Association of Independent Schools (NAIS) / The Association of Boarding Schools (TABS): roughly 33&ndash;37% of U.S. boarding students receive need-based financial aid. Used to adjust the combined estimate for full-tuition-paying families.</li>
+    <li>Country-specific rarity in the combined estimate is calculated by the author by ranking countries within their World Bank income tier by life expectancy (as a rough development proxy), then weighting by each country's approximate share of world births \u2014 a simplified proxy method, not an official ranking.</li>
+  </ol>
+</div>
+<div class="tb-card">
+<div id="intro-screen">
+  <p style="font-size:15px;font-weight:700;margin:0 0 10px;color:#f2fbf6;">Before you start</p>
+  <p style="font-size:13px;color:rgba(207,232,216,0.8);line-height:1.6;margin:0 0 10px;">This isn't a test, and there are no right answers. It's a set of questions to help you see how the circumstances you were born into &mdash; the ones nobody chooses &mdash; compare to the rest of the world.</p>
+  <p style="font-size:13px;color:rgba(207,232,216,0.8);line-height:1.6;margin:0 0 10px;"><strong style="color:#f2fbf6;">Nothing you enter here is saved or sent anywhere.</strong> This page runs entirely in your browser &mdash; there's no server, no account, and no record of your answers once you close the tab.</p>
+  <p style="font-size:13px;color:rgba(207,232,216,0.8);line-height:1.6;margin:0 0 16px;">Please don't type in anything specific enough to identify you or your family &mdash; every question here can be answered with a broad category, not an exact number or name. That's on purpose.</p>
+  <div style="text-align:center;">
+    <button id="start-btn" class="tb-btn">Start &rarr;</button>
+  </div>
+</div>
+<div id="quiz-screen" style="display:none;">
+<p id="step-title" style="font-size:15px;font-weight:700;margin:0 0 4px;color:#f2fbf6;"></p>
+<p id="step-desc" style="font-size:13px;color:rgba(207,232,216,0.65);margin:0 0 1rem;"></p>
+<div id="opt-list"></div>
+<div style="text-align:center;">
+  <button id="skip-btn" class="tb-btn secondary" style="display:none;margin-right:8px;">Prefer not to say</button>
+  <button id="continue-btn" class="tb-btn" disabled>Continue &rarr;</button>
+</div>
+</div>
+<div id="result-screen" style="display:none;"></div>
+</div>
+</div>
+<script>
+var countries=[["China",6.00,4.1,"Upper-middle income",78],["India",17.40,25,"Lower-middle income",70],["United States",2.77,5.4,"High income",77],["Indonesia",3.39,19,"Upper-middle income",72],["Pakistan",5.21,50,"Lower-middle income",67],["Brazil",1.97,12.3,"Upper-middle income",75],["Nigeria",5.80,60,"Lower-middle income",55],["Bangladesh",2.64,24.4,"Lower-middle income",73],["Russia",1.335,4,"High income",72],["Mexico",1.517,11,"Upper-middle income",75],["Japan",1.157,1.8,"High income",84],["Ethiopia",3.11,34.5,"Low income",67],["Philippines",1.297,19,"Upper-middle income",71],["Egypt",1.82,20.8,"Lower-middle income",72],["Vietnam",1.150,14,"Upper-middle income",74],["DR Congo",3.30,56.4,"Low income",60],["Turkey",0.993,8,"Upper-middle income",78],["Iran",0.993,10,"Upper-middle income",76],["Germany",0.764,3.2,"High income",81],["Thailand",0.828,6,"Upper-middle income",79],["United Kingdom",0.621,3.6,"High income",81],["France",0.600,3.3,"High income",83],["Italy",0.557,2.6,"High income",83],["Tanzania",1.314,33,"Lower-middle income",66],["South Africa",0.699,23,"Upper-middle income",65],["Myanmar",1.194,30,"Lower-middle income",67],["Kenya",1.177,28,"Lower-middle income",67],["South Korea",0.471,2.5,"High income",83],["Colombia",0.598,10.5,"Upper-middle income",77],["Spain",0.428,2.5,"High income",83],["Uganda",1.471,30,"Low income",64],["Argentina",0.533,8,"Upper-middle income",77],["Algeria",0.515,19.5,"Upper-middle income",77],["Sudan",1.396,38,"Low income",65],["Ukraine",0.515,6.5,"Upper-middle income",71],["Iraq",0.478,18,"Upper-middle income",71],["Afghanistan",1.246,48.3,"Low income",63],["Poland",0.350,3.4,"High income",78],["Canada",0.343,4.7,"High income",82],["Morocco",0.802,15,"Lower-middle income",77],["Saudi Arabia",0.321,5.3,"High income",76],["Uzbekistan",0.734,16,"Lower-middle income",72],["Peru",0.386,10,"Upper-middle income",77],["Angola",0.717,32.1,"Lower-middle income",62],["Malaysia",0.386,6,"Upper-middle income",76],["Mozambique",0.997,50,"Low income",60],["Ghana",0.682,28,"Lower-middle income",64],["Yemen",0.947,38,"Low income",66],["Nepal",0.631,22,"Lower-middle income",71],["Venezuela",0.331,20,"Upper-middle income (2021, last classified)",72],["Madagascar",0.897,28,"Low income",67],["Cameroon",0.580,40.2,"Lower-middle income",60],["Cote d'Ivoire",0.580,44.8,"Lower-middle income",59],["North Korea",0.822,12,"Low income",72],["Australia",0.236,3.1,"High income",83],["Niger",0.773,42,"Low income",62],["Taiwan",0.221,4,"High income",80],["Sri Lanka",0.248,5.5,"Upper-middle income",77],["Burkina Faso",0.673,43.6,"Low income",61],["Mali",0.648,55,"Low income",59],["Romania",0.178,5.5,"High income",76],["Malawi",0.623,26,"Low income",64],["Chile",0.178,5.8,"High income",80],["Kazakhstan",0.221,7.5,"Upper-middle income",74],["Zambia",0.409,33,"Lower-middle income",64],["Guatemala",0.211,18,"Upper-middle income",74],["Ecuador",0.211,10.9,"Upper-middle income",77],["Syria",0.548,13,"Low income",72],["Netherlands",0.157,3.2,"High income",82],["Senegal",0.358,27,"Lower-middle income",67],["Cambodia",0.358,16.4,"Lower-middle income",70],["Chad",0.523,56.3,"Low income",54],["Somalia",0.499,70,"Low income",57],["Zimbabwe",0.324,28,"Lower-middle income",61],["Guinea",0.290,55,"Lower-middle income",61],["Rwanda",0.424,24,"Low income",69],["Benin",0.273,45.2,"Lower-middle income",62],["Burundi",0.374,30.5,"Low income",63],["Tunisia",0.256,10,"Lower-middle income",77],["Bolivia",0.256,14.2,"Lower-middle income",72],["Belgium",0.107,3.1,"High income",82],["Haiti",0.256,38,"Lower-middle income",64],["Cuba",0.138,6.8,"Upper-middle income",79],["South Sudan",0.349,57,"Low income",58],["Dominican Republic",0.129,27.7,"Upper-middle income",74],["Czech Republic",0.100,2.1,"High income",79],["Greece",0.093,3.2,"High income",81],["Jordan",0.120,11,"Upper-middle income",75],["Portugal",0.093,2.5,"High income",82],["Azerbaijan",0.120,12.5,"Upper-middle income",73],["Sweden",0.093,2,"High income",83],["Honduras",0.222,12,"Lower-middle income",75],["UAE",0.093,5,"High income",78],["Hungary",0.086,3.5,"High income",76],["Tajikistan",0.205,26,"Lower-middle income",71],["Belarus",0.110,1.8,"Upper-middle income",74],["Austria",0.086,2.8,"High income",82],["Papua New Guinea",0.188,33,"Lower-middle income",65],["Serbia",0.101,4.5,"Upper-middle income",76],["Israel",0.079,3,"High income",83]];
+var steps=[
+{id:"country",title:"Where do you live?",desc:"Pick the country where you currently live.",layout:"grid",options:(function(){var priority=["United States","Canada","China","Japan","South Korea","Vietnam"];var all=countries.map(function(c){return c[0];});var rest=all.filter(function(n){return priority.indexOf(n)===-1;}).sort();return priority.concat(rest);})()},
+{id:"setting",title:"What kind of area do you live in?",desc:"Pick the closest match.",options:["Urban (city)","Suburban","Small town","Rural"]},
+{id:"familyStructure",title:"How many parents or guardians live in your home?",desc:"This is just for context.",options:["1","2","3 or more"],skippable:true},
+{id:"education",title:"What's the highest level of education a parent or guardian completed?",desc:"Pick the highest level between the adults you live with. It's completely fine to say you don't know \u2014 we'll estimate from their work instead.",options:["Did not finish high school","High school diploma or GED","Some college, trade, or vocational school","Bachelor's degree","Graduate or professional degree","I don't know"]},
+{id:"priorSchool",title:"Before coming here, what kind of school did you mostly attend?",desc:"Pick whichever fits most of your school years before boarding school.",options:["Public school","Private day school (non-boarding)","Religious or parochial school","Homeschool","This is my first school","Other"]},
+{id:"financialAid",title:"Are you attending this school with need-based financial aid or a scholarship?",desc:"This changes how we frame one of the results below \u2014 skip it if you'd rather not say.",options:["Yes, full or close to full","Yes, partial","No"],skippable:true},
+{id:"vacations",title:"In the last 12 months, how many times did your family travel away together overnight?",desc:"Count any trip where you stayed away from home at least one night, for any reason.",options:["0","1","2","3 or more"]},
+{id:"bedroom",title:"Do you have your own bedroom?",desc:"",options:["Yes","No, I share one","It varies"]},
+{id:"vehicles",title:"How many cars or other vehicles does your family have?",desc:"",options:["0","1","2","3 or more"]},
+{id:"devices",title:"How many computers, laptops, or tablets are shared by your family?",desc:"Don't count phones.",options:["0","1","2","3 or more"]},
+{id:"summer",title:"What do you typically do in the summer?",desc:"Pick whichever fits most years.",options:["Structured camp or enrichment program","Family travel or extended visits","Part-time or full-time job","Mostly unstructured time at home or nearby","Caregiving for siblings or family","Other"]}
+];
+var OCCUPATION_OPTIONS=["Management, business, or executive","Doctor, nurse, or other healthcare professional","Healthcare support (aide, assistant, technician)","Teacher, professor, or education","Engineer, scientist, or IT professional","Lawyer or legal professional","Skilled trade (electrician, plumber, construction, mechanic)","Office or administrative support","Sales (retail, real estate, etc.)","Food service or hospitality","Personal care, childcare, or cleaning services","Transportation or delivery driving","Farming or agriculture","Protective services (police, fire, military)","Factory or production work","Not currently working","Stay-at-home parent, guardian, or caregiver","Other / prefer not to say"];
+var RELATIONSHIP_OPTIONS=["Parent","Step-parent","Grandparent (as guardian)","Other relative or legal guardian"];
+function guardianCountFromAnswer(ans){if(ans==="2")return 2;if(ans==="3 or more")return 3;return 1;}
+function buildGuardianSteps(n){
+var arr=[];
+for(var g=1;g<=n;g++){
+var label=n===1?"this parent or guardian":"Parent/Guardian "+g;
+arr.push({id:"relationship"+g,title:"Who is "+label+" to you?",desc:"Pick whichever fits \u2014 families come in a lot of shapes, so pick the option that's closest.",options:RELATIONSHIP_OPTIONS});
+arr.push({id:"occupation"+g,title:"What does "+label+" do for work?",desc:"Pick whichever category fits best.",options:OCCUPATION_OPTIONS});
+}
+return arr;
+}
+var stepIndex=0,answers={};
+var STEPS_BASE_LENGTH=steps.length;
+function showStep(){
+document.getElementById("intro-screen").style.display="none";
+document.getElementById("result-screen").style.display="none";
+document.getElementById("quiz-screen").style.display="block";
+var s=steps[stepIndex];
+document.getElementById("step-title").textContent=s.title;
+document.getElementById("step-desc").textContent=s.desc;
+document.getElementById("skip-btn").style.display=s.skippable?"inline-block":"none";
+var box=document.getElementById("opt-list");box.innerHTML="";
+var isGrid=s.layout==="grid";
+box.className=isGrid?"opt-grid":"";
+s.options.forEach(function(opt){
+var b=document.createElement("button");
+b.className=(isGrid?"opt-pill":"opt-btn")+(answers[s.id]===opt?" selected":"");
+b.textContent=opt;
+b.addEventListener("click",function(){
+answers[s.id]=opt;
+document.querySelectorAll("#opt-list .opt-btn, #opt-list .opt-pill").forEach(function(el){el.classList.remove("selected");});
+b.classList.add("selected");
+document.getElementById("continue-btn").disabled=false;
+});
+box.appendChild(b);
+});
+document.getElementById("continue-btn").disabled=!(s.id in answers);
+}
+function maybeInsertGuardianSteps(){
+var s=steps[stepIndex-1];
+if(s&&s.id==="familyStructure"&&!guardianStepsInserted){
+guardianStepsInserted=true;
+var n=guardianCountFromAnswer(answers.familyStructure);
+var gSteps=buildGuardianSteps(n);
+steps.splice.apply(steps,[stepIndex,0].concat(gSteps));
+}
+}
+var guardianStepsInserted=false;
+document.getElementById("skip-btn").addEventListener("click",function(){
+var s=steps[stepIndex];answers[s.id]="Prefer not to say";
+stepIndex++;maybeInsertGuardianSteps(); if(stepIndex>=steps.length){showResult();}else{showStep();}
+});
+document.getElementById("continue-btn").addEventListener("click",function(){
+stepIndex++;maybeInsertGuardianSteps(); if(stepIndex>=steps.length){showResult();}else{showStep();}
+});
+document.getElementById("start-btn").addEventListener("click",showStep);
+document.getElementById("sources-btn").addEventListener("click",function(){var p=document.getElementById("sources-panel");p.style.display=p.style.display==="none"?"block":"none";});
+
+function getCountryData(name){for(var i=0;i<countries.length;i++){if(countries[i][0]===name)return countries[i];}return null;}
+function tierRank(t){if(t.indexOf("High")===0)return 0;if(t.indexOf("Upper-middle")===0)return 1;if(t.indexOf("Lower-middle")===0)return 1;if(t.indexOf("Low")===0)return 2;return 1;}
+function countryRarityPct(name){
+var list=countries.slice();
+list.sort(function(a,b){var ta=tierRank(a[3]),tb=tierRank(b[3]);if(ta!==tb)return ta-tb;return b[4]-a[4];});
+var cum=0,highEnd=0,midEnd=0,target=null,targetTier=1,totalPct=0;
+for(var i=0;i<list.length;i++){totalPct+=list[i][1];}
+cum=0;
+for(var i=0;i<list.length;i++){
+cum+=list[i][1];
+var tier=tierRank(list[i][3]);
+if(tier===0)highEnd=cum;
+if(tier<=1)midEnd=cum;
+if(list[i][0]===name){target=cum;targetTier=tier;}
+}
+if(target===null)return null;
+if(targetTier===0)return (target/highEnd)*15;
+if(targetTier===1)return 15+((target-highEnd)/(midEnd-highEnd))*75;
+return 90+((target-midEnd)/(totalPct-midEnd))*10;
+}
+var occToZone={
+"Management, business, or executive":5,
+"Doctor, nurse, or other healthcare professional":5,
+"Healthcare support (aide, assistant, technician)":3,
+"Teacher, professor, or education":4,
+"Engineer, scientist, or IT professional":4,
+"Lawyer or legal professional":5,
+"Skilled trade (electrician, plumber, construction, mechanic)":3,
+"Office or administrative support":2,
+"Sales (retail, real estate, etc.)":2,
+"Food service or hospitality":1,
+"Personal care, childcare, or cleaning services":1,
+"Transportation or delivery driving":2,
+"Farming or agriculture":1,
+"Protective services (police, fire, military)":3,
+"Factory or production work":2,
+"Not currently working":null,
+"Stay-at-home parent, guardian, or caregiver":null,
+"Other / prefer not to say":null
+};
+var zoneToEducation={1:"a high school diploma or less",2:"a high school diploma or GED",3:"some college, trade, or vocational training",4:"a bachelor's degree",5:"a graduate or professional degree"};
+function resolveEducation(){
+if(answers.education!=="I don't know"){return {level:answers.education,inferred:false,unresolved:false};}
+var maxZone=null;
+for(var g=1;g<=3;g++){
+var occ=answers["occupation"+g];
+if(!occ)continue;
+var z=occToZone[occ];
+if(z!=null&&(maxZone===null||z>maxZone))maxZone=z;
+}
+if(maxZone===null){return {level:null,inferred:false,unresolved:true};}
+return {level:zoneToEducation[maxZone],inferred:true,unresolved:false};
+}
+function fasScore(){
+var v={"0":0,"1":1,"2":2,"3 or more":3}[answers.vacations]||0;
+var b={"Yes":2,"It varies":1,"No, I share one":0}[answers.bedroom]||0;
+var c={"0":0,"1":1,"2":2,"3 or more":3}[answers.vehicles]||0;
+var d={"0":0,"1":1,"2":2,"3 or more":3}[answers.devices]||0;
+return v+b+c+d;
+}
+function fasBucket(score){if(score<=3)return"Low";if(score<=6)return"Medium";if(score<=9)return"High";return"Very high";}
+
+function fmtFootnote(f){if(!f)return"";return f.split(",").map(function(d){return"["+d+"]";}).join("");}
+function renderBar(label,pct,caption,footnote){
+var barWidth=Math.max(2,Math.min(100,pct));
+var displayText=pct<1?"<1%":Math.round(pct)+"%";
+return '<div style="margin-bottom:16px;">'+
+'<div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:5px;"><span style="color:#f2fbf6;font-weight:600;">'+label+(footnote?'<sup style="color:#34d399;">'+fmtFootnote(footnote)+'</sup>':'')+'</span><span style="color:#34d399;font-weight:700;font-size:15px;">'+displayText+'</span></div>'+
+'<div style="background:#0d1729;border-radius:6px;height:9px;overflow:hidden;"><div style="background:#34d399;height:100%;width:'+barWidth+'%;"></div></div>'+
+'<p style="margin:5px 0 0;font-size:12px;color:rgba(207,232,216,0.65);line-height:1.4;">'+caption+'</p>'+
+'</div>';
+}
+function showResult(){
+document.getElementById("quiz-screen").style.display="none";
+document.getElementById("result-screen").style.display="block";
+var html="";
+var isUS=answers.country==="United States";
+html+='<p style="margin:0 0 4px;font-size:15px;font-weight:700;color:#f2fbf6;">How lucky are you?</p>';
+html+='<p style="margin:0 0 16px;font-size:12px;color:rgba(207,232,216,0.6);">Each bar shows how common (or rare) your circumstance is, based on real data \u2014 not a judgment of you.</p>';
+
+// 1. Family structure
+var fam=answers.familyStructure;
+if(isUS&&(fam==="2"||fam==="3 or more")){
+html+=renderBar("Two or more parents/guardians at home",71,"71% of U.S. kids live with two parents (Census, 2023) \u2014 you're in the majority here.","5");
+}else if(isUS&&fam==="1"){
+html+=renderBar("Two or more parents/guardians at home",29,"Only 29% of U.S. kids live with just one parent \u2014 common, but not the majority arrangement (Census, 2023).","5");
+}else{
+html+=renderBar("Two or more parents/guardians at home",fam==="1"?25:75,"Family structure varies too much between countries for one clean global number \u2014 shown here for reflection, not as a precise comparison.","");
+}
+
+// 2. Family affluence
+var score=fasScore();var bucket=fasBucket(score);
+var fasPct=bucket==="Low"?20:(bucket==="Medium"?50:(bucket==="High"?80:95));
+html+=renderBar("Family material affluence",fasPct,"Your vacations, bedroom, vehicle, and device answers put you in the '"+bucket+"' range on a simplified version of the Family Affluence Scale, a real tool researchers use with teenagers internationally.","1");
+
+// 3. Country income level
+var cd=getCountryData(answers.country);
+if(cd){
+var tier=cd[3];var tierPct=tier.indexOf("High")===0?85:(tier.indexOf("Low")===0&&tier.indexOf("Lower")!==0?10:75);
+var tierCaption=tier.indexOf("High")===0?"Being born in a high-income country already puts you ahead of roughly 85% of the world's population by country income level (World Bank).":(tier.indexOf("Low")===0&&tier.indexOf("Lower")!==0?"Only about 10% of the world's population lives in a country classified this way \u2014 most people live somewhere wealthier (World Bank).":"About 75% of the world's population lives in a middle-income country, same as you (World Bank).");
+html+=renderBar("Country income level ("+tier+")",tierPct,tierCaption,"6");
+}
+
+// 4. College odds
+var res=resolveEducation();
+var collegePct=43,collegeCaption="Global baseline: about 43% of the college-age population is enrolled in higher education at all (World Bank/UNESCO, 2023). We couldn't confidently estimate your parent/guardian's education from what you entered.";
+if(!res.unresolved){
+var lvl=res.level;var isHigh=(lvl==="Bachelor's degree"||lvl==="Graduate or professional degree"||lvl==="a bachelor's degree"||lvl==="a graduate or professional degree");
+var inferredNote=res.inferred?" (estimated from occupation)":"";
+if(isHigh){collegePct=70;collegeCaption="Young adults with a college-educated parent"+inferredNote+" complete college themselves about 70% of the time (OECD, 2025) \u2014 well above the 43% global enrollment baseline.";}
+else{collegePct=26;collegeCaption="Young adults whose parents"+inferredNote+" didn't finish high school complete college at a rate of about 26% (OECD, 2025), versus 70% for peers with a college-educated parent. A real headwind \u2014 not a ceiling.";}
+}
+html+=renderBar("Chance of completing college",collegePct,collegeCaption,"2,3,4");
+
+// Composite headline number (calculated here, rendered at the bottom)
+var countryProb=1,famProb=1,eduProb=1,boardingProb=1;
+if(cd){var cr=countryRarityPct(answers.country);countryProb=(cr!==null?cr:45)/100;}
+famProb=bucket==="Very high"?0.10:(bucket==="High"?0.33:(bucket==="Medium"?0.67:1.0));
+if(!res.unresolved){
+var lvl2=res.level;
+var isGrad=(lvl2==="Graduate or professional degree"||lvl2==="a graduate or professional degree");
+var isBach=(lvl2==="Bachelor's degree"||lvl2==="a bachelor's degree");
+eduProb=isGrad?0.015:(isBach?0.07:1.0);
+}
+if(answers.financialAid==="No"){boardingProb=0.65;}
+var composite=countryProb*famProb*eduProb*boardingProb*100;
+function formatPct(p){if(p<0.001)return"less than 0.001%";if(p<1)return p.toFixed(3).replace(/0+$/,"").replace(/\.$/,"")+"%";if(p<10)return p.toFixed(1)+"%";return Math.round(p)+"%";}
+var compositeText=formatPct(composite);
+var headlineText=composite<20?
+("Putting your country, family affluence, parent education, and how you're funding this school together: only about <strong>"+compositeText+"</strong> of people worldwide would have a combination of circumstances at least this advantaged."):
+("Putting your country, family affluence, parent education, and how you're funding this school together: roughly <strong>"+compositeText+"</strong> of people worldwide have at least as much advantage as you do on these measures combined. That's not a knock on you \u2014 it's just where the numbers land, and it says nothing about where you can go from here.");
+
+// 5. Schooling
+var ps=answers.priorSchool;
+if(isUS){
+if(ps==="Private day school (non-boarding)"||ps==="Religious or parochial school"){
+html+=renderBar("Attended private school before now",10,"About 10% of U.S. K-12 students attend private school (NCES) \u2014 you were already in that smaller group.","");
+}else{
+html+=renderBar("Attended public school before now",90,"About 90% of U.S. K-12 students attend public school (NCES) \u2014 a common starting point.","");
+}
+}
+var aid=answers.financialAid;
+var boardingCaption="Fewer than 1 in 1,000 U.S. students ever attend a boarding school (Association of Boarding Schools / NCES) \u2014 simply being here already puts you in a very small slice of the population.";
+if(aid==="Yes, full or close to full"||aid==="Yes, partial"){
+boardingCaption+=" You got here through scholarship and your own merit and effort, not family wealth \u2014 that's a different, and in some ways harder, path to the same rare opportunity.";
+}
+html+=renderBar("Attending a boarding school at all",0.1,boardingCaption,"");
+
+// 6. Summer
+if(answers.summer==="Part-time or full-time job"){
+html+=renderBar("Working a summer job",35,"About 35% of U.S. teens ages 16-19 hold a paying summer job (Pew/BLS, 2026) \u2014 you're part of that group.","");
+}else{
+html+=renderBar("Free of summer work obligations",65,"About 65% of U.S. teens don't hold a summer job \u2014 like you, though what fills that time varies enormously depending on resources.","");
+}
+
+html+='<div style="background:#0d1729;border:1px solid #34d399;border-radius:12px;padding:14px 16px;margin:4px 0 18px;">';
+html+='<p style="margin:0 0 6px;font-size:13px;color:#f2fbf6;line-height:1.6;">'+headlineText+'<sup style="color:#34d399;">'+fmtFootnote("1,5,11,12,13,14")+'</sup></p>';
+html+='<p style="margin:0;font-size:11px;color:rgba(207,232,216,0.5);line-height:1.4;">This multiplies four separate estimates together as if they were unrelated to each other, including a rough country-specific ranking (not an official statistic) instead of a flat income-tier number. In reality these overlap \u2014 people with one of these advantages are more likely to have the others too \u2014 so this number is a rough, illustrative estimate, not a precise scientific measurement.</p>';
+html+='</div>';
+
+var disadvantageCount=0;
+if(bucket==="Low")disadvantageCount++;
+if(cd&&cd[3].indexOf("Low")===0&&cd[3].indexOf("Lower")!==0)disadvantageCount++;
+if(collegePct<=30)disadvantageCount++;
+var closing;
+if(disadvantageCount>=2){
+closing="Some of these bars probably felt like a rough draw \u2014 a lower-income background and tougher odds on paper are real headwinds, not imagined ones, and they have nothing to do with what you're capable of. At the same time, you're sitting in one of the smallest, most fortunate slices of people worldwide: someone who gets access to an education like this at all. Both of those things are true about you at once, and neither one cancels the other out.";
+}else{
+closing="None of this was chosen by you. Whatever combination of bars showed up above, you didn't earn or deserve any of it \u2014 it was already true the moment you were born.";
+}
+html+='<p style="margin:18px 0 0;font-size:13px;color:rgba(207,232,216,0.85);line-height:1.6;font-style:italic;">'+closing+'</p>';
+
+html+='<div style="text-align:center;margin-top:20px;"><button id="restart-btn" class="tb-btn secondary">Start over</button></div>';
+document.getElementById("result-screen").innerHTML=html;
+document.getElementById("restart-btn").addEventListener("click",function(){stepIndex=0;answers={};guardianStepsInserted=false;steps.length=STEPS_BASE_LENGTH;document.getElementById("intro-screen").style.display="block";document.getElementById("result-screen").style.display="none";});
+}
+</script>
+</body>
+</html>

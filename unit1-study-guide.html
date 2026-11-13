@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Global Tapestry — Unit 1 Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EFE6D2;
+    --paper-raised: #F7F0E1;
+    --paper-dark: #E4D5B4;
+    --ink: #2A2117;
+    --ink-soft: #6B5D48;
+    --gold: #93641B;
+    --gold-soft: #C79A3F;
+    --indigo: #1F3A5C;
+    --indigo-soft: #3D5C82;
+    --sage: #43613C;
+    --sage-bg: #DCE6D3;
+    --brick: #8B3A3A;
+    --brick-bg: #F0DCDA;
+    --rule: rgba(42,33,23,0.18);
+    --shadow: rgba(42,33,23,0.16);
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1C1812;
+      --paper-raised: #26201A;
+      --paper-dark: #302820;
+      --ink: #EDE3CF;
+      --ink-soft: #B7A88C;
+      --gold: #D2A44C;
+      --gold-soft: #E4C27C;
+      --indigo: #7C9FC6;
+      --indigo-soft: #9CB8D8;
+      --sage: #9BC28C;
+      --sage-bg: #263524;
+      --brick: #E09A9A;
+      --brick-bg: #3A2424;
+      --rule: rgba(237,227,207,0.16);
+      --shadow: rgba(0,0,0,0.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1C1812;
+    --paper-raised: #26201A;
+    --paper-dark: #302820;
+    --ink: #EDE3CF;
+    --ink-soft: #B7A88C;
+    --gold: #D2A44C;
+    --gold-soft: #E4C27C;
+    --indigo: #7C9FC6;
+    --indigo-soft: #9CB8D8;
+    --sage: #9BC28C;
+    --sage-bg: #263524;
+    --brick: #E09A9A;
+    --brick-bg: #3A2424;
+    --rule: rgba(237,227,207,0.16);
+    --shadow: rgba(0,0,0,0.4);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: inherit; }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Karla", -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  h1, h2, h3, .display {
+    font-family: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- attribution ribbon ---------- */
+  .attribution {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 10px);
+    right: 14px;
+    z-index: 60;
+    font-family: "Karla", sans-serif;
+    font-size: 0.68rem;
+    line-height: 1.3;
+    color: var(--ink-soft);
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 4px 9px;
+    max-width: 150px;
+    text-align: right;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  @media (max-width: 640px) {
+    .attribution {
+      position: static;
+      margin: 8px auto 0;
+      max-width: none;
+      width: fit-content;
+      text-align: center;
+    }
+  }
+
+  /* ---------- layout shell ---------- */
+  .shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
+  }
+
+  header.masthead {
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+  }
+  .masthead .eyebrow-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  .kicker {
+    font-size: 0.82rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1.title {
+    font-size: clamp(1.9rem, 4vw, 2.9rem);
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-top: 6px;
+    max-width: 62ch;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  @media (max-width: 780px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  nav.index {
+    position: sticky;
+    top: 18px;
+    border-right: 1px solid var(--rule);
+    padding-right: 18px;
+  }
+  @media (max-width: 780px) {
+    nav.index {
+      position: static;
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+      padding-right: 0;
+      padding-bottom: 14px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+  }
+  nav.index .index-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  @media (max-width: 780px) { nav.index .index-label { display: none; } }
+
+  .navbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-family: "Karla", sans-serif;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 8px 4px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    margin-left: -3px;
+    transition: color .15s, border-color .15s;
+  }
+  .navbtn:hover { color: var(--ink); }
+  .navbtn.active {
+    color: var(--ink);
+    border-left-color: var(--gold);
+    font-weight: 600;
+  }
+  @media (max-width: 780px) {
+    .navbtn {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 3px solid transparent;
+      margin-left: 0;
+      padding: 6px 10px;
+    }
+    .navbtn.active { border-bottom-color: var(--gold); }
+  }
+
+  main { min-width: 0; }
+  section.pane { display: none; }
+  section.pane.active { display: block; }
+
+  .pane-head { margin-bottom: 18px; }
+  .pane-head h2 { font-size: 1.5rem; font-style: italic; }
+  .pane-head p { color: var(--ink-soft); font-size: 0.92rem; margin-top: 4px; max-width: 64ch; }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .btn {
+    font-family: "Karla", sans-serif;
+    font-size: 0.86rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
+  }
+  .btn.primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn:disabled:hover { background: transparent; color: var(--ink); }
+  .btn.primary:disabled:hover { background: var(--gold); color: #fff; }
+
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .spacer { flex: 1; }
+
+  /* ---------- flashcards ---------- */
+  .flash-progress {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .flash-stage {
+    perspective: 1400px;
+    max-width: 520px;
+    margin: 0 auto 18px;
+  }
+  .flashcard {
+    position: relative;
+    height: 260px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flash-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 28px;
+    background: var(--paper-raised);
+    box-shadow: 0 2px 6px var(--shadow);
+  }
+  .flash-face.back { transform: rotateY(180deg); background: var(--paper-dark); }
+  .flash-face .tag {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .flash-face .known-mark {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 1rem;
+  }
+  .flash-face .term-text {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .flash-face .def-text {
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .flash-hint {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .flash-controls { justify-content: center; }
+
+  /* ---------- quiz ---------- */
+  .quiz-score {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .quiz-card { padding: 26px 28px; max-width: 640px; margin: 0 auto; }
+  .quiz-prompt-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .quiz-prompt {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  .quiz-options { display: grid; gap: 10px; }
+  .quiz-option {
+    text-align: left;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: 12px 14px;
+    font-family: "Karla", sans-serif;
+    font-size: 0.92rem;
+    cursor: pointer;
+    color: var(--ink);
+    transition: border-color .15s, background .15s;
+  }
+  .quiz-option:hover { border-color: var(--gold-soft); }
+  .quiz-option.correct { background: var(--sage-bg); border-color: var(--sage); color: var(--ink); }
+  .quiz-option.incorrect { background: var(--brick-bg); border-color: var(--brick); color: var(--ink); }
+  .quiz-option:disabled { cursor: default; }
+  .quiz-feedback {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    min-height: 1.4em;
+  }
+  .quiz-feedback.correct { color: var(--sage); }
+  .quiz-feedback.incorrect { color: var(--brick); }
+  .quiz-actions { margin-top: 18px; justify-content: flex-end; }
+
+  /* ---------- cloze matching drill (drag & drop) ---------- */
+  .cloze-ai-note {
+    max-width: 900px;
+    margin: 0 auto 12px;
+    padding: 8px 14px;
+    border-left: 3px solid var(--indigo);
+    background: var(--paper-raised);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .wordbank-box {
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
+    z-index: 25;
+  }
+  .wordbank-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .wordbank-hint {
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .wordbank-chips { display: flex; flex-wrap: wrap; gap: 6px 8px; }
+  .wordbank-chip {
+    font-family: "Karla", sans-serif;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    background: var(--paper);
+    cursor: grab;
+    user-select: none;
+    transition: border-color .12s, background .12s, opacity .12s;
+  }
+  .wordbank-chip:hover { border-color: var(--gold-soft); }
+  .wordbank-chip.selected {
+    border-color: var(--gold);
+    background: var(--paper-dark);
+    box-shadow: 0 0 0 2px var(--gold-soft) inset;
+  }
+  .wordbank-chip.used {
+    opacity: 0.35;
+    text-decoration: line-through;
+    cursor: default;
+    pointer-events: none;
+  }
+  .wordbank-chip.dragging { opacity: 0.4; }
+  .chip-badge { color: var(--sage); font-weight: 700; }
+  .cloze-card { max-width: 900px; margin: 0 auto; padding: 26px 30px; }
+  .cloze-title {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .cloze-text {
+    font-size: 1.02rem;
+    line-height: 2.3;
+  }
+  .cloze-blank {
+    display: inline-block;
+    font-family: "Karla", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border-bottom: 2px solid var(--ink);
+    background: transparent;
+    color: var(--ink-soft);
+    margin: 0 2px;
+    min-width: 130px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .12s, background .12s;
+  }
+  .cloze-blank.filled {
+    border: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .cloze-blank.dragover { border-color: var(--gold); background: var(--paper-dark); }
+  .cloze-blank.mastered {
+    background: var(--sage-bg);
+    border: 1px solid var(--sage);
+    color: var(--sage);
+    cursor: pointer;
+  }
+  .cloze-blank.mastered::after { content: " ✓"; }
+  .cloze-blank.correct { border-color: var(--sage); background: var(--sage-bg); color: var(--ink); }
+  .cloze-blank.incorrect { border-color: var(--brick); background: var(--brick-bg); color: var(--ink); }
+  .cloze-answer-reveal {
+    font-size: 0.78rem;
+    color: var(--brick);
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .match-status { text-align: center; margin-top: 18px; font-size: 0.92rem; color: var(--ink-soft); }
+  .match-status.done { color: var(--sage); font-weight: 600; }
+
+  /* ---------- concept quiz ---------- */
+  .cq-note {
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding: 10px 14px;
+    border-left: 3px solid var(--indigo);
+    background: var(--paper-raised);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+  .cq-card {
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding: 20px 24px;
+  }
+  .cq-pts {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .cq-question {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+  .cq-requirement {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--indigo);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 14px;
+  }
+  .cq-textarea {
+    width: 100%;
+    min-height: 90px;
+    font-family: "Karla", sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    resize: vertical;
+  }
+  .cq-actions { margin-top: 10px; }
+  .cq-hint { font-size: 0.76rem; color: var(--ink-soft); margin-top: 6px; }
+  .cq-feedback { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .cq-thinking { color: var(--ink-soft); font-size: 0.88rem; font-style: italic; }
+  .cq-error { color: var(--brick); font-size: 0.88rem; }
+  .cq-feedback-text { font-size: 0.92rem; line-height: 1.5; margin-bottom: 10px; }
+  .cq-countcheck {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .cq-countcheck.cq-count-ok { background: var(--sage-bg); color: var(--sage); }
+  .cq-countcheck.cq-count-short { background: var(--brick-bg); color: var(--brick); }
+  .cq-countcheck.cq-count-over { background: var(--paper); color: var(--gold); border: 1px solid var(--gold-soft); }
+  .cq-covered, .cq-missing { font-size: 0.86rem; margin-bottom: 8px; }
+  .cq-covered ul, .cq-missing ul { margin: 4px 0 0; padding-left: 20px; }
+  .cq-covered strong { color: var(--sage); }
+  .cq-missing strong { color: var(--brick); }
+  .cq-keyideas {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--rule);
+    font-size: 0.86rem;
+  }
+  .cq-keyideas ul { margin: 6px 0 0; padding-left: 20px; }
+  .cq-keyideas li { margin-bottom: 5px; line-height: 1.4; }
+
+  /* ---------- short/long answer prep ---------- */
+  .essay-flag {
+    display: inline-block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--gold);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .accordion-item {
+    border-bottom: 1px solid var(--rule);
+  }
+  .accordion-item:first-child { border-top: 1px solid var(--rule); }
+  .accordion-head {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 16px 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: "Karla", sans-serif;
+    color: var(--ink);
+  }
+  .accordion-head .pts {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .accordion-head .q-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  .accordion-head .chev {
+    transition: transform .2s;
+    color: var(--gold);
+    font-size: 0.8rem;
+  }
+  .accordion-item.open .chev { transform: rotate(90deg); }
+  .accordion-body {
+    display: none;
+    padding: 0 4px 20px 4px;
+    color: var(--ink);
+  }
+  .accordion-item.open .accordion-body { display: block; }
+  .accordion-body ul { margin: 8px 0; padding-left: 22px; }
+  .accordion-body li { margin-bottom: 6px; line-height: 1.45; font-size: 0.93rem; }
+  .accordion-body .sub-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--indigo);
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  .mcq-callout {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border-left: 3px solid var(--indigo);
+    background: var(--paper-raised);
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 70ch;
+  }
+
+  .glossary-ask {
+    max-width: 1180px;
+    margin: 0 auto 22px;
+    padding: 18px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .glossary-ask-text {
+    flex: 1 1 420px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .glossary-ask-actions { flex: 0 0 auto; }
+
+  .glossary-toggle-row {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 780px) {
+    .glossary-toggle-row {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+  .glossary-toggle-link {
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 2px 9px;
+    font-family: "Karla", sans-serif;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .glossary-toggle-link:hover { border-color: var(--gold-soft); color: var(--ink); }
+
+  /* ---------- glossary ---------- */
+  /* ---------- practice MCQs ---------- */
+  .mcq-gate {
+    max-width: 760px;
+    margin: 0 auto 22px;
+    padding: 22px 26px;
+    border: 1px solid var(--brick);
+  }
+  .mcq-gate-title {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--brick);
+    margin-bottom: 10px;
+  }
+  .mcq-gate-text p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .mcq-gate-text p:last-child { margin-bottom: 0; }
+  .mcq-reminder {
+    max-width: 900px;
+    margin: 0 auto 16px;
+    padding: 8px 14px;
+    border-left: 3px solid var(--brick);
+    background: var(--paper-raised);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .stimulus-box {
+    max-width: 900px;
+    margin: 0 auto 16px;
+    padding: 18px 22px;
+    background: var(--paper-dark);
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
+    z-index: 20;
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+  .stimulus-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  #pmcqStimulusText {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+  .mcq-rationale {
+    margin-top: 6px;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .mcq-wrong-line, .mcq-correct-line, .mcq-flag-line {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .mcq-wrong-line { color: var(--brick); }
+  .mcq-correct-line { color: var(--sage); }
+  .mcq-flag-line { color: var(--gold); font-style: italic; }
+
+  /* ---------- progress page ---------- */
+  .progress-summary {
+    max-width: 900px;
+    margin: 0 auto 16px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .progress-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .progress-table th {
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .progress-table td {
+    padding: 8px 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .progress-table tr:last-child td { border-bottom: none; }
+  .progress-tag {
+    display: inline-block;
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+  }
+  .progress-tag.yes { border-color: var(--sage); background: var(--sage-bg); color: var(--sage); }
+  .progress-tag.no { color: var(--ink-soft); }
+  .progress-tag.partial { border-color: var(--gold-soft); color: var(--gold); }
+
+  .glossary-search {
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    margin: 0 0 16px;
+    font-family: "Karla", sans-serif;
+    font-size: 0.92rem;
+    padding: 10px 14px;
+    border-radius: 5px;
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    color: var(--ink);
+  }
+  .glossary-item {
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .glossary-item:first-child { border-top: 1px solid var(--rule); }
+  .glossary-item .g-term {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  .glossary-item .g-def {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .glossary-empty {
+    padding: 20px 4px;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  .footer-note {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  ::-webkit-scrollbar { height: 8px; width: 8px; }
+  ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div class="attribution">Prepared with AI support, reviewed by Mr. Johnson</div>
+
+<div class="shell">
+
+  <header class="masthead">
+    <div class="eyebrow-row">
+      <span class="kicker">AP World History &nbsp;·&nbsp; Unit 1 Review</span>
+    </div>
+    <h1 class="title">The Global Tapestry, c. 1200–1450</h1>
+    <p class="subtitle">A study companion for the Unit 1 test — term flashcards, a term-matching drill, a multiple-choice self-quiz, and prep for the short- and long-answer questions. Multiple-choice review isn't included here; use your other MCQ practice for that.</p>
+    <div class="mcq-callout">
+      <strong>For the multiple-choice section:</strong> the best way to review is to complete the Unit 1 Progress Check on AP Classroom and read through the feedback it gives you. If you haven't signed up for AP Classroom yet, your teacher will add you before the test.
+    </div>
+  </header>
+
+  <div class="glossary-ask card" id="glossaryAsk">
+    <div class="glossary-ask-text">
+      <strong>Want to include a Concept Glossary?</strong> It covers background terms from your notes (Hinduism, Buddhism, Confucianism, Daoism, and more) that can help with the short- and long-answer questions. <em>These terms are not directly quizzed anywhere in this tool</em> — they're not on the term-matching word bank, so there's no flashcard or quiz section for them, just a reference list.
+    </div>
+    <div class="row glossary-ask-actions">
+      <button class="btn primary" id="glossaryAskYes">Include it</button>
+      <button class="btn" id="glossaryAskNo">Skip it</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="index" id="navBar">
+      <div class="index-label">Study Sections</div>
+      <button class="navbtn active" data-pane="flash">Flashcards</button>
+      <button class="navbtn" data-pane="quiz">Term Quiz</button>
+      <button class="navbtn" data-pane="match">Matching Drill</button>
+      <button class="navbtn" data-pane="essay">Short &amp; Long Answer Prep</button>
+      <button class="navbtn" data-pane="cq">Concept Quiz</button>
+      <button class="navbtn" data-pane="mcqstrategy">MCQ Strategy</button>
+      <button class="navbtn" data-pane="pmcq">Practice MCQs</button>
+      <button class="navbtn" data-pane="glossary" id="navGlossaryBtn" style="display:none;">Concept Glossary</button>
+      <div class="glossary-toggle-row" id="glossaryToggleRow" style="display:none;">
+        <span>Concept Glossary</span>
+        <button class="glossary-toggle-link" id="glossaryToggleLink" type="button"></button>
+      </div>
+      <button class="navbtn" data-pane="progress">My Progress</button>
+    </nav>
+
+    <main>
+      <!-- ================= FLASHCARDS ================= -->
+      <section class="pane active" id="pane-flash">
+        <div class="pane-head">
+          <h2>Flashcards</h2>
+          <p>Click a card to flip it. Mark a term "Known" once you can define it cold — then use "Review unknown only" to focus your remaining study time.</p>
+        </div>
+        <div class="flash-progress" id="flashProgress"></div>
+        <div class="flash-stage">
+          <div class="flashcard" id="flashcard">
+            <div class="flashcard-inner">
+              <div class="flash-face front">
+                <span class="tag">Term</span>
+                <span class="known-mark" id="knownMarkFront"></span>
+                <div class="term-text" id="flashTerm"></div>
+              </div>
+              <div class="flash-face back">
+                <span class="tag">Definition</span>
+                <div class="def-text" id="flashDef"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flash-hint">Tap the card to flip · use the arrows or keyboard ← →</div>
+        <div class="row flash-controls">
+          <button class="btn" id="flashPrev">&larr; Prev</button>
+          <button class="btn" id="flashKnown">Mark known</button>
+          <button class="btn" id="flashUnknown">Mark unknown</button>
+          <button class="btn" id="flashNext">Next &rarr;</button>
+        </div>
+        <div class="row flash-controls" style="margin-top:10px;">
+          <button class="btn" id="flashShuffle">Shuffle</button>
+          <button class="btn" id="flashFilterToggle">Review unknown only</button>
+          <button class="btn" id="flashReset">Reset progress</button>
+        </div>
+      </section>
+
+      <!-- ================= TERM QUIZ ================= -->
+      <section class="pane" id="pane-quiz">
+        <div class="pane-head">
+          <h2>Term Quiz</h2>
+          <p>Multiple-choice self-check. Some questions give you a term and ask for its definition; others give the definition and ask for the term — just like the matching section, but one at a time.</p>
+        </div>
+        <div class="quiz-score" id="quizScore"></div>
+        <div class="card quiz-card">
+          <div class="quiz-prompt-label" id="quizDirLabel"></div>
+          <div class="quiz-prompt" id="quizPrompt"></div>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-feedback" id="quizFeedback"></div>
+          <div class="row quiz-actions">
+            <button class="btn primary" id="quizNext" disabled>Next question &rarr;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= MATCHING DRILL (CLOZE PASSAGES) ================= -->
+      <section class="pane" id="pane-match">
+        <div class="pane-head">
+          <h2>Matching Drill</h2>
+          <p>This mirrors the real test format: a 20-word bank, with only 10 of those words actually asked in the passage each round (the rest are unused decoys). Claude writes a fresh passage with a new set each time you practice. Drag a term into a blank, then check your answers.</p>
+        </div>
+        <div class="cloze-ai-note" id="clozeAiNote" style="display:none;"></div>
+        <div class="wordbank-box card" id="wordBankBox">
+          <div class="wordbank-label" id="wordBankLabel">Word bank for this practice round</div>
+          <div class="wordbank-hint">Drag a term onto a blank — or tap a term, then tap a blank to place it. Tap a filled blank to clear it.</div>
+          <div class="wordbank-chips" id="wordBankChips"></div>
+        </div>
+        <div class="card cloze-card">
+          <div class="cloze-title" id="clozeTitle"></div>
+          <div class="cloze-text" id="clozeText"></div>
+        </div>
+        <div class="match-status" id="clozeStatus"></div>
+        <div class="row" style="justify-content:center; margin-top:14px;">
+          <button class="btn primary" id="clozeCheck">Check answers</button>
+          <button class="btn" id="clozeReset">Clear</button>
+          <button class="btn" id="clozeNext">New set of 20 &rarr;</button>
+        </div>
+      </section>
+
+      <!-- ================= ESSAY PREP ================= -->
+      <section class="pane" id="pane-essay">
+        <div class="pane-head">
+          <h2>Short &amp; Long Answer Prep</h2>
+          <p>These are the exact prompts from your review sheet (20 points total). Click one to reveal the categories of ideas it's looking for — use these to build your own answer before the test; they're a map, not a script.</p>
+        </div>
+        <div class="card" style="padding: 6px 18px;">
+          <div id="essayAccordion"></div>
+        </div>
+
+        <div class="pane-head" style="margin-top:32px;">
+          <h2>Guaranteed Long Answer</h2>
+          <p>One of these two will be on the test — you won't know which. Both are worth 12 points. Prep both.</p>
+        </div>
+        <div class="card" style="padding: 6px 18px;">
+          <div id="longAccordion"></div>
+        </div>
+      </section>
+
+      <!-- ================= CONCEPT QUIZ ================= -->
+      <section class="pane" id="pane-cq">
+        <div class="pane-head">
+          <h2>Concept Quiz</h2>
+          <p>Type your own answer to each prompt, then check it. Spelling and grammar don't matter — what matters is whether your answer is specific and accurate. You don't have to match the notes word for word, but vague answers will get flagged as vague.</p>
+        </div>
+        <div class="cq-note" id="cqAvailabilityNote" style="display:none;"></div>
+        <div id="cqList"></div>
+      </section>
+
+      <!-- ================= MCQ STRATEGY ================= -->
+      <section class="pane" id="pane-mcqstrategy">
+        <div class="pane-head">
+          <h2>How to Approach Stimulus MCQs</h2>
+          <p>Five check-for-understanding questions based on a video Mr. Johnson shared on reading stimulus-based multiple-choice questions. Click one to reveal the answer.</p>
+        </div>
+        <div class="card" style="padding: 6px 18px;">
+          <div id="mcqStrategyAccordion"></div>
+        </div>
+      </section>
+
+      <!-- ================= PRACTICE MCQs (AI-GENERATED) ================= -->
+      <section class="pane" id="pane-pmcq">
+        <div class="pane-head">
+          <h2>Practice MCQs (AI-Generated)</h2>
+          <p>Stimulus-based multiple choice, in the format the real AP exam uses — written by Claude to give you extra reps beyond the AP Classroom Progress Check.</p>
+        </div>
+
+        <div class="mcq-gate card" id="mcqGate">
+          <div class="mcq-gate-title">Please read before starting</div>
+          <div class="mcq-gate-text">
+            <p><strong>The passages introducing each set of questions ("stimuli") are invented.</strong> Claude wrote them to sound like a period document, but they are not real quotations from an actual historical source — don't cite them, and don't assume the wording reflects a real text.</p>
+            <p><strong>This section is more error-prone than the rest of this study guide.</strong> Everything else in this tool is built directly from your teacher's own terms list and class notes. These questions are AI-generated to mimic the AP question style, so specific facts, dates, and especially the wrong-answer choices could be subtly off.</p>
+            <p><strong>This is supplementary practice, not your primary MCQ prep.</strong> The best way to prepare for the actual multiple-choice section is still the Unit 1 Progress Check on AP Classroom and its feedback.</p>
+          </div>
+          <div class="row" style="justify-content:center; margin-top:14px;">
+            <button class="btn primary" id="mcqAckBtn">I understand — show the questions</button>
+          </div>
+        </div>
+
+        <div id="mcqBody" style="display:none;">
+          <div class="mcq-reminder">Reminder: the stimulus passages below are AI-invented, not real historical quotations, and this section is more error-prone than the rest of the guide — see the note above if you skipped it.</div>
+          <div class="quiz-score" id="pmcqScore"></div>
+          <div class="card stimulus-box" id="pmcqStimulusBox" style="display:none;">
+            <div class="stimulus-label">Stimulus</div>
+            <div id="pmcqStimulusText"></div>
+          </div>
+          <div class="card quiz-card">
+            <div class="quiz-prompt-label" id="pmcqSetLabel"></div>
+            <div class="quiz-prompt" id="pmcqPrompt"></div>
+            <div class="quiz-options" id="pmcqOptions"></div>
+            <div class="quiz-feedback" id="pmcqFeedback"></div>
+            <div class="row quiz-actions" style="justify-content:space-between;">
+              <button class="btn" id="pmcqPrev">&larr; Previous</button>
+              <button class="btn" id="pmcqNext">Next question &rarr;</button>
+            </div>
+          </div>
+          <div class="row" style="justify-content:center; margin-top:12px;">
+            <button class="btn" id="pmcqRestart">Restart all 30</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONCEPT GLOSSARY ================= -->
+      <section class="pane" id="pane-glossary">
+        <div class="pane-head">
+          <h2>Concept Glossary</h2>
+          <p>Background vocabulary from your notes — religions, dynasties, and other concepts that feed the short- and long-answer questions. These terms aren't on the term-matching word bank, so this is a reference list, not flashcards or a quiz.</p>
+        </div>
+        <input type="text" id="glossarySearch" class="glossary-search" placeholder="Search the glossary…">
+        <div class="card" style="padding: 6px 18px;">
+          <div id="glossaryList"></div>
+        </div>
+      </section>
+
+      <!-- ================= MY PROGRESS ================= -->
+      <section class="pane" id="pane-progress">
+        <div class="pane-head">
+          <h2>My Progress</h2>
+          <p>What you've marked known in Flashcards, and what you've mastered in the Matching Drill (three correct in a row). Saved in this browser only.</p>
+        </div>
+        <div class="progress-summary" id="progressSummary"></div>
+        <div class="card" style="padding: 6px 18px;">
+          <table class="progress-table">
+            <thead>
+              <tr><th>Term</th><th>Flashcards</th><th>Matching Drill</th></tr>
+            </thead>
+            <tbody id="progressTableBody"></tbody>
+          </table>
+        </div>
+        <div class="row" style="justify-content:center; margin-top:14px;">
+          <button class="btn" id="progressResetBtn">Reset all progress</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="footer-note">
+    Term definitions come from the class's own Unit 1 terms list; short- and long-answer prep content comes from the class's own notes and homework answers. Nothing here is AI-invented content — if anything looks off, it's worth cross-checking against your original documents before the test.
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============ DATA ============ */
+  /* Definitions below are drawn directly from the class's own "Terms (full list)"
+     document — the same definitions students have already been given — so the
+     wording here matches what's in their notes. */
+  const TERMS = [
+    ["Tang Dynasty", "Ruling dynasty of China (618–907) noted for its openness to foreign cultural influences. Together with its successor, the Song dynasty, it represented a golden age of arts and literature and established patterns of Chinese life that endured into the twentieth century. (Strayer)"],
+    ["Song Dynasty", "The Chinese dynasty (960–1279) that rose to power after the Tang dynasty. During the Song dynasty, an explosion of scholarship gave rise to Neo-Confucianism, and a revolution in agricultural and industrial production made China the richest and most populated country on the planet. (Strayer)"],
+    ["Gunpowder", "A Chinese invention that came about during the ninth century. A mix of saltpeter, sulfur, and charcoal, it was originally created by Daoist alchemists seeking to discover an elixir of immortality — but it ultimately revolutionized global military affairs. (Strayer)"],
+    ["Foot binding", "The Chinese practice of tightly wrapping girls' feet to keep them small, prevalent in the Song dynasty and later; an emphasis on small size and delicacy was central to views of female beauty. (Strayer) A striking example of the influence of patriarchy."],
+    ["Great Wall", "A system of defensive walls in northern China built over a two-thousand-year stretch and extending approximately 1,500 miles (m-w.com) — built largely to keep out and thwart the frequent invasions and attacks of nomads to the north of China."],
+    ["Middle Kingdom", "The phrase that captures the Chinese sense of being \"the center of the world,\" infinitely superior to the \"barbarian\" peoples beyond its borders. With its long history and great cities, China represented \"civilization\" to the Chinese."],
+    ["Mandate of Heaven", "The Confucian-linked belief that Heaven grants a ruler the right to govern so long as he rules morally and righteously — and that this right can be lost through misrule, disaster, or rebellion, which subjects can then justly act on by overthrowing the ruler."],
+    ["Bushido", "The \"way of the warrior\" — referring to the martial values of the Japanese samurai, including bravery, loyalty, and an emphasis on death over surrender. (Strayer) A distinctively Japanese value, in contrast to Confucian/Chinese values."],
+    ["Shinto", "The indigenous religious beliefs and practices of Japan. The word Shintō, meaning \"the way of kami\" (sacred or divine power, specifically the various gods or deities), came into use to distinguish indigenous Japanese beliefs from Buddhism, introduced into Japan in the 6th century CE. (Britannica)"],
+    ["Abbasid Caliphate", "An Arab dynasty of caliphs who governed much of the Islamic world from its capital in Baghdad beginning in 750 CE. After 900 CE, that empire increasingly fragmented until its overthrow by the Mongols in 1258. (Strayer)"],
+    ["Ottoman Empire", "Major Islamic state centered on Anatolia that came to include the Balkans, parts of the Middle East, and much of North Africa; lasted in one form or another from the fourteenth to the early twentieth century. (Strayer)"],
+    ["Caliph", "\"Successor\" — in Islamic history, the ruler of the Muslim community."],
+    ["Jizya", "The tax paid by non-Muslims in Muslim-controlled areas."],
+    ["Al Andalus", "Muslim kingdom that occupied much of the Iberian Peninsula from 711 CE until the collapse of the Spanish Umayyad dynasty in the early 11th century. (Britannica)"],
+    ["Mansa Musa", "Mansa (emperor) of the West African empire of Mali from 1307 (or 1312). Mansa Musa left a realm notable for its extent and riches — he built the Great Mosque at Timbuktu — but is best remembered in the Middle East and Europe for the splendor of his pilgrimage to Mecca (1324). (Britannica)"],
+    ["Byzantine Empire", "The surviving eastern Roman Empire and one of the centers of Christendom during the medieval centuries. The Byzantine Empire was founded at the end of the third century, when the Roman Empire was divided into eastern and western halves, and survived until its conquest by Muslim forces in 1453. (Strayer)"],
+    ["Constantinople", "New capital for the eastern half of the Roman Empire; Constantinople's highly defensible and economically important site helped ensure the city's cultural and strategic importance for many centuries. (Strayer)"],
+    ["Eastern Orthodox Christianity", "Branch of Christianity that developed in the eastern part of the Roman Empire and gradually separated, mostly on matters of practice, from the branch dominant in Western Europe; noted for the subordination of the Church to political authorities, a married clergy, the use of leavened bread in the Eucharist, and a sharp rejection of the authority of Roman popes. (Strayer)"],
+    ["Crusades", "A term used to describe the \"holy wars\" waged by Western Christendom, especially against the forces of Islam in the eastern Mediterranean from 1095 to 1291 and on the Iberian Peninsula into the fifteenth century. Further Crusades were also conducted in non-Christian regions of Eastern Europe from about 1150 on. Crusades could be declared only by the pope; participants swore a vow and received in return an indulgence removing the penalty for confessed sins. (Strayer)"],
+    ["Kievan Rus", "A culturally diverse civilization that emerged around the city of Kiev in the ninth century CE and adopted Christianity in the tenth, thus linking this emerging Russian state to the world of Eastern Orthodoxy. (Strayer)"],
+    ["Western Christendom", "Western European branch of Christianity, also known as Roman Catholicism, that gradually defined itself as separate from Eastern Orthodoxy, with a major break occurring in 1054 CE; characterized by its relative independence from the state and its recognition of the authority of the pope. (Strayer)"],
+    ["Feudalism", "A highly fragmented and decentralized society in which power was held by the landowning warrior elite. In this competitive system, lesser lords and knights swore allegiance to greater lords or kings and thus became their vassals, frequently receiving lands and plunder in return for military service."],
+    ["Vassal", "In feudal society, one invested with a fief in return for services to an overlord. Some vassals did not have fiefs and lived at their lord's court as his household knights."],
+    ["Serfdom", "Condition in medieval Europe in which a tenant farmer was bound to a hereditary plot of land and to the will of his landlord. Most serfs obtained their subsistence by cultivating a plot of land owned by a lord — the essential feature differentiating serfs from slaves, who were bought and sold without reference to a plot of land."],
+    ["Roman Catholic Church", "Western European branch of Christianity that gradually defined itself as separate from Eastern Orthodoxy, with a major break occurring in 1054 CE that still has not been overcome. By the eleventh century, Western Christendom was centered on the pope as the ultimate authority in matters of doctrine. The Church struggled to remain independent of established political authorities. (Strayer)"],
+    ["Black Death", "A massive pandemic that swept through Eurasia in the early 14th century, spreading along the trade routes within and beyond the Mongol Empire and reaching the Middle East and Europe by 1347."],
+    ["Three field system", "A method of agricultural organization introduced in Europe in the Middle Ages, representing a decisive advance in production techniques. In the old two-field system, half the land was sown to crop and half left fallow each season; in the three-field system, only a third of the land lay fallow, providing two harvests instead of one and helping enable Europeans to catch up to the \"superior\" civilizations of Islam and China."],
+    ["Guild", "An association of craftsmen or merchants formed for mutual aid and protection and for the furtherance of their professional interests. Guilds flourished in Europe between the 11th and 16th centuries and formed an important part of the economic and social fabric of that era."],
+    ["Renaissance", "A \"rebirth\" of classical learning most often associated with the cultural blossoming of Italy in the period 1350–1500, which included not just a rediscovery of Greek and Roman learning but also major developments in art, as well as growing secularism in society. It spread to Northern Europe after 1400."],
+    ["Aztec", "(1345–1528) Major state that developed in what is now Mexico in the fourteenth and fifteenth centuries; dominated by the semi-nomadic Mexica, who had migrated into the region from northern Mexico."],
+    ["Inca", "(1438–1533) The Western Hemisphere's largest imperial state in the fifteenth and early sixteenth centuries. Built by a relatively small community of Quechua-speaking people, the empire stretched some 2,500 miles along the Andes Mountains and contained perhaps 10 million subjects."],
+    ["Chinampa", "Also called a \"floating garden\" — a small, stationary, artificial island built on a freshwater lake. The lake provides the chinampa with moisture laden with decomposing organic waste that irrigates and fertilizes the island's soil, supporting an intensive and highly productive form of cultivation. (Britannica) Famously used by the Aztecs around their capital."],
+    ["Mita", "Labor service, required by the Inca from their conquered peoples."],
+    ["Quipus", "Also spelled quipo — an Inca accounting apparatus in use from c. 1400 to 1532 CE, consisting of a long textile cord (called a top, or primary, cord) with a varying number of pendant cords. (Britannica)"]
+  ].map(([term, def], i) => ({ id: i, term, def }));
+
+  const GLOSSARY = [
+    ["Eurocentrism", "\"The notion that Europeans or people of European descent have long been the primary movers and shakers of the historical process.\" Became a popular lens in recent centuries, when Europe was \"the major source of innovation in the world\" and exercised something close to world domination."],
+    ["Upanishads", "\"Indian mystical and philosophical works written between 800 and 400 BCE.\" (Strayer)"],
+    ["Dharma", "Sacred duty — personal duties determined by caste, familial role, and gender. Fulfilling (or failing to fulfill) one's dharma produces good or bad karma."],
+    ["Karma", "The force considered to shape your future, in this life or the next, according to the rightness or wrongness of your actions."],
+    ["Samsara", "Rebirth/reincarnation — the cycle of birth, death, and rebirth all individuals (and worlds) undergo; individuals can take animal form within this cycle."],
+    ["Moksha", "\"Liberation\" from samsara; the ultimate goal in Hinduism. For most Hindus, this means living forever with one's chosen god; for others, it means realizing the illusion that one is separate from God, and becoming one with God."],
+    ["Brahman", "The universal spirit/God that one merges with or lives alongside upon achieving moksha."],
+    ["Brahmin", "A member of the highest class in the caste system, traditionally serving as priests."],
+    ["Caste system", "A system of four hereditary social classes in Hinduism that restrict the occupation of their members and their association with members of other castes, plus a \"fifth\" group considered without caste (and thus below the others)."],
+    ["Bhakti movement", "Meaning \"worship\" — a Hindu movement that began in south India and moved northward between 600 and 1000 CE, involving intense adoration of and identification with a particular deity through songs, prayers, and rituals. (Strayer)"],
+    ["Buddhism", "A religion of eastern and central Asia growing out of the teaching of Siddhartha Gautama that suffering is inherent in life, and that one can be liberated from it by cultivating wisdom, virtue, and concentration."],
+    ["Siddhartha Gautama", "The Indian prince whose exposure to human suffering led him to develop a path to Enlightenment, which became the basis for Buddhism; lived c. 566–c. 486 BCE. (Strayer)"],
+    ["Nirvana", "\"To blow out\" — the goal of Buddhism, roughly equivalent to moksha in Hinduism. For some Buddhists the two are the same; for others, nirvana signifies specifically the end of suffering."],
+    ["Confucianism", "The Chinese philosophy first enunciated by Confucius, advocating the moral example of superiors as the key element of social order."],
+    ["Filial Piety", "The attitude of obedience, devotion, and care toward one's parents and elder family members that is the basis of individual moral conduct and social harmony."],
+    ["Daoism", "A Chinese philosophy and popular religion that advocates a simple and unpretentious way of living in alignment with the natural world, founded by the legendary figure Laozi."],
+    ["China's economic revolution", "A major rise in prosperity under the Song dynasty (960–1279), marked by rapid population growth, urbanization, economic specialization, an immense network of internal waterways, and a great increase in industrial production and technological innovation. (Strayer)"],
+    ["Hangzhou", "China's capital during the Song dynasty, with a population at its height of more than a million people — its size and complexity (markets, inns, schools) greatly impressed Marco Polo and made the city a strong embodiment of China's \"Golden Age.\""],
+    ["Xiongnu Empire", "An imperial creation of nomadic steppe peoples living north of China. In the third and second centuries BCE, this empire stretched from Manchuria to Central Asia, establishing a model for later Turkic and Mongol empires."],
+    ["Tribute system", "A set of practices requiring a show of subordination from all non-Chinese authorities and payment of tribute — valuable products from their countries — to the Chinese emperor. In return, China granted trading rights and offered gifts often even more valuable than the tribute received."],
+    ["Hangul", "The phonetic alphabet developed in Korea in the fifteenth century as a move toward greater cultural independence from China."],
+    ["Chu nom", "A variation of Chinese writing developed in Vietnam that became the basis for an independent national literature — \"southern script.\" (Strayer)"],
+    ["Seljuk Turkic Empire", "An empire of the eleventh and twelfth centuries, centered in Persia and present-day Iraq. Seljuk rulers adopted the Muslim title of sultan (\"ruler\") as part of their conversion to Islam. (Strayer)"],
+    ["Sultanate of Delhi", "Turkic warrior-led Muslim sultanate in north India from the 13th to the 16th century, ultimately ended by the Mughals."],
+    ["Ibn Battuta", "The greatest medieval Muslim traveler and author of the famous travel book the Rihlah (Travels), describing roughly 75,000 miles of journeys across nearly every Muslim country and as far as China and Sumatra."],
+    ["Caesaropapism", "A political-religious system in which the secular ruler is also head of the religious establishment, as in the Byzantine Empire. (Strayer)"],
+    ["Secular", "\"Not overtly or specifically religious.\""],
+    ["Maya Civilization", "A major civilization of Mesoamerica known for the most elaborate writing system in the Americas and other intellectual and artistic achievements; flourished from 250 to 900 CE. (Strayer)"],
+    ["Tenochtitlán", "The ancient capital of the Aztec empire, located at the site of modern Mexico City; founded c. 1325 in the marshes of Lake Texcoco."],
+    ["Gender parallelism", "A system in which women and men operate in two separate but equivalent spheres, each gender enjoying autonomy in its own sphere — practiced to some extent by both the Aztec and Inca civilizations (and their predecessors)."]
+  ].map(([term, def], i) => ({ id: i, term, def }));
+
+  /* Content below is pulled directly from the class's own notes and homework
+     answers (the "Full Summary" document) rather than outside sources, so it
+     matches what was actually covered and discussed. */
+  const ESSAY_QUESTIONS = [
+    {
+      pts: "2–3 pts",
+      requirement: { type: "count", min: 2, max: 3 },
+      q: "Know what Hinduism and Buddhism have in common.",
+      points: [
+        "Both evolved into different branches over time.",
+        "Both originated in the same place: South Asia.",
+        "Both share the same chief goal — enlightenment (called moksha in Hinduism, nirvana in Buddhism).",
+        "Both believe in samsara, the cycle of birth, death, and rebirth.",
+        "Both hold that this life (samsara) is fundamentally an illusion to be overcome.",
+        "Both believe in the law of karma — actions create the path of your future life, for good or ill.",
+        "A central ritual in both traditions is meditation."
+      ]
+    },
+    {
+      pts: "2–3 pts",
+      requirement: { type: "count", min: 2, max: 3 },
+      q: "Know what Judaism, Christianity, and Islam have in common.",
+      points: [
+        "All three come from the same region: the Middle East / Palestine and Arabia.",
+        "All three are monotheistic and see God as a \"divine person.\"",
+        "All three emphasize a single central sacred text — the Torah (Judaism), the Bible (Christianity), and the Quran (Islam).",
+        "All three eventually formed different branches or divisions (like Sunni and Shia within Islam).",
+        "All three revere the biblical figure Abraham."
+      ]
+    },
+    {
+      pts: "3 pts",
+      requirement: { type: "count", min: 3, max: 3 },
+      q: "Why are the centuries of the Tang and Song dynasties in China sometimes referred to as a \"golden age\"?",
+      points: [
+        "Humans & Environment: China's population doubled to roughly 120 million by 1200 CE, and Hangzhou (the Song capital) became the most populous city on the planet, with over a million people.",
+        "Cultural Developments: a great flowering of art and literature set new standards in poetry, landscape painting, and ceramics; new forms of Confucianism emerged, later known as Neo-Confucianism.",
+        "Governance: centuries of stability led up to the golden age; a clear, strong bureaucratic structure (six ministries, plus a \"Censorate\" to keep things running smoothly) kept the state organized, and the civil service exam system became even more elaborate.",
+        "Economic Systems: the economic revolution made Song China the richest empire on Earth; the Grand Canal and other internal waterways moved goods and let peasants grow specialized crops; the economy became more commercialized through the use of paper money.",
+        "Technology & Innovation: invention of the printed book (which helped the civil service exam system); adoption of drought-resistant Champa rice from Vietnam fueled a population explosion; major advances in navigational and shipbuilding technology; and the invention of gunpowder."
+      ]
+    },
+    {
+      pts: "2 pts",
+      requirement: { type: "count", min: 2, max: 2 },
+      q: "How did women's lives change during the Song dynasty?",
+      points: [
+        "Confucian thought placed growing emphasis on the subordination of women and the separation of the sexes — teaching that women were inferior and that wives should be \"docile,\" dependent, quiet, and delicate.",
+        "Commercialization pushed women out of some skilled labor, like weaving textiles and silk, costing them income they had previously earned.",
+        "Most infamously, foot binding among elite women became widespread — a striking example of women being pressed toward smallness, thinness, and frailty.",
+        "On a more positive note: women gained some property rights, including the ability to inherit and control their own dowries, and female education increased — even if partly to help women raise sons and earn money more effectively, rather than for its own sake."
+      ]
+    },
+    {
+      pts: "2–3 pts",
+      requirement: { type: "count", min: 2, max: 3 },
+      q: "Be able to identify common characteristics or unique ones of China's tributary system as it manifested itself with northern nomads, Korea, Vietnam, and Japan.",
+      points: [
+        "Shared across all four: China saw itself as civilized and all others as \"barbarians,\" and maintained a tributary relationship with each region.",
+        "Nomads (unique): posed enough of a threat to necessitate the Great Wall; were \"drawn like a magnet to China\" — trading, raiding, and extorting to get resources vital to their way of life; exerted pressure on China for roughly 2,000 years; China needed nomadic horses, furs, hides, and amber, and nomads controlled key stretches of the Silk Road; the relationship was often close to political equality. Overall, Chinese culture had only a \"modest impact\" on nomadic peoples.",
+        "Korea (unique): imported Buddhism from China and sent scholars to bring Confucianism back; Confucian influence had an \"overwhelmingly negative\" effect on women (especially after 1300), with restrictions on elite women and widows eventually exceeding even those in China; Chinese influence (beyond Buddhism) barely touched peasant or enslaved Korean populations.",
+        "Vietnam (unique): its cultural heartland (the Red River valley) was fully incorporated into the Chinese state for over a thousand years despite being seen as \"southern barbarians\"; periodic rebellions against Chinese presence were often led by women; the exam system actually undermined the Vietnamese aristocracy more successfully than elsewhere; Vietnam retained a greater role for women than Korea did — for example, women could still choose their own husbands.",
+        "Japan (unique): separated from China by water and never successfully invaded; borrowed extensively from China, but always voluntarily; the development of bushido and a martial culture helped solidify a distinct identity apart from China; Japanese women largely escaped the more oppressive features of Chinese Confucian culture — they could inherit property, and marriage was made and broken relatively easily."
+      ]
+    },
+    {
+      pts: "3 pts",
+      requirement: { type: "count", min: 3, max: 3 },
+      q: "Be able to compare and contrast the relationship Islam had with other religions in both India and Spain.",
+      points: [
+        "India (Islam & Hinduism): Islam spread mainly through conquest; some Hindus were drawn to its egalitarian nature given the inequality of the caste system, and some converted to avoid paying the jizya tax; Sufis (Muslim mystics) helped drive some conversions; Islam never claimed more than about 25% of the Indian population; the two religions largely lived separately, though the Vijayanagar empire (1336–1646) in southern India was a place of greater Hindu–Muslim harmony, aided by Islamic traders in the region.",
+        "Spain (Islam, Christianity, and Judaism in Al Andalus): the three faiths mixed \"more freely\" here than in India, especially among elites — many non-Muslims learned Arabic and enjoyed Arab culture and music; freedom of worship was state law, with some meritocratic opportunity for people of all faiths.",
+        "This Spanish \"golden age\" of tolerance was limited and brief — later Muslim rulers replaced tolerance with intolerance, and things worsened further once Christians reconquered Spain for good in 1492 (even Muslim converts to Christianity were banned, and about 200,000 Jews were expelled for refusing to convert).",
+        "Despite its brevity, Muslim Spain mattered enormously in world history because it carried the rich heritage of Islamic learning — including preserved Greek philosophy, mathematics, medicine, and science — into Christian Europe."
+      ]
+    },
+    {
+      pts: "3 pts",
+      requirement: { type: "count", min: 3, max: 3 },
+      q: "Be able to compare and contrast the Christian states of Byzantine, Kievan Rus, and Western Christendom.",
+      points: [
+        "Byzantine Empire: centered on Constantinople; practiced Eastern Orthodox Christianity; very centralized authority, including caesaropapism (government closely linked to the Church — the emperor appointed the patriarch); likely some form of feudalism with a rich, aristocratic landowning class; saw itself as a direct continuation of Rome, and was a major naval and merchant power for centuries before declining and finally falling to the Ottomans in 1453.",
+        "Kievan Rus: centered on Ukraine and western Russia; also Eastern Orthodox; organized as states led by princes; a society of slaves and freemen, with privileged people, and dominant men and subordinate women; borrowed extensively from Byzantine culture, not just its religion.",
+        "Western Christendom: centered in Western Europe; Roman Catholic; very decentralized, with many competing states — the only authority spanning all of them was the Roman Catholic Church; organized through feudalism, a \"fragmented and decentralized society\" of lords, vassals, and serfs (commoners); marked by competing states, distinctive languages and cultures, city-states (especially in Italy), and highly militarized elites (in contrast to China), and it made major technological advances despite early \"backwardness.\"",
+        "A comparison: all three claim a Christian and Roman inheritance, yet diverge sharply in religious authority (emperor/patriarch vs. pope vs. princes) and political structure (centralized empire vs. decentralized feudal states vs. principalities)."
+      ]
+    },
+    {
+      pts: "3 pts",
+      requirement: { type: "count", min: 3, max: 3 },
+      q: "Be able to compare and contrast the Aztec and Inca ways according to our six themes.",
+      points: [
+        "Time & Location: Aztec (1345–1528) in Mesoamerica/Mexico; Inca (1438–1533) in the Andes of South America/Peru.",
+        "Humans & Environment: Aztec population of roughly 5–6 million used chinampas around their capital for agriculture; Inca population of roughly 10 million benefited from a rich marine environment and many \"ecological niches\" created by the Andes, with access to maize, cotton, potatoes, and seafood.",
+        "Cultural Developments: Aztec religion was polytheistic with an emphasis on mass human sacrifice to keep the world from chaos and destruction, and men and women worshipped the same gods. Inca religion required conquered peoples to accept major Inca gods while still being free to practice their own traditions; men and women had different gods, and conquered peoples had to learn Quechua.",
+        "Governance: Aztec rule was \"loosely structured\" and \"unstable,\" requiring conquered peoples to pay tribute and labor, with human sacrifice a key part of political and social order. Inca rule was much more bureaucratic and \"intrusive,\" requiring mita labor from conquered peoples, with the government theoretically owning all the land across 80 provinces.",
+        "Economic Systems: the Aztec economy was based on market exchange, and individuals could own land. In the Inca economy, women were more involved as \"chosen women\" who made beer and cloth.",
+        "Social Interactions: Aztec society made significant use of enslaved peoples, practiced gender parallelism, and gave both parents equal claim on children. Inca society also practiced gender parallelism, tracing lineage patrilineally for men and matrilineally for women.",
+        "Technology & Innovation: the Aztec used chinampas for highly productive farming; the Inca recorded births, deaths, marriages, and other population data using quipus, a knotted-cord accounting device."
+      ]
+    }
+  ];
+
+  const LONG_ANSWERS = [
+    {
+      pts: "12 pts",
+      requirement: {
+        type: "count",
+        min: 6,
+        max: 6,
+        extraNote: "Each answer is worth 2 of the 12 points, so six is exactly enough — extra answers beyond six won't earn additional credit, so pick your six strongest and make each one precise and distinct."
+      },
+      q: "What were the major political and cultural effects of the Crusades? Provide SIX distinct answers (2 pts each).",
+      points: [
+        "You need six genuinely distinct effects, each worth 2 points — here are more than six from your notes, so memorize enough to have options on test day:",
+        "Had little lasting political or cultural impact on the Middle East itself.",
+        "Permanently brought Spain, Sicily, and the Baltic region into the world of Western Christendom.",
+        "Stimulated European demand for Asian luxury goods, thanks to new contact with the Islamic world.",
+        "Exposed Europeans to sugar-production techniques using slave labor on plantations — a model they later applied in the Americas.",
+        "Channeled Muslim scholarship (and the Greek learning it had preserved) into Europe through Spain and Sicily.",
+        "\"Hardened cultural barriers\" between Eastern Orthodoxy and Roman Catholicism, especially after Western Christians seized Constantinople in 1204.",
+        "Exacerbated Christian anti-Semitism — Christians massacred Jewish communities both in Spain and on the way to the Middle East.",
+        "Developed a \"crusading mindset\" among Europeans that they would later carry into the Americas.",
+        "Helped build a lasting narrative of conflict and competition between Islam and Christianity, still invoked by ideologues and politicians on both sides today."
+      ]
+    },
+    {
+      pts: "12 pts",
+      requirement: { type: "religions", religionsNeeded: 3, pointsNeeded: 4 },
+      q: "Defend, attack, or qualify: \"The religions we have learned about always supported political and social elites.\" Use at least three religions (Confucianism allowed), with at least FOUR distinct supporting points and evidence.",
+      points: [
+        "Scoring reminder from your sheet: successfully using three religions = 4 pts (two = 3 pts, one = 2 pts); four good supporting points = 8 pts. Decide your three religions and your position (defend/attack/qualify) before you start writing — \"qualify\" often works well since it lets you use evidence from both sides below for the same religion.",
+        "Evidence that religion SUPPORTED elites — Hinduism: the caste system prevents social mobility or climbing; the law of karma, as commonly understood, teaches that doing your duty now is rewarded in the next life, implying this life's social order should stay as it is.",
+        "Confucianism: filial piety (honoring parents and ancestors) elevates and maintains the authority of elders; this is reinforced by the Five Relationships (father–son, husband–wife, older brother–younger brother, ruler–subject) — the superior must behave morally, but they ARE superior. Confucianism's appeal to elites elsewhere in Asia reinforces that its structure supported elites.",
+        "Christianity: as it spread through the Roman Empire, it developed a very male-centered, patriarchal structure that elevated men's status — something still visible in Catholicism today.",
+        "Evidence that religion UNDERMINED elites — Hinduism: Bhakti-style Hinduism introduced the idea that anyone can achieve enlightenment regardless of caste, sex, or station.",
+        "Buddhism: the Buddha's teaching challenged caste and undermined the authority of Brahmin priests and the \"twice-born\"; Mahayana Buddhism later opened spiritual paths to non-monks and non-ascetics, including women and lay people.",
+        "Daoism: its anti-government attitude was sometimes \"the ideology for peasant uprisings.\"",
+        "Confucianism: the idea of the Mandate of Heaven suggests subjects can overthrow a ruler who is not moral and righteous.",
+        "Islam: Muhammad and the Quran preached against excessive wealth, taxes, and exploitation of the poor and weak — reflected in the pillar of zakat (charity).",
+        "Notice Hinduism and Confucianism each appear on both sides — a great foundation for a \"qualify\" argument that shows religion's relationship to elites wasn't one-directional."
+      ]
+    }
+  ];
+
+  /* Five check-for-understanding questions on how to approach stimulus-based
+     multiple-choice questions, based on a strategy video Mr. Johnson shared
+     with the class (not from the terms list or notes). */
+  const MCQ_STRATEGY_QA = [
+    {
+      q: "What is the correct order of operations when approaching a stimulus-based multiple-choice question?",
+      a: "Read the question first, then read the attribution line, then read the stimulus itself. Your instinct is probably to read the stimulus first — that's backwards: reading the question first tells you what to look for, which saves time."
+    },
+    {
+      q: "Why should you read the attribution line carefully instead of skipping it?",
+      a: "The attribution isn't throwaway text — it gives valuable context, specifically the time period and the people or entities involved in the stimulus, which helps you interpret the passage correctly."
+    },
+    {
+      q: "The video describes three \u201cspecies\u201d of answer choices. What are they, and what makes a \u201cdistractor\u201d different from the other wrong answers?",
+      a: "The three types are: (1) obviously wrong answers, (2) a distractor, and (3) the correct answer. A distractor is often factually correct, but it doesn't actually answer the question being asked — it's there to pull your attention away. The two \u201cobviously wrong\u201d answers are usually wrong because they belong to a different time period than the question asks about (most common), or because they reflect the wrong historical thinking skill — for example, describing continuity when the question asks about change (less common)."
+    },
+    {
+      q: "Should you go back and change an answer if you start to second-guess yourself? Why or why not?",
+      a: "No — don't change an answer unless you're 100% sure you originally marked the wrong one. Trust your gut. With only about a minute per question, you don't have time to overthink it, and your first instinct is usually more reliable than a last-minute change."
+    },
+    {
+      q: "Roughly what percentage score on the multiple-choice section is enough to be \u201con your way to a 5\u201d on the AP exam overall?",
+      a: "Around 75% (mid-70s). That's much lower than what counts as a good grade in a typical high school class, but on the AP exam — combined with the other three sections — scoring in the mid-70s on multiple choice puts you in good shape for a 5."
+    }
+  ];
+
+  /* ============ HELPERS ============ */
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  function sample(arr, n) { return shuffle(arr).slice(0, n); }
+
+  function safeGet(key, fallback) {
+    try {
+      const v = localStorage.getItem(key);
+      return v ? JSON.parse(v) : fallback;
+    } catch (e) { return fallback; }
+  }
+  function safeSet(key, val) {
+    try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) { /* ignore */ }
+  }
+
+  /* ============ NAV ============ */
+  const navButtons = document.querySelectorAll(".navbtn");
+  const panes = document.querySelectorAll(".pane");
+  navButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      navButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      panes.forEach(p => p.classList.remove("active"));
+      document.getElementById("pane-" + btn.dataset.pane).classList.add("active");
+    });
+  });
+
+  /* ============ FLASHCARDS ============ */
+  const KNOWN_KEY = "apwh_u1_known_terms";
+  let known = new Set(safeGet(KNOWN_KEY, []));
+  let flashOrder = TERMS.map(t => t.id);
+  let flashIdx = 0;
+  let filterUnknown = false;
+
+  const flashcardEl = document.getElementById("flashcard");
+  const flashTermEl = document.getElementById("flashTerm");
+  const flashDefEl = document.getElementById("flashDef");
+  const flashProgressEl = document.getElementById("flashProgress");
+  const knownMarkFront = document.getElementById("knownMarkFront");
+
+  function currentFlashPool() {
+    const pool = filterUnknown ? flashOrder.filter(id => !known.has(id)) : flashOrder;
+    return pool.length ? pool : flashOrder;
+  }
+
+  function renderFlash() {
+    const pool = currentFlashPool();
+    if (flashIdx >= pool.length) flashIdx = 0;
+    const id = pool[flashIdx];
+    const t = TERMS[id];
+    flashcardEl.classList.remove("flipped");
+    flashTermEl.textContent = t.term;
+    flashDefEl.textContent = t.def;
+    knownMarkFront.textContent = known.has(id) ? "✓" : "";
+    flashProgressEl.textContent = `Card ${flashIdx + 1} of ${pool.length} · ${known.size} of ${TERMS.length} marked known` + (filterUnknown ? " · showing unknown only" : "");
+  }
+
+  flashcardEl.addEventListener("click", () => flashcardEl.classList.toggle("flipped"));
+  document.getElementById("flashNext").addEventListener("click", () => {
+    const pool = currentFlashPool();
+    flashIdx = (flashIdx + 1) % pool.length;
+    renderFlash();
+  });
+  document.getElementById("flashPrev").addEventListener("click", () => {
+    const pool = currentFlashPool();
+    flashIdx = (flashIdx - 1 + pool.length) % pool.length;
+    renderFlash();
+  });
+  document.getElementById("flashKnown").addEventListener("click", () => {
+    const pool = currentFlashPool();
+    known.add(pool[flashIdx]);
+    safeSet(KNOWN_KEY, Array.from(known));
+    renderFlash();
+    renderProgressPage();
+  });
+  document.getElementById("flashUnknown").addEventListener("click", () => {
+    const pool = currentFlashPool();
+    known.delete(pool[flashIdx]);
+    safeSet(KNOWN_KEY, Array.from(known));
+    renderFlash();
+    renderProgressPage();
+  });
+  document.getElementById("flashShuffle").addEventListener("click", () => {
+    flashOrder = shuffle(flashOrder);
+    flashIdx = 0;
+    renderFlash();
+  });
+  document.getElementById("flashFilterToggle").addEventListener("click", (e) => {
+    filterUnknown = !filterUnknown;
+    e.target.textContent = filterUnknown ? "Show all terms" : "Review unknown only";
+    flashIdx = 0;
+    renderFlash();
+  });
+  document.getElementById("flashReset").addEventListener("click", () => {
+    known = new Set();
+    safeSet(KNOWN_KEY, []);
+    renderFlash();
+    renderProgressPage();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!document.getElementById("pane-flash").classList.contains("active")) return;
+    if (e.key === "ArrowRight") document.getElementById("flashNext").click();
+    if (e.key === "ArrowLeft") document.getElementById("flashPrev").click();
+    if (e.key === " ") { e.preventDefault(); flashcardEl.classList.toggle("flipped"); }
+  });
+
+  /* ============ TERM QUIZ ============ */
+  let quizScore = { correct: 0, total: 0 };
+  let quizAnswered = false;
+
+  const quizDirLabel = document.getElementById("quizDirLabel");
+  const quizPromptEl = document.getElementById("quizPrompt");
+  const quizOptionsEl = document.getElementById("quizOptions");
+  const quizFeedbackEl = document.getElementById("quizFeedback");
+  const quizNextBtn = document.getElementById("quizNext");
+  const quizScoreEl = document.getElementById("quizScore");
+
+  function newQuizQuestion() {
+    quizAnswered = false;
+    quizNextBtn.disabled = true;
+    quizFeedbackEl.textContent = "";
+    quizFeedbackEl.className = "quiz-feedback";
+
+    const askForDef = Math.random() < 0.5; // true: show term, ask definition
+    const correctItem = TERMS[Math.floor(Math.random() * TERMS.length)];
+    const distractors = sample(TERMS.filter(t => t.id !== correctItem.id), 3);
+    const options = shuffle([correctItem, ...distractors]);
+
+    quizDirLabel.textContent = askForDef ? "Which definition matches this term?" : "Which term matches this definition?";
+    quizPromptEl.textContent = askForDef ? correctItem.term : correctItem.def;
+
+    quizOptionsEl.innerHTML = "";
+    options.forEach(opt => {
+      const b = document.createElement("button");
+      b.className = "quiz-option";
+      b.textContent = askForDef ? opt.def : opt.term;
+      b.addEventListener("click", () => {
+        if (quizAnswered) return;
+        quizAnswered = true;
+        quizScore.total++;
+        const isRight = opt.id === correctItem.id;
+        if (isRight) {
+          quizScore.correct++;
+          b.classList.add("correct");
+          quizFeedbackEl.textContent = "Correct.";
+          quizFeedbackEl.className = "quiz-feedback correct";
+        } else {
+          b.classList.add("incorrect");
+          quizFeedbackEl.textContent = "Not quite — correct answer: " + (askForDef ? correctItem.def : correctItem.term);
+          quizFeedbackEl.className = "quiz-feedback incorrect";
+        }
+        Array.from(quizOptionsEl.children).forEach(child => {
+          child.disabled = true;
+          const childOpt = options[Array.from(quizOptionsEl.children).indexOf(child)];
+          if (childOpt.id === correctItem.id) child.classList.add("correct");
+        });
+        quizNextBtn.disabled = false;
+        updateQuizScore();
+      });
+      quizOptionsEl.appendChild(b);
+    });
+  }
+
+  function updateQuizScore() {
+    quizScoreEl.textContent = quizScore.total
+      ? `Score: ${quizScore.correct} / ${quizScore.total}`
+      : "Score: 0 / 0";
+  }
+
+  quizNextBtn.addEventListener("click", newQuizQuestion);
+
+  /* ============ MATCHING DRILL (CLOZE PASSAGES) ============ */
+  /* Primary path: Claude generates a fresh passage + a random 20-term word
+     bank each time the student practices (via the sample capability),
+     mirroring the real test's 20-word format and giving new content each
+     round. FALLBACK_CLOZE_PASSAGES below are hand-written passages used only
+     if AI generation is unavailable or fails — in that case the word bank
+     reflects just that passage's own terms rather than a full 20. */
+  const termByName = {};
+  TERMS.forEach(t => { termByName[t.term] = t; });
+
+  const FALLBACK_CLOZE_PASSAGES = [
+    {
+      title: "East Asia and the Islamic World",
+      html: "After centuries of division, the {{Tang Dynasty}} reunified China and opened it to outside cultural influence, setting the stage for a golden age that its successor, the {{Song Dynasty}}, would carry even further — an era so prosperous that the population roughly doubled and its capital grew past a million residents. Confucian scholars serving this later dynasty increasingly stressed that women should be small, delicate, and dependent, and the once-decorative custom of {{Foot binding}} became widespread among elite families as a mark of status. Beyond its borders, China still thought of itself as the {{Middle Kingdom}}, a name reflecting its belief that it stood at the center of civilization while surrounding peoples were mere \"barbarians.\" Roughly two thousand miles to the west, a very different capital had also become a center of learning: after 750 CE, the {{Abbasid Caliphate}} ruled much of the Islamic world from Baghdad, translating Greek philosophy and pushing forward mathematics and medicine before its fall to the Mongols in 1258. Centuries later, a Turkish Islamic state that would eventually stretch across the Balkans, the Middle East, and North Africa — the {{Ottoman Empire}} — rose to even greater prominence, in time capturing the old Christian capital that had anchored the eastern Mediterranean for a thousand years. Non-Muslims living under Islamic rule in these states paid a special tax, the {{Jizya}}, in exchange for protection and the right to keep practicing their own faith."
+    },
+    {
+      title: "Medieval Christian Europe",
+      html: "In the fractured political landscape of medieval Western Europe, real unifying power belonged to one institution alone: the {{Roman Catholic Church}}, whose pope claimed final authority over doctrine even as kings and nobles fought among themselves. That fragmented world of competing lords was organized instead through {{Feudalism}}, a system in which lesser nobles pledged loyalty and military service to greater lords in exchange for land, becoming that lord's {{Vassal}}. The peasants who actually worked that land, meanwhile, lived under {{Serfdom}} — bound for life to a lord's estate, though (unlike enslaved people) they could not be bought or sold apart from it. Farmers gradually escaped some of that hardship as a new farming method, the {{Three field system}}, let two-thirds of the land stay in use each year rather than only half, boosting harvests across the continent. In the towns that grew up alongside these farms, craftsmen and merchants organized into a {{Guild}} to protect their trade, train apprentices, and regulate prices. Two catastrophes reshaped this world further: a series of \"holy wars\" against Islamic forces in the eastern Mediterranean, known as the {{Crusades}}, which — among other effects — hardened the divide between Rome and the Christian East; and, a little over a century later, a pandemic remembered as the {{Black Death}}, which killed a massive share of Europe's population after spreading along trade routes from Asia."
+    },
+    {
+      title: "Byzantium, West Africa, and the Americas",
+      html: "Far to the east of Rome, a rival branch of Christianity took root in the surviving eastern half of the old Roman Empire. Centered on the magnificently sited city of {{Constantinople}}, this Christian empire practiced {{Eastern Orthodox Christianity}} rather than the faith of the pope, and lasted for over a thousand years before finally falling to Muslim conquest in 1453. To its north, a diverse Slavic civilization centered on Kiev — known as {{Kievan Rus}} — adopted this same Eastern branch of Christianity in the tenth century, linking its fate to Constantinople rather than Rome. Farther south and west, a West African ruler whose empire grew fabulously wealthy from the gold and salt trade became legendary across the Islamic world and Europe after a lavish pilgrimage to Mecca in 1324; this man, {{Mansa Musa}}, left behind the Great Mosque at Timbuktu as one lasting monument to that wealth. Across the Atlantic, two very different empires were rising at almost the same time. One, built by the Mexica people around a lake in central Mexico, grew rich on tribute extracted from conquered neighbors and depended on artificial floating islands called {{Chinampa}} for much of its food supply — a state historians simply call the {{Aztec}} empire. The other, a Quechua-speaking empire stretching some 2,500 miles down the spine of the Andes, demanded rotational labor from conquered communities under a system called {{Mita}}, and kept track of births, marriages, and other records using knotted cords called {{Quipus}} rather than any written script — this was the {{Inca}} empire."
+    },
+    {
+      title: "Japan, Al Andalus, and the Wider World",
+      html: "Separated from the mainland by water and never successfully conquered by its enormous neighbor, Japan borrowed selectively from Chinese civilization while building a warrior culture entirely its own. Japanese knights lived by a code known as {{Bushido}}, which prized loyalty, bravery, and death before surrender, while ordinary Japanese religious life still centered on {{Shinto}}, the indigenous reverence for nature spirits and ancestors that existed alongside imported Buddhism. In the Islamic world, the ruler of the entire Muslim community carried the title of {{Caliph}} — \"successor\" to the Prophet. One especially tolerant corner of that world was Muslim-ruled Spain, called {{Al Andalus}}, where for a time Muslims, Christians, and Jews mixed more freely than almost anywhere else in the medieval world. Christianity itself, meanwhile, had split into two increasingly distant halves: the surviving eastern Roman state now known as the {{Byzantine Empire}} followed one branch, while the western half of the continent — a region collectively known as {{Western Christendom}} — recognized the pope in Rome instead. That western world's slow reawakening after centuries of fragmentation would eventually produce the {{Renaissance}}, a rebirth of classical Greek and Roman learning and artistic style that began in Italy around 1350. None of this reawakening would have been possible, of course, without China's much earlier military breakthrough: the invention of {{Gunpowder}}, first developed by Daoist alchemists searching for an elixir of immortality. And for two thousand years, the frontier fortification known as the {{Great Wall}} had stood as China's answer to the constant pressure of nomadic peoples to its north — a reminder that even the \"Middle Kingdom\" needed defending. Chinese rulers, for their part, justified their right to govern (and its loss) through the idea of the {{Mandate of Heaven}}: the belief that Heaven granted the throne to a moral ruler and would withdraw it from a corrupt one."
+    }
+  ];
+
+  const clozeTitleEl = document.getElementById("clozeTitle");
+  const clozeTextEl = document.getElementById("clozeText");
+  const clozeStatusEl = document.getElementById("clozeStatus");
+  const wordBankChipsEl = document.getElementById("wordBankChips");
+  const wordBankLabelEl = document.getElementById("wordBankLabel");
+  const clozeAiNoteEl = document.getElementById("clozeAiNote");
+
+  /* Mastery tracking: a term is "mastered" once answered correctly three
+     times in a row in the Matching Drill; a miss resets its streak (and
+     revokes mastery if it had any). Mastered terms are pre-filled in future
+     passages instead of being asked again. Persisted per-browser. */
+  const CLOZE_PROGRESS_KEY = "apwh_u1_cloze_progress";
+  let clozeProgress = safeGet(CLOZE_PROGRESS_KEY, {});
+
+  function saveClozeProgress() { safeSet(CLOZE_PROGRESS_KEY, clozeProgress); }
+  function streakOf(term) { return (clozeProgress[term] && clozeProgress[term].streak) || 0; }
+  function isMastered(term) { return !!(clozeProgress[term] && clozeProgress[term].mastered); }
+
+  function updateClozeProgress(term, correct) {
+    const rec = clozeProgress[term] || { streak: 0, mastered: false };
+    if (correct) {
+      rec.streak = (rec.streak || 0) + 1;
+      if (rec.streak >= 3) rec.mastered = true;
+    } else {
+      rec.streak = 0;
+      rec.mastered = false;
+    }
+    clozeProgress[term] = rec;
+    saveClozeProgress();
+    return rec;
+  }
+
+  const chipByTerm = {};
+  let selectedChip = null; // { term, el } — tap-to-place fallback for touch devices
+
+  function setChipSelected(chip) {
+    if (selectedChip && selectedChip.el) selectedChip.el.classList.remove("selected");
+    if (chip) {
+      selectedChip = chip;
+      chip.el.classList.add("selected");
+    } else {
+      selectedChip = null;
+    }
+  }
+
+  function renderWordBank(termList) {
+    wordBankChipsEl.innerHTML = "";
+    Object.keys(chipByTerm).forEach(k => delete chipByTerm[k]);
+    const sorted = termList.slice().sort((a, b) => a.localeCompare(b));
+    sorted.forEach(name => {
+      const chip = document.createElement("span");
+      chip.className = "wordbank-chip";
+      chip.draggable = true;
+      chip.dataset.term = name;
+
+      const label = document.createElement("span");
+      label.className = "chip-label";
+      label.textContent = name;
+      const badge = document.createElement("span");
+      badge.className = "chip-badge";
+      badge.textContent = " ✓";
+      badge.style.display = "none";
+      chip.appendChild(label);
+      chip.appendChild(badge);
+
+      chip.addEventListener("dragstart", (e) => {
+        if (chip.classList.contains("used")) { e.preventDefault(); return; }
+        e.dataTransfer.setData("text/plain", name);
+        e.dataTransfer.effectAllowed = "move";
+        chip.classList.add("dragging");
+      });
+      chip.addEventListener("dragend", () => chip.classList.remove("dragging"));
+
+      chip.addEventListener("click", () => {
+        if (chip.classList.contains("used")) return;
+        if (selectedChip && selectedChip.el === chip) {
+          setChipSelected(null);
+        } else {
+          setChipSelected({ term: name, el: chip });
+        }
+      });
+
+      chipByTerm[name] = chip;
+      wordBankChipsEl.appendChild(chip);
+    });
+    wordBankLabelEl.textContent = "Word bank for this practice round (" + sorted.length + " terms)";
+    refreshChipMasteryBadges();
+  }
+
+  function refreshChipMasteryBadges() {
+    Object.keys(chipByTerm).forEach(term => {
+      const chip = chipByTerm[term];
+      const badge = chip.querySelector(".chip-badge");
+      if (badge) badge.style.display = isMastered(term) ? "inline" : "none";
+      chip.title = isMastered(term) ? "Mastered (3 in a row) — auto-filled in passages" : "";
+    });
+  }
+
+  function clearBlank(blankEl) {
+    const prevTerm = blankEl.dataset.filledTerm;
+    if (prevTerm && chipByTerm[prevTerm]) {
+      chipByTerm[prevTerm].classList.remove("used");
+    }
+    delete blankEl.dataset.filledTerm;
+    blankEl.textContent = "_____";
+    blankEl.classList.remove("filled", "correct", "incorrect", "mastered");
+    blankEl.title = "";
+    const reveal = blankEl.nextElementSibling;
+    if (reveal && reveal.classList.contains("cloze-answer-reveal")) reveal.remove();
+  }
+
+  function placeInBlank(blankEl, term) {
+    if (!term || !chipByTerm[term]) return;
+    // free up whatever was previously in this blank
+    clearBlank(blankEl);
+    // if that term's chip was already used elsewhere, free its old blank first
+    const chip = chipByTerm[term];
+    if (chip.classList.contains("used")) {
+      const otherBlank = clozeTextEl.querySelector('.cloze-blank[data-filled-term="' + term + '"]');
+      if (otherBlank) clearBlank(otherBlank);
+    }
+    blankEl.dataset.filledTerm = term;
+    blankEl.textContent = term;
+    blankEl.classList.add("filled");
+    blankEl.classList.remove("correct", "incorrect", "mastered");
+    chip.classList.add("used");
+  }
+
+  function resetWordBankUsage() {
+    setChipSelected(null);
+    Object.values(chipByTerm).forEach(chip => chip.classList.remove("used", "selected", "dragging"));
+  }
+
+  function renderRoundPassage(passage) {
+    resetWordBankUsage();
+    clozeTitleEl.textContent = passage.title;
+    clozeStatusEl.textContent = "";
+    clozeStatusEl.classList.remove("done");
+
+    const parts = passage.html.split(/\{\{([^}]+)\}\}/g);
+    clozeTextEl.innerHTML = "";
+    let masteredCount = 0;
+    let totalBlanks = 0;
+    parts.forEach((part, i) => {
+      if (i % 2 === 0) {
+        if (part) clozeTextEl.appendChild(document.createTextNode(part));
+      } else {
+        const answer = part;
+        totalBlanks++;
+        const blank = document.createElement("span");
+        blank.className = "cloze-blank";
+        blank.dataset.answer = answer;
+        blank.textContent = "_____";
+
+        blank.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = "move";
+          blank.classList.add("dragover");
+        });
+        blank.addEventListener("dragleave", () => blank.classList.remove("dragover"));
+        blank.addEventListener("drop", (e) => {
+          e.preventDefault();
+          blank.classList.remove("dragover");
+          const term = e.dataTransfer.getData("text/plain");
+          placeInBlank(blank, term);
+        });
+        blank.addEventListener("click", () => {
+          if (blank.classList.contains("mastered")) {
+            // unlock a mastered blank for optional extra practice this session
+            clearBlank(blank);
+            return;
+          }
+          if (selectedChip) {
+            placeInBlank(blank, selectedChip.term);
+            setChipSelected(null);
+          } else if (blank.dataset.filledTerm) {
+            clearBlank(blank);
+          }
+        });
+
+        if (isMastered(answer)) {
+          masteredCount++;
+          blank.dataset.filledTerm = answer;
+          blank.textContent = answer;
+          blank.classList.add("filled", "mastered");
+          blank.title = "Mastered — click to practice this term anyway";
+          if (chipByTerm[answer]) chipByTerm[answer].classList.add("used");
+        }
+
+        clozeTextEl.appendChild(blank);
+      }
+    });
+    refreshChipMasteryBadges();
+    if (masteredCount > 0) {
+      clozeStatusEl.textContent = masteredCount + " of " + totalBlanks + " terms in this passage are already mastered and pre-filled below — click one if you want to practice it anyway.";
+    }
+  }
+
+  /* ---- dynamic generation of a fresh 20-term passage each round ---- */
+  let usingFallbackRound = false;
+  let fallbackRoundIdx = 0;
+  let roundGenerationInFlight = false;
+
+  function extractBlankTerms(html) {
+    return [...html.matchAll(/\{\{([^}]+)\}\}/g)].map(m => m[1]);
+  }
+
+  function validateRoundHtml(html, chosenTermNames) {
+    if (typeof html !== "string" || !html) return false;
+    const found = extractBlankTerms(html);
+    if (found.length !== chosenTermNames.length) return false;
+    const foundSet = new Set(found);
+    if (foundSet.size !== found.length) return false; // duplicate blank
+    for (const t of chosenTermNames) if (!foundSet.has(t)) return false;
+    for (const f of found) if (!chosenTermNames.includes(f)) return false;
+    return true;
+  }
+
+  function pickTwentyTerms() {
+    const unmastered = TERMS.filter(t => !isMastered(t.term));
+    const mastered = TERMS.filter(t => isMastered(t.term));
+    let chosen = shuffle(unmastered).slice(0, 20);
+    if (chosen.length < 20) {
+      chosen = chosen.concat(shuffle(mastered).slice(0, 20 - chosen.length));
+    }
+    return chosen;
+  }
+
+  function buildRoundPrompt(askedTerms) {
+    const styleExample = FALLBACK_CLOZE_PASSAGES[0].html.replace(/\{\{([^}]+)\}\}/g, "$1");
+    const termLines = askedTerms.map(t => "- " + t.term + ": " + t.def).join("\n");
+    return "You are writing a practice fill-in-the-blank passage for high school AP World History students studying Unit 1 (c. 1200-1450), styled after their real test's format.\n\n"
+      + "Below are 10 vocabulary terms with their official definitions (exactly as already given to these students). Write ONE flowing narrative (roughly 5-8 sentences, may be broken into 1-2 short paragraphs) that uses EVERY one of these 10 terms in context, so a student who knows the term can infer it from the sentence. Do NOT restate the definition, and NEVER let a term's own name appear as a giveaway inside its own clue sentence — that is the entire point of the exercise. Write natural, connected historical prose in the same spirit and difficulty as this teacher-approved example (do not reuse its content or wording, just match its style):\n\n"
+      + "EXAMPLE STYLE:\n\"" + styleExample + "\"\n\n"
+      + "Terms and their official definitions to use (use ALL 10, each exactly once — do not include any other vocabulary terms as blanks):\n" + termLines + "\n\n"
+      + "Output ONLY a JSON object of this exact shape, nothing else, no markdown fences:\n"
+      + "{\"title\": \"a short 3-6 word title for this passage\", \"html\": \"the full passage text, with each of the 10 terms marked at the point where it belongs as {{Exact Term Name}} — the text inside the double curly braces must exactly match the spelling given above, each of the 10 terms must appear exactly once as a {{...}} blank, and no term name may appear anywhere else in the text outside its own {{...}} blank\"}";
+  }
+
+  function showClozeLoadingState() {
+    clozeTitleEl.textContent = "Writing a new practice passage…";
+    clozeTextEl.textContent = "";
+    wordBankChipsEl.innerHTML = "";
+    wordBankLabelEl.textContent = "Word bank for this practice round";
+    clozeStatusEl.textContent = "";
+    clozeStatusEl.classList.remove("done");
+  }
+
+  function setClozeControlsDisabled(disabled) {
+    document.getElementById("clozeCheck").disabled = disabled;
+    document.getElementById("clozeReset").disabled = disabled;
+    document.getElementById("clozeNext").disabled = disabled;
+  }
+
+  function updateClozeAiNote() {
+    if (usingFallbackRound) {
+      clozeAiNoteEl.style.display = "block";
+      clozeAiNoteEl.textContent = "AI-generated passages aren't available right now, so a fixed practice passage is shown instead — the word bank is padded to 20 with unused terms, but only that passage's own terms (10 or fewer) are actually asked. Click \"Next passage\" to cycle through the others.";
+      document.getElementById("clozeNext").textContent = "Next passage \u2192";
+    } else {
+      clozeAiNoteEl.style.display = "block";
+      clozeAiNoteEl.textContent = "This passage was freshly written by Claude for this practice round, using your class's official term definitions. The word bank shows 20 terms, but only 10 of them are actually asked in the passage this round — the rest are unused decoys. The narrative wording itself hasn't been reviewed by your teacher, so if a clue seems off, check it against the Concept Glossary or your notes.";
+      document.getElementById("clozeNext").textContent = "New set of 20 \u2192";
+    }
+  }
+
+  function useFallbackRound() {
+    usingFallbackRound = true;
+    const passage = FALLBACK_CLOZE_PASSAGES[fallbackRoundIdx % FALLBACK_CLOZE_PASSAGES.length];
+    fallbackRoundIdx++;
+    const askedNames = extractBlankTerms(passage.html);
+    const decoyPool = TERMS.map(t => t.term).filter(n => !askedNames.includes(n));
+    const decoys = shuffle(decoyPool).slice(0, Math.max(0, 20 - askedNames.length));
+    const wordBankNames = shuffle(askedNames.concat(decoys));
+    renderWordBank(wordBankNames);
+    renderRoundPassage(passage);
+    updateClozeAiNote();
+  }
+
+  async function generateNewRound() {
+    if (roundGenerationInFlight) return;
+    roundGenerationInFlight = true;
+    setClozeControlsDisabled(true);
+    showClozeLoadingState();
+
+    if (!sampleFn) {
+      useFallbackRound();
+      roundGenerationInFlight = false;
+      setClozeControlsDisabled(false);
+      return;
+    }
+
+    const chosen20 = pickTwentyTerms();
+    const wordBankNames = chosen20.map(t => t.term);
+    const askedTerms = shuffle(chosen20).slice(0, 10);
+    const askedNames = askedTerms.map(t => t.term);
+    let success = false;
+    for (let attempt = 0; attempt < 2 && !success; attempt++) {
+      try {
+        const data = await sampleFn.json(buildRoundPrompt(askedTerms), { modelTier: "default" });
+        if (data && validateRoundHtml(data.html, askedNames)) {
+          usingFallbackRound = false;
+          renderWordBank(wordBankNames);
+          renderRoundPassage({ title: data.title || "Practice Passage", html: data.html });
+          updateClozeAiNote();
+          success = true;
+        }
+      } catch (e) { /* try again, or fall through to fallback below */ }
+    }
+    if (!success) {
+      useFallbackRound();
+    }
+    roundGenerationInFlight = false;
+    setClozeControlsDisabled(false);
+  }
+
+  function checkCloze() {
+    const blanks = Array.from(clozeTextEl.querySelectorAll(".cloze-blank:not(.mastered)"));
+    let correctCount = 0;
+    const newlyMastered = [];
+    blanks.forEach(blank => {
+      blank.classList.remove("correct", "incorrect");
+      const nextReveal = blank.nextElementSibling && blank.nextElementSibling.classList.contains("cloze-answer-reveal") ? blank.nextElementSibling : null;
+      if (nextReveal) nextReveal.remove();
+      const term = blank.dataset.answer;
+      const wasMastered = isMastered(term);
+      const isCorrect = blank.dataset.filledTerm === term;
+      if (isCorrect) {
+        blank.classList.add("correct");
+        correctCount++;
+      } else {
+        blank.classList.add("incorrect");
+        const reveal = document.createElement("span");
+        reveal.className = "cloze-answer-reveal";
+        reveal.textContent = " (correct: " + term + ") ";
+        blank.insertAdjacentElement("afterend", reveal);
+      }
+      updateClozeProgress(term, isCorrect);
+      if (!wasMastered && isMastered(term)) newlyMastered.push(term);
+    });
+    refreshChipMasteryBadges();
+    let statusText = `${correctCount} of ${blanks.length} correct.`;
+    if (newlyMastered.length) {
+      statusText += " 🎉 Newly mastered (3 correct in a row): " + newlyMastered.join(", ") + " — these will be pre-filled next time.";
+    }
+    clozeStatusEl.textContent = statusText;
+    clozeStatusEl.classList.toggle("done", correctCount === blanks.length && blanks.length > 0);
+    renderProgressPage();
+  }
+
+  function clearCloze() {
+    const blanks = Array.from(clozeTextEl.querySelectorAll(".cloze-blank:not(.mastered)"));
+    blanks.forEach(blank => clearBlank(blank));
+    clozeStatusEl.textContent = "";
+    clozeStatusEl.classList.remove("done");
+  }
+
+  document.getElementById("clozeCheck").addEventListener("click", checkCloze);
+  document.getElementById("clozeReset").addEventListener("click", clearCloze);
+  document.getElementById("clozeNext").addEventListener("click", () => {
+    generateNewRound();
+  });
+
+  /* ============ ESSAY ACCORDIONS ============ */
+  function buildAccordion(container, items) {
+    items.forEach(item => {
+      const wrap = document.createElement("div");
+      wrap.className = "accordion-item";
+      const head = document.createElement("button");
+      head.className = "accordion-head";
+      head.innerHTML = `<span class="q-text">${item.q}</span><span class="pts">${item.pts}</span><span class="chev">&#9656;</span>`;
+      const body = document.createElement("div");
+      body.className = "accordion-body";
+      const ul = document.createElement("ul");
+      item.points.forEach(p => {
+        const li = document.createElement("li");
+        li.textContent = p;
+        ul.appendChild(li);
+      });
+      body.appendChild(ul);
+      head.addEventListener("click", () => wrap.classList.toggle("open"));
+      wrap.appendChild(head);
+      wrap.appendChild(body);
+      container.appendChild(wrap);
+    });
+  }
+  buildAccordion(document.getElementById("essayAccordion"), ESSAY_QUESTIONS);
+  buildAccordion(document.getElementById("longAccordion"), LONG_ANSWERS.map(l => ({ ...l, q: l.q })));
+
+  /* ============ MCQ STRATEGY ACCORDION ============ */
+  function buildStrategyAccordion(container, items) {
+    items.forEach(item => {
+      const wrap = document.createElement("div");
+      wrap.className = "accordion-item";
+      const head = document.createElement("button");
+      head.className = "accordion-head";
+      head.innerHTML = `<span class="q-text">${item.q}</span><span class="chev">&#9656;</span>`;
+      const body = document.createElement("div");
+      body.className = "accordion-body";
+      const p = document.createElement("p");
+      p.style.margin = "0";
+      p.style.fontSize = "0.93rem";
+      p.style.lineHeight = "1.5";
+      p.textContent = item.a;
+      body.appendChild(p);
+      head.addEventListener("click", () => wrap.classList.toggle("open"));
+      wrap.appendChild(head);
+      wrap.appendChild(body);
+      container.appendChild(wrap);
+    });
+  }
+  buildStrategyAccordion(document.getElementById("mcqStrategyAccordion"), MCQ_STRATEGY_QA);
+
+  /* ============ GLOSSARY ============ */
+  const glossaryListEl = document.getElementById("glossaryList");
+  const glossarySearchEl = document.getElementById("glossarySearch");
+
+  function renderGlossary(filterText) {
+    const q = (filterText || "").trim().toLowerCase();
+    const items = q
+      ? GLOSSARY.filter(g => g.term.toLowerCase().includes(q) || g.def.toLowerCase().includes(q))
+      : GLOSSARY;
+    glossaryListEl.innerHTML = "";
+    if (!items.length) {
+      const empty = document.createElement("div");
+      empty.className = "glossary-empty";
+      empty.textContent = "No matching terms.";
+      glossaryListEl.appendChild(empty);
+      return;
+    }
+    items.forEach(g => {
+      const row = document.createElement("div");
+      row.className = "glossary-item";
+      const term = document.createElement("div");
+      term.className = "g-term";
+      term.textContent = g.term;
+      const def = document.createElement("div");
+      def.className = "g-def";
+      def.textContent = g.def;
+      row.appendChild(term);
+      row.appendChild(def);
+      glossaryListEl.appendChild(row);
+    });
+  }
+  glossarySearchEl.addEventListener("input", (e) => renderGlossary(e.target.value));
+
+  /* ============ PRACTICE MCQs (AI-GENERATED) ============ */
+  /* Stimulus-based multiple choice written by Claude to mimic the AP exam
+     format. Stimuli are invented/paraphrased, not real historical quotations —
+     this is flagged to students via the gate below before they can see them. */
+  const PRACTICE_MCQ_SETS = [
+    {
+      title: "China's Golden Age",
+      stimulus: "A modern historian's summary: “Under the Song, printed books spread the civil service exam curriculum to a wider circle of the gentry, even as court philosophers built an ethical system distinguishing proper social roles from disorder.”",
+      questions: [
+        {
+          q: "The development described above most directly reflects which broader change in Song-era China?",
+          options: ["A retreat from Confucian principles toward Legalist administrative control","The fusion of examination-based governance with a revived Confucian moral order","A shift away from merit-based officialdom toward hereditary aristocracy","The expansion of a strictly military meritocracy independent of civil administration"],
+          correct: 1,
+          whyWrong: ["Neo-Confucianism, not Legalism, was reinforced in this era -- Legalism was associated with the earlier Qin dynasty's harsh administrative approach, not the Song synthesis described here.",null,"The exam system was actually expanding access via merit (a wider circle of the gentry), the opposite of shifting toward inherited aristocratic status.","The stimulus specifically describes the CIVIL service exam curriculum and Confucian ethics, not a separate military meritocracy, so this misidentifies which institution is being expanded."],
+          rationale: "This describes the exam system plus Neo-Confucianism working together."
+        },
+        {
+          q: "Which of the following best explains a cause of the “wider circle of the gentry” gaining access to this curriculum?",
+          options: ["The invention of woodblock and movable-type printing","An expansion of the number of provincial exam quotas granted by the emperor","The relocation of the imperial capital closer to major trade cities","A decree exempting merchant families from prior exam restrictions"],
+          correct: 0,
+          whyWrong: [null,"The stimulus specifically attributes the change to 'printed books,' not to quota policy -- quota expansion isn't mentioned or implied here.","Capital relocation isn't mentioned in the stimulus; the causal mechanism given is specifically the technology of printing.","The stimulus doesn't mention merchant exemptions -- the wider access described comes from printed materials spreading the curriculum itself, not new eligibility rules."],
+          rationale: "Printing technology is the direct causal mechanism for wider access."
+        },
+        {
+          q: "A historian arguing for continuity rather than change across the Tang–Song transition would most likely cite which of the following?",
+          options: ["The continuous dominance of hereditary landed aristocrats over the bureaucracy","The persistence of a bureaucratic, exam-selected scholar-official class across both dynasties","The unbroken persistence of Buddhist monastic institutions as the primary center of learning","The uninterrupted use of the same written vernacular language for administration"],
+          correct: 1,
+          whyWrong: ["This is actually a change, not a continuity -- exam-based mobility gradually eroded, rather than reinforced, the power of hereditary aristocratic families across this period.",null,"Confucian (not Buddhist monastic) institutions were the throughline for scholar-official training in this era; Buddhism was influential culturally but wasn't the primary channel for bureaucratic learning.","Administration was conducted in classical literary Chinese, not colloquial 'vernacular' language -- this option describes something that didn't happen, so it can't illustrate a continuity."],
+          rationale: "The exam-based scholar-official system spanned both dynasties — a continuity. This one leans on nuance, so double-check it against your notes.",
+          flagged: true
+        }
+      ]
+    },
+    {
+      title: "Women's Status Under the Song",
+      stimulus: "A household guide from the period advises that a virtuous wife should be modest, deferential to her husband's family, and skilled in textile work befitting her station.",
+      questions: [
+        {
+          q: "This source is best used as evidence for which historical development?",
+          options: ["Growing Confucian emphasis on female subordination and domestic roles","A Buddhist-inspired expansion of monastic opportunities for unmarried women","A legal reform granting women equal inheritance rights alongside sons","A decline in arranged marriage practices among the gentry"],
+          correct: 0,
+          whyWrong: [null,"The stimulus describes an ideal of domestic wifely virtue, not monastic religious life -- nothing here concerns Buddhist institutions.","This reverses the trend -- inheritance equality is at best a complicating counter-current, not the main pattern the stimulus itself illustrates (deference and domestic duty).","The stimulus doesn't address marriage arrangement practices at all; it's about expected wifely conduct once married."],
+          rationale: "Matches the “docile, dependent” ideal reinforced by Neo-Confucian norms."
+        },
+        {
+          q: "Which of the following developments in the same period most directly complicates the picture presented in the stimulus?",
+          options: ["The household guide's continued emphasis on textile production as women's proper work","Women's continued ability to inherit and control dowry property","The reinforcement of the Five Relationships","A parallel household guide instructing husbands to show equal deference to wives"],
+          correct: 1,
+          whyWrong: ["This restates the same expectation already in the stimulus (textile work as a wifely duty) -- it reinforces, rather than complicates, the picture.",null,"The Five Relationships reinforce hierarchy and support the stimulus's picture of subordination; they don't complicate it.","There isn't good evidence of a reciprocal 'equal deference' guide for husbands in this period -- this describes a development that didn't really happen, rather than a real complicating trend like property rights."],
+          rationale: "This is a genuine complicating counter-trend (property rights) alongside restriction."
+        },
+        {
+          q: "The emphasis on women's domestic roles in this stimulus is most similar to gender norms found in which other post-classical society studied in this unit?",
+          options: ["Western Christendom under feudalism","The Abbasid Caliphate's treatment of jizya-paying religious minorities","Kievan Rus's treatment of enslaved people","Japan under Confucian-influenced Chinese cultural borrowing"],
+          correct: 0,
+          whyWrong: [null,"The jizya concerns religious-minority status and taxation, not gender roles within the household -- a different axis of social organization than what the stimulus describes.","This describes a different social category (enslaved people) rather than gender norms for wives specifically, so it isn't a direct comparison.","Per your notes, Japanese women largely escaped the more oppressive features of Chinese Confucian gender norms (they could inherit property, divorce more easily), so this is actually a weaker match than it looks -- worth checking against your notes."],
+          rationale: "Feudal Western Europe likewise emphasized patriarchal domestic hierarchy — a workable comparison, though option D is tempting. Worth checking against your notes on how much Confucian gender norms actually took hold in Japan.",
+          flagged: true
+        }
+      ]
+    },
+    {
+      title: "The Abbasid Caliphate and Trade",
+      stimulus: "A geographer's account describes Baghdad's markets overflowing with paper from China, spices from India, and enslaved people and gold from sub-Saharan Africa, alongside scholars translating Greek texts into Arabic.",
+      questions: [
+        {
+          q: "This passage best illustrates which feature of the Abbasid Caliphate?",
+          options: ["Its role as a hub connecting long-distance trade with intellectual exchange","Its enforcement of trade restrictions to protect domestic Arab merchants from foreign competition","Its exclusively agricultural economy","A closed intellectual tradition that discouraged engagement with non-Muslim texts"],
+          correct: 0,
+          whyWrong: [null,"The stimulus shows markets full of foreign goods from China, India, and Africa -- the opposite of protectionist restriction on foreign trade.","The stimulus describes trade goods and scholarship, not farming -- nothing supports an agricultural characterization.","The stimulus shows active translation of Greek (non-Muslim in origin) texts -- the opposite of a closed intellectual tradition."],
+          rationale: "Baghdad's markets here directly combine trade goods with intellectual exchange (translation)."
+        },
+        {
+          q: "The translation activity described is most directly a continuation of which earlier tradition?",
+          options: ["Sasanian Persian administrative record-keeping traditions","Hellenistic (Greek) philosophical and scientific learning","Mesoamerican calendrical systems","Byzantine Orthodox theological commentary"],
+          correct: 1,
+          whyWrong: ["Persian administrative traditions did influence Abbasid bureaucracy, but the specific activity described -- translating GREEK texts -- continues the Hellenistic scholarly tradition, not a separate Persian one.",null,"Mesoamerican systems have no connection to Baghdad's translation movement described here.","The stimulus specifies Greek texts broadly (philosophy and science), not specifically Christian theological commentary from Byzantium."],
+          rationale: "Translating Greek texts is a direct continuation of Hellenistic scholarship."
+        },
+        {
+          q: "Which of the following is the best example of a similar convergence of trade and scholarship elsewhere in the Islamic world during this era?",
+          options: ["The Ottoman Empire's conquest of Constantinople","Al Andalus's role transmitting classical and Islamic learning into Christian Europe","The Silk Road caravan routes linking Chang'an to Central Asia","The Sultanate of Delhi's military conquests"],
+          correct: 1,
+          whyWrong: ["This is a military conquest, not an example of trade-and-scholarship convergence like the one in the stimulus.",null,"The Silk Road is a real trade-and-exchange network, but the question specifically asks for an example 'elsewhere in the Islamic world' with scholarship convergence like Baghdad's -- Chang'an and Central Asia aren't part of the Islamic-world example being asked about here.","This describes military expansion, not the trade-and-learning hub function shown in the stimulus."],
+          rationale: "Al Andalus is the standard example of this same trade-and-scholarship convergence in the Islamic west."
+        }
+      ]
+    },
+    {
+      title: "Feudalism and the Church",
+      stimulus: "A charter records a knight pledging military service to a count in exchange for a grant of land, while a bishop nearby claims final authority over marriage law for all Christians in the region, regardless of which lord they serve.",
+      questions: [
+        {
+          q: "The two relationships described in the charter best illustrate which feature of medieval Western Christendom?",
+          options: ["A single, unified political authority","The coexistence of fragmented feudal politics with a unifying religious institution","A meritocratic bureaucracy selecting officials through standardized examination","The absence of any hierarchical social structure"],
+          correct: 1,
+          whyWrong: ["The charter shows a COUNT and a separate BISHOP with distinct authority -- that is fragmentation, not a single unified authority.",null,"This describes a Chinese-style exam bureaucracy, not the feudal lord-vassal and independent Church authority shown in this charter -- a different society's system entirely.","A knight pledging service to a count is itself a hierarchical relationship, so this option contradicts the stimulus directly."],
+          rationale: "A vassal-lord military bond plus an independent Church authority is the hallmark of Western Christendom's fragmented-but-unified structure."
+        },
+        {
+          q: "The bishop's authority over marriage law is best explained by which broader development?",
+          options: ["The Roman Catholic Church's growing claim to independent authority over doctrine, separate from secular rulers","The subordination of the Church to the Holy Roman Emperor","A shared canon law jointly written by the Pope and Byzantine Patriarch","The jizya system extended to Christian territories"],
+          correct: 0,
+          whyWrong: [null,"The stimulus shows the bishop's authority operating independently of 'which lord' someone serves -- the opposite of Church subordination to a political ruler.","After the Great Schism (1054), Catholic and Orthodox authorities operated separately, not jointly -- there was no shared canon law between the pope and the Byzantine patriarch.","The jizya is a specifically Islamic tax on non-Muslims; it has no application to internal Christian marriage law."],
+          rationale: "This reflects the Church's claim to authority separate from (and sometimes above) secular rulers."
+        },
+        {
+          q: "Which of the following was a long-term consequence of the political fragmentation shown in this stimulus?",
+          options: ["The rapid unification of Europe under one emperor","The persistence of competing states and highly militarized elites, in contrast to more centralized East Asian states","The elimination of a landowning aristocracy","A rapid convergence toward a single common European legal code modeled on Roman law"],
+          correct: 1,
+          whyWrong: ["Europe remained politically fragmented for centuries afterward -- no rapid unification occurred.",null,"Feudalism was built around a landowning aristocracy (lords granting land to vassals); it did not eliminate that class, it depended on it.","Roman law influenced various European legal systems, but no single unified legal code emerged -- fragmentation, not convergence, defined this period."],
+          rationale: "Fragmented feudal states and militarized elites persisted for centuries, unlike China's more centralized bureaucracy."
+        }
+      ]
+    },
+    {
+      title: "The Crusades",
+      stimulus: "A chronicle describes crusading knights returning to Europe with silk, spices, and stories of Muslim scholarship, even as new tensions flared between Latin Christians and Orthodox Byzantines after the sack of a great Christian capital in 1204.",
+      questions: [
+        {
+          q: "This stimulus most directly supports which claim about the effects of the Crusades?",
+          options: ["They had uniformly positive effects on Christian-Muslim relations","They simultaneously increased cultural/economic exchange and hardened religious divisions","They permanently ended the Byzantine Empire's control of Constantinople","They unified Catholic and Orthodox Christians into a single reconciled church"],
+          correct: 1,
+          whyWrong: ["The stimulus itself shows new tensions flaring, so 'uniformly positive' directly contradicts the passage.",null,"Byzantine forces actually recovered Constantinople in 1261 and the empire persisted until 1453 -- the 1204 sack was a severe blow, but not a permanent end to Byzantine control.","The stimulus shows the opposite -- NEW tensions, not reconciliation, between Latin Christians and Orthodox Byzantines."],
+          rationale: "The stimulus shows both goods/ideas flowing in AND religious tension worsening — both at once."
+        },
+        {
+          q: "The event referenced (“sack of a great Christian capital in 1204”) most directly worsened relations between which two groups?",
+          options: ["Roman Catholics and Eastern Orthodox Christians","Hindus and Muslims in India","Sunni and Shia Muslims in Baghdad","Confucian scholars and Daoist priests"],
+          correct: 0,
+          whyWrong: [null,"This event refers to Constantinople (a Christian capital), not India -- an unrelated region and groups.","The Sunni-Shia division is a real and significant split within Islam, but it's unrelated to the 1204 sack of Constantinople described here.","Confucian and Daoist figures are part of Chinese intellectual history, unconnected to the Fourth Crusade."],
+          rationale: "This refers to the 1204 sack of Constantinople during the Fourth Crusade."
+        },
+        {
+          q: "A historian using this stimulus to argue for the Crusades' role in enabling the later European Renaissance would most likely emphasize which point?",
+          options: ["The suppression of all Greek philosophical texts","The channeling of preserved Muslim and Greek scholarship into Western Europe","The establishment of a single Crusader-run university that trained all future Renaissance scholars","The destruction of all trade routes to Asia"],
+          correct: 1,
+          whyWrong: ["The opposite happened -- Greek philosophical texts were preserved and transmitted, not suppressed, which is exactly what enabled later Renaissance learning.",null,"No single Crusader-run university served this role -- scholarship reached Europe through diffuse channels like Spain and Sicily, not one centralized institution.","Trade routes to Asia continued and even expanded due to increased contact, not destruction."],
+          rationale: "Scholarship preserved in the Islamic world reached Europe partly through Crusade-era contact, feeding later Renaissance learning."
+        }
+      ]
+    },
+    {
+      title: "Byzantium, Kievan Rus, and Orthodoxy",
+      stimulus: "A traveler describes a splendid domed cathedral in a northern trading city, noting that its liturgy, art, and alphabet all closely resemble those of Constantinople, though the region is ruled by its own princes rather than an emperor.",
+      questions: [
+        {
+          q: "This passage most directly illustrates which relationship?",
+          options: ["Kievan Rus's political independence alongside deep religious and cultural borrowing from Byzantium","Full political incorporation of Kievan Rus into the Byzantine Empire","A formal military alliance requiring Kievan Rus troops to defend Constantinople","The rejection of Byzantine culture by Slavic elites"],
+          correct: 0,
+          whyWrong: [null,"The stimulus explicitly says the region is 'ruled by its own princes rather than an emperor' -- meaning it was politically independent, not incorporated.","The stimulus describes religious and cultural borrowing (liturgy, art, alphabet) -- it doesn't mention any military alliance or troop obligations.","The stimulus shows deep cultural borrowing (liturgy, art, alphabet), not rejection."],
+          rationale: "Kievan Rus borrowed Byzantine religion and culture while remaining politically separate under its own princes."
+        },
+        {
+          q: "Which of the following is the best comparison point between Byzantine and Western Christendom political structures?",
+          options: ["Both were equally decentralized feudal systems","The Byzantine Empire maintained centralized imperial authority (including authority over the Church), while Western Christendom was politically fragmented under competing lords","Both subordinated religious authority entirely to elected city councils","Both were ruled by an elected college of bishops"],
+          correct: 1,
+          whyWrong: ["Byzantium was centralized around the emperor, not feudal or decentralized like Western Europe -- this incorrectly treats them as identical.",null,"Neither system used elected city councils for this purpose -- Byzantium centralized authority in the emperor, and Western Christendom split it among lords and the Church hierarchy.","Neither state was governed by an elected college of bishops; Byzantium had an emperor, and Western Europe had kings and lords alongside the pope."],
+          rationale: "Byzantium centralized political and religious authority in the emperor; Western Christendom split that authority among competing lords and the Church."
+        },
+        {
+          q: "The cultural pattern shown in the stimulus (borrowing religion, art, and alphabet from a more established neighbor) is most comparable to which other relationship studied in this unit?",
+          options: ["Japan's selective, voluntary borrowing from China","The Aztec Empire's relationship with the Inca","The Ottoman Empire's administration of jizya-paying subjects","The three-field system's spread in Western Europe"],
+          correct: 0,
+          whyWrong: [null,"The Aztec and Inca empires had little direct contact or cultural borrowing from each other, unlike the close Byzantine-Rus relationship shown.","The jizya concerns tax status for religious minorities, not the cultural borrowing (religion, art, alphabet) pattern shown in the stimulus.","The three-field system is an agricultural technique, unrelated to religious or cultural borrowing patterns."],
+          rationale: "Japan borrowed extensively from China (writing, Buddhism) while remaining politically independent — a close parallel. This one leans on comparison, so double-check it.",
+          flagged: true
+        }
+      ]
+    },
+    {
+      title: "Mansa Musa and West Africa",
+      stimulus: "An account from Cairo describes a West African ruler passing through the city on pilgrimage with an enormous retinue and so much gold that its value in local markets dropped noticeably for years afterward.",
+      questions: [
+        {
+          q: "This account is best used as evidence for which claim about the Mali Empire?",
+          options: ["Its isolation from Islamic networks of trade and pilgrimage","Its integration into trans-Saharan gold trade and the broader Islamic world","Its dependence on tribute payments from the Byzantine Empire","Its conquest by the Ottoman Empire"],
+          correct: 1,
+          whyWrong: ["The stimulus shows the opposite -- a Malian ruler actively participating in trade and pilgrimage networks reaching as far as Cairo.",null,"Mali and the Byzantine Empire had no tribute relationship -- they were in entirely separate regions with no direct political connection like this.","Mali was never conquered by the Ottoman Empire; these are unrelated states in this period."],
+          rationale: "Gold wealth and Cairo's markets place Mali squarely within trans-Saharan and Islamic trade networks."
+        },
+        {
+          q: "The pilgrimage described most directly reflects which broader post-classical pattern?",
+          options: ["The Hajj as a mechanism connecting distant Islamic regions economically and culturally","The spread of Eastern Orthodox Christianity into Africa","A formalized alliance system among West African kingdoms modeled on feudal vassalage","The three-field system's spread into West Africa"],
+          correct: 0,
+          whyWrong: [null,"This is an Islamic pilgrimage (Hajj), unrelated to Eastern Orthodox Christianity.","The stimulus describes a religious pilgrimage (Hajj), not a political or military vassalage system -- these are different kinds of connections entirely.","The three-field system is a European farming technique, unrelated to religious pilgrimage."],
+          rationale: "The Hajj repeatedly served as a bridge connecting distant Islamic regions."
+        },
+        {
+          q: "A long-term effect of this ruler's pilgrimage, as described in the account, most directly supports which broader claim about Mali?",
+          options: ["Mali's wealth and Islamic scholarship (centered in cities like Timbuktu) became widely known outside West Africa","Mali's economy collapsed due to gold overproduction","Mali adopted Byzantine-style caesaropapist governance","Mali's rulers rejected any external religious influence"],
+          correct: 0,
+          whyWrong: [null,"The stimulus shows gold's value dropping in Cairo markets due to Mansa Musa's spending there, not Mali's own economy collapsing.","Caesaropapism describes Byzantine Christian governance specifically -- it has no connection to Mali, an Islamic West African kingdom.","Mansa Musa's Hajj is itself a case of embracing external religious influence (Islam), not rejecting it."],
+          rationale: "Mansa Musa's pilgrimage is the reason Mali's wealth and centers like Timbuktu became known outside West Africa."
+        }
+      ]
+    },
+    {
+      title: "Japan's Selective Borrowing",
+      stimulus: "A samurai code emphasizes loyalty unto death and martial honor, while village shrines continue rituals honoring local nature spirits even after the introduction of a foreign religion centuries earlier.",
+      questions: [
+        {
+          q: "The persistence of the local shrine rituals described is best explained by which fact?",
+          options: ["Shinto persisted alongside imported Buddhism rather than being replaced by it","Japan rejected all foreign religious influence","Confucianism replaced all indigenous Japanese belief systems","Zen Buddhism fully displaced earlier Buddhist sects introduced from Korea"],
+          correct: 0,
+          whyWrong: [null,"The stimulus explicitly mentions 'a foreign religion' being introduced and adopted (Buddhism), so Japan clearly did not reject all foreign influence.","The stimulus is about Shinto persisting, and Confucianism is not mentioned as replacing anything here -- this misreads the passage.","This describes a shift within Buddhism itself, not why the indigenous Shinto rituals described in the stimulus continued to exist."],
+          rationale: "Shinto and Buddhism coexisted in Japan rather than one replacing the other."
+        },
+        {
+          q: "The samurai code's values are most directly an example of which development?",
+          options: ["Bushido as a distinctively Japanese warrior ethic, distinct from imported Confucian values","The adoption of the Chinese civil service exam system","Japan's incorporation into China's tributary system as a fully subordinate state","A syncretic blend of Shinto and Confucian filial piety codified as state law"],
+          correct: 0,
+          whyWrong: [null,"Japan did not adopt China's exam-based bureaucracy the way Korea and Vietnam did -- bushido is a separate, distinctly Japanese warrior code.","Japan engaged with China's tributary system selectively and was never fully politically subordinate, unlike more directly incorporated regions.","Bushido is specifically a warrior ethic distinct from imported Confucian values, not a state-codified religious blend of Shinto and Confucianism."],
+          rationale: "Bushido is specifically the Japanese warrior code, distinct from imported Confucian values."
+        },
+        {
+          q: "Which of the following best explains why Japan could selectively borrow from China without being politically absorbed by it, unlike Vietnam?",
+          options: ["Japan's geographic separation by water, which prevented successful Chinese invasion","Japan's total rejection of Chinese writing and Buddhism","China's lack of interest in East Asian trade","China's decision to formally recognize Japan as a fully sovereign equal, unlike Vietnam"],
+          correct: 0,
+          whyWrong: [null,"Japan actually adopted Chinese writing and Buddhism voluntarily -- the opposite of total rejection -- while still remaining politically independent.","China was very engaged in regional trade throughout this era; disinterest in trade is not what protected Japan's independence.","There's no evidence of a formal Chinese policy specifically 'recognizing' Japan as an equal -- Japan's independence came from successfully repelled invasions (aided by geography), not a diplomatic recognition decision by China."],
+          rationale: "Water separation prevented the kind of direct incorporation China achieved in Vietnam. This one leans on comparison, so double-check it.",
+          flagged: true
+        }
+      ]
+    },
+    {
+      title: "Aztec and Inca Compared",
+      stimulus: "One empire extracted tribute and labor from conquered peoples while central priests performed large-scale sacrifices tied to cosmic order; a second empire, organized through a rotational labor draft, required conquered peoples to honor state gods while permitting local religious practices to continue.",
+      questions: [
+        {
+          q: "The first empire described is best identified as which of the following?",
+          options: ["The Aztec Empire","The Inca Empire","The Toltec Empire","The Byzantine Empire"],
+          correct: 0,
+          whyWrong: [null,"The Inca (the SECOND empire in the stimulus) is described differently -- via mita labor and tolerance of local religion, not centered on mass sacrifice.","The Toltec were an earlier Mesoamerican civilization that preceded the Aztec Empire described in this unit's tribute-and-sacrifice system -- not the empire referenced here.","Byzantium is a Christian empire in the eastern Mediterranean, unrelated to the practices described here."],
+          rationale: "Tribute, conquest, and large-scale sacrifice tied to cosmic order are hallmarks of Aztec religion and rule."
+        },
+        {
+          q: "The labor system described for the second empire is known as which term?",
+          options: ["Serfdom","Mita","Encomienda","Three-field system"],
+          correct: 1,
+          whyWrong: ["Serfdom is a European system binding peasants to land under a lord; it is a different institution from the Inca labor draft.",null,"Encomienda was a Spanish colonial labor system introduced after conquest -- the stimulus describes the pre-existing Inca rotational labor draft, which is mita.","The three-field system is a European farming rotation technique, not a labor draft."],
+          rationale: "Mita is the Inca term for this rotational labor draft."
+        },
+        {
+          q: "A historian comparing these two empires' approaches to conquered peoples' religions would most likely argue that",
+          options: ["both empires demanded conquered peoples abandon their own religious practices entirely","the second empire allowed greater religious continuity for conquered peoples than the first","neither empire had any organized state religion","the first empire was more religiously tolerant of conquered peoples than the second"],
+          correct: 1,
+          whyWrong: ["The stimulus specifically says the second empire 'permit[ted] local religious practices to continue' -- so this claim about BOTH empires is contradicted by the passage.",null,"Both empires clearly had organized state religious practices described in the stimulus (sacrifice tied to cosmic order; honoring state gods) -- this claim is false.","This reverses the stimulus -- it is the SECOND empire (with mita and permitted local practices) that shows more tolerance, not the first."],
+          rationale: "Based on the stimulus, only the second empire (Inca) is described as permitting local practices to continue."
+        }
+      ]
+    },
+    {
+      title: "The Black Death and Its Aftermath",
+      stimulus: "A chronicler describes town populations reduced by more than a third within a few years, surviving laborers demanding higher wages, and some clergy questioning why a merciful God would permit such devastation.",
+      questions: [
+        {
+          q: "The wage demands described are best explained by which economic principle?",
+          options: ["A labor shortage following mass mortality increased the bargaining power of surviving workers","An oversupply of labor drove wages down","Guilds were abolished, ending wage regulation entirely","A government-mandated wage freeze successfully suppressed all wage growth"],
+          correct: 0,
+          whyWrong: [null,"The stimulus describes a population reduction of over a third -- a labor SHORTAGE, not an oversupply, which is what actually drove wages up.","The stimulus does not mention guilds at all, and guild abolition is not the explanation for the wage dynamic described here.","Some governments did try to legally cap wages after the plague (like England's Statute of Laborers), but the stimulus shows workers successfully demanding higher wages -- meaning such controls weren't fully effective in this account."],
+          rationale: "Fewer surviving workers after mass death gave laborers more leverage to demand higher wages."
+        },
+        {
+          q: "The religious questioning described in the stimulus most directly reflects which broader consequence of the pandemic?",
+          options: ["The unquestioned strengthening of the Roman Catholic Church's authority","A strain on religious institutions' authority as some began questioning established explanations","The conversion of Europe to Islam","A unified Church council successfully ended all theological doubt about the plague's cause"],
+          correct: 1,
+          whyWrong: ["The stimulus shows clergy being QUESTIONED, which is the opposite of unquestioned strengthening of authority.",null,"Nothing in the stimulus discusses Islam or religious conversion -- it is about Christian clergy being questioned by other Christians.","No such unifying council resolution is described or historically accurate here -- the stimulus shows persistent questioning, not a resolved consensus."],
+          rationale: "Some contemporaries used the plague to question established religious explanations, straining institutional authority."
+        },
+        {
+          q: "This pandemic is best understood within which larger context?",
+          options: ["A localized European event with no connection to broader trade networks","A trans-regional pandemic spreading along Afro-Eurasian trade routes connected by the Mongol Empire and beyond","A disease confined only to the Islamic world","A pandemic that began in the Americas and spread eastward to Afro-Eurasia"],
+          correct: 1,
+          whyWrong: ["The Black Death spread precisely because of interconnected trade routes (Mongol-linked networks), so 'no connection to trade' is factually backwards.",null,"The plague affected Europe, the Middle East, and Asia broadly -- it was not confined to the Islamic world.","This reverses the actual direction -- the plague spread from Asia into the Middle East and Europe via Mongol-connected trade routes; the Americas were not yet connected to this network."],
+          rationale: "The Black Death spread along Mongol-connected Afro-Eurasian trade routes, not as an isolated regional event."
+        }
+      ]
+    }
+  ];
+
+  // Flatten into one ordered list, each question carrying its set's stimulus/title
+  const PMCQ_FLAT = [];
+  PRACTICE_MCQ_SETS.forEach((set, setIdx) => {
+    set.questions.forEach((q, qIdx) => {
+      PMCQ_FLAT.push({
+        setTitle: set.title,
+        stimulus: set.stimulus,
+        setNumber: setIdx + 1,
+        setCount: PRACTICE_MCQ_SETS.length,
+        qInSet: qIdx + 1,
+        qInSetCount: set.questions.length,
+        q: q.q,
+        options: q.options,
+        correct: q.correct,
+        rationale: q.rationale,
+        whyWrong: q.whyWrong || [],
+        flagged: !!q.flagged
+      });
+    });
+  });
+
+  const PMCQ_ACK_KEY = "apwh_u1_pmcq_ack";
+  let pmcqIdx = 0;
+  const pmcqAnswers = PMCQ_FLAT.map(() => ({ selected: null, answered: false }));
+
+  const mcqGateEl = document.getElementById("mcqGate");
+  const mcqBodyEl = document.getElementById("mcqBody");
+  const pmcqScoreEl = document.getElementById("pmcqScore");
+  const pmcqStimulusBoxEl = document.getElementById("pmcqStimulusBox");
+  const pmcqStimulusTextEl = document.getElementById("pmcqStimulusText");
+  const pmcqSetLabelEl = document.getElementById("pmcqSetLabel");
+  const pmcqPromptEl = document.getElementById("pmcqPrompt");
+  const pmcqOptionsEl = document.getElementById("pmcqOptions");
+  const pmcqFeedbackEl = document.getElementById("pmcqFeedback");
+  const pmcqPrevBtn = document.getElementById("pmcqPrev");
+  const pmcqNextBtn = document.getElementById("pmcqNext");
+
+  function updatePmcqScore() {
+    const answered = pmcqAnswers.filter(a => a.answered);
+    let correctCount = 0;
+    pmcqAnswers.forEach((a, i) => { if (a.answered && a.selected === PMCQ_FLAT[i].correct) correctCount++; });
+    pmcqScoreEl.textContent = `Score: ${correctCount} correct out of ${answered.length} answered (30 total)`;
+  }
+
+  function renderPracticeMCQ(idx) {
+    const item = PMCQ_FLAT[idx];
+    const state = pmcqAnswers[idx];
+
+    pmcqStimulusBoxEl.style.display = "block";
+    pmcqStimulusTextEl.textContent = item.stimulus;
+
+    pmcqSetLabelEl.textContent = "Set " + item.setNumber + " of " + item.setCount + " (" + item.setTitle + ") \u2014 Question " + item.qInSet + " of " + item.qInSetCount;
+    pmcqPromptEl.textContent = item.q;
+    pmcqOptionsEl.innerHTML = "";
+    pmcqFeedbackEl.textContent = "";
+    pmcqFeedbackEl.className = "quiz-feedback";
+
+    item.options.forEach((optText, i) => {
+      const b = document.createElement("button");
+      b.className = "quiz-option";
+      b.textContent = optText;
+      if (state.answered) {
+        b.disabled = true;
+        if (i === item.correct) b.classList.add("correct");
+        if (i === state.selected && state.selected !== item.correct) b.classList.add("incorrect");
+      }
+      b.addEventListener("click", () => {
+        if (pmcqAnswers[idx].answered) return;
+        pmcqAnswers[idx] = { selected: i, answered: true };
+        renderPracticeMCQ(idx);
+        updatePmcqScore();
+      });
+      pmcqOptionsEl.appendChild(b);
+    });
+
+    if (state.answered) {
+      const isRight = state.selected === item.correct;
+      pmcqFeedbackEl.innerHTML = "";
+      pmcqFeedbackEl.className = "quiz-feedback " + (isRight ? "correct" : "incorrect");
+
+      if (item.flagged) {
+        const flagLine = document.createElement("div");
+        flagLine.className = "mcq-flag-line";
+        flagLine.textContent = "⚠ This one leans on comparison/nuance — worth double-checking against your notes.";
+        pmcqFeedbackEl.appendChild(flagLine);
+      }
+
+      if (!isRight) {
+        const wrongLine = document.createElement("div");
+        wrongLine.className = "mcq-wrong-line";
+        const whyWrongText = item.whyWrong && item.whyWrong[state.selected] ? item.whyWrong[state.selected] : "";
+        wrongLine.textContent = "You picked \u201c" + item.options[state.selected] + "\u201d — " + whyWrongText;
+        pmcqFeedbackEl.appendChild(wrongLine);
+      }
+
+      const correctLine = document.createElement("div");
+      correctLine.className = "mcq-correct-line";
+      correctLine.textContent = (isRight ? "Correct: " : "Correct answer: ") + "\u201c" + item.options[item.correct] + "\u201d — " + (item.rationale || "");
+      pmcqFeedbackEl.appendChild(correctLine);
+    }
+
+    pmcqPrevBtn.disabled = idx === 0;
+    pmcqNextBtn.textContent = idx === PMCQ_FLAT.length - 1 ? "Restart from Q1" : "Next question \u2192";
+    updatePmcqScore();
+  }
+
+  pmcqPrevBtn.addEventListener("click", () => {
+    if (pmcqIdx > 0) { pmcqIdx--; renderPracticeMCQ(pmcqIdx); }
+  });
+  pmcqNextBtn.addEventListener("click", () => {
+    if (pmcqIdx < PMCQ_FLAT.length - 1) { pmcqIdx++; } else { pmcqIdx = 0; }
+    renderPracticeMCQ(pmcqIdx);
+  });
+  document.getElementById("pmcqRestart").addEventListener("click", () => {
+    for (let i = 0; i < pmcqAnswers.length; i++) pmcqAnswers[i] = { selected: null, answered: false };
+    pmcqIdx = 0;
+    renderPracticeMCQ(pmcqIdx);
+  });
+
+  document.getElementById("mcqAckBtn").addEventListener("click", () => {
+    safeSet(PMCQ_ACK_KEY, true);
+    mcqGateEl.style.display = "none";
+    mcqBodyEl.style.display = "block";
+    renderPracticeMCQ(pmcqIdx);
+  });
+
+  function initPracticeMCQGate() {
+    const acked = safeGet(PMCQ_ACK_KEY, false);
+    if (acked) {
+      mcqGateEl.style.display = "none";
+      mcqBodyEl.style.display = "block";
+      renderPracticeMCQ(pmcqIdx);
+    } else {
+      mcqGateEl.style.display = "block";
+      mcqBodyEl.style.display = "none";
+    }
+  }
+
+  /* ============ MY PROGRESS PAGE ============ */
+  const progressSummaryEl = document.getElementById("progressSummary");
+  const progressTableBodyEl = document.getElementById("progressTableBody");
+
+  function renderProgressPage() {
+    const masteredCount = TERMS.filter(t => isMastered(t.term)).length;
+    const knownCount = TERMS.filter(t => known.has(t.id)).length;
+    progressSummaryEl.textContent = knownCount + " of " + TERMS.length + " terms marked known in Flashcards \u00b7 " + masteredCount + " of " + TERMS.length + " terms mastered in the Matching Drill";
+
+    progressTableBodyEl.innerHTML = "";
+    TERMS.slice().sort((a, b) => a.term.localeCompare(b.term)).forEach(t => {
+      const tr = document.createElement("tr");
+
+      const termCell = document.createElement("td");
+      termCell.textContent = t.term;
+      tr.appendChild(termCell);
+
+      const flashCell = document.createElement("td");
+      const flashTag = document.createElement("span");
+      const isKnown = known.has(t.id);
+      flashTag.className = "progress-tag " + (isKnown ? "yes" : "no");
+      flashTag.textContent = isKnown ? "Known" : "Not yet";
+      flashCell.appendChild(flashTag);
+      tr.appendChild(flashCell);
+
+      const matchCell = document.createElement("td");
+      const matchTag = document.createElement("span");
+      const mastered = isMastered(t.term);
+      const streak = streakOf(t.term);
+      if (mastered) {
+        matchTag.className = "progress-tag yes";
+        matchTag.textContent = "Mastered";
+      } else if (streak > 0) {
+        matchTag.className = "progress-tag partial";
+        matchTag.textContent = streak + " in a row";
+      } else {
+        matchTag.className = "progress-tag no";
+        matchTag.textContent = "Not started";
+      }
+      matchCell.appendChild(matchTag);
+      tr.appendChild(matchCell);
+
+      progressTableBodyEl.appendChild(tr);
+    });
+  }
+
+  document.getElementById("progressResetBtn").addEventListener("click", () => {
+    known = new Set();
+    safeSet(KNOWN_KEY, []);
+    clozeProgress = {};
+    saveClozeProgress();
+    renderFlash();
+    renderProgressPage();
+    generateNewRound();
+  });
+
+  /* ============ GLOSSARY INCLUDE/EXCLUDE ============ */
+  const GLOSSARY_PREF_KEY = "apwh_u1_include_glossary";
+  const glossaryAskEl = document.getElementById("glossaryAsk");
+  const navGlossaryBtn = document.getElementById("navGlossaryBtn");
+  const glossaryToggleRow = document.getElementById("glossaryToggleRow");
+  const glossaryToggleLink = document.getElementById("glossaryToggleLink");
+
+  function applyGlossaryPref(included) {
+    navGlossaryBtn.style.display = included ? "" : "none";
+    glossaryToggleRow.style.display = "flex";
+    glossaryToggleLink.textContent = included ? "Turn off" : "Turn on";
+    if (!included && document.getElementById("pane-glossary").classList.contains("active")) {
+      // if they turn it off while viewing it, jump back to flashcards
+      navButtons.forEach(b => b.classList.remove("active"));
+      panes.forEach(p => p.classList.remove("active"));
+      document.querySelector('.navbtn[data-pane="flash"]').classList.add("active");
+      document.getElementById("pane-flash").classList.add("active");
+    }
+  }
+
+  function setGlossaryPref(included) {
+    safeSet(GLOSSARY_PREF_KEY, included);
+    glossaryAskEl.style.display = "none";
+    applyGlossaryPref(included);
+  }
+
+  document.getElementById("glossaryAskYes").addEventListener("click", () => setGlossaryPref(true));
+  document.getElementById("glossaryAskNo").addEventListener("click", () => setGlossaryPref(false));
+  glossaryToggleLink.addEventListener("click", () => {
+    const current = navGlossaryBtn.style.display !== "none";
+    setGlossaryPref(!current);
+  });
+
+  const storedGlossaryPref = safeGet(GLOSSARY_PREF_KEY, null);
+  if (storedGlossaryPref === null) {
+    glossaryAskEl.style.display = "flex";
+    glossaryToggleRow.style.display = "none";
+  } else {
+    glossaryAskEl.style.display = "none";
+    applyGlossaryPref(storedGlossaryPref);
+  }
+
+  /* ============ CONCEPT QUIZ ============ */
+  const CONCEPT_ITEMS = ESSAY_QUESTIONS.concat(LONG_ANSWERS);
+  const cqListEl = document.getElementById("cqList");
+  const cqAvailabilityNoteEl = document.getElementById("cqAvailabilityNote");
+  let sampleFn = null;
+  let sampleChecked = false;
+
+  function requirementText(req) {
+    if (!req) return "";
+    if (req.type === "religions") {
+      return "Use at least " + req.religionsNeeded + " different religions and give at least " + req.pointsNeeded + " distinct supporting points overall. Using fewer religions costs points even with strong evidence.";
+    }
+    if (req.type === "count") {
+      if (req.min === req.max) {
+        return "Give exactly " + req.min + " distinct, clear answers — not more, not fewer.";
+      }
+      return "This is worth " + req.min + "–" + req.max + " points, meaning the real question will ask for either " + req.min + " or " + req.max + " distinct answers (you won't know which until you see it, and it won't ask for more than " + req.max + "). Prepare " + req.max + " strong, distinct answers to be safe."
+        + (req.extraNote ? " " + req.extraNote : "");
+    }
+    return "";
+  }
+
+  function buildConceptQuiz() {
+    cqListEl.innerHTML = "";
+    CONCEPT_ITEMS.forEach((item, idx) => {
+      const card = document.createElement("div");
+      card.className = "card cq-card";
+
+      const pts = document.createElement("div");
+      pts.className = "cq-pts";
+      pts.textContent = item.pts;
+      card.appendChild(pts);
+
+      const q = document.createElement("div");
+      q.className = "cq-question";
+      q.textContent = item.q;
+      card.appendChild(q);
+
+      const reqText = requirementText(item.requirement);
+      if (reqText) {
+        const reqEl = document.createElement("div");
+        reqEl.className = "cq-requirement";
+        reqEl.textContent = reqText;
+        card.appendChild(reqEl);
+      }
+
+      const textarea = document.createElement("textarea");
+      textarea.className = "cq-textarea";
+      textarea.placeholder = "Type your answer here…";
+      card.appendChild(textarea);
+
+      const hint = document.createElement("div");
+      hint.className = "cq-hint";
+      hint.textContent = "Spelling and grammar don't matter here — be as specific as you can.";
+      card.appendChild(hint);
+
+      const actions = document.createElement("div");
+      actions.className = "row cq-actions";
+      const checkBtn = document.createElement("button");
+      checkBtn.className = "btn primary cq-ai-btn";
+      checkBtn.textContent = "Checking availability…";
+      checkBtn.disabled = true;
+      const revealBtn = document.createElement("button");
+      revealBtn.className = "btn";
+      revealBtn.textContent = "Show key ideas";
+      actions.appendChild(checkBtn);
+      actions.appendChild(revealBtn);
+      card.appendChild(actions);
+
+      const feedback = document.createElement("div");
+      feedback.className = "cq-feedback";
+      feedback.style.display = "none";
+      card.appendChild(feedback);
+
+      const keyIdeas = document.createElement("div");
+      keyIdeas.className = "cq-keyideas";
+      keyIdeas.style.display = "none";
+      const kiLabel = document.createElement("strong");
+      kiLabel.textContent = "Key ideas from the notes:";
+      keyIdeas.appendChild(kiLabel);
+      const kiList = document.createElement("ul");
+      item.points.forEach(p => {
+        const li = document.createElement("li");
+        li.textContent = p;
+        kiList.appendChild(li);
+      });
+      keyIdeas.appendChild(kiList);
+      card.appendChild(keyIdeas);
+
+      revealBtn.addEventListener("click", () => {
+        const showing = keyIdeas.style.display !== "none";
+        keyIdeas.style.display = showing ? "none" : "block";
+        revealBtn.textContent = showing ? "Show key ideas" : "Hide key ideas";
+      });
+
+      checkBtn.addEventListener("click", () => {
+        const answer = textarea.value.trim();
+        if (!answer) {
+          feedback.style.display = "block";
+          feedback.innerHTML = "";
+          const msg = document.createElement("div");
+          msg.className = "cq-error";
+          msg.textContent = "Write an answer first, then check it.";
+          feedback.appendChild(msg);
+          return;
+        }
+        runConceptCheck(item, answer, feedback, checkBtn);
+      });
+
+      cqListEl.appendChild(card);
+    });
+  }
+
+  function errorCopy(code) {
+    switch (code) {
+      case "not_granted":
+      case "sampling_disabled":
+      case "not_declared":
+      case "capability_disabled":
+      case "capability_removed":
+        return "AI checking isn't available for you here — use \"Show key ideas\" to self-check instead.";
+      case "rate_limited":
+        return "That's a lot of checks at once — wait a moment and try again.";
+      case "session_expired":
+        return "You'll need to sign back in to use AI checking.";
+      case "refused":
+        return "Claude couldn't review that answer — try rephrasing it.";
+      case "empty_completion":
+        return "Didn't get a usable response — try again with a bit more detail in your answer.";
+      case "invalid_json":
+      case "upstream_error":
+      default:
+        return "Something went wrong checking that answer — try again in a moment.";
+    }
+  }
+
+  function buildConceptPrompt(item, answer) {
+    const req = item.requirement;
+    const baseIntro = "You are helping a high school student self-check a study answer for an AP World History class. "
+      + "Do NOT grade spelling or grammar — judge only whether the answer shows real, specific understanding. "
+      + "It's fine if the student's wording differs from the key ideas below as long as the substance is accurate. Vague or generic statements should be called out as vague, not credited as a distinct answer.\n\n"
+      + "Question: " + item.q + "\n\n"
+      + "Key ideas a strong answer could draw on (the student does not need to hit every one, and may phrase things differently):\n"
+      + item.points.map(p => "- " + p).join("\n") + "\n\n"
+      + "Student's answer:\n" + answer + "\n\n";
+
+    if (req && req.type === "religions") {
+      return baseIntro
+        + "This question specifically requires: using at least " + req.religionsNeeded + " different religions (Confucianism counts as a religion for this purpose), AND at least " + req.pointsNeeded + " distinct supporting points/pieces of evidence overall. Read the student's answer and count how many distinct religions it actually uses with real supporting evidence (not just a religion named in passing), and how many genuinely distinct supporting points it makes in total.\n\n"
+        + "Reply with ONLY a JSON object of this exact shape, nothing else:\n"
+        + "{\"religionsUsed\": <integer, number of distinct religions the answer supports with real evidence>, "
+        + "\"religionNames\": [\"each religion the answer actually used with evidence\"], "
+        + "\"distinctPoints\": <integer, number of genuinely distinct supporting points/evidence given across the whole answer>, "
+        + "\"covered\": [\"short phrase for each key idea from the notes the answer meaningfully draws on\"], "
+        + "\"missing\": [\"short phrase for a key idea or a religion/angle the answer is missing\"], "
+        + "\"feedback\": \"2-4 sentences of direct, specific, encouraging feedback about how to strengthen the answer, mentioning explicitly whether it meets the "
+        + req.religionsNeeded + "-religion and " + req.pointsNeeded + "-point requirements\"}";
+    }
+
+    let countInstruction = "Read the student's answer and count how many clearly distinct, substantive answers/points it actually makes (near-duplicates or restatements of the same idea only count once).";
+    if (req && req.type === "count") {
+      countInstruction += " This question requires " + (req.min === req.max ? ("exactly " + req.min) : (req.min + " or " + req.max)) + " distinct answers.";
+    }
+
+    return baseIntro
+      + countInstruction + "\n\n"
+      + "Reply with ONLY a JSON object of this exact shape, nothing else:\n"
+      + "{\"answerCount\": <integer, number of clearly distinct, substantive answers/points found in the student's response>, "
+      + "\"covered\": [\"short phrase for each key idea the answer meaningfully addresses\"], "
+      + "\"missing\": [\"short phrase for each key idea the answer is missing or gets wrong\"], "
+      + "\"feedback\": \"2-4 sentences of direct, specific, encouraging feedback to the student about how to make the answer more specific and, if relevant, whether they gave the right number of distinct answers\"}";
+  }
+
+  async function runConceptCheck(item, answer, feedbackEl, btn) {
+    if (!sampleFn) return;
+    btn.disabled = true;
+    feedbackEl.style.display = "block";
+    feedbackEl.innerHTML = "";
+    const thinking = document.createElement("div");
+    thinking.className = "cq-thinking";
+    thinking.textContent = "Thinking…";
+    feedbackEl.appendChild(thinking);
+
+    const prompt = buildConceptPrompt(item, answer);
+
+    try {
+      const data = await sampleFn.json(prompt, { modelTier: "default" });
+      renderConceptFeedback(feedbackEl, data, item);
+    } catch (e) {
+      feedbackEl.innerHTML = "";
+      const msg = document.createElement("div");
+      msg.className = "cq-error";
+      msg.textContent = errorCopy(e && e.code);
+      feedbackEl.appendChild(msg);
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  function renderConceptFeedback(feedbackEl, data, item) {
+    feedbackEl.innerHTML = "";
+    const covered = Array.isArray(data && data.covered) ? data.covered : [];
+    const missing = Array.isArray(data && data.missing) ? data.missing : [];
+    const note = (data && typeof data.feedback === "string") ? data.feedback : "";
+    const req = item && item.requirement;
+
+    // Count-check line, rendered deterministically from the numbers Claude returned
+    if (req && req.type === "religions" && typeof data.religionsUsed === "number" && typeof data.distinctPoints === "number") {
+      const countEl = document.createElement("div");
+      countEl.className = "cq-countcheck";
+      const religionsOk = data.religionsUsed >= req.religionsNeeded;
+      const pointsOk = data.distinctPoints >= req.pointsNeeded;
+      let msg = "You used " + data.religionsUsed + " of the required " + req.religionsNeeded + " religions"
+        + (Array.isArray(data.religionNames) && data.religionNames.length ? " (" + data.religionNames.join(", ") + ")" : "")
+        + ", with " + data.distinctPoints + " of the required " + req.pointsNeeded + " distinct supporting points.";
+      if (!religionsOk) msg += " Add at least " + (req.religionsNeeded - data.religionsUsed) + " more religion(s) with real evidence — missing this costs points even with great evidence elsewhere.";
+      if (!pointsOk) msg += " Add at least " + (req.pointsNeeded - data.distinctPoints) + " more distinct supporting point(s).";
+      if (religionsOk && pointsOk) msg += " That meets the requirement.";
+      countEl.textContent = msg;
+      countEl.classList.add(religionsOk && pointsOk ? "cq-count-ok" : "cq-count-short");
+      feedbackEl.appendChild(countEl);
+    } else if (req && req.type === "count" && typeof data.answerCount === "number") {
+      const countEl = document.createElement("div");
+      countEl.className = "cq-countcheck";
+      const n = data.answerCount;
+      let msg;
+      if (n < req.min) {
+        const need = req.min - n;
+        msg = "You gave " + n + " distinct answer" + (n === 1 ? "" : "s") + ", but this question needs "
+          + (req.min === req.max ? req.min : (req.min + "–" + req.max)) + " — add at least " + need + " more clear, distinct point" + (need === 1 ? "" : "s") + ".";
+        countEl.classList.add("cq-count-short");
+      } else if (req.max && n > req.max) {
+        msg = "You gave " + n + " distinct answers — more than the " + req.max + " this question asks for. That's fine for practice, but on the real test aim for exactly " + req.max + " sharp, distinct answers rather than piling on extras.";
+        countEl.classList.add("cq-count-over");
+      } else {
+        msg = "You gave " + n + " distinct answer" + (n === 1 ? "" : "s") + " — that matches what this question needs.";
+        countEl.classList.add("cq-count-ok");
+      }
+      countEl.textContent = msg;
+      feedbackEl.appendChild(countEl);
+    }
+
+    if (note) {
+      const noteEl = document.createElement("div");
+      noteEl.className = "cq-feedback-text";
+      noteEl.textContent = note;
+      feedbackEl.appendChild(noteEl);
+    }
+    if (covered.length) {
+      const wrap = document.createElement("div");
+      wrap.className = "cq-covered";
+      const label = document.createElement("strong");
+      label.textContent = "You covered:";
+      wrap.appendChild(label);
+      const ul = document.createElement("ul");
+      covered.forEach(c => {
+        const li = document.createElement("li");
+        li.textContent = c;
+        ul.appendChild(li);
+      });
+      wrap.appendChild(ul);
+      feedbackEl.appendChild(wrap);
+    }
+    if (missing.length) {
+      const wrap = document.createElement("div");
+      wrap.className = "cq-missing";
+      const label = document.createElement("strong");
+      label.textContent = "Consider adding:";
+      wrap.appendChild(label);
+      const ul = document.createElement("ul");
+      missing.forEach(m => {
+        const li = document.createElement("li");
+        li.textContent = m;
+        ul.appendChild(li);
+      });
+      wrap.appendChild(ul);
+      feedbackEl.appendChild(wrap);
+    }
+    if (!note && !covered.length && !missing.length) {
+      const msg = document.createElement("div");
+      msg.className = "cq-thinking";
+      msg.textContent = "No feedback came back — try checking again.";
+      feedbackEl.appendChild(msg);
+    }
+  }
+
+  async function initSample() {
+    try {
+      if (window.claude && typeof window.claude.use === "function") {
+        sampleFn = await window.claude.use("sample");
+      }
+    } catch (e) {
+      sampleFn = null;
+    }
+    sampleChecked = true;
+    const buttons = document.querySelectorAll(".cq-ai-btn");
+    if (sampleFn) {
+      buttons.forEach(b => { b.disabled = false; b.textContent = "Check my answer"; });
+      cqAvailabilityNoteEl.style.display = "none";
+    } else {
+      buttons.forEach(b => { b.style.display = "none"; });
+      cqAvailabilityNoteEl.style.display = "block";
+      cqAvailabilityNoteEl.textContent = "AI-checked answers aren't available in this view, so use \"Show key ideas\" on each question to self-check instead.";
+    }
+    generateNewRound();
+  }
+
+  /* ============ INIT ============ */
+  renderFlash();
+  newQuizQuestion();
+  updateQuizScore();
+  showClozeLoadingState();
+  renderGlossary("");
+  buildConceptQuiz();
+  initSample();
+  initPracticeMCQGate();
+  renderProgressPage();
+})();
+</script>
+</body>
+</html>

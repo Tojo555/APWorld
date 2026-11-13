@@ -1,0 +1,2173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unit 3 Study Guide — Land-based Empires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EFE6D2;
+    --paper-raised: #F7F0E1;
+    --paper-dark: #E4D5B4;
+    --ink: #2A2117;
+    --ink-soft: #6B5D48;
+    --gold: #93641B;
+    --gold-soft: #C79A3F;
+    --indigo: #1F3A5C;
+    --indigo-soft: #3D5C82;
+    --sage: #43613C;
+    --sage-bg: #DCE6D3;
+    --brick: #8B3A3A;
+    --brick-bg: #F0DCDA;
+    --rule: rgba(42,33,23,0.18);
+    --shadow: rgba(42,33,23,0.16);
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1C1812;
+      --paper-raised: #26201A;
+      --paper-dark: #302820;
+      --ink: #EDE3CF;
+      --ink-soft: #B7A88C;
+      --gold: #D2A44C;
+      --gold-soft: #E4C27C;
+      --indigo: #7C9FC6;
+      --indigo-soft: #9CB8D8;
+      --sage: #9BC28C;
+      --sage-bg: #263524;
+      --brick: #E09A9A;
+      --brick-bg: #3A2424;
+      --rule: rgba(237,227,207,0.16);
+      --shadow: rgba(0,0,0,0.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1C1812;
+    --paper-raised: #26201A;
+    --paper-dark: #302820;
+    --ink: #EDE3CF;
+    --ink-soft: #B7A88C;
+    --gold: #D2A44C;
+    --gold-soft: #E4C27C;
+    --indigo: #7C9FC6;
+    --indigo-soft: #9CB8D8;
+    --sage: #9BC28C;
+    --sage-bg: #263524;
+    --brick: #E09A9A;
+    --brick-bg: #3A2424;
+    --rule: rgba(237,227,207,0.16);
+    --shadow: rgba(0,0,0,0.4);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: inherit; }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Karla", -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  h1, h2, h3, .display {
+    font-family: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- attribution ribbon ---------- */
+  .attribution {
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 10px);
+    right: 14px;
+    z-index: 60;
+    font-family: "Karla", sans-serif;
+    font-size: 0.68rem;
+    line-height: 1.3;
+    color: var(--ink-soft);
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 4px 9px;
+    max-width: 150px;
+    text-align: right;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  @media (max-width: 640px) {
+    .attribution {
+      position: static;
+      margin: 8px auto 0;
+      max-width: none;
+      width: fit-content;
+      text-align: center;
+    }
+  }
+
+  /* ---------- layout shell ---------- */
+  .shell {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 60px;
+  }
+
+  header.masthead {
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+  }
+  .masthead .eyebrow-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+  .kicker {
+    font-size: 0.82rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  h1.title {
+    font-size: clamp(1.9rem, 4vw, 2.9rem);
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-top: 6px;
+    max-width: 62ch;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  @media (max-width: 780px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  nav.index {
+    position: sticky;
+    top: 18px;
+    border-right: 1px solid var(--rule);
+    padding-right: 18px;
+  }
+  @media (max-width: 780px) {
+    nav.index {
+      position: static;
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+      padding-right: 0;
+      padding-bottom: 14px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+  }
+  nav.index .index-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  @media (max-width: 780px) { nav.index .index-label { display: none; } }
+
+  .navbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-family: "Karla", sans-serif;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 8px 4px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    margin-left: -3px;
+    transition: color .15s, border-color .15s;
+  }
+  .navbtn:hover { color: var(--ink); }
+  .navbtn.active {
+    color: var(--ink);
+    border-left-color: var(--gold);
+    font-weight: 600;
+  }
+  @media (max-width: 780px) {
+    .navbtn {
+      white-space: nowrap;
+      border-left: none;
+      border-bottom: 3px solid transparent;
+      margin-left: 0;
+      padding: 6px 10px;
+    }
+    .navbtn.active { border-bottom-color: var(--gold); }
+  }
+
+  main { min-width: 0; }
+  section.pane { display: none; }
+  section.pane.active { display: block; }
+
+  .pane-head { margin-bottom: 18px; }
+  .pane-head h2 { font-size: 1.5rem; font-style: italic; }
+  .pane-head p { color: var(--ink-soft); font-size: 0.92rem; margin-top: 4px; max-width: 64ch; }
+
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .btn {
+    font-family: "Karla", sans-serif;
+    font-size: 0.86rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
+  }
+  .btn.primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn:disabled:hover { background: transparent; color: var(--ink); }
+  .btn.primary:disabled:hover { background: var(--gold); color: #fff; }
+
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .spacer { flex: 1; }
+
+  /* ---------- flashcards ---------- */
+  .flash-progress {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .flash-stage {
+    perspective: 1400px;
+    max-width: 520px;
+    margin: 0 auto 18px;
+  }
+  .flashcard {
+    position: relative;
+    height: 260px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flash-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 28px;
+    background: var(--paper-raised);
+    box-shadow: 0 2px 6px var(--shadow);
+  }
+  .flash-face.back { transform: rotateY(180deg); background: var(--paper-dark); }
+  .flash-face .tag {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .flash-face .known-mark {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 1rem;
+  }
+  .flash-face .term-text {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .flash-face .def-text {
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .flash-hint {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .flash-controls { justify-content: center; }
+
+  /* ---------- quiz ---------- */
+  .quiz-score {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .quiz-card { padding: 26px 28px; max-width: 640px; margin: 0 auto; }
+  .quiz-prompt-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .quiz-prompt {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+  .quiz-options { display: grid; gap: 10px; }
+  .quiz-option {
+    text-align: left;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: 12px 14px;
+    font-family: "Karla", sans-serif;
+    font-size: 0.92rem;
+    cursor: pointer;
+    color: var(--ink);
+    transition: border-color .15s, background .15s;
+  }
+  .quiz-option:hover { border-color: var(--gold-soft); }
+  .quiz-option.correct { background: var(--sage-bg); border-color: var(--sage); color: var(--ink); }
+  .quiz-option.incorrect { background: var(--brick-bg); border-color: var(--brick); color: var(--ink); }
+  .quiz-option:disabled { cursor: default; }
+  .quiz-feedback {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    min-height: 1.4em;
+  }
+  .quiz-feedback.correct { color: var(--sage); }
+  .quiz-feedback.incorrect { color: var(--brick); }
+  .quiz-actions { margin-top: 18px; justify-content: flex-end; }
+
+  /* ---------- cloze matching drill (drag & drop) ---------- */
+  .cloze-ai-note {
+    max-width: 900px;
+    margin: 0 auto 12px;
+    padding: 8px 14px;
+    border-left: 3px solid var(--indigo);
+    background: var(--paper-raised);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .wordbank-box {
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
+    z-index: 25;
+  }
+  .wordbank-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .wordbank-hint {
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .wordbank-chips { display: flex; flex-wrap: wrap; gap: 6px 8px; }
+  .wordbank-chip {
+    font-family: "Karla", sans-serif;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    background: var(--paper);
+    cursor: grab;
+    user-select: none;
+    transition: border-color .12s, background .12s, opacity .12s;
+  }
+  .wordbank-chip:hover { border-color: var(--gold-soft); }
+  .wordbank-chip.selected {
+    border-color: var(--gold);
+    background: var(--paper-dark);
+    box-shadow: 0 0 0 2px var(--gold-soft) inset;
+  }
+  .wordbank-chip.used {
+    opacity: 0.35;
+    text-decoration: line-through;
+    cursor: default;
+    pointer-events: none;
+  }
+  .wordbank-chip.dragging { opacity: 0.4; }
+  .chip-badge { color: var(--sage); font-weight: 700; }
+  .cloze-card { max-width: 900px; margin: 0 auto; padding: 26px 30px; }
+  .cloze-title {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .cloze-text {
+    font-size: 1.02rem;
+    line-height: 2.3;
+  }
+  .cloze-blank {
+    display: inline-block;
+    font-family: "Karla", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border-bottom: 2px solid var(--ink);
+    background: transparent;
+    color: var(--ink-soft);
+    margin: 0 2px;
+    min-width: 130px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color .12s, background .12s;
+  }
+  .cloze-blank.filled {
+    border: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .cloze-blank.dragover { border-color: var(--gold); background: var(--paper-dark); }
+  .cloze-blank.mastered {
+    background: var(--sage-bg);
+    border: 1px solid var(--sage);
+    color: var(--sage);
+    cursor: pointer;
+  }
+  .cloze-blank.mastered::after { content: " ✓"; }
+  .cloze-blank.correct { border-color: var(--sage); background: var(--sage-bg); color: var(--ink); }
+  .cloze-blank.incorrect { border-color: var(--brick); background: var(--brick-bg); color: var(--ink); }
+  .cloze-answer-reveal {
+    font-size: 0.78rem;
+    color: var(--brick);
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .match-status { text-align: center; margin-top: 18px; font-size: 0.92rem; color: var(--ink-soft); }
+  .match-status.done { color: var(--sage); font-weight: 600; }
+
+  /* ---------- concept quiz ---------- */
+  .cq-note {
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding: 10px 14px;
+    border-left: 3px solid var(--indigo);
+    background: var(--paper-raised);
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+  .cq-card {
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding: 20px 24px;
+  }
+  .cq-pts {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .cq-question {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 14px;
+  }
+  .cq-requirement {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--indigo);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-bottom: 14px;
+  }
+  .cq-textarea {
+    width: 100%;
+    min-height: 90px;
+    font-family: "Karla", sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    resize: vertical;
+  }
+  .cq-actions { margin-top: 10px; }
+  .cq-hint { font-size: 0.76rem; color: var(--ink-soft); margin-top: 6px; }
+  .cq-feedback { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .cq-thinking { color: var(--ink-soft); font-size: 0.88rem; font-style: italic; }
+  .cq-error { color: var(--brick); font-size: 0.88rem; }
+  .cq-feedback-text { font-size: 0.92rem; line-height: 1.5; margin-bottom: 10px; }
+  .cq-countcheck {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .cq-countcheck.cq-count-ok { background: var(--sage-bg); color: var(--sage); }
+  .cq-countcheck.cq-count-short { background: var(--brick-bg); color: var(--brick); }
+  .cq-countcheck.cq-count-over { background: var(--paper); color: var(--gold); border: 1px solid var(--gold-soft); }
+  .cq-covered, .cq-missing { font-size: 0.86rem; margin-bottom: 8px; }
+  .cq-covered ul, .cq-missing ul { margin: 4px 0 0; padding-left: 20px; }
+  .cq-covered strong { color: var(--sage); }
+  .cq-missing strong { color: var(--brick); }
+  .cq-keyideas {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--rule);
+    font-size: 0.86rem;
+  }
+  .cq-keyideas ul { margin: 6px 0 0; padding-left: 20px; }
+  .cq-keyideas li { margin-bottom: 5px; line-height: 1.4; }
+
+  /* ---------- short/long answer prep ---------- */
+  .essay-flag {
+    display: inline-block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--gold);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .accordion-item {
+    border-bottom: 1px solid var(--rule);
+  }
+  .accordion-item:first-child { border-top: 1px solid var(--rule); }
+  .accordion-head {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 16px 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: "Karla", sans-serif;
+    color: var(--ink);
+  }
+  .accordion-head .pts {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .accordion-head .q-text {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  .accordion-head .chev {
+    transition: transform .2s;
+    color: var(--gold);
+    font-size: 0.8rem;
+  }
+  .accordion-item.open .chev { transform: rotate(90deg); }
+  .accordion-body {
+    display: none;
+    padding: 0 4px 20px 4px;
+    color: var(--ink);
+  }
+  .accordion-item.open .accordion-body { display: block; }
+  .accordion-body ul { margin: 8px 0; padding-left: 22px; }
+  .accordion-body li { margin-bottom: 6px; line-height: 1.45; font-size: 0.93rem; }
+  .accordion-body .sub-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--indigo);
+    margin-top: 10px;
+    margin-bottom: 2px;
+  }
+
+  .mcq-callout {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border-left: 3px solid var(--indigo);
+    background: var(--paper-raised);
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 70ch;
+  }
+
+  .glossary-ask {
+    max-width: 1180px;
+    margin: 0 auto 22px;
+    padding: 18px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .glossary-ask-text {
+    flex: 1 1 420px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .glossary-ask-actions { flex: 0 0 auto; }
+
+  .glossary-toggle-row {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 780px) {
+    .glossary-toggle-row {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+  .glossary-toggle-link {
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 2px 9px;
+    font-family: "Karla", sans-serif;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .glossary-toggle-link:hover { border-color: var(--gold-soft); color: var(--ink); }
+
+  /* ---------- glossary ---------- */
+  /* ---------- practice MCQs ---------- */
+  .mcq-gate {
+    max-width: 760px;
+    margin: 0 auto 22px;
+    padding: 22px 26px;
+    border: 1px solid var(--brick);
+  }
+  .mcq-gate-title {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--brick);
+    margin-bottom: 10px;
+  }
+  .mcq-gate-text p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0 0 12px;
+    color: var(--ink);
+  }
+  .mcq-gate-text p:last-child { margin-bottom: 0; }
+  .mcq-reminder {
+    max-width: 900px;
+    margin: 0 auto 16px;
+    padding: 8px 14px;
+    border-left: 3px solid var(--brick);
+    background: var(--paper-raised);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .stimulus-box {
+    max-width: 900px;
+    margin: 0 auto 16px;
+    padding: 18px 22px;
+    background: var(--paper-dark);
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 40px);
+    z-index: 20;
+    box-shadow: 0 2px 8px var(--shadow);
+  }
+  .stimulus-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  #pmcqStimulusText {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    line-height: 1.5;
+  }
+  .mcq-rationale {
+    margin-top: 6px;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .mcq-wrong-line, .mcq-correct-line, .mcq-flag-line {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .mcq-wrong-line { color: var(--brick); }
+  .mcq-correct-line { color: var(--sage); }
+  .mcq-flag-line { color: var(--gold); font-style: italic; }
+
+  /* ---------- progress page ---------- */
+  .progress-summary {
+    max-width: 900px;
+    margin: 0 auto 16px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .progress-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .progress-table th {
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .progress-table td {
+    padding: 8px 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .progress-table tr:last-child td { border-bottom: none; }
+  .progress-tag {
+    display: inline-block;
+    font-size: 0.76rem;
+    padding: 2px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+  }
+  .progress-tag.yes { border-color: var(--sage); background: var(--sage-bg); color: var(--sage); }
+  .progress-tag.no { color: var(--ink-soft); }
+  .progress-tag.partial { border-color: var(--gold-soft); color: var(--gold); }
+
+  .glossary-search {
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    margin: 0 0 16px;
+    font-family: "Karla", sans-serif;
+    font-size: 0.92rem;
+    padding: 10px 14px;
+    border-radius: 5px;
+    border: 1px solid var(--rule);
+    background: var(--paper-raised);
+    color: var(--ink);
+  }
+  .glossary-item {
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .glossary-item:first-child { border-top: 1px solid var(--rule); }
+  .glossary-item .g-term {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  .glossary-item .g-def {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .glossary-empty {
+    padding: 20px 4px;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+  }
+
+  .footer-note {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+
+  ::-webkit-scrollbar { height: 8px; width: 8px; }
+  ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+
+  .cq-keyideas .sub-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--indigo); margin-top: 12px; margin-bottom: 2px; font-weight: 700; }
+  .ex-card { max-width: 900px; margin: 0 auto 22px; padding: 20px 24px; }
+  .ex-card h3 { font-size: 1.25rem; font-style: italic; color: var(--gold); margin-bottom: 6px; }
+  .ex-q { font-size: 0.92rem; margin-bottom: 12px; }
+  .ex-box { border-radius: 5px; padding: 12px 16px; margin: 8px 0 4px; font-size: 0.93rem; line-height: 1.55; color: var(--ink); }
+  .ex-box .ex-tag { display: block; font-size: 0.74rem; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 4px; }
+  .ex-poor { background: var(--brick-bg); border: 1px solid var(--brick); }
+  .ex-poor .ex-tag { color: var(--brick); }
+  .ex-good { background: var(--sage-bg); border: 1px solid var(--sage); }
+  .ex-good .ex-tag { color: var(--sage); }
+  .ex-why { font-size: 0.88rem; line-height: 1.55; margin: 4px 0 14px; color: var(--ink); }
+  .reading-note { border-left: 3px solid var(--gold); background: var(--paper-dark); padding: 10px 14px; font-size: 0.88rem; line-height: 1.5; margin: 8px 0 12px; }
+  .sample-label { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--sage); margin-top: 14px; margin-bottom: 6px; font-weight: 700; }
+  .samples { list-style: none; padding-left: 0; margin: 0; }
+  .samples li { background: var(--sage-bg); border-left: 3px solid var(--sage); padding: 8px 12px; margin-bottom: 8px; border-radius: 3px; font-size: 0.88rem; line-height: 1.5; }
+  .sample-warning { background: var(--brick-bg); border-left: 3px solid var(--brick); padding: 10px 14px; font-size: 0.88rem; line-height: 1.5; color: var(--ink); border-radius: 3px; }
+  #pmcqStimulusText { font-family: "Karla", sans-serif; font-style: normal; font-size: 0.93rem; line-height: 1.55; }
+  .stimulus-box { position: static; }
+  @media (min-width: 900px) { .stimulus-box { position: sticky; max-height: 40vh; overflow-y: auto; } }
+  /* ---------- typed answers ---------- */
+  .name-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .name-row label { font-weight: 700; font-size: 0.95rem; }
+  .name-input { font-family: "Karla", sans-serif; font-size: 0.92rem; padding: 8px 12px; border-radius: 5px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); min-width: 220px; max-width: 100%; }
+  .word-count { font-size: 0.82rem; color: var(--ink-soft); margin-top: 8px; }
+  .unlock-msg { font-size: 0.86rem; color: var(--ink-soft); margin-top: 8px; }
+  .unlock-msg.done { color: var(--sage); font-weight: 600; }
+  .review-note { font-size: 0.86rem; line-height: 1.5; margin-top: 12px; }
+  /* ---------- start here ---------- */
+  .start-total { display: flex; align-items: baseline; gap: 14px; padding: 16px 22px; margin-bottom: 14px; }
+  .start-total .big { font-family: "Cormorant Garamond", serif; font-size: 3rem; font-weight: 600; color: var(--gold); line-height: 1; }
+  .start-total .lbl { font-size: 1.05rem; font-weight: 600; }
+  .split-bar { display: flex; border-radius: 4px; overflow: hidden; height: 40px; margin-bottom: 8px; }
+  .split-bar .seg { display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 700; color: var(--paper); }
+  .split-caption { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 18px; }
+  .pt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 18px; }
+  .pt-card { padding: 18px 20px; border-top: 5px solid var(--accent); }
+  .pt-card .pts-big { font-family: "Cormorant Garamond", serif; font-size: 2rem; font-weight: 600; line-height: 1.1; }
+  .pt-card .pct { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 10px; }
+  .pt-card h3 { font-size: 1.2rem; font-style: italic; color: var(--accent); margin-bottom: 8px; }
+  .pt-card p { font-size: 0.9rem; line-height: 1.5; margin: 0 0 8px; }
+  .howto-card { padding: 18px 22px; margin-bottom: 18px; }
+  .howto-card h3 { font-size: 1.2rem; font-style: italic; color: var(--gold); margin-bottom: 10px; }
+  .howto-card ul { margin: 0; padding-left: 20px; }
+  .howto-card li { font-size: 0.9rem; line-height: 1.5; margin-bottom: 6px; }
+  .howto-card p { font-size: 0.9rem; line-height: 1.5; margin: 0 0 8px; }
+  .navbtn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .navbtn:disabled:hover { color: var(--ink-soft); }
+
+  /* ---------- unit 3 additions ---------- */
+  .sup-label { font-size: 0.78rem; letter-spacing: 0.04em; color: var(--brick); margin-top: 14px; margin-bottom: 2px; font-weight: 600; }
+  .sup-note { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; margin: 2px 0 6px; }
+  .saq-set { max-width: 900px; margin: 0 auto 22px; padding: 20px 24px; }
+  .saq-set-title { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.15rem; color: var(--gold); margin-bottom: 10px; }
+  .saq-stimulus { background: var(--paper-dark); border-radius: 5px; padding: 16px 20px; margin-bottom: 14px; font-size: 0.97rem; line-height: 1.6; }
+  .saq-attrib { text-align: right; font-size: 0.86rem; color: var(--ink-soft); margin-top: 10px; }
+  .saq-footnote { font-size: 0.82rem; color: var(--ink-soft); margin-top: 6px; }
+  .saq-flag { text-align: right; font-size: 0.74rem; font-style: italic; color: var(--brick); margin-top: 4px; }
+  .saq-instr { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 14px; }
+  .saq-part { padding-top: 14px; margin-top: 14px; border-top: 1px solid var(--rule); }
+  .saq-part:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+  .saq-score { font-size: 0.9rem; font-weight: 600; padding: 8px 12px; border-radius: 4px; margin-bottom: 10px; }
+  .saq-score.s2 { background: var(--sage-bg); color: var(--sage); }
+  .saq-score.s1 { background: var(--paper); color: var(--gold); border: 1px solid var(--gold-soft); }
+  .saq-score.s0 { background: var(--brick-bg); color: var(--brick); }
+  .test-format { margin-top: 12px; padding: 10px 14px; border-left: 3px solid var(--gold); background: var(--paper-raised); font-size: 0.86rem; line-height: 1.55; max-width: 76ch; }
+</style>
+</head>
+<body>
+
+<div class="attribution">Prepared with AI support, reviewed by Mr. Johnson</div>
+
+<div class="shell">
+
+  <header class="masthead">
+    <div class="eyebrow-row">
+      <span class="kicker">AP World History &nbsp;·&nbsp; Unit 3 Review</span>
+    </div>
+    <h1 class="title">Land-based Empires</h1>
+    <p class="subtitle">A study companion for the Unit 3 test — a glossary, prep for the key questions, a typed-answer concept quiz, short-answer practice, and extra multiple-choice practice.</p>
+    <div class="mcq-callout">
+      <strong>For the multiple-choice section:</strong> the best way to review is to complete the Unit 3 Progress Check on AP Classroom and read through the feedback it gives you. The Practice MCQs here are extra reps, not a replacement.
+    </div>
+  </header>
+
+    <div class="layout">
+    <nav class="index" id="navBar">
+      <div class="index-label">Study Sections</div>
+      <button class="navbtn active" data-pane="start">Start Here</button>
+      <button class="navbtn" data-pane="essay">Key Question Prep</button>
+      <button class="navbtn" data-pane="cq">Concept Quiz</button>
+      <button class="navbtn" data-pane="saq">SAQ Practice</button>
+      <button class="navbtn" data-pane="pmcq">Practice MCQs</button>
+      <button class="navbtn" data-pane="progress">My Progress</button>
+      <button class="navbtn" data-pane="glossary">Optional: Glossary</button>
+    </nav>
+
+    <main>
+      <!-- ================= KEY QUESTION PREP ================= -->
+      <section class="pane active" id="pane-start">
+        <div class="pane-head">
+          <h2>Start Here: How the Unit 3 Test Works</h2>
+          <p>Read this page first. It explains what the test looks like, what each part is worth, and how to use this tool. The other sections unlock when you have read it.</p>
+        </div>
+
+        <div class="card start-total">
+          <span class="big">25</span>
+          <span class="lbl">points: the whole test is worth 25 points, in 45 minutes</span>
+        </div>
+        <div class="split-bar">
+          <div class="seg" style="width:20%; background:var(--gold);">20%</div>
+          <div class="seg" style="width:48%; background:var(--indigo);">48%</div>
+          <div class="seg" style="width:32%; background:var(--sage);">32%</div>
+        </div>
+        <div class="split-caption">How the 25 points are split: multiple choice (gold, 20%), short answer (blue, 48%), and key questions (green, 32%).</div>
+
+        <div class="pt-grid">
+          <div class="card pt-card" style="--accent: var(--gold);">
+            <div class="pts-big">5 pts</div>
+            <div class="pct">20% of the test</div>
+            <h3>6 AP-style multiple-choice questions</h3>
+            <p>Each question is worth <strong>1 point</strong>.</p>
+            <p>If you get <strong>all 6 correct</strong>, you earn a <strong>bonus point</strong>.</p>
+            <p>Students with extra time (68 minutes): plan to be a little late to your next class, or skip the multiple choice, which will be taken later.</p>
+          </div>
+          <div class="card pt-card" style="--accent: var(--indigo);">
+            <div class="pts-big">12 pts</div>
+            <div class="pct">48% of the test</div>
+            <h3>Short-answer questions (SAQs)</h3>
+            <p><strong>Two sets of three questions</strong>, worth <strong>2 points each</strong>.</p>
+            <p>Partial credit can be earned on this test, even though that is not the case on the AP Exam.</p>
+          </div>
+          <div class="card pt-card" style="--accent: var(--sage);">
+            <div class="pts-big">8 pts</div>
+            <div class="pct">32% of the test</div>
+            <h3>Key questions</h3>
+            <p>These will be <strong>selected from the seven prompts</strong> in Key Question Prep, so prepare all seven.</p>
+            <p>The prompts are worth 2 to 4 points each. One asks you to compare the four empires on Culture, Governance, <em>or</em> Social Interactions, and it may ask for just one theme.</p>
+          </div>
+        </div>
+
+        <div class="card howto-card">
+          <h3>How to use this tool</h3>
+          <ul>
+            <li><strong>Key Question Prep:</strong> read the ideas from your class notes for each prompt, then build your own answer. They are a map, not a script. Question 7 is built around the Chua reading, so you may want to review it.</li>
+            <li><strong>Concept Quiz:</strong> write your own answer to each key question first, then compare it with the notes once they unlock.</li>
+            <li><strong>SAQ Practice:</strong> write your own answers to short-answer parts, then compare them with sample answers (AI-written, so check with your teacher if you’re unsure).</li>
+            <li><strong>Practice MCQs:</strong> extra multiple-choice reps. The best multiple-choice prep is still the Unit 3 Progress Check on AP Classroom.</li>
+            <li><strong>Optional: Glossary:</strong> a reference list at the bottom of the menu. Give most of your attention to the sections above it.</li>
+          </ul>
+          <p style="margin-top:12px;">Do most of your studying from your notes and Key Question Prep first, then use the quizzes to test yourself.</p>
+        </div>
+
+        <div class="card howto-card">
+          <h3>Group study</h3>
+          <p>Since you cannot bring anything into the test, you can do any kind of group study you choose, and it is encouraged. That includes sharing or creating a Quizlet or something similar. Just bear in mind that the person creating it is also helping themselves by studying through that process.</p>
+        </div>
+
+        <div class="row" style="justify-content:center; margin-top:6px;">
+          <button class="btn primary" id="startReadBtn">I’ve read this — unlock the study sections</button>
+        </div>
+      </section>
+
+      <section class="pane" id="pane-essay">
+        <div class="pane-head">
+          <h2>Key Question Prep</h2>
+          <p>These are the exact prompts from your review sheet. The 8-point Key Questions section of the test will be selected from this list, so prep all seven. Click one to reveal the ideas from your class notes — use them to build your own answer; they're a map, not a script.</p>
+        </div>
+        <div class="card" style="padding: 6px 18px;">
+          <div id="essayAccordion"></div>
+        </div>
+
+        <div class="pane-head" style="margin-top:32px;">
+          <h2>Also in your notes</h2>
+          <p>Not on the key-question list, but covered in your notes and fair game for the short-answer and multiple-choice sections.</p>
+        </div>
+        <div class="card" style="padding: 6px 18px;">
+          <div id="otherAccordion"></div>
+        </div>
+      </section>
+
+      <!-- ================= CONCEPT QUIZ ================= -->
+      <section class="pane" id="pane-cq">
+        <div class="pane-head">
+          <h2>Concept Quiz</h2>
+          <p>Write your own answer to each key question before you look at the notes. Once you've written enough, the completed notes unlock so you can compare your answer with them. This tool doesn't analyze what you type.</p>
+        </div>
+        <div class="card ex-card">
+          <h3>Read this first: what a strong answer looks like</h3>
+          <div class="ex-q"><strong>Example prompt (Question 1, 2 pts):</strong> How was the Russian empire similar to and different from those of the Spanish and British?</div>
+
+          <div class="ex-box ex-poor">
+            <span class="ex-tag">A POOR ANSWER</span>
+            “The Russian empire had a tax native peoples had to pay in furs. The British were a maritime empire.”
+          </div>
+          <div class="ex-why"><strong>Why it’s poor:</strong> it isn’t comparing or contrasting related things. Each sentence is about a different topic (a Russian tax, then British ships), so nothing is ever set side by side. Both facts might be true, but neither one answers “similar” or “different.”</div>
+
+          <div class="ex-box ex-good">
+            <span class="ex-tag">A BETTER ANSWER</span>
+            “In contrast to the Russian empire, which was a land-based empire, the British empire was a maritime-based empire. They were similar, however, in that their expansion led indigenous peoples to become exposed to diseases (like smallpox), which ended up leading to a lot of deaths for the indigenous peoples.”
+          </div>
+          <div class="ex-why"><strong>Why it’s better:</strong> each point names both empires and says what the <em>same feature</em> was for each (land-based vs. maritime; disease in both). It uses signal phrases like “in contrast” and “similar, however” so the reader can see the comparison. A 2-point question like this one is worth one contrast plus one similarity.</div>
+
+          <div class="ex-why" style="margin-bottom:0;"><strong>The key ideas under each comparison question are organized the same way:</strong> grouped as similarities and differences, with both sides of each comparison written out together.</div>
+
+          <div class="ex-why" style="margin:12px 0 0;"><strong>Heads-up on Question 7:</strong> “In what ways were the Ottoman, Mughal, and Ming empires and dynasties tolerant and intolerant?” is essentially asking you to process and remember the Chua reading (“Tolerance and Intolerance in the East,” from Amy Chua’s <em>Day of Empire</em>). You may want to review it before you answer, and look for one tolerant and one intolerant example for each empire.</div>
+        </div>
+        <div class="row" style="justify-content:center; margin:-6px 0 18px;">
+          <button class="btn primary" id="cqReadBtn">I’ve read this — start the Concept Quiz</button>
+        </div>
+        <div id="cqList" style="display:none;"></div>
+      </section>
+
+      <!-- ================= SAQ PRACTICE ================= -->
+      <section class="pane" id="pane-saq">
+        <div class="pane-head">
+          <h2>SAQ Practice</h2>
+          <p>These practice sets are modeled on AP short-answer questions: a short primary or secondary source with an attribution, then parts a), b), and c) that ask you to identify, explain, and connect the source to other developments. On the test you'll get two sets of three parts, 2 points each, with partial credit. Write your own answer in complete sentences first; once you've written enough, a button lets you reveal full sample answers so you can compare. Those samples are written by AI and may not actually earn credit, so check with your teacher if you’re unsure.</p>
+        </div>
+        <div class="mcq-reminder">Reminder: the stimulus passages below are AI-invented, not real historical quotations — don't cite them, and the attributions are generic, not real authors. The sample answers are built from your class notes and the Chua reading but are AI-written, so they may not actually earn credit — check with your teacher.</div>
+        <div id="saqList"></div>
+      </section>
+
+      <!-- ================= PRACTICE MCQs (AI-GENERATED) ================= -->
+      <section class="pane" id="pane-pmcq">
+        <div class="pane-head">
+          <h2>Practice MCQs (AI-Generated)</h2>
+          <p>Stimulus-based multiple choice, in the format the real AP exam uses — written by Claude to give you extra reps beyond the AP Classroom Progress Check.</p>
+        </div>
+
+        <div class="mcq-gate card" id="mcqGate">
+          <div class="mcq-gate-title">Please read before starting</div>
+          <div class="mcq-gate-text">
+            <p><strong>The passages introducing each set of questions ("stimuli") are invented.</strong> Claude wrote them to sound like a period document, but they are not real quotations from an actual historical source — don't cite them, don't assume the wording reflects a real text, and know that the attributions under them are generic, not real authors.</p>
+            <p><strong>This section is more error-prone than the rest of this study guide.</strong> The terms and key-question prep are built directly from your teacher's own class notes. These questions are AI-generated to mimic the AP question style, so specific facts, dates, and especially the wrong-answer choices could be subtly off.</p>
+            <p><strong>This is supplementary practice, not your primary MCQ prep.</strong> The best way to prepare for the actual multiple-choice section is still the Unit 3 Progress Check on AP Classroom and its feedback.</p>
+          </div>
+          <div class="row" style="justify-content:center; margin-top:14px;">
+            <button class="btn primary" id="mcqAckBtn">I understand — show the questions</button>
+          </div>
+        </div>
+
+        <div id="mcqBody" style="display:none;">
+          <div class="mcq-reminder">Reminder: the stimulus passages below are AI-invented, not real historical quotations, and this section is more error-prone than the rest of the guide — see the note above if you skipped it.</div>
+          <div class="quiz-score" id="pmcqScore"></div>
+          <div class="card stimulus-box" id="pmcqStimulusBox" style="display:none;">
+            <div class="stimulus-label">Stimulus</div>
+            <div id="pmcqStimulusText"></div>
+          </div>
+          <div class="card quiz-card">
+            <div class="quiz-prompt-label" id="pmcqSetLabel"></div>
+            <div class="quiz-prompt" id="pmcqPrompt"></div>
+            <div class="quiz-options" id="pmcqOptions"></div>
+            <div class="quiz-feedback" id="pmcqFeedback"></div>
+            <div class="row quiz-actions" style="justify-content:space-between;">
+              <button class="btn" id="pmcqPrev">&larr; Previous</button>
+              <button class="btn" id="pmcqNext">Next question &rarr;</button>
+            </div>
+          </div>
+          <div class="row" style="justify-content:center; margin-top:12px;">
+            <button class="btn" id="pmcqRestart">Restart all questions</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONCEPT GLOSSARY ================= -->
+      <section class="pane" id="pane-glossary">
+        <div class="pane-head">
+          <h2>Glossary (optional)</h2>
+          <p>Every term from your notes and readings in one place. Terms tagged “Key term” are the official definitions from your key-terms lists; the rest are background from your comparison chart, video notes, and the Chua reading that help with the short-answer and key questions.</p>
+        </div>
+        <div class="cq-note">This is an optional reference list. The test rewards explaining and comparing, not defining terms, so most of your study time should go to Key Question Prep, the Concept Quiz, SAQ Practice, and the Practice MCQs. Use the glossary only to look up a term you're stuck on.</div>
+        <input type="text" id="glossarySearch" class="glossary-search" placeholder="Search the glossary…">
+        <div class="card" style="padding: 6px 18px;">
+          <div id="glossaryList"></div>
+        </div>
+      </section>
+
+      <!-- ================= MY PROGRESS ================= -->
+      <section class="pane" id="pane-progress">
+        <div class="pane-head">
+          <h2>My Progress</h2>
+          <p>Your running score on the Practice MCQs this visit.</p>
+        </div>
+        <div class="progress-summary" id="progressSummary"></div>
+        <div class="row" style="justify-content:center; margin-top:14px;">
+          <button class="btn" id="progressResetBtn">Reset all progress</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="footer-note">
+    Term definitions, key-question prep, and the glossary come from the class's own Unit 3 notes, review sheet, and the Chua reading on tolerance and intolerance (tagged “Chua reading” where used). The Practice MCQs and SAQ stimuli are AI-written practice material; items marked "not in your notes" are general background added to fill gaps — if anything looks off, cross-check it against your original documents before the test.
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============ DATA ============ */
+  /* Definitions come straight from the key-terms lists in the class's Unit 3 notes. */
+  const TERMS = [
+    ["Colonialism", "“the practice of extending and maintaining a nation’s political and economic control over another people or area” (m-w.com)"],
+    ["Imperialism", "“state policy, practice, or advocacy of extending power and dominion, especially by direct territorial acquisition or by gaining political and economic control of other areas. Because it always involves the use of power, whether military or economic or some subtler form, [it] has often been considered morally reprehensible, and the term is frequently employed in international propaganda to denounce and discredit an opponent’s foreign policy.” (EB)"],
+    ["Conquistador", "A Spanish soldier of the 16th and 17th centuries that explored the Americas as well as conquered the Natives that lived there."],
+    ["Hernan Cortes", "Spanish conquistador who led the expedition that conquered the Aztec Empire in modern Mexico."],
+    ["The Great Dying", "Term used to describe the devastating demographic impact of European-borne epidemic diseases on the Americas; in many cases, up to 90 percent of the pre-Columbian population died."],
+    ["The Little Ice Age", "A period of unusually cool temperatures from the thirteenth to nineteenth centuries, most prominently in the Northern Hemisphere."],
+    ["General Crisis", "The near-record cold winters experienced in much of China, Europe, and North America in the mid-seventeenth century, sparked by the Little Ice Age; extreme weather conditions led to famines, uprisings, and wars."],
+    ["Mughal Empire", "A successful state founded by Muslim Turkic-speaking peoples who invaded India and provided a rare period of relative political unity (1526–1707); their rule was noted for efforts to create partnerships between Hindus and Muslims. (Strayer)"],
+    ["Akbar", "“The most famous emperor of India’s Mughal Empire (r. 1556–1605); his policies are noted for their efforts at religious tolerance and inclusion” (Strayer)"],
+    ["Suttee (sati)", "The Indian custom of a wife immolating herself either on the funeral pyre of her dead husband or in some other fashion soon after his death. Although never widely practiced, suttee was the ideal of womanly devotion held by certain Brahman and royal castes. (EB)"],
+    ["Jizya", "Special tax paid by dhimmis (protected but second-class subjects) in Muslim-ruled territory in return for freedom to practice their own religion. (Strayer)"],
+    ["Aurangzeb", "Mughal emperor (r. 1658–1707) who reversed his predecessors’ policies of religious tolerance and attempted to impose Islamic supremacy. (Strayer)"],
+    ["Ottoman Empire", "Major Islamic state centered on Anatolia that came to include the Balkans, parts of the Middle East, and much of North Africa; lasted in one form or another from the fourteenth to the early twentieth century. (Strayer)"],
+    ["Sultan", "“a king or sovereign especially of a Muslim state” (m-w.com)"],
+    ["Ottoman seizure of Constantinople", "The city of Constantinople, the capital and almost the only outpost left of the Byzantine Empire, fell to the army of the Ottoman sultan Mehmed II “the Conqueror” in 1453, an event that marked the end of Christian Byzantium. (Strayer)"],
+    ["Jihad", "In Islam, a meritorious struggle or effort. The exact meaning of the term jihad depends on context; it has often been erroneously translated in the West as “holy war.” Jihad, particularly in the religious and ethical realm, primarily refers to the human struggle to promote what is right and to prevent what is wrong. (EB)"],
+    ["Devshirme", "A term that means “collection or gathering”; it refers to the Ottoman Empire’s practice of removing young boys from their Christian subjects and training them for service in the civil administration or in the elite Janissary infantry corps. (Strayer)"]
+  ].map(([term, def], i) => ({ id: i, term, def }));
+
+  /* Background terms drawn from the class's comparison chart and video notes. */
+  const BACKGROUND = [
+    ["Gunpowder empires", "A label for the Ottoman, Safavid, and Mughal empires — empires for which gunpowder was crucial to their rise to power. The Ottomans used cannons and gunpowder weapons in their wars of conquest, which helped them capture Constantinople."],
+    ["Janissaries", "The elite infantry corps of the Ottoman Empire, built from Christian boys taken through the devshirme and loyal only to the sultan."],
+    ["Millet", "An administrative unit the Ottomans divided their empire into in order to rule over a diverse, multi-religious territory."],
+    ["Dhimmi", "“Protected but second-class” subjects of a Muslim-ruled state, such as Christians and Jews, who paid the jizya in return for freedom to practice their own religion."],
+    ["Yasak", "Tribute demanded by Russia from conquered peoples, often paid in fur in Siberia."],
+    ["Soft gold", "A nickname for fur, which was in great demand because of the Little Ice Age and drew Russians eastward into Siberia."],
+    ["Qing dynasty (Manchu)", "A “foreign and nomadic” dynasty from Manchuria — which is why it is also called the Manchu dynasty. It rose as the Ming fell, greatly expanded China’s borders to the north and west (seizing former tribute states like Tibet), and adopted Confucianism as its official ideology to legitimize its rule as foreigners."],
+    ["Peter the Great", "Russian ruler who drove Westernization through major improvements to Russia’s administration, military, and the education of nobles."],
+    ["Catherine the Great", "Russian ruler remembered as religiously tolerant, even though other rulers targeted Islam and Orthodox Christianity was the official religion."],
+    ["Autocracy (Russia)", "Government by a single ruler with unchecked power; the Russian government became (and remains) autocratic in character."],
+    ["Nur Jahan", "Wife of the Mughal emperor Jahangir and an example of an elite woman who held considerable political power."],
+    ["Suleiman the Magnificent", "Sixteenth-century Ottoman sultan whose reign marked the high point of Ottoman power: he took valuable territory crucial to trade, made the Ottomans a huge naval power, and ruled a very wealthy empire."],
+    ["Venice", "A city-state built on little islands that became a city of shipbuilding. It became the biggest European power in the Mediterranean through trade (including a special relationship with Egypt, where it obtained pepper, and trade in grain via the Ottomans) and was a republic rather than an empire."],
+    ["Westernization", "Efforts, prompted by contact with Europe, to adopt European ways in order to avoid seeming backward — as in Russia under Peter the Great."],
+    ["Peoples of the Book", "In Islam, Christians and Jews — fellow monotheists whose writings were considered to contain elements of revelation — who were permitted to keep worshipping as long as they recognized the supremacy of Islam. (Chua reading)"],
+    ["Askeri", "The ruling class at the top of the Ottoman hierarchy, open almost exclusively to Muslims, though almost anyone who converted could join; the most promising devshirme recruits were prepared for entry, and those who did not make it became Janissaries. (Chua reading)"],
+    ["Zheng He", "A Chinese Muslim eunuch admiral who led the Ming dynasty’s seven treasure-ship voyages through the Indian Ocean in the early fifteenth century under Emperor Yongle; his men traded and exchanged gifts rather than plundering. The voyages ended and the records of them were destroyed. (Chua reading)"],
+    ["Babur", "Founder of the Mughal Empire (ruled 1526–30), a descendant of Genghis Khan who called his war against the Hindu Rajputs a jihad; his men’s firearms helped him win. (Chua reading)"],
+    ["Din-i-Ilahi", "Akbar’s attempted “order of faith,” supposedly blending Islam, Hinduism, and Zoroastrianism and demanding loyalty to Akbar himself; it found few takers and outraged orthodox Muslim leaders. (Chua reading)"],
+    ["Shah Jahan", "Mughal emperor famous for building the Taj Mahal; he still allowed non-Muslims to practice their religion but was more orthodox than his predecessors, banning non-Muslims from repairing or building new temples. (Chua reading)"]
+  ].map(([term, def], i) => ({ id: i, term, def, key: false }));
+  const GLOSSARY = TERMS.map(t => ({ id: t.id, term: t.term, def: t.def, key: true })).concat(BACKGROUND)
+    .sort((a, b) => a.term.localeCompare(b.term));
+
+  /* Key questions from the review sheet. `points` come from the class notes;
+     `suppl` are general-background additions (not in the notes), shown separately. */
+  const ESSAY_QUESTIONS = [
+    {
+      pts: "2 pts",
+      requirement: { type: "count", min: 2, max: 2 },
+      q: "How was the Russian empire similar to and different from those of the Spanish and British?",
+      points: [
+        "## Similarities (say what each empire did, then connect them)",
+        "Disease — Russia: smallpox and measles had a devastating effect on pastoral peoples in Siberia. Spanish and British: European germs and diseases decimated Native American society after society (the Great Dying, up to 90 percent). Both empires’ expansion exposed Indigenous peoples to diseases they had no immunity to.",
+        "Economic motive — Russia: pushed east in search of “soft gold” (fur), in great demand because of the Little Ice Age, and demanded tribute (yasak) paid in fur. Spanish and British: Europeans were powerfully motivated to gain access to the wealth of Eurasian commerce, and monarchs and merchants had strong motives for empire building. Both empires were driven by the pursuit of wealth.",
+        "Religion — Russia: pressured conquered peoples to convert to Christianity. Spanish and British: Christian missionaries were among the groups motivated to build empire in the Americas. Both pushed Christianity on the peoples they conquered.",
+        "## Differences (same feature, opposite results)",
+        "Geography — Russia: a huge land empire that expanded across a connected landmass (south and southeast out of security concerns, fear of Mongol-like raiders). Spanish and British: maritime empires, carved out an ocean away from home with the help of European seafaring technology.",
+        "Religious pressure — Russia: pressure to convert was off and on. Spanish and British (the Americas): the pressure was more intense — your notes say Russia’s was “not as intense as in the Americas.”",
+        "Incorporation of native peoples — Russia: native peoples had to make an oath of obedience to the Russian tsar, and Russian migration across the empire gave new lands a “distinctly Russian character.”"
+      ],
+      suppl: [
+        "The Spanish empire centered on extracting wealth such as silver (for example at Potosí) with coerced Indigenous labor, while British colonies in North America such as Jamestown and New York grew as settler colonies of farming and trade."
+      ]
+    },
+    {
+      pts: "2 pts",
+      requirement: { type: "count", min: 2, max: 2 },
+      q: "To what extent were the creation of the Asian Empires like Qing, Mughal and Ottoman similar to those built by the Europeans in the Americas?",
+      points: [
+        "## Similarities (Asian empires and European empires in the Americas)",
+        "Gunpowder — Mughal and Ottoman: “gunpowder empires” (Ottoman cannons helped capture Constantinople). Europeans in the Americas: gunpowder weapons, ironworking, and horses had no parallel in the Americas. Both used gunpowder-age military advantages to conquer. (Chua reading: Babur’s men had firearms while the Hindu Rajputs did not, which helped him win the Battle of Khanua.)",
+        "Rulers unlike the ruled — Mughal: Muslim rulers over a Hindu majority. Ottoman: ruled a large Christian population in the Balkans. Qing: a foreign Manchu dynasty ruling Chinese. Europeans: ruled Native peoples in the Americas. In every case a small ruling group governed peoples of a different culture or religion.",
+        "Coercion — Mughal: conquests of India were particularly brutal. Ottoman: forced Christian boys into state service through the devshirme and taxed Christians and Jews through the jizya. Europeans: conquest and disease decimated Native societies. All involved force against conquered peoples.",
+        "## Differences",
+        "Accommodation — Ottoman: ruled through millets and let Christian elites join the Ottoman elite (sometimes without converting). Qing: let conquered peoples (Tibet, Xinjiang) keep their own cultures. Europeans in the Americas: their conquests saw society after society decimated rather than incorporated.",
+        "Accommodation (Chua reading) — Mughal: Akbar married into the families of Hindu Rajput rivals, let a Hindu wife keep her faith inside his palace, and made Rajputs generals and administrators. Ottoman: Jews and Christians ran their own communities and could join Muslim trade guilds. Europeans in the Americas: nothing comparable appears in your notes.",
+        "Distance — Qing: expanded by land into neighboring regions to the north and west. Europeans in the Americas: built their empires across an ocean."
+      ],
+      suppl: [
+        "Different — disease: the peoples of Asian empires already lived inside the Afro-Eurasian disease zone, so conquest there was not accompanied by a population collapse like the Great Dying in the Americas."
+      ]
+    },
+    {
+      pts: "3 pts",
+      requirement: { type: "count", min: 3, max: 3 },
+      q: "Compare and contrast the Qing, Russian, Mughal and Ottoman Empires in terms of Culture, Governance OR Social Interactions. (The real question may ask for one theme only.)",
+      points: [
+        "## Culture",
+        "SIMILAR: all four ruled peoples whose religion or culture differed from their rulers’ — Muslim Mughals over a Hindu majority, Muslim Ottomans over Christians in the Balkans, Orthodox Christian Russians over Siberian peoples, and the foreign Manchu Qing over Chinese.",
+        "DIFFERENT — treatment of religion: the Mughals swung from toleration (Akbar ended the jizya) to intolerance (Aurangzeb made Islam the official faith); the Ottomans accommodated Christians but taxed them through the jizya; the Russians pressured conquered peoples to convert, off and on (Catherine the Great was religiously tolerant, though other rulers targeted Islam); the Qing left conquered peoples such as Tibet and Xinjiang largely free to keep their own cultures.",
+        "DIFFERENT — legitimacy: the Qing adopted Confucianism as their official ideology and practiced Confucian ceremonies to legitimize their rule as foreigners, whereas Akbar tried to create a new, syncretized religion of his own.",
+        "DIFFERENT — how toleration looked in practice (Chua reading): Akbar married Hindu Rajput princesses, let Jodhabai remain Hindu and worship at a shrine in his palace, and built a hall for religious debates among Muslim, Hindu, Jain, Parsi, and Jesuit participants; the Ottomans let Jews and Christians worship and run their own communities (non-Muslims paid special taxes) as long as they recognized Islam’s supremacy.",
+        "## Governance",
+        "SIMILAR — outsider origins: the Qing were a “foreign and nomadic” dynasty from Manchuria and the Mughals were Turkic Muslims who traced their lineage to Genghis Khan, so both were ruling dynasties that came from outside the lands they conquered.",
+        "SIMILAR — expansion: the Russians expanded south and southeast out of security concerns (fear of Mongol-like raiders), and the Qing greatly expanded north and west, seizing former tribute states like Tibet; both built huge land empires.",
+        "DIFFERENT — how rulers kept control: the Ottomans divided the empire into millets and used the devshirme to build an army (Janissaries) and bureaucracy loyal only to the sultan; the Russians required an oath of obedience to the tsar, and their government became (and remains) autocratic; Akbar tried to create a state cult centered on himself.",
+        "DIFFERENT — reform: Peter the Great drove Westernization of Russia’s administration, military, and the education of nobles; your notes record no comparable Westernization drive for the Qing, Mughals, or Ottomans.",
+        "DIFFERENT — loyal officials (Chua reading): Akbar won the loyalty of Rajput warriors through marriage alliances and made them generals and administrators; the Ottomans trained Christian-born boys (converted to Islam, celibate “slaves of the state”) as Janissaries and officials, and all but one of Suleyman’s nine grand viziers were former Christian slaves.",
+        "## Social Interactions",
+        "SIMILAR — women in the Islamic empires: under the Mughals, Akbar took away some restrictions on Hindu women and discouraged sati and child marriage, and elite women like Nur Jahan (wife of Jahangir) held considerable political power; under the Ottomans, Jewish and Christian women saw their property rights increase under Islamic law.",
+        "DIFFERENT — mobility and elites: in the Ottoman Empire the devshirme offered Christian boys upward mobility and Christian elites became part of the Ottoman elite (sometimes without converting); in Russia and under the Qing, takeover had the opposite effect on Central Asia, making it “the backward and impoverished region” of the world and permanently eliminating nomadic pastoralists as a major actor on the historical stage.",
+        "SIMILAR — merit and mobility (Chua reading): both the Mughals (four of Akbar’s “nine jewels” were Hindu, including his finance minister and military commander) and the Ottomans (converts could rise almost without limit, and some non-Muslims were among the wealthiest people in major cities) opened important positions to talented people outside the ruling group.",
+        "SIMILAR — Russia and the Qing: contact with Europe led Russia to Westernize to avoid seeming backward, and the Russian and Qing takeovers together reshaped Central Asia."
+      ],
+      suppl: []
+    },
+    {
+      pts: "2 pts",
+      requirement: { type: "count", min: 2, max: 2 },
+      q: "What were the most crucial effects of the trading relationship that existed between the Venetians and the Ottomans?",
+      points: [
+        "Venice became super rich, which helped fuel the start of the European Renaissance.",
+        "It established firm connections between the Ottoman and European worlds, which among other things continued to facilitate the flow of ideas, especially Greek learning preserved by Muslims.",
+        "It forced other European powers to look for different ways and paths to the riches of the East: the Portuguese sailed south around the cape, and the Spanish sailed west and hit the Americas.",
+        "Background — why the relationship worked: the Ottomans controlled the flow of trade, while the Venetians were master shipbuilders, sailors, and traders; the Venetians did the trading and shipping and the Ottomans taxed them, so everybody made money. (Venice was a city built on little islands, which became a city of shipbuilding, and a republic rather than an empire.)"
+      ],
+      suppl: []
+    },
+    {
+      pts: "4 pts",
+      requirement: { type: "count", min: 4, max: 4, extraNote: "Your homework asked for at least three; the test version is worth 4 points, so prepare at least four distinct developments." },
+      q: "What historical developments enabled Europeans to carve out huge empires an ocean away from their homelands?",
+      points: [
+        "Europeans were much closer to the Americas than were their potential Asian competitors.",
+        "Europeans were powerfully motivated after 1200 to gain access to the world of Eurasian commerce, especially given how the Ottomans and the Venetians controlled and taxed that trade.",
+        "Groups within European society — monarchs, merchants, missionaries, and persecuted minorities — all had strong, if different, motivations for participating in empire building.",
+        "European states and trading companies enabled the effective mobilization of both human and material resources.",
+        "European seafaring technology, built on Chinese and Islamic precedents, allowed Europeans to cross the Atlantic with growing ease.",
+        "European ironworking technology, gunpowder weapons, and horses initially had no parallel in the Americas.",
+        "Divisions within and between local societies provided allies for European invaders.",
+        "European germs and diseases to which Native Americans had no immunities decimated society after society, sometimes in advance of the Europeans’ actual arrival."
+      ],
+      suppl: []
+    },
+    {
+      pts: "2 pts",
+      requirement: { type: "count", min: 2, max: 2 },
+      q: "What historical factors made indigenous peoples in the Americas more susceptible to diseases brought over from Europe?",
+      points: [
+        "Native Americans had never been exposed to these pathogens before and had not developed resistance to them.",
+        "A lack of large domesticated animals provided less opportunity to develop immunity from diseases that jump the species barrier.",
+        "Result (good for supporting detail): the Great Dying — in many cases up to 90 percent of the pre-Columbian population died, sometimes before Europeans even arrived."
+      ],
+      suppl: []
+    },
+    {
+      pts: "3 pts",
+      requirement: { type: "count", min: 3, max: 3 },
+      q: "In what ways were the Ottoman, Mughal, and Ming empires and dynasties tolerant and intolerant?",
+      readingNote: "This question is essentially asking you to process and remember the Chua reading — “Tolerance and Intolerance in the East: The Ottoman, Ming, and Mughal Empires” (Amy Chua, Day of Empire). You may want to review it before you answer. Points below marked “Notes” come from your class notes; the rest come from the reading.",
+      points: [
+        "## The big idea in the Chua reading",
+        "Chua argues that in all three cases the empire reached its peak of power and prosperity during its most tolerant era, and that intolerance acted like a cancer, limiting the empire’s success and speeding its decline. Use this as the frame for a strong answer.",
+        "## Ottoman Empire",
+        "Tolerant: Christians and Jews (“Peoples of the Book”) were allowed to keep worshipping and to run their own communities as long as they recognized Islam’s supremacy, and non-Muslims paid special taxes based on ability to pay that were not especially onerous. Notes: the Ottomans ruled a large Christian population in the Balkans and divided the empire into millets.",
+        "Tolerant (golden age under Suleyman the Magnificent, 1520–1566): few restrictions on where Jews and Christians could live and work; they joined Muslim trade guilds and could sue Muslims in Muslim courts; some of the wealthiest people in major cities were non-Muslims; and Sultan Bayezid II welcomed Jews expelled from Spain in 1492, who brought trade networks and technology.",
+        "Tolerant: Muslim converts were embraced — converts were as good as natural-born Muslims and could rise by merit, as the Janissaries and Suleyman’s grand viziers (all but one of nine were former Christian slaves) show. Notes: Christian elites became part of the Ottoman elite, sometimes without converting, and Jewish and Christian women’s property rights increased.",
+        "Intolerant: a clear religious hierarchy — Islam was supreme, Christians and Jews always ranked below Muslims, and no subjects had political rights. Symbolic restrictions (clothing colors, no riding horses, no new houses of worship) existed on paper but were often ignored or laxly enforced. Notes: Christians and Jews had to pay the jizya.",
+        "Intolerant: the devshirme — each year boys (about 8 to 20) were taken from conquered Christian lands, cut off from their families, converted, and bound to celibacy and lifetime service as “slaves of the state.” Some families saw it as the worst oppression; others saw upward mobility.",
+        "Intolerant (decline after Suleyman): his successors failed to keep up his tolerance — freedom of thought (including Shiite thought) was suppressed, the printing press was banned, merchants faced religious criticism and unpredictable taxes, exporting goods was forbidden, and Jews were attacked (the number of Jewish court physicians fell from forty-one to four, and in 1688 Janissaries burned the Jewish quarter of Belgrade). The empire’s final collapse was accompanied by horrific intolerance, including the Armenian genocide.",
+        "## Mughal Empire",
+        "Intolerant start: Babur, the founder (a descendant of Genghis Khan), rode to power on bloody zealotry, calling his war against the Hindu Rajputs a jihad.",
+        "Tolerant (golden age under Akbar, 1556–1605): about 85 percent of subjects were non-Muslim, so toleration helped hold the empire together. Akbar married into the families of Rajput rivals (letting his wife Jodhabai remain Hindu and worship in his palace), made Rajputs generals and administrators, included Hindus among his closest courtiers (four of the “nine jewels”), and built a hall for debates among Muslim, Hindu, Jain, Parsi, and Jesuit participants.",
+        "Tolerant: Akbar let non-Muslims repair and build temples, let Hindus who had been forced to convert to Islam reconvert, celebrated Diwali, and abolished the jizya in 1579. Notes: he tried to create a new syncretized religion (Din-i-Ilahi), which found few takers and angered orthodox Muslims, and he discouraged sati and child marriage. His next two successors generally continued his tolerance.",
+        "Intolerant (decline): Shah Jahan was more orthodox and banned non-Muslims from repairing or building new temples; Aurangzeb (r. 1658–1707) imposed Sharia, razed thousands of Hindu temples, banned non-Muslim ceremonies (no Diwali at court), redistributed land from Hindu institutions to Muslim clerics, and revived the jizya in 1679.",
+        "Intolerant — the consequences: Aurangzeb’s persecution hurt business (eight thousand Hindu trading families left Surat), provoked Sikh militarism after his campaign against Sikhism, and fueled Maratha and Rajput resistance; constant warfare left the empire bankrupt, and the hatreds he sowed left India open to British divide-and-conquer.",
+        "## Ming China",
+        "Open/tolerant (early fifteenth century): under Emperor Yongle, the Chinese Muslim eunuch admiral Zheng He led seven treasure-ship voyages (hundreds of giant ships and tens of thousands of men) through the Indian Ocean; his men did not plunder but traded, exchanging symbolic gifts for exotic goods. Yongle chose him because of his familiarity with foreign customs.",
+        "Intolerant/inward (before and after): the Ming founder banned “foreign” hairstyles and clothing at court and repeatedly banned overseas voyages by private merchants; after Yongle died (1424) the voyages stopped, building oceangoing ships was banned, and the records of the expeditions were destroyed, in part because conservative Confucian officials were hostile to commerce.",
+        "Intolerant: after a Mongol victory at Tumu in 1449, the Ming grew more xenophobic — seeing China as the only civilized society surrounded by dangerous barbarians, rebuilding the Great Wall, banning foreign trade and contact, and by 1500 forbidding subjects to build seagoing ships or leave the country.",
+        "Consequence: by 1600 China had fallen far behind Europe technologically, militarily, and commercially, ceding the world’s oceans to the Europeans; the Ming fell in 1644 to the Manchus.",
+        "## Putting it together",
+        "Strong-answer idea: use the same pattern for each empire — a peak in a tolerant era and decline with intolerance. Ottoman: Suleyman vs. his successors. Mughal: Akbar vs. Aurangzeb. Ming: Zheng He’s voyages vs. the inward turn. Giving one tolerant and one intolerant example for each of the three empires covers a 3-point answer."
+      ],
+      suppl: []
+    }
+  ];
+
+  const OTHER_NOTES = [
+    {
+      pts: "Notes",
+      q: "The Little Ice Age and the General Crisis",
+      points: [
+        "When: the 13th–19th centuries; the seventeenth century was particularly bad.",
+        "Political effects in the seventeenth century: the English revolution (1640, 1689); peasant uprisings in Italy; the fall of the Ming and rise of the Qing; a succession crisis in the Ottoman Empire; wars between colonists and Native Americans in America; Mughal wars of succession (civil war); the Thirty Years War.",
+        "Why people were vulnerable: dependence on agriculture meant even a slight change in temperature affected the amount of food available, which meant more hunger.",
+        "Specific effects of colder temperatures: reduced yields of things like rice; fewer days when crops can ripen; increased risk of failed harvest.",
+        "There was more of, in large part because of bad harvests: wars, taxes on the poor, widows, women heads of households, postponed marriages, infanticides, and suicides.",
+        "Connections: the demand for fur (“soft gold”) that drew Russians east was due to the Little Ice Age, and the Little Ice Age and General Crisis contributed to the fall of the Ming and rise of the Qing.",
+        "The gist: climate change changes history."
+      ]
+    }
+  ];
+
+  /* SAQ practice sets: AP-style. Each has an invented source passage (flagged to students)
+     with an attribution, then parts (a)-(c). Ideas come from class notes and the Chua reading. */
+  const SAQ_SETS = [
+    {
+      title: "Practice SAQ 1 \u00b7 Secondary source",
+      stimulus: ["\u201cThe seventeenth century is remembered for its revolutions and its wars, but it was also a century of unusual cold. Across Eurasia and the Americas, growing seasons shortened and harvests failed. Governments whose revenues rested almost entirely on what farmers could produce found themselves unable to pay their armies or to feed their cities, and local grievances that might once have been contained spread quickly into general crises.\u201d"],
+      attribution: "Historian, book on climate and society in the early modern world, published in 2013",
+      parts: [
+        { label: "a)", q: "Identify ONE specific political development in the seventeenth century that historians connect to the climatic conditions described in the passage.", ideas: ["The English revolution (1640, 1689)", "Peasant uprisings in Italy", "The fall of the Ming dynasty and the rise of the Qing", "A succession crisis in the Ottoman Empire", "Wars between colonists and Native Americans", "Mughal wars of succession (civil war)", "The Thirty Years War"], samples: ["One political development connected to the cooling is the fall of the Ming dynasty in China and the rise of the Qing, since the famine and unrest of the General Crisis helped weaken the Ming.", "The English revolution of 1640 is one political development historians link to the cold, hunger, and unrest of the seventeenth century.", "Peasant uprisings in Italy are one example, because poor harvests caused by colder temperatures led to hunger and rebellion."] },
+        { label: "b)", q: "Explain how ONE economic characteristic of societies in the seventeenth century made them vulnerable to the climatic conditions described in the passage.", ideas: ["Economies depended heavily on agriculture", "So even a slight change in temperature affected the amount of food available, which meant more hunger", "Reduced yields of crops like rice, fewer days when crops can ripen, and an increased risk of failed harvest"], samples: ["Societies in the seventeenth century depended heavily on agriculture, so even a small drop in temperature reduced the amount of food available, which meant more hunger.", "Because most people’s food, and the revenue of their governments, came from farming, colder weather that reduced yields, shortened the days when crops could ripen, and raised the risk of failed harvests hit whole societies at once."] },
+        { label: "c)", q: "Explain ONE way in which the climatic conditions described in the passage influenced the rise or expansion of an empire in the period 1450\u20131750.", ideas: ["Russians went east in search of fur (\u201csoft gold\u201d), which was in great demand because of the Little Ice Age", "The Little Ice Age and General Crisis contributed to the fall of the Ming and the rise of the Qing, which then greatly expanded China\u2019s borders"], samples: ["Colder weather increased the demand for fur, called “soft gold,” so Russians expanded eastward into Siberia in search of fur and built a huge land empire.", "The Little Ice Age and the General Crisis, with their famine and unrest, contributed to the fall of the Ming dynasty, which allowed the Qing to rise and greatly expand China’s borders to the north and west."] }
+      ]
+    },
+    {
+      title: "Practice SAQ 2 \u00b7 Primary source",
+      stimulus: ["\u201cHis Majesty ordered a hall of worship to be built, and commanded that learned men of every creed\u2014doctors of the law, Brahmans, monks, priests from the Portuguese settlement at Goa, and fire-worshippers\u2014should assemble there and dispute before him. In the same year he abolished the tax that had been taken from those who were not of the Faith, saying that a king is the shadow of God over all his subjects and not over one sect alone.\u201d"],
+      attribution: "Court chronicler of a Mughal emperor, history of the reign, circa 1590",
+      parts: [
+        { label: "a)", q: "Identify ONE policy of the ruler described in the passage that illustrates his approach toward his non-Muslim subjects.", ideas: ["He abolished the jizya, the tax paid by non-Muslims (Akbar ended it in 1579)", "He built a hall for debates among people of many faiths", "All belief systems were tolerated under Akbar; he also attempted to create a new, syncretized religion", "He let non-Muslims repair and build temples and celebrated Diwali (Chua reading)"], samples: ["The ruler abolished the jizya, the tax paid by non-Muslims, which showed that he treated his non-Muslim subjects more equally.", "He built a hall where Muslim, Hindu, and other religious leaders could debate, showing that he tolerated all belief systems."] },
+        { label: "b)", q: "Explain ONE way in which the approach described in the passage differed from the approach of a later ruler of the same empire.", ideas: ["Under Aurangzeb toleration ended and Islam was made the official faith", "Aurangzeb made non-Muslims pay the jizya again (revived in 1679)", "Aurangzeb imposed Sharia, razed thousands of Hindu temples, and banned non-Muslim ceremonies such as Diwali at court (Chua reading)"], samples: ["The emperor in the passage (Akbar) ended the jizya and tolerated all belief systems, but a later ruler, Aurangzeb, ended toleration and made Islam the official faith.", "Akbar abolished the jizya, but Aurangzeb brought it back, so non-Muslims again had to pay a special tax."] },
+        { label: "c)", q: "Explain ONE historical situation in the period 1450\u20131750, other than the one illustrated in the passage, in which a state or ruler accommodated people of other religions or cultures.", ideas: ["The Ottomans were willing to accommodate the large Christian population of the Balkans, ruling through millets; Christian elites joined the Ottoman elite, sometimes without converting", "Under Ottoman Islamic law, Jewish and Christian women saw their property rights increase; Sultan Bayezid II welcomed Jews expelled from Spain (Chua reading)", "The Qing largely left conquered peoples, such as Tibet and Xinjiang, to maintain their own cultures", "Catherine the Great of Russia was religiously tolerant"], samples: ["The Ottoman Empire accommodated its large Christian population in the Balkans by dividing the empire into millets, and Christian elites even became part of the Ottoman elite, sometimes without converting.", "The Qing dynasty in China largely left conquered peoples, such as those in Tibet and Xinjiang, to maintain their own cultures, which accommodated people of other cultures.", "Under Ottoman Islamic law, Jewish and Christian women saw their property rights increase, showing an accommodating approach toward non-Muslims."] }
+      ]
+    },
+    {
+      title: "Practice SAQ 3 \u00b7 Primary source",
+      stimulus: ["\u201cAmong the sultan\u2019s servants I saw almost no man of high birth. The pashas who command his armies and the officers who advise him on every matter of state were, with hardly an exception, born to Christian peasants, taken from their villages as boys, and raised in the sultan\u2019s own household. Here honors are given as the reward of ability and good service; a man\u2019s father counts for nothing.\u201d"],
+      attribution: "Habsburg diplomat, letter describing the Ottoman court, circa 1555",
+      parts: [
+        { label: "a)", q: "Identify the Ottoman practice that supplied the officials described in the passage.", ideas: ["The devshirme (the collection of young boys from Christian subjects)", "It supplied the Janissaries (the elite infantry corps) and officials for the civil administration"], samples: ["The practice is the devshirme, in which the Ottomans removed young Christian boys from their families and trained them for the civil administration or the elite Janissary corps."] },
+        { label: "b)", q: "Explain ONE way in which the practice described in the passage benefited the Ottoman state.", ideas: ["The Ottomans built an army and bureaucracy from scratch, so they did not depend on hereditary nobles", "Recruits were loyal only to the sultan", "It brought talented people into service by merit (all but one of Suleyman\u2019s nine grand viziers were former Christian slaves \u2014 Chua reading)"], samples: ["The devshirme let the Ottomans build an army and a bureaucracy from scratch without relying on hereditary nobles, because the recruits were loyal only to the sultan.", "It brought talented people into government based on ability rather than birth, so capable former Christian boys could rise to high office, which strengthened the state."] },
+        { label: "c)", q: "Explain how the practice described in the passage was experienced differently by different Christian families in the Ottoman Empire.", ideas: ["Some Christian families saw it as the worst form of Ottoman oppression: boys were taken, cut off from their families, converted, and bound to celibacy and lifetime service", "Others saw it as an avenue of upward mobility, a way to place a child in a position of status and authority otherwise unimaginable (Chua reading; notes: devshirme offered the possibility of upward mobility)"], samples: ["Some Christian families saw the devshirme as the worst form of Ottoman oppression because their sons were taken, converted to Islam, and cut off from the family, while others saw it as upward mobility for their children, a way to place a family member in a position of status and authority.", "Families reacted differently: some resented losing a son to the sultan’s service, but others welcomed the chance for their son to gain status and authority that would have been unimaginable for a peasant."] }
+      ]
+    },
+    {
+      title: "Practice SAQ 4 \u00b7 Primary source",
+      stimulus: ["\u201cThe Turks hold the roads and the ports through which pepper and silk reach us, and their officers take their due at every customs-house. Yet we hold the ships, and the pilots, and the merchants who carry these goods to every market in Europe. Each needs the other, and while each profits the peace is kept. Venice has never been so rich.\u201d"],
+      attribution: "Venetian diplomat, report to the Senate, circa 1560",
+      parts: [
+        { label: "a)", q: "Identify ONE way in which the relationship described in the passage benefited the Ottoman Empire.", ideas: ["The Ottomans controlled the flow of trade and taxed it", "The empire was located at the crossroads of Eurasian trade and acted as a middleman in trade between Europe and East Asia"], samples: ["The Ottomans controlled the flow of trade between Europe and Asia and taxed it, so they earned revenue from every shipment passing through their ports.", "Because the Ottoman Empire sat at the crossroads of Eurasian trade, it acted as a middleman between Europe and East Asia and became wealthy."] },
+        { label: "b)", q: "Explain ONE way in which the relationship described in the passage contributed to developments in Europe.", ideas: ["Venice became extremely rich, which helped fuel the start of the European Renaissance", "It established firm connections between the Ottoman and European worlds, which continued to facilitate the flow of ideas, especially Greek learning preserved by Muslims"], samples: ["The trade made Venice extremely rich, and that wealth helped fuel the start of the European Renaissance.", "The trade kept the Ottoman and European worlds connected, which allowed ideas, especially Greek learning that Muslims had preserved, to keep flowing into Europe."] },
+        { label: "c)", q: "Explain how the relationship described in the passage contributed to European voyages of exploration.", ideas: ["It forced other European powers to look for different ways and paths to the riches of the East", "The Portuguese sailed south around the cape (of Africa)", "The Spanish sailed west and hit the Americas"], samples: ["Because Venice and the Ottomans controlled and taxed the eastern trade, other European powers searched for different paths to Asian riches: the Portuguese sailed south around the cape of Africa and the Spanish sailed west and reached the Americas.", "Other European states wanted a way around the Venetian and Ottoman middlemen, which pushed Portugal to sail around Africa and Spain to sail west across the Atlantic."] }
+      ]
+    },
+    {
+      title: "Practice SAQ 5 \u00b7 Primary source",
+      stimulus: ["\u201cOur iron swords and our cannon terrified them, and they had never seen horses. But more deadly than any weapon was the sickness that ran ahead of us through their towns, so that whole villages were empty before we reached them. And many of the peoples who had long paid tribute to the lords of the great city joined us gladly, for they hoped to be free of that burden.\u201d"],
+      attribution: "Spanish soldier, memoir of the conquest of Mexico, written circa 1560",
+      parts: [
+        { label: "a)", q: "Identify ONE factor, other than disease, evident in the passage that helped Europeans conquer Indigenous empires in the Americas.", ideas: ["Ironworking technology, gunpowder weapons (cannon), and horses had no parallel in the Americas", "Divisions within and between local societies provided allies for the European invaders"], samples: ["Ironworking technology, gunpowder weapons such as cannon, and horses gave Europeans an advantage because Indigenous peoples had nothing comparable.", "Divisions within and between local societies gave the Spanish allies, as the passage shows with the peoples who had paid tribute to the great city and hoped to be free of that burden."] },
+        { label: "b)", q: "Explain ONE reason why Indigenous peoples in the Americas were especially vulnerable to the sickness described in the passage.", ideas: ["They had never been exposed to these pathogens before and had not developed resistance to them", "A lack of large domesticated animals gave less opportunity to develop immunity from diseases that jump the species barrier"], samples: ["Indigenous peoples had never been exposed to these European pathogens, so they had developed no resistance or immunity.", "Indigenous peoples in the Americas had few large domesticated animals, which meant less opportunity to develop immunity to diseases that jump the species barrier from animals to humans."] },
+        { label: "c)", q: "Explain ONE similarity OR ONE difference between the conquest described in the passage and the expansion of the Russian Empire into Siberia.", ideas: ["Similarity: disease (smallpox and measles) had a devastating effect on pastoral peoples in Siberia, as European diseases did in the Americas", "Similarity: both involved economic motives and tribute demanded from conquered peoples (Russians sought fur and demanded the yasak, often paid in fur)", "Similarity: both involved pressure on conquered peoples to convert to Christianity", "Difference: the Russian empire was a huge land empire, while the Spanish empire was built across an ocean", "Difference: the pressure to convert was off and on in Russia, not as intense as in the Americas", "Difference: native peoples in the Russian empire had to make an oath of obedience to the tsar"], samples: ["One similarity is that disease devastated native peoples in both places: smallpox and measles had a devastating effect on pastoral peoples in Siberia, just as European diseases did in the Americas.", "One difference is that the Russian empire expanded across a huge connected land mass, while the Spanish empire was built across the Atlantic Ocean.", "One similarity is that both empires pressured conquered peoples to convert to Christianity, although in Russia the pressure was off and on and not as intense as in the Americas."] }
+      ]
+    },
+    {
+      title: "Practice SAQ 6 \u00b7 Primary source",
+      stimulus: ["\u201cThough Your Majesty\u2019s ancestors came down from beyond the passes, Your Majesty honors the sage Confucius with the ancient ceremonies and encourages the study of the classics, so that the scholars of the empire are content. As for the Tibetans and the peoples of the western lands, let their customs and their lamas be left as they are; they will be governed more easily by leaving them in peace than by changing them.\u201d"],
+      attribution: "Official at the Qing court, memorial to the emperor, circa 1690",
+      parts: [
+        { label: "a)", q: "Identify ONE way in which the rulers described in the passage adapted to the culture of the people they governed.", ideas: ["The Qing adopted Confucianism as their official ideology", "They practiced Confucian ceremonies"], samples: ["The Qing rulers adopted Confucianism as their official ideology, even though they came from Manchuria.", "The Qing practiced Confucian ceremonies, which showed that the Manchu rulers adopted Chinese traditions."] },
+        { label: "b)", q: "Explain ONE reason why the rulers described in the passage adopted the practices you identified in part (a).", ideas: ["To legitimize their rule as foreigners \u2014 the Qing were a \u201cforeign and nomadic\u201d dynasty from Manchuria (the Manchu dynasty) ruling a Chinese majority"], samples: ["The Qing were a foreign, nomadic dynasty from Manchuria ruling a Chinese majority, so they practiced Confucian ceremonies to legitimize their rule.", "Because they were foreigners, adopting Confucianism helped the Qing win the acceptance of the scholars who ran the empire, making their rule seem legitimate rather than the rule of outside conquerors."] },
+        { label: "c)", q: "Explain ONE way in which the expansion of the Qing Empire was similar to the expansion of the Russian Empire in the period 1450\u20131750.", ideas: ["Both built huge land empires: the Russians expanded south and southeast, and the Qing greatly expanded their borders to the north and west (seizing former tribute states like Tibet)", "Both takeovers made Central Asia \u201cthe backward and impoverished region\u201d of the world", "Both permanently eliminated nomadic pastoralists as a major actor on the historical stage"], samples: ["Both were huge land empires: the Russians expanded south and southeast, and the Qing expanded north and west, seizing former tribute states like Tibet.", "The Russian and Qing takeovers both reshaped Central Asia, making it “the backward and impoverished region” of the world and eliminating nomadic pastoralists as a major actor in history."] }
+      ]
+    },
+    {
+      title: "Practice SAQ 7 \u00b7 Secondary source",
+      stimulus: ["\u201cIn the early fifteenth century the Ming government sent great fleets across the Indian Ocean, their ships larger than any built in Europe. Within a few decades, however, the court had forbidden the construction of oceangoing vessels, restricted contact with foreigners, and turned its attention to the defense of its northern frontier. By 1600 China had ceded the oceans to others.\u201d"],
+      attribution: "Historian, article on Ming China\u2019s maritime history, published in 2007",
+      parts: [
+        { label: "a)", q: "Identify ONE action taken by the Ming government that reflects the shift described in the passage.", ideas: ["It suspended the voyages and banned the building of oceangoing ships", "It banned foreign trade and contact with foreign nations", "It rebuilt the Great Wall", "It prohibited subjects from building seagoing ships or leaving the country; the records of the expeditions were destroyed (Chua reading)"], samples: ["The Ming suspended the treasure-fleet voyages and banned the building of oceangoing ships.", "The Ming banned foreign trade and any contact with foreign nations, and rebuilt the Great Wall to seal themselves in."] },
+        { label: "b)", q: "Explain ONE reason why the Ming government changed its policy as described in the passage.", ideas: ["Conservative Confucian officials were hostile to commerce and resistant to overseas expansion", "The renewed threat from the Mongols (including the defeat at Tumu in 1449) made the Ming obsessed with defense and grew more xenophobic", "The voyages were said to be too expensive (Chua reading)"], samples: ["Conservative Confucian officials who were hostile to commerce and overseas expansion gained influence and stopped the voyages.", "The renewed Mongol threat, especially the humiliating defeat at Tumu in 1449, made the Ming obsessed with defense and more xenophobic, so they turned inward."] },
+        { label: "c)", q: "Explain ONE way in which the Ming policy described in the passage differed from the approach of the Ottoman Empire toward foreigners and non-Muslims in the sixteenth century.", ideas: ["The Ming banned foreign trade and contact, while the Ottomans, at the crossroads of Eurasian trade, acted as middlemen between Europe and East Asia", "The Ottomans welcomed outsiders such as Jews expelled from Spain, who brought trade networks and technology, while the Ming grew increasingly xenophobic (Chua reading)", "Jews and Christians in the Ottoman Empire joined Muslim trade guilds and some became among the wealthiest people in major cities, while the Ming restricted contact with foreigners (Chua reading)"], samples: ["The Ming banned foreign trade and contact, while the Ottomans, located at the crossroads of Eurasian trade, acted as middlemen between Europe and East Asia and profited from trade.", "The Ottomans welcomed outsiders such as Jews expelled from Spain, who brought trade networks and technology, while the Ming grew increasingly xenophobic and sealed themselves off."] }
+      ]
+    }
+  ];
+
+  /* Practice MCQs. Each item: q, ok (correct text), pos (where to insert the correct option 0-3),
+     bad (three [text, why-wrong] pairs), why (rationale), flag (optional). */
+  const MCQ_DEFS = [
+    {
+      title: "Secondary source",
+      stimulus: [{
+        text: "“Historians once treated the political turmoil of the mid-seventeenth century as a series of unrelated crises: a civil war in England, a dynastic collapse in China, a prolonged religious war in central Europe, succession struggles in the great Muslim empires. Yet these upheavals coincided with some of the coldest decades of the past millennium. In societies where the great majority of people lived off the land, a short growing season did not merely reduce comfort; it raised the price of bread, emptied the treasuries of states that taxed the harvest, and left armies unpaid. The weather did not cause these revolts, but it made every existing grievance harder to bear.”",
+        attribution: "Historian, article on climate and political crisis in the seventeenth century, published in 2011"
+      }],
+      qs: [
+        { q: "Which of the following best describes the author’s argument about climate and political upheaval?", pos: 1,
+          ok: "Colder conditions intensified political and economic weaknesses that already existed rather than acting as the sole cause of crisis",
+          bad: [["Colder conditions were the single direct cause of each revolt and civil war mentioned", "The author explicitly says the weather “did not cause these revolts”; it made existing grievances harder to bear."],
+                ["Political crises in the seventeenth century were unrelated to environmental conditions", "The author stresses that the upheavals coincided with the coldest decades and were worsened by them, so he does not treat them as unrelated."],
+                ["States that taxed agriculture gained wealth from the colder decades", "The passage says the opposite: a short growing season emptied the treasuries of states that taxed the harvest."]],
+          why: "The author treats climate as an aggravating pressure on societies already dependent on farming, not as the only cause." },
+        { q: "Which of the following would most directly support the author’s claim about the relationship between climate and crisis in China?", pos: 2,
+          ok: "Reduced rice yields and an increased risk of failed harvests in the years before the fall of the Ming dynasty",
+          bad: [["The adoption of the three-field system in medieval Europe", "That innovation belongs to an earlier period and to Europe, and says nothing about climate-driven crisis in seventeenth-century China."],
+                ["The spread of gunpowder weapons to the Ottoman and Mughal empires", "Gunpowder weapons are a military development unrelated to harvest failure and government finance."],
+                ["The growth of Venetian commerce with the Ottoman Empire", "Commercial growth in the Mediterranean does not show how cold weather strained agricultural societies."]],
+          why: "Failed harvests tied to the cold, followed by the fall of the Ming, is exactly the chain of cause and effect the author describes." },
+        { q: "Which of the following would a historian most likely identify as a limitation of the author’s argument?", pos: 3,
+          ok: "Societies facing similar climatic conditions responded in very different ways, suggesting political and social factors also shaped outcomes",
+          bad: [["Climate cannot be studied for any period before the nineteenth century", "Historians do study earlier climate; the passage itself relies on a well-known cold period (the Little Ice Age)."],
+                ["The cold affected only Europe, so the argument cannot apply elsewhere", "The passage and your notes show crises in China, the Ottoman Empire, and the Mughal Empire, not just Europe."],
+                ["Agricultural societies were unaffected by changes in temperature", "The author’s whole point, and your notes, show that dependence on agriculture made societies vulnerable."]],
+          why: "A good critique notes that climate alone does not explain why outcomes differed from place to place.", flag: true }
+      ]
+    },
+    {
+      title: "Two primary sources",
+      stimulus: [{
+        text: "“His Majesty holds that a king is the shadow of God, and that the shadow must fall equally upon all. He has therefore lifted the tax on those outside the Faith, opened the doors of the hall of worship to the learned of every creed, and permitted the building of temples where his subjects desire them. Those who clung to narrow custom murmured against these measures, but the peace of the realm has never been greater.”",
+        attribution: "Court chronicler of a Mughal emperor, history of the reign, circa 1590"
+      }, {
+        text: "“By order of the Emperor, the tax once imposed upon unbelievers shall be collected anew throughout the realm, that the true Faith may be honored and the commands of Holy Law obeyed. Officials of the provinces shall suppress the open practice of idolatrous rites and shall see that the temples newly raised in defiance of the Law are torn down.”",
+        attribution: "Imperial order issued by a Mughal emperor, circa 1680"
+      }],
+      qs: [
+        { q: "Which of the following best explains a difference between the two sources?", pos: 0,
+          ok: "Source 1 reflects a ruler who sought to hold a diverse population together through inclusion, while Source 2 reflects a ruler who sought to enforce a single religious standard",
+          bad: [["Source 1 describes a Muslim ruler while Source 2 describes a Hindu ruler", "Both sources describe Mughal emperors who were Muslim; the difference lies in their policies, not their faiths."],
+                ["Source 1 describes a ruler uninterested in religion while Source 2 describes a deeply religious ruler", "Source 1 shows a ruler deeply engaged with religion, building a hall of worship for debate among many creeds."],
+                ["Source 1 describes an empire at war while Source 2 describes an empire at peace", "Source 1 claims the peace of the realm has never been greater; neither source is mainly about war."]],
+          why: "Akbar-style inclusion in Source 1 contrasts with the Aurangzeb-style enforcement of one standard in Source 2." },
+        { q: "The shift in policy reflected between the two sources most directly contributed to which later development?", pos: 3,
+          ok: "Resistance and revolts among groups such as the Marathas and Sikhs, which strained an empire that had been held together by cooperation",
+          bad: [["A period of rapid Mughal expansion into Europe", "The Mughal Empire was centered in South Asia, and the shift toward intolerance was followed by strain, not expansion into Europe."],
+                ["The adoption of Hinduism as the Mughal state religion", "The shift went the opposite direction, toward making Islam the single official standard."],
+                ["The end of Mughal use of gunpowder weapons", "Nothing in the sources links religious policy to the empire’s military technology."]],
+          why: "Intolerance alienated Hindu and Sikh groups and fueled revolts, draining the empire’s resources." },
+        { q: "How should a historian most appropriately use Source 1 as evidence?", pos: 2,
+          ok: "As evidence of how the ruler wished to be seen, keeping in mind that a court chronicler had reason to present his patron’s policies favorably",
+          bad: [["As a neutral account, because chroniclers had no connection to the court", "Court chroniclers worked for the ruler, which is exactly why their favorable portrayal needs to be questioned."],
+                ["As proof that no one in the empire opposed the ruler’s policies", "The source itself notes that some people “murmured against these measures,” so opposition did exist."],
+                ["As proof that religious toleration was unique to the Mughals among land-based empires", "The Ottomans accommodated their Christian population and the Qing left conquered peoples largely alone, so toleration was not unique."]],
+          why: "Sourcing: a court chronicler’s purpose shapes what he emphasizes.", flag: true }
+      ]
+    },
+    {
+      title: "Primary source",
+      stimulus: [{
+        text: "“Among the sultan’s servants I saw almost no man of high birth. The pashas who command his armies and the officers who advise him on every matter of state were, with hardly an exception, born to Christian peasants, taken from their villages as boys, and raised in the sultan’s own household. Here honors are given as the reward of ability and good service, and a man’s father counts for nothing. I confess I could not help comparing this with our own courts, where the highest posts go to those whose ancestors held them before, however poor their talents. Yet I learned also that the families of these boys do not always rejoice, for the boys are lost to them forever.”",
+        attribution: "Habsburg diplomat, letter describing the Ottoman court, circa 1555"
+      }],
+      qs: [
+        { q: "The author’s comparison with “our own courts” most directly reflects which contrast?", pos: 2,
+          ok: "The Ottomans selected high officials by ability from outside the hereditary elite, while European courts relied heavily on hereditary nobility",
+          bad: [["The Ottoman state was decentralized and feudal, while European states were centralized", "The passage describes officials loyal to a single sultan, which suggests centralization; it does not describe feudal decentralization."],
+                ["The Ottomans chose officials by written examination, as in China", "The passage describes recruitment and household training of boys, not examinations."],
+                ["European courts drew their officials from conquered Muslim populations", "Nothing in the passage suggests this; the author’s point is that European posts went to heirs of noble families."]],
+          why: "The author contrasts merit-based service to the sultan with hereditary privilege at European courts." },
+        { q: "Which of the following best explains why the sultans built a governing class this way?", pos: 1,
+          ok: "Recruits with no ties to noble families or local power bases would depend on, and remain loyal to, the sultan alone",
+          bad: [["Islamic law required rulers to hire non-Muslims for senior government posts", "No such requirement exists; the system was a political strategy, not a religious obligation."],
+                ["Christian boys were naturally better soldiers than the sultan’s Muslim subjects", "The reason was loyalty and control, not any supposed military superiority."],
+                ["The empire had too few Muslim subjects to fill its government", "The empire had a large Muslim population; the strategy was chosen to avoid dependence on hereditary nobles."]],
+          why: "Building an army and bureaucracy from scratch gave the sultan officials who owed everything to him." },
+        { q: "The final sentence of the passage most directly complicates which interpretation of Ottoman rule?", pos: 0,
+          ok: "That the Ottoman system offered non-Muslims only positive opportunities",
+          bad: [["That the sultan held authority over his officials", "The final sentence says nothing about the sultan’s authority; it concerns the reaction of the boys’ families."],
+                ["That Ottoman armies relied on gunpowder weapons", "The sentence concerns families’ feelings about the recruitment system, not military technology."],
+                ["That Christians were excluded from Ottoman government entirely", "The passage itself shows Christian-born boys rising to the highest posts, so it does not complicate that point."]],
+          why: "Even though some Christian families gained from upward mobility, the author notes loss and grief, which complicates a purely positive view." }
+      ]
+    },
+    {
+      title: "Primary source",
+      stimulus: [{
+        text: "“The Turks hold the roads and the ports through which pepper and silk reach us, and their officers take their due at every customs-house. Yet we hold the ships, and the pilots, and the merchants who carry these goods to every market in Europe. Each needs the other, and while each profits the peace is kept. Our city, built upon little islands and without fields of its own, has never been so rich; and the learned men who come to us from the East bring with them books which our scholars prize above gold. Let the princes of the West complain of the Turk as they like: their complaints will not feed Venice, and they have no better road to the Indies than the one we use.”",
+        attribution: "Venetian diplomat, report to the Senate, circa 1490"
+      }],
+      qs: [
+        { q: "The passage most directly supports which claim about the Ottoman Empire’s role in the world economy?", pos: 2,
+          ok: "It profited as an intermediary that controlled access between Europe and goods from Asia",
+          bad: [["It had isolated itself from Eurasian trade networks", "The passage shows Ottoman officers collecting dues on goods passing through at every port."],
+                ["It relied mainly on its own ocean-going fleets to reach Asia", "The diplomat says it is the Venetians who hold the ships, pilots, and merchants."],
+                ["It competed directly with Venice for control of Atlantic trade", "The passage concerns Mediterranean and overland routes to the East, not Atlantic trade."]],
+          why: "The Ottomans controlled and taxed the flow of trade; Venice carried the goods." },
+        { q: "A historian could use the diplomat’s reference to “learned men” and their “books” as evidence of which broader process?", pos: 0,
+          ok: "The continued exchange of ideas, including Greek learning preserved by Muslims, between the Islamic world and Europe through commercial contact",
+          bad: [["The decline of European interest in classical learning", "The diplomat says scholars prize these books above gold, showing growing interest."],
+                ["An Ottoman effort to convert Venetian merchants to Islam", "The passage describes commerce and learning, not religious conversion."],
+                ["The replacement of Latin by Arabic in European universities", "The passage describes the arrival of books and scholars, not a change in Europe’s language of learning."]],
+          why: "Trade connections kept Greek and other learning flowing into Europe, helping fuel the Renaissance." },
+        { q: "The diplomat’s confidence that Western princes “have no better road to the Indies” most directly helps explain which later development?", pos: 3,
+          ok: "Efforts by Portugal and Spain to find alternative sea routes to Asia that bypassed the Venetian and Ottoman trade",
+          bad: [["Venice’s decision to give up trade in favor of agriculture", "Venice’s wealth came from trade; the passage notes it had no fields of its own."],
+                ["The Ottoman conquest of Venice and its overseas trade", "Nothing in the passage predicts this, and the relationship described was mutually profitable."],
+                ["The collapse of Ottoman control over eastern trade by 1500", "The Ottomans remained powerful; the response of other Europeans was to seek new routes, not to topple them immediately."]],
+          why: "The Portuguese sailed south around the cape and the Spanish sailed west to the Americas, looking for paths to Asian riches that avoided these middlemen.", flag: true }
+      ]
+    },
+    {
+      title: "Primary source",
+      stimulus: [{
+        text: "“Our iron swords and our cannon terrified them, and they had never seen horses. But more deadly than any weapon was the sickness that ran ahead of us through their towns, so that whole villages were empty before we reached them. The great city was ruled by lords who took tribute from many peoples, and many of these peoples joined us gladly, hoping to be free of that burden. When at last we stood before the city, its defenders were fewer than we had feared, for the sickness had struck down many of their captains. Our priests said that God had cleared the way for us, and I did not argue.”",
+        attribution: "Spanish soldier, memoir of the conquest of Mexico, written circa 1560"
+      }],
+      qs: [
+        { q: "The soldier’s remark that “God had cleared the way” most directly reflects which motivation for European empire building?", pos: 1,
+          ok: "Religious motives, as missionaries and Christian rulers saw conquest as serving their faith",
+          bad: [["The desire to gain access to Eurasian commerce controlled by the Ottomans and Venetians", "That was a real European motive, but the remark about God and the priests reflects religion, not commerce."],
+                ["The need to find new sources of fur for European markets", "Fur was a motive for Russian expansion into Siberia, not the conquest described in this passage."],
+                ["Pressure from European guilds seeking new markets", "The passage says nothing about guilds; it points to priests and divine purpose."]],
+          why: "Your notes list missionaries among the groups with strong motives for empire building." },
+        { q: "A historian would most likely use the passage to argue that the European conquest of the Americas depended on", pos: 3,
+          ok: "a combination of technology, political divisions among Indigenous peoples, and epidemic disease, rather than military superiority alone",
+          bad: [["military technology alone, since Indigenous peoples could not resist iron and cannon", "The soldier himself says disease was more deadly than any weapon and mentions allies, so technology alone is not the argument."],
+                ["the willingness of Indigenous peoples to adopt Christianity", "The passage describes tribute-paying peoples joining the Spanish for political reasons, not adopting Christianity."],
+                ["the absence of any organized states in the Americas", "The passage describes a great city with lords, captains, and defenders, which shows organized states."]],
+          why: "The passage touches three factors: weapons, local allies resentful of tribute, and disease." },
+        { q: "Which of the following best explains why conquest by land-based empires elsewhere in this period did not produce population collapses like the one implied in the passage?", pos: 0,
+          ok: "Peoples across Afro-Eurasia had long been exposed to many of the same pathogens and to large domesticated animals, unlike peoples of the Americas",
+          bad: [["Asian empires had banned all contact with outsiders", "Most Asian empires, including the Ottomans, traded actively; only the Ming restricted contact for a time."],
+                ["Gunpowder weapons protected Asian soldiers from infection", "Gunpowder weapons have no effect on disease."],
+                ["Disease spreads only across oceans, not across land", "Disease spread along land trade routes, such as the Black Death along Eurasian routes."]],
+          why: "Native Americans lacked prior exposure and large domesticated animals, so they had less immunity.", flag: true }
+      ]
+    },
+    {
+      title: "Primary source",
+      stimulus: [{
+        text: "“From the first thaw the hunters push east along the rivers, for the sable is thicker here than in any land of Christendom, and the price in the markets of the capital rises each year as the winters grow colder. Every conquered community must swear obedience to the tsar and deliver a yearly quota of furs to his officers. Where the people resist, the Cossacks burn their winter camps. Yet the sickness has done more to subdue these herding peoples than any musket: smallpox and measles pass from camp to camp, and whole clans are gone. The priests say the survivors will be baptized, though not all are eager.”",
+        attribution: "Russian official, report on Siberian lands to the tsar’s government, circa 1650"
+      }],
+      qs: [
+        { q: "The passage best illustrates which relationship between environment and imperial expansion?", pos: 2,
+          ok: "Colder conditions raised demand for fur, which pushed Russian expansion into Siberia",
+          bad: [["Warmer weather opened new trade routes that drew Russians eastward", "The passage says winters are growing colder, not warmer."],
+                ["A shortage of farmland in Russia forced settlers into Siberia", "The passage describes hunters pursuing fur, not farmers seeking land."],
+                ["Pressure from the Ottoman Empire forced Russians into Siberia", "The passage attributes eastward movement to the value of sable, not to Ottoman pressure."]],
+          why: "The Little Ice Age increased demand for fur (“soft gold”), driving Russians east." },
+        { q: "Which of the following is a similarity between the process described in the passage and the Spanish conquest of the Americas?", pos: 0,
+          ok: "In both cases, epidemic disease weakened Indigenous societies and eased conquest",
+          bad: [["In both cases, conquered peoples were required to mine silver for the conquerors", "The passage describes a tribute of furs, not silver mining."],
+                ["In both cases, the conquerors crossed an ocean to reach their new territories", "Russian expansion into Siberia moved across a connected land mass, not an ocean."],
+                ["In both cases, the conquerors relied mainly on alliances with a rival empire", "The passage describes Cossacks and quotas, not alliances with a rival empire."]],
+          why: "Smallpox and measles devastated Siberian peoples, much as European diseases devastated the Americas." },
+        { q: "The passage’s final sentence about baptism most directly supports which claim about Russian imperial policy?", pos: 3,
+          ok: "Russian officials pressured conquered peoples to convert to Christianity, but the pressure was uneven and not as intense as in the Americas",
+          bad: [["Russia required all conquered peoples to adopt Orthodoxy immediately", "The phrase “though not all are eager” suggests conversion was not uniformly or immediately enforced."],
+                ["Russia banned every non-Christian religion in Siberia", "Nothing in the passage suggests a complete ban; the pressure described is partial."],
+                ["Russian priests played no role in expansion", "The passage explicitly mentions priests speaking of baptizing the survivors."]],
+          why: "Your notes say pressure to convert was off and on and not as intense as in the Americas.", flag: true }
+      ]
+    },
+    {
+      title: "Primary source",
+      stimulus: [{
+        text: "“Though Your Majesty’s ancestors came down from beyond the passes, Your Majesty honors the sage Confucius with the ancient ceremonies and encourages the study of the classics, so that the scholars of the empire are content. Yet it must be remembered that the people of this land have not forgotten that the throne was won by horsemen from the north. Let the ceremonies be performed with care, and let no scholar be given cause to doubt Your Majesty’s respect for the sages. As for the Tibetans and the peoples of the western lands, let their customs and their lamas be left as they are; they will be governed more easily by leaving them in peace than by changing them.”",
+        attribution: "Official at the Qing court, memorial to the emperor, circa 1690"
+      }],
+      qs: [
+        { q: "Which of the following best explains the official’s emphasis on the Confucian ceremonies?", pos: 1,
+          ok: "The dynasty was foreign and needed the cooperation of the Chinese scholar-elite to legitimize its rule",
+          bad: [["Confucianism had only recently been introduced to China from India", "Confucianism was an ancient Chinese tradition; Buddhism was the philosophy that came from India."],
+                ["The dynasty hoped to eliminate Daoism and Buddhism among the peasantry", "Peasants continued to follow Daoist and Buddhist beliefs, and the passage concerns scholars, not peasants."],
+                ["The previous dynasty had banned Confucian ceremonies", "Nothing suggests a ban; the concern is that foreign rulers might seem disrespectful of Chinese tradition."]],
+          why: "The Qing adopted Confucianism as their official ideology to legitimize their rule as foreigners." },
+        { q: "The advice about Tibet and the western lands is most similar to which policy in another empire in this period?", pos: 2,
+          ok: "The Ottoman practice of ruling through millets that let religious communities manage their own affairs",
+          bad: [["The Russian requirement that conquered peoples swear an oath of obedience and pay yasak", "That is a policy of demanding obedience and tribute, not leaving local customs undisturbed."],
+                ["Aurangzeb’s imposition of Sharia and destruction of Hindu temples", "This is the opposite: it imposed a single standard on conquered peoples."],
+                ["The Spanish effort to convert Indigenous Americans to Christianity", "That is an effort to change conquered peoples’ religion, not to leave it alone."]],
+          why: "Both allowed conquered peoples to largely maintain their own cultures and run their own communities.", flag: true },
+        { q: "Which of the following best explains why historians describe the Qing as an “empire” rather than simply a Chinese dynasty?", pos: 3,
+          ok: "It expanded far beyond China’s core, incorporating peoples such as the Tibetans and western regions, and its borders largely match modern China’s",
+          bad: [["It conquered Japan and Korea in the seventeenth century", "The Qing did not conquer Japan; their expansion was to the north and west."],
+                ["It lacked a central government and relied on independent regional rulers", "The Qing were a unified dynasty with an emperor, as the memorial addressed to the emperor shows."],
+                ["It governed exclusively through Han Chinese officials", "The passage shows a foreign Manchu dynasty ruling, so it was not governed exclusively by Han Chinese."]],
+          why: "The Qing greatly expanded north and west, seizing former tribute states like Tibet." }
+      ]
+    },
+    {
+      title: "Secondary source",
+      stimulus: [{
+        text: "“In the early fifteenth century, the Ming government sent great fleets across the Indian Ocean, their ships larger than any built in Europe and carrying more than twenty thousand men. The expeditions traded and exchanged gifts rather than plundering. Within a few decades, however, the court had forbidden the construction of oceangoing vessels, restricted contact with foreigners, and turned its attention to the defense of its northern frontier. Officials who favored the ban argued that the voyages were wasteful and that China needed nothing from distant lands. By 1600 China had ceded the oceans to others.”",
+        attribution: "Historian, article on Ming China’s maritime history, published in 2007"
+      }],
+      qs: [
+        { q: "The officials’ argument that China “needed nothing from distant lands” is best understood as reflecting", pos: 0,
+          ok: "a view of China as the center of civilization, reinforced by a renewed Mongol threat and by Confucian officials’ hostility to commerce",
+          bad: [["a desire to protect Chinese merchants from competition by Muslim traders", "Confucian officials were hostile to commerce generally; the passage does not mention protecting merchants."],
+                ["a belief that gunpowder weapons had made naval power obsolete", "The Ming already had gunpowder; nothing in the passage ties the ban to a belief about weapons."],
+                ["fear that Europeans would capture the treasure ships", "Europeans were not yet a naval threat in the Indian Ocean when the voyages ended."]],
+          why: "Your reading ties the inward turn to a self-image as the “civilized” center, hostility to commerce, and the Mongol threat." },
+        { q: "Which of the following would a historian most likely cite as an effect of the policy shift described?", pos: 1,
+          ok: "China fell behind Europe technologically, militarily, and commercially, and Europeans came to dominate the oceans",
+          bad: [["The Ming rapidly colonized the Americas", "The Ming did not colonize the Americas; they withdrew from overseas expansion."],
+                ["The Mongols submitted to Ming rule", "The Mongols remained a threat; in 1449 they defeated Ming forces at Tumu."],
+                ["An immediate collapse of the Ming dynasty in the 1440s", "The Ming lasted until 1644, when they fell to the Manchus."]],
+          why: "By 1600 China had fallen far behind Europe and ceded the oceans to Europeans." },
+        { q: "Which of the following best contrasts Ming policy with Ottoman policy toward outsiders in the sixteenth century?", pos: 2,
+          ok: "The Ottomans, at the crossroads of Eurasian trade, profited as middlemen and welcomed outsiders, while the Ming restricted foreign trade and contact",
+          bad: [["Both banned foreign trade and contact to protect religious unity", "The Ottomans actively engaged in trade and gained from it; only the Ming restricted contact."],
+                ["The Ming welcomed Jews expelled from Spain while the Ottomans refused them", "The Ottoman sultan welcomed Jews expelled from Spain in 1492; the Ming did not."],
+                ["The Ming relied on devshirme recruits while the Ottomans relied on civil service examinations", "This reverses the facts: the devshirme was an Ottoman practice."]],
+          why: "The Ottomans used openness to trade and to outsiders to their advantage, while the Ming turned inward.", flag: true }
+      ]
+    }
+  ];
+
+  /* ============ HELPERS ============ */
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  function sample(arr, n) { return shuffle(arr).slice(0, n); }
+  function safeGet(key, fallback) {
+    try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+    catch (e) { return fallback; }
+  }
+  function safeSet(key, val) {
+    try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) { /* ignore */ }
+  }
+
+  /* ============ NAV ============ */
+  const navButtons = document.querySelectorAll(".navbtn");
+  const panes = document.querySelectorAll(".pane");
+  navButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      navButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      panes.forEach(p => p.classList.remove("active"));
+      document.getElementById("pane-" + btn.dataset.pane).classList.add("active");
+    });
+  });
+
+  /* Points starting with "## " are rendered as sub-headings; everything else is a bullet. */
+  function renderPoints(container, points) {
+    let ul = null;
+    points.forEach(p => {
+      if (p.indexOf("## ") === 0) {
+        const hd = document.createElement("div");
+        hd.className = "sub-label";
+        hd.textContent = p.slice(3);
+        container.appendChild(hd);
+        ul = null;
+        return;
+      }
+      if (!ul) { ul = document.createElement("ul"); container.appendChild(ul); }
+      const li = document.createElement("li");
+      li.textContent = p;
+      ul.appendChild(li);
+    });
+  }
+
+  /* ============ KEY QUESTION ACCORDIONS ============ */
+  function buildAccordion(container, items) {
+    items.forEach(item => {
+      const wrap = document.createElement("div");
+      wrap.className = "accordion-item";
+      const head = document.createElement("button");
+      head.className = "accordion-head";
+      const qText = document.createElement("span"); qText.className = "q-text"; qText.textContent = item.q;
+      const pts = document.createElement("span"); pts.className = "pts"; pts.textContent = item.pts;
+      const chev = document.createElement("span"); chev.className = "chev"; chev.innerHTML = "&#9656;";
+      head.appendChild(qText); head.appendChild(pts); head.appendChild(chev);
+      const body = document.createElement("div");
+      body.className = "accordion-body";
+      if (item.readingNote) {
+        const rn = document.createElement("div");
+        rn.className = "reading-note";
+        rn.textContent = item.readingNote;
+        body.appendChild(rn);
+      }
+      renderPoints(body, item.points);
+      if (item.suppl && item.suppl.length) {
+        const lab = document.createElement("div");
+        lab.className = "sup-label";
+        lab.textContent = "Not in your notes — general background, verify before relying on it";
+        body.appendChild(lab);
+        const ul2 = document.createElement("ul");
+        item.suppl.forEach(p => { const li = document.createElement("li"); li.textContent = p; ul2.appendChild(li); });
+        body.appendChild(ul2);
+      }
+      head.addEventListener("click", () => wrap.classList.toggle("open"));
+      wrap.appendChild(head);
+      wrap.appendChild(body);
+      container.appendChild(wrap);
+    });
+  }
+  buildAccordion(document.getElementById("essayAccordion"), ESSAY_QUESTIONS);
+  buildAccordion(document.getElementById("otherAccordion"), OTHER_NOTES);
+
+  /* ============ GLOSSARY ============ */
+  const glossaryListEl = document.getElementById("glossaryList");
+  const glossarySearchEl = document.getElementById("glossarySearch");
+  function renderGlossary(filterText) {
+    const q = (filterText || "").trim().toLowerCase();
+    const items = q ? GLOSSARY.filter(g => g.term.toLowerCase().includes(q) || g.def.toLowerCase().includes(q)) : GLOSSARY;
+    glossaryListEl.innerHTML = "";
+    if (!items.length) {
+      const empty = document.createElement("div");
+      empty.className = "glossary-empty";
+      empty.textContent = "No matching terms.";
+      glossaryListEl.appendChild(empty);
+      return;
+    }
+    items.forEach(g => {
+      const row = document.createElement("div"); row.className = "glossary-item";
+      const term = document.createElement("div"); term.className = "g-term"; term.textContent = g.term;
+      if (g.key) { const tag = document.createElement("span"); tag.className = "progress-tag"; tag.style.cssText = "margin-left:10px;font-family:Karla,sans-serif;font-size:0.68rem;font-weight:500;vertical-align:middle;"; tag.textContent = "Key term"; term.appendChild(tag); }
+      const def = document.createElement("div"); def.className = "g-def"; def.textContent = g.def;
+      row.appendChild(term); row.appendChild(def);
+      glossaryListEl.appendChild(row);
+    });
+  }
+  glossarySearchEl.addEventListener("input", (e) => renderGlossary(e.target.value));
+
+  /* ============ PRACTICE MCQs ============ */
+  const PMCQ_FLAT = [];
+  MCQ_DEFS.forEach((set, setIdx) => {
+    set.qs.forEach((item, qIdx) => {
+      const options = item.bad.map(b => b[0]);
+      const whyWrong = item.bad.map(b => b[1]);
+      options.splice(item.pos, 0, item.ok);
+      whyWrong.splice(item.pos, 0, null);
+      PMCQ_FLAT.push({
+        setTitle: set.title, stimulus: set.stimulus,
+        setNumber: setIdx + 1, setCount: MCQ_DEFS.length,
+        qInSet: qIdx + 1, qInSetCount: set.qs.length,
+        q: item.q, options, correct: item.pos, rationale: item.why,
+        whyWrong, flagged: !!item.flag
+      });
+    });
+  });
+
+  const PMCQ_ACK_KEY = "apwh_u3_pmcq_ack";
+  let pmcqIdx = 0;
+  const pmcqAnswers = PMCQ_FLAT.map(() => ({ selected: null, answered: false }));
+
+  const mcqGateEl = document.getElementById("mcqGate");
+  const mcqBodyEl = document.getElementById("mcqBody");
+  const pmcqScoreEl = document.getElementById("pmcqScore");
+  const pmcqStimulusBoxEl = document.getElementById("pmcqStimulusBox");
+  const pmcqStimulusTextEl = document.getElementById("pmcqStimulusText");
+  const pmcqSetLabelEl = document.getElementById("pmcqSetLabel");
+  const pmcqPromptEl = document.getElementById("pmcqPrompt");
+  const pmcqOptionsEl = document.getElementById("pmcqOptions");
+  const pmcqFeedbackEl = document.getElementById("pmcqFeedback");
+  const pmcqPrevBtn = document.getElementById("pmcqPrev");
+  const pmcqNextBtn = document.getElementById("pmcqNext");
+
+  function pmcqCounts() {
+    let answered = 0, correctCount = 0;
+    pmcqAnswers.forEach((a, i) => { if (a.answered) { answered++; if (a.selected === PMCQ_FLAT[i].correct) correctCount++; } });
+    return { answered, correctCount };
+  }
+  function updatePmcqScore() {
+    const c = pmcqCounts();
+    pmcqScoreEl.textContent = "Score: " + c.correctCount + " correct out of " + c.answered + " answered (" + PMCQ_FLAT.length + " total)";
+  }
+
+  function renderPracticeMCQ(idx) {
+    const item = PMCQ_FLAT[idx];
+    const state = pmcqAnswers[idx];
+    pmcqStimulusBoxEl.style.display = "block";
+    pmcqStimulusTextEl.innerHTML = "";
+    item.stimulus.forEach((s, sIdx) => {
+      if (item.stimulus.length > 1) {
+        const lab = document.createElement("div");
+        lab.className = "stimulus-label";
+        lab.style.marginTop = sIdx ? "10px" : "0";
+        lab.textContent = "Source " + (sIdx + 1);
+        pmcqStimulusTextEl.appendChild(lab);
+      }
+      const par = document.createElement("p");
+      par.style.margin = "0 0 6px";
+      par.textContent = s.text;
+      pmcqStimulusTextEl.appendChild(par);
+      const at = document.createElement("div");
+      at.className = "saq-attrib";
+      at.textContent = s.attribution;
+      pmcqStimulusTextEl.appendChild(at);
+    });
+    const fl = document.createElement("div");
+    fl.className = "saq-flag";
+    fl.textContent = "AI-written practice passage \u2014 not a real quotation.";
+    pmcqStimulusTextEl.appendChild(fl);
+    pmcqSetLabelEl.textContent = "Set " + item.setNumber + " of " + item.setCount + " (" + item.setTitle + ") \u2014 Question " + item.qInSet + " of " + item.qInSetCount;
+    pmcqPromptEl.textContent = item.q;
+    pmcqOptionsEl.innerHTML = "";
+    pmcqFeedbackEl.textContent = "";
+    pmcqFeedbackEl.className = "quiz-feedback";
+
+    item.options.forEach((optText, i) => {
+      const b = document.createElement("button");
+      b.className = "quiz-option";
+      b.textContent = optText;
+      if (state.answered) {
+        b.disabled = true;
+        if (i === item.correct) b.classList.add("correct");
+        if (i === state.selected && state.selected !== item.correct) b.classList.add("incorrect");
+      }
+      b.addEventListener("click", () => {
+        if (pmcqAnswers[idx].answered) return;
+        pmcqAnswers[idx] = { selected: i, answered: true };
+        renderPracticeMCQ(idx);
+        updatePmcqScore();
+        renderProgressPage();
+      });
+      pmcqOptionsEl.appendChild(b);
+    });
+
+    if (state.answered) {
+      const isRight = state.selected === item.correct;
+      pmcqFeedbackEl.innerHTML = "";
+      pmcqFeedbackEl.className = "quiz-feedback " + (isRight ? "correct" : "incorrect");
+      if (item.flagged) {
+        const flagLine = document.createElement("div");
+        flagLine.className = "mcq-flag-line";
+        flagLine.textContent = "⚠ This one leans on comparison or nuance — worth double-checking against your notes.";
+        pmcqFeedbackEl.appendChild(flagLine);
+      }
+      if (!isRight) {
+        const wrongLine = document.createElement("div");
+        wrongLine.className = "mcq-wrong-line";
+        const w = item.whyWrong[state.selected] || "";
+        wrongLine.textContent = "You picked \u201c" + item.options[state.selected] + "\u201d \u2014 " + w;
+        pmcqFeedbackEl.appendChild(wrongLine);
+      }
+      const correctLine = document.createElement("div");
+      correctLine.className = "mcq-correct-line";
+      correctLine.textContent = (isRight ? "Correct: " : "Correct answer: ") + "\u201c" + item.options[item.correct] + "\u201d \u2014 " + (item.rationale || "");
+      pmcqFeedbackEl.appendChild(correctLine);
+    }
+    pmcqPrevBtn.disabled = idx === 0;
+    pmcqNextBtn.textContent = idx === PMCQ_FLAT.length - 1 ? "Restart from Q1" : "Next question \u2192";
+    updatePmcqScore();
+  }
+
+  pmcqPrevBtn.addEventListener("click", () => { if (pmcqIdx > 0) { pmcqIdx--; renderPracticeMCQ(pmcqIdx); } });
+  pmcqNextBtn.addEventListener("click", () => {
+    if (pmcqIdx < PMCQ_FLAT.length - 1) { pmcqIdx++; } else { pmcqIdx = 0; }
+    renderPracticeMCQ(pmcqIdx);
+  });
+  document.getElementById("pmcqRestart").addEventListener("click", () => {
+    for (let i = 0; i < pmcqAnswers.length; i++) pmcqAnswers[i] = { selected: null, answered: false };
+    pmcqIdx = 0;
+    renderPracticeMCQ(pmcqIdx);
+    renderProgressPage();
+  });
+  document.getElementById("mcqAckBtn").addEventListener("click", () => {
+    safeSet(PMCQ_ACK_KEY, true);
+    mcqGateEl.style.display = "none";
+    mcqBodyEl.style.display = "block";
+    renderPracticeMCQ(pmcqIdx);
+  });
+  function initPracticeMCQGate() {
+    if (safeGet(PMCQ_ACK_KEY, false)) {
+      mcqGateEl.style.display = "none";
+      mcqBodyEl.style.display = "block";
+      renderPracticeMCQ(pmcqIdx);
+    } else {
+      mcqGateEl.style.display = "block";
+      mcqBodyEl.style.display = "none";
+    }
+  }
+
+  /* ============ MY PROGRESS ============ */
+  const progressSummaryEl = document.getElementById("progressSummary");
+  function renderProgressPage() {
+    const c = pmcqCounts();
+    progressSummaryEl.textContent = "Practice MCQs: " + c.correctCount + " of " + c.answered + " answered correctly this visit";
+  }
+  document.getElementById("progressResetBtn").addEventListener("click", () => {
+    for (let i = 0; i < pmcqAnswers.length; i++) pmcqAnswers[i] = { selected: null, answered: false };
+    renderProgressPage();
+    if (mcqBodyEl.style.display !== "none") renderPracticeMCQ(pmcqIdx);
+  });
+
+  /* ============ TYPED ANSWERS (no AI analysis) ============ */
+  const cqListEl = document.getElementById("cqList");
+  const saqListEl = document.getElementById("saqList");
+
+  function countWords(s) { const m = (s || "").trim().match(/\S+/g); return m ? m.length : 0; }
+
+  function requirementText(req) {
+    if (!req || req.type !== "count") return "";
+    const base = req.min === req.max
+      ? "Give exactly " + req.min + " distinct, clear answers \u2014 not more, not fewer."
+      : "Give " + req.min + "\u2013" + req.max + " distinct, clear answers.";
+    return base + (req.extraNote ? " " + req.extraNote : "");
+  }
+
+  function makeKeyIdeasBlock(points, suppl, labelText, samples) {
+    const keyIdeas = document.createElement("div");
+    keyIdeas.className = "cq-keyideas";
+    const kiLabel = document.createElement("strong");
+    kiLabel.textContent = labelText;
+    keyIdeas.appendChild(kiLabel);
+    renderPoints(keyIdeas, points);
+    if (suppl && suppl.length) {
+      const lab = document.createElement("div");
+      lab.className = "sup-label";
+      lab.textContent = "Not in your notes \u2014 general background, verify before relying on it";
+      keyIdeas.appendChild(lab);
+      const l2 = document.createElement("ul");
+      suppl.forEach(p => { const li = document.createElement("li"); li.textContent = p; l2.appendChild(li); });
+      keyIdeas.appendChild(l2);
+    }
+    if (samples && samples.length) {
+      const btn = document.createElement("button");
+      btn.className = "btn";
+      btn.style.marginTop = "14px";
+      btn.textContent = "Show sample answers";
+      const box = document.createElement("div");
+      box.style.display = "none";
+      const sl = document.createElement("div");
+      sl.className = "sample-label";
+      sl.textContent = "Sample answers that would earn full credit \u2014 there are many ways to get there, and yours doesn\u2019t need to match";
+      box.appendChild(sl);
+      const sul = document.createElement("ul");
+      sul.className = "samples";
+      samples.forEach(s => { const li = document.createElement("li"); li.textContent = s; sul.appendChild(li); });
+      box.appendChild(sul);
+      btn.addEventListener("click", () => {
+        const showing = box.style.display !== "none";
+        box.style.display = showing ? "none" : "block";
+        btn.textContent = showing ? "Show sample answers" : "Hide sample answers";
+      });
+      keyIdeas.appendChild(btn);
+      keyIdeas.appendChild(box);
+    }
+    return keyIdeas;
+  }
+
+  /* SAQ reveal: full sample answers only (no bullets), behind a button, with an AI warning. */
+  function makeSamplesBlock(samples) {
+    const wrap = document.createElement("div");
+    wrap.className = "cq-keyideas";
+    const warn = document.createElement("div");
+    warn.className = "sample-warning";
+    warn.textContent = "Warning: these sample answers were written by AI. They may not actually earn credit on the real test, so check with your teacher if you\u2019re unsure.";
+    wrap.appendChild(warn);
+    const btn = document.createElement("button");
+    btn.className = "btn";
+    btn.style.marginTop = "12px";
+    btn.textContent = "Show sample answers";
+    const box = document.createElement("div");
+    box.style.display = "none";
+    const sl = document.createElement("div");
+    sl.className = "sample-label";
+    sl.textContent = "Sample answers \u2014 there are many ways to answer this, and yours doesn\u2019t need to match";
+    box.appendChild(sl);
+    const sul = document.createElement("ul");
+    sul.className = "samples";
+    (samples || []).forEach(s => { const li = document.createElement("li"); li.textContent = s; sul.appendChild(li); });
+    box.appendChild(sul);
+    btn.addEventListener("click", () => {
+      const showing = box.style.display !== "none";
+      box.style.display = showing ? "none" : "block";
+      btn.textContent = showing ? "Show sample answers" : "Hide sample answers";
+    });
+    wrap.appendChild(btn);
+    wrap.appendChild(box);
+    return wrap;
+  }
+
+  /* Name field + textarea + word counter. The notes stay locked until the student
+     has written enough words. Nothing typed is analyzed, sent, or saved. */
+  function buildAnswerBox(minWords, points, suppl, ideasLabel, unlockLabel, samples) {
+    const box = document.createElement("div");
+
+    const nameRow = document.createElement("div");
+    nameRow.className = "name-row";
+    const nameLabel = document.createElement("label");
+    nameLabel.textContent = "Name";
+    const nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.className = "name-input";
+    nameInput.placeholder = "Your name";
+    nameLabel.appendChild(document.createTextNode(""));
+    nameRow.appendChild(nameLabel);
+    nameRow.appendChild(nameInput);
+    box.appendChild(nameRow);
+
+    const textarea = document.createElement("textarea");
+    textarea.className = "cq-textarea";
+    textarea.style.minHeight = "130px";
+    textarea.placeholder = "Type your answer here before you look at the notes.";
+    box.appendChild(textarea);
+
+    const wc = document.createElement("div");
+    wc.className = "word-count";
+    wc.textContent = "0 words";
+    box.appendChild(wc);
+
+    const msg = document.createElement("div");
+    msg.className = "unlock-msg";
+    msg.textContent = "Write at least " + minWords + " words to unlock " + unlockLabel + " (" + minWords + " to go).";
+    box.appendChild(msg);
+
+    const review = document.createElement("div");
+    review.className = "review-note";
+    const strong = document.createElement("strong");
+    strong.textContent = "Want me, your teacher, to review this?";
+    review.appendChild(strong);
+    review.appendChild(document.createTextNode(" Send it to me via email and screenshot or something like that."));
+    box.appendChild(review);
+
+    const ideas = (points && points.length) ? makeKeyIdeasBlock(points, suppl, ideasLabel) : makeSamplesBlock(samples);
+    ideas.style.display = "none";
+    box.appendChild(ideas);
+
+    let unlocked = false;
+    textarea.addEventListener("input", () => {
+      const n = countWords(textarea.value);
+      wc.textContent = n + " word" + (n === 1 ? "" : "s");
+      if (unlocked) return;
+      if (n >= minWords) {
+        unlocked = true;
+        msg.textContent = "Nice \u2014 " + unlockLabel + " " + (unlockLabel.indexOf("notes") >= 0 ? "are" : "are") + " unlocked below. Compare your answer with them.";
+        msg.classList.add("done");
+        ideas.style.display = "block";
+      } else {
+        msg.textContent = "Write at least " + minWords + " words to unlock " + unlockLabel + " (" + (minWords - n) + " to go).";
+      }
+    });
+    return box;
+  }
+
+  const CQ_MIN_WORDS = { 2: 15, 3: 20, 4: 25 };
+
+  function buildConceptQuiz() {
+    cqListEl.innerHTML = "";
+    ESSAY_QUESTIONS.forEach((item, idx) => {
+      const card = document.createElement("div");
+      card.className = "card cq-card";
+      const pts = document.createElement("div"); pts.className = "cq-pts";
+      pts.style.cssText = "font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;text-transform:none;letter-spacing:0;color:var(--ink);";
+      pts.textContent = "Question " + (idx + 1) + " (" + item.pts + ")"; card.appendChild(pts);
+      const q = document.createElement("div"); q.className = "cq-question"; q.textContent = item.q; card.appendChild(q);
+      if (item.readingNote) {
+        const rn = document.createElement("div");
+        rn.className = "reading-note";
+        rn.textContent = item.readingNote;
+        card.appendChild(rn);
+      }
+      const reqText = requirementText(item.requirement);
+      if (reqText) {
+        const reqEl = document.createElement("div"); reqEl.className = "cq-requirement"; reqEl.textContent = reqText; card.appendChild(reqEl);
+      }
+      const minWords = CQ_MIN_WORDS[item.requirement.min] || 15;
+      card.appendChild(buildAnswerBox(minWords, item.points, item.suppl, "Key ideas from the notes:", "the completed notes"));
+      cqListEl.appendChild(card);
+    });
+  }
+
+  function buildSaq() {
+    saqListEl.innerHTML = "";
+    SAQ_SETS.forEach(set => {
+      const card = document.createElement("div");
+      card.className = "card saq-set";
+      const title = document.createElement("div"); title.className = "saq-set-title"; title.textContent = set.title; card.appendChild(title);
+      const stim = document.createElement("div"); stim.className = "saq-stimulus";
+      set.stimulus.forEach(par => { const sp = document.createElement("p"); sp.textContent = par; sp.style.margin = "0 0 8px"; stim.appendChild(sp); });
+      if (set.footnote) { const fn = document.createElement("div"); fn.className = "saq-footnote"; fn.textContent = set.footnote; stim.appendChild(fn); }
+      const attr = document.createElement("div"); attr.className = "saq-attrib"; attr.textContent = set.attribution; stim.appendChild(attr);
+      const flag = document.createElement("div"); flag.className = "saq-flag"; flag.textContent = "AI-written practice passage \u2014 not a real quotation."; stim.appendChild(flag);
+      card.appendChild(stim);
+      const instr = document.createElement("div"); instr.className = "saq-instr"; instr.textContent = "In your response, be sure to address all parts of the question. Use complete sentences; an outline or bulleted list alone is not acceptable."; card.appendChild(instr);
+      set.parts.forEach(part => {
+        const wrap = document.createElement("div");
+        wrap.className = "saq-part";
+        const pts = document.createElement("div"); pts.className = "cq-pts";
+        pts.style.cssText = "font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;text-transform:none;letter-spacing:0;color:var(--ink);";
+        pts.textContent = "Part " + part.label + " (2 pts)"; wrap.appendChild(pts);
+        const q = document.createElement("div"); q.className = "cq-question"; q.style.fontSize = "1.12rem"; q.textContent = part.q; wrap.appendChild(q);
+        wrap.appendChild(buildAnswerBox(15, null, null, "", "the sample answers", part.samples));
+        card.appendChild(wrap);
+      });
+      saqListEl.appendChild(card);
+    });
+  }
+
+  /* ============ CONCEPT QUIZ READ-FIRST GATE ============ */
+  const CQ_READ_KEY = "apwh_u3_cq_read";
+  const cqReadBtn = document.getElementById("cqReadBtn");
+  function applyCqState(read) {
+    cqListEl.style.display = read ? "" : "none";
+    cqReadBtn.disabled = read;
+    cqReadBtn.textContent = read ? "Concept Quiz unlocked below" : "I\u2019ve read this \u2014 start the Concept Quiz";
+  }
+  cqReadBtn.addEventListener("click", () => { safeSet(CQ_READ_KEY, true); applyCqState(true); });
+  applyCqState(safeGet(CQ_READ_KEY, false));
+
+  /* ============ START HERE GATE ============ */
+  const START_KEY = "apwh_u3_start_read";
+  const startBtn = document.getElementById("startReadBtn");
+  function applyStartState(read) {
+    navButtons.forEach(b => {
+      if (b.dataset.pane === "start") return;
+      b.disabled = !read;
+      b.title = read ? "" : "Read Start Here first";
+    });
+    startBtn.textContent = read ? "Go to Key Question Prep \u2192" : "I\u2019ve read this \u2014 unlock the study sections";
+  }
+  startBtn.addEventListener("click", () => {
+    safeSet(START_KEY, true);
+    applyStartState(true);
+    document.querySelector('.navbtn[data-pane="essay"]').click();
+    window.scrollTo(0, 0);
+  });
+  applyStartState(safeGet(START_KEY, false));
+
+  /* ============ INIT ============ */
+  renderGlossary("");
+  buildConceptQuiz();
+  buildSaq();
+  initPracticeMCQGate();
+  renderProgressPage();
+})();
+</script>
+</body>
+</html>
