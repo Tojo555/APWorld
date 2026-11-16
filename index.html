@@ -19,6 +19,8 @@
     --sea: #2e6c70;
     --sea-soft: #d5e6e5;
     --gold-soft: #f1e3c3;
+    --cran: #b02a3e;
+    --cran-soft: #f6dde1;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
@@ -32,6 +34,8 @@
       --sea: #6fb3b0;
       --sea-soft: #1f3a3c;
       --gold-soft: #3d3220;
+      --cran: #e0546a;
+      --cran-soft: #45202a;
       color-scheme: dark;
     }
   }
@@ -89,6 +93,27 @@
     margin: 0 0 .75rem;
   }
   .course .tools { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+
+  /* Featured: the class race, first thing students see */
+  .feature a {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .25rem 1rem;
+    align-items: center;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 6px solid var(--cran);
+    border-radius: 3px;
+    padding: 1rem 1.25rem;
+    margin-top: 2rem;
+  }
+  .feature a:hover { border-color: var(--cran); }
+  .feature a:hover .tool-name { text-decoration: underline; text-underline-offset: 3px; }
+  .feature a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .feature svg { grid-row: span 3; width: 3.4rem; height: auto; }
+  .feature .tool-name { font-size: 1.45rem; font-family: "Alegreya", Georgia, serif; }
+  .kind-race { background: var(--cran-soft); }
 
   /* Timeline scale shared by every unit row */
   .scale {
@@ -167,12 +192,11 @@
     padding: .05rem .5rem;
     border-radius: 2px;
     margin: .2rem 0 .25rem;
+    justify-self: start;
   }
   .kind-study { background: var(--sea-soft); }
   .kind-game { background: var(--gold-soft); }
-  .kind-print { background: transparent; border: 1px solid var(--rule); }
   .tool-desc { display: block; color: var(--muted); font-size: .98rem; }
-
 
   @media (max-width: 720px) {
     :root { --label-col: 1fr; }
@@ -181,6 +205,8 @@
     .unit-head { display: flex; align-items: baseline; gap: .75rem; flex-wrap: wrap; }
     .unit-head h2 { margin: 0; }
     .unit-head .dates { width: 100%; }
+    .feature a { grid-template-columns: 1fr; }
+    .feature svg { grid-row: auto; width: 2.6rem; }
   }
 </style>
 </head>
@@ -192,7 +218,16 @@
 <main>
   <section class="intro">
     <h1>AP World History</h1>
-    <p>Study guides and review games for Mr. Johnson’s class: whole-course review first, then unit by unit.</p>
+    <p>Study guides, review games, and notebooks for Mr. Johnson’s class, arranged by unit from 1200 to 1750.</p>
+  </section>
+
+  <section class="feature" aria-label="Class race">
+    <a href="thanksgiving-review.html">
+      <svg viewBox="0 0 96 110" aria-hidden="true"><path d="M48 8c19 0 32 15 32 34 0 21-17 38-32 40-15-2-32-19-32-40C16 23 29 8 48 8z" fill="var(--cran)"/><ellipse cx="37" cy="28" rx="6" ry="10" fill="#fff" opacity=".35" transform="rotate(-25 37 28)"/><path d="M44 82h8l-4 6z" fill="var(--cran)"/><path d="M48 88c-4 6 4 10 0 18" stroke="var(--muted)" stroke-width="2" fill="none"/></svg>
+      <span class="tool-name">AP World Thanksgiving Review</span>
+      <span class="tool-kind kind-race">Class race game</span>
+      <span class="tool-desc">Join the balloon race with your team’s race code, or practice on your own. Covers Units 1–4.</span>
+    </a>
   </section>
 
   <section class="course" aria-labelledby="course">
@@ -240,7 +275,6 @@
     </div>
   </section>
 
-
   <section class="unit" aria-labelledby="u3">
     <div class="unit-head">
       <div class="num">3</div>
@@ -278,15 +312,9 @@
           <span class="tool-kind kind-game">Review game</span>
           <span class="tool-desc">Team game comparing colonial societies in the Americas, Strayer pp. 209–219.</span>
         </a></li>
-        <li><a href="ports-of-power.html">
-          <span class="tool-name">Ports of Power</span>
-          <span class="tool-kind kind-game">Review game</span>
-          <span class="tool-desc">Team game on Europeans and Asian commerce, the Portuguese trading post empire, and Spain in the Philippines, Strayer pp. 247–254.</span>
-        </a></li>
       </ul>
     </div>
   </section>
-
 </main>
 </body>
 </html>
