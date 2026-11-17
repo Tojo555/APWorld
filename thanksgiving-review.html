@@ -104,8 +104,9 @@ main{max-width:1120px;margin:0 auto;padding:22px clamp(14px,3vw,32px) 48px}
 .booth{background:var(--paper);border:2px solid var(--line);border-radius:16px;overflow:hidden;position:sticky;top:12px}
 @media (max-width:820px){.booth{position:relative;top:0}}
 .booth .stripes{height:16px;background:repeating-linear-gradient(90deg,var(--teal) 0 30px,var(--paper) 30px 60px)}
-.stage{position:relative;aspect-ratio:300/340;width:100%;max-height:58vh;margin:0 auto;display:block}
-@media (max-width:820px){.stage{max-height:26vh}.stat{padding:6px 6px}.stat .v{font-size:19px}}
+.stage{position:relative;width:100%;margin:0 auto;display:block}
+.stage .scene{max-height:58vh;margin:0 auto}
+@media (max-width:820px){.stage .scene{max-height:30vh}.stat{padding:6px 6px}.stat .v{font-size:19px}}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
 .stat{padding:10px 8px;text-align:center;border-right:1px solid var(--line)}
 .stat:last-child{border-right:0}
@@ -164,19 +165,33 @@ main{max-width:1120px;margin:0 auto;padding:22px clamp(14px,3vw,32px) 48px}
 .summary b{display:block;font-size:24px}
 .summary span{font-size:13.5px;color:var(--ink2)}
 
-/* Balloon animation */
+/* Scenes (shared by the team booth and the projector board) */
+.scene{display:block;width:100%;height:auto}
 .bal{transform-box:fill-box;transform-origin:50% 100%;transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
-.wob{animation:wob 1.6s ease-in-out infinite}
+.wob{transform-box:fill-box;transform-origin:50% 100%;animation:wob 1.6s ease-in-out infinite}
 .tense .wob{animation-duration:.5s}
 @keyframes wob{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
-#stream,#streamCore,#splash{opacity:0;transition:opacity .08s}
-.spraying #stream,.spraying #streamCore,.spraying #splash{opacity:1}
-.spraying #stream{animation:squirt .3s linear infinite}
-.spraying #streamCore{animation:squirt .2s linear infinite}
-.spraying #gun{transform:translateX(-2px)}
-@keyframes squirt{to{stroke-dashoffset:-44}}
-.popword{font-family:var(--display);fill:var(--gold);stroke:var(--ink);stroke-width:2px;paint-order:stroke}
-@media (prefers-reduced-motion: reduce){.wob,.tense .wob{animation:none}.bal{transition:none}.spraying #stream,.spraying #streamCore{animation:none}}
+.stream,.splash{opacity:0;transition:opacity .08s}
+.spray .stream,.spray .splash{opacity:1}
+.spray .stream{animation:squirt .25s linear infinite}
+@keyframes squirt{to{stroke-dashoffset:-48}}
+.burst,.popword{opacity:0}
+.popping .burst,.popping .popword{opacity:1}
+.popping .bal{opacity:0}
+.popword{font-family:var(--display);fill:#ffd34d;stroke:#13263a;stroke-width:3px;paint-order:stroke}
+/* Horse */
+.hmove{transition:transform .7s cubic-bezier(.3,1.2,.5,1)}
+.pose{display:none}
+.p0 .pose.up,.p1 .pose.kneel,.p2 .pose.flat{display:inline}
+.gallop .pose.up{animation:bob .18s ease-in-out 4 alternate}
+@keyframes bob{to{transform:translateY(-6px)}}
+.stars{transform-box:fill-box;transform-origin:50% 50%;animation:spin 1.4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.finishing .hflag{animation:wave .3s ease-in-out 6 alternate}
+@keyframes wave{to{transform:skewY(-8deg)}}
+@media (prefers-reduced-motion: reduce){.wob,.tense .wob,.spray .stream,.stars,.gallop .pose.up{animation:none}.bal,.hmove{transition:none}}
+.posestat{padding:0 14px 10px;font-weight:700}
+.posestat[hidden]{display:none}
 
 .joincard{background:var(--paper);border:3px solid var(--cran);border-radius:18px;padding:20px clamp(16px,3vw,28px)}
 .joincard h2{font-family:var(--display);font-weight:400;font-size:30px;margin:0 0 12px;color:var(--cran)}
@@ -191,7 +206,7 @@ main{max-width:1120px;margin:0 auto;padding:22px clamp(14px,3vw,32px) 48px}
 .lobbycard h2{font-family:var(--display);font-weight:400;font-size:44px;margin:0 0 8px;color:var(--cran)}
 .lobbycard p{font-size:19px}
 body.raceMode .game{grid-template-columns:1fr;max-width:860px;margin:0 auto}
-body.raceMode .stage, body.raceMode #endBtn, body.raceMode #musicBtn, body.raceMode .booth .stripes{display:none}
+body.raceMode .stage, body.raceMode #endBtn, body.raceMode #musicBtn, body.raceMode #sfxBtn, body.raceMode .booth .stripes{display:none}
 body.raceMode .booth{position:relative;top:0}
 .boardctl .choice{padding:6px 12px;border-radius:10px;font-size:15px;box-shadow:none}
 .boardctl .choice[aria-pressed="true"]::after{content:none}
@@ -207,30 +222,39 @@ body.wide .banner{margin:0 0 6px}
 .boardhead{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;margin-bottom:6px}
 .joinhelp{display:flex;gap:18px;align-items:center}
 .qrbox{background:#fff;border-radius:10px;padding:8px 8px 4px;text-align:center;line-height:1.1}
-.qrbox svg{display:block;width:clamp(96px,10vw,150px);height:auto}
+.qrbox svg{display:block;width:clamp(84px,8vw,130px);height:auto}
 .qrbox span{font-size:12px;color:#1d2033}
 .pageurl{margin-top:6px!important;word-break:break-all;max-width:28em}
 .codebox{font-family:var(--display);font-size:clamp(30px,4.4vw,58px);line-height:1;color:var(--cran);letter-spacing:.06em}
 .codebox small{display:block;font-family:var(--body);font-size:15px;letter-spacing:0;color:var(--ink2);margin-bottom:4px}
 .boardctl{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .banner{min-height:1.3em;font-family:var(--display);font-size:clamp(22px,3vw,42px);color:var(--cran);text-align:center;margin:4px 0 10px}
-.lanes{display:grid;gap:clamp(6px,1vw,14px);grid-template-columns:repeat(var(--cols,4),minmax(0,1fr))}
-.lane{background:var(--paper2);border:3px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.lane.lead{border-color:var(--gold);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 40%,transparent)}
-.lname{font-weight:700;text-align:center;padding:6px 8px;font-size:var(--nameSize,24px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--teal);color:#fff}
-.lane.lead .lname{background:var(--gold);color:#1d2033}
+.lanes{display:grid;gap:0;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));background:#0d2c38;border-radius:14px;overflow:hidden;border:4px solid var(--cran)}
+.boothsign{display:flex;align-items:center;justify-content:center;gap:.5em;font-family:var(--display);font-size:clamp(22px,3vw,40px);letter-spacing:.08em;color:#fff;background:repeating-linear-gradient(90deg,var(--cran) 0 60px,#1f6f8b 60px 120px);border-radius:14px 14px 0 0;padding:4px 10px;margin-bottom:-4px;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+.boothsign[hidden]{display:none}
+.lane{display:flex;flex-direction:column;border-right:2px solid #0a222c;min-width:0}
+.lane:last-child{border-right:0}
+.lane.lead{box-shadow:inset 0 0 0 4px var(--gold)}
+.lname{font-weight:700;text-align:center;padding:5px 8px;font-size:var(--nameSize,24px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#1f6f8b;color:#fff}
+.lane.lead .lname{background:var(--gold);color:#0d2c38}
+.lanes:not(.horse) .lname{box-shadow:inset 0 -6px 0 var(--pcol)}
 .lsvg{display:block;width:100%;height:auto;max-height:var(--laneMax,60vh)}
-.lstats{background:var(--paper);display:flex;justify-content:space-around;gap:6px;padding:6px 4px;font-size:var(--statSize,16px);font-variant-numeric:tabular-nums;text-align:center;line-height:1.2}
+.lstats{background:#0d2c38;color:#e8f3f3;display:flex;justify-content:space-around;gap:6px;padding:5px 4px;font-size:var(--statSize,16px);font-variant-numeric:tabular-nums;text-align:center;line-height:1.2}
 .lstats b{display:block;font-size:1.35em}
-.lstats span{color:var(--ink2);font-size:.8em}
-.lbal{transform-box:fill-box;transform-origin:50% 100%;transition:transform .45s cubic-bezier(.3,1.6,.5,1)}
-.lwob{transform-box:fill-box;transform-origin:50% 100%;animation:wob 1.6s ease-in-out infinite}
-.ltense .lwob{animation-duration:.5s}
-.lstream{opacity:0}
-.spray .lstream{opacity:1;animation:squirt .3s linear infinite}
-.lburst,.lpop{opacity:0}
-.lpopping .lburst,.lpopping .lpop{opacity:1}
-.lpopping .lbal{opacity:0}
+.lstats span{color:#b3c8cf;font-size:.8em}
+.lanes:not(.horse) .lsvg{height:var(--laneMax,60vh);max-height:none;
+  background:
+    linear-gradient(to bottom,transparent 0 68.5%,#2a7f99 68.5% 69.25%,#0d2c38 69.25% 72%,transparent 72% 79.5%,var(--gold) 79.5% 80.75%,var(--cran) 80.75%),
+    repeating-linear-gradient(45deg,transparent 0 40px,#1d5568 40px 43px),
+    repeating-linear-gradient(-45deg,transparent 0 40px,#1d5568 40px 43px),
+    #123a4a}
+/* Horse race board: stacked lanes, one track per team */
+.lanes.horse{grid-template-columns:repeat(var(--cols,1),minmax(0,1fr));background:#1d5c3a}
+.lanes.horse .lane{display:grid;grid-template-columns:var(--nameW,180px) 1fr var(--statW,150px);align-items:stretch;border-right:2px solid #0a222c;border-bottom:2px solid #123d27;flex-direction:row}
+.lanes.horse .lname{display:flex;align-items:center;justify-content:flex-start;text-align:left;white-space:normal;line-height:1.1}
+.lanes.horse .ltrack{min-width:0;display:flex;align-items:center}
+.lanes.horse .lsvg{max-height:none}
+.lanes.horse .lstats{flex-direction:row;align-items:center}
 .waiting{background:var(--paper);border:2px dashed var(--line);border-radius:16px;padding:28px;text-align:center;font-size:20px;color:var(--ink2)}
 .racestat{font-size:13.5px;color:var(--ink2);padding:0 14px 10px}
 @media (prefers-reduced-motion: reduce){.lwob,.ltense .lwob,.spray .lstream{animation:none}.lbal{transition:none}}
@@ -266,10 +290,10 @@ body.wide .banner{margin:0 0 6px}
     <div class="rules">
       <b>Midway rules</b>
       <ul>
-        <li>Every team gets the same questions in the same order. Answer on your device and watch your clown on the projector.</li>
-        <li>Each correct answer squirts water into your clown’s mouth and earns one point. A wrong answer lets some air out of your balloon and costs one point.</li>
-        <li>Ten hits pops your balloon. Pop as many balloons as you can before the race ends.</li>
-        <li>Stay on this screen. If you leave it (switch tabs, open another window, or reload), you lose one hit and one point.</li>
+        <li>Every team gets the same questions in the same order. Answer on your device and watch your team on the projector.</li>
+        <li><b>Balloon Race:</b> each right answer squirts water into your clown’s mouth and earns a point. A wrong answer lets air out of your balloon and costs a point. Ten hits pops the balloon.</li>
+        <li><b>Horse Race:</b> each right answer moves your horse one step and earns a point. A wrong answer knocks it to its knees, and a second wrong answer knocks it flat. Each right answer after a fall gets it up one level instead of moving forward. Ten steps crosses the finish line.</li>
+        <li>Stay on this screen. Leaving it (switching tabs, opening another window, or reloading) counts like a wrong answer.</li>
       </ul>
     </div>
     <details class="solo">
@@ -296,6 +320,10 @@ body.wide .banner{margin:0 0 6px}
           <svg viewBox="0 0 96 110" aria-hidden="true"><path d="M48 8c19 0 32 15 32 34 0 21-17 38-32 40-15-2-32-19-32-40C16 23 29 8 48 8z" fill="var(--cran)"/><ellipse cx="37" cy="28" rx="6" ry="10" fill="#fff" opacity=".35" transform="rotate(-25 37 28)"/><path d="M44 82h8l-4 6z" fill="var(--cran)"/><path d="M48 88c-4 6 4 10 0 18" stroke="var(--ink2)" stroke-width="2" fill="none"/></svg>
           <div><b>Balloon Burst Race</b><span>Every right answer squirts water into the clown’s mouth and fills the balloon. Ten hits and it pops. Then grab a new balloon and go again.</span></div>
         </button>
+        <button class="choice gamecard" data-game="horse" aria-pressed="false">
+          <svg viewBox="0 0 130 100" aria-hidden="true" class="horseIcon"></svg>
+          <div><b>Horse Race</b><span>Every right answer moves your horse one step. Ten steps crosses the finish line. A wrong answer knocks your horse to its knees, and a right answer gets it back up.</span></div>
+        </button>
           </div>
         </div>
         <div class="go">
@@ -314,8 +342,8 @@ body.wide .banner{margin:0 0 6px}
   <section class="screen" id="lobby" hidden>
     <div class="lobbycard">
       <h2 id="lobbyH">You’re in!</h2>
-      <p id="lobbyMsg">Find your clown on the projector. The race starts when Mr. Johnson presses Start.</p>
-      <p class="hint">Keep this screen open. Once the race starts, leaving it costs a point.</p>
+      <p id="lobbyMsg">Find your team on the projector. The race starts when Mr. Johnson presses Start.</p>
+      <p class="hint">Keep this screen open. Once the race starts, leaving it costs a point. All sounds play on the projector, so you can turn your volume off.</p>
       <button class="linkbtn" id="lobbyLeave">Leave this race</button>
     </div>
   </section>
@@ -324,68 +352,13 @@ body.wide .banner{margin:0 0 6px}
   <section class="screen game" id="game" hidden>
     <aside class="booth" aria-label="Your balloon">
       <div class="stripes"></div>
-      <svg class="stage" id="stage" viewBox="0 0 300 340" role="img" aria-labelledby="stageLabel">
-        <title id="stageLabel">Balloon</title>
-        <defs>
-          <radialGradient id="shine" cx="35%" cy="30%" r="70%">
-            <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
-            <stop offset=".35" stop-color="#fff" stop-opacity=".08"/>
-            <stop offset="1" stop-color="#000" stop-opacity=".18"/>
-          </radialGradient>
-        </defs>
-        <!-- booth backdrop -->
-        <rect x="0" y="0" width="300" height="340" fill="var(--paper2)"/>
-        <!-- balloon on top of the clown's head -->
-        <g id="balloonWrap" class="wob" style="transform-box:fill-box;transform-origin:50% 100%">
-          <g id="balloon" class="bal">
-            <path id="bshape" d="M190 6C258 6 298 58 298 118C298 180 242 226 190 232C138 226 82 180 82 118C82 58 122 6 190 6Z" fill="var(--cran)"/>
-            <path d="M190 6C258 6 298 58 298 118C298 180 242 226 190 232C138 226 82 180 82 118C82 58 122 6 190 6Z" fill="url(#shine)"/>
-            <path id="bknot" d="M183 231h14l-7 9z" fill="var(--cran)"/>
-          </g>
-        </g>
-        <!-- clown target -->
-        <g id="clown">
-          <circle cx="152" cy="268" r="16" fill="#ef7d2a"/><circle cx="145" cy="284" r="12" fill="#ef7d2a"/>
-          <circle cx="228" cy="268" r="16" fill="#ef7d2a"/><circle cx="235" cy="284" r="12" fill="#ef7d2a"/>
-          <circle cx="190" cy="278" r="37" fill="#fff8ee" stroke="#2b2233" stroke-width="2"/>
-          <ellipse cx="170" cy="284" rx="7" ry="5" fill="#f4a3b4" opacity=".8"/><ellipse cx="210" cy="284" rx="7" ry="5" fill="#f4a3b4" opacity=".8"/>
-          <path d="M170 260q6-7 12 0M198 260q6-7 12 0" stroke="#2b2233" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <circle cx="176" cy="267" r="3.2" fill="#2b2233"/><circle cx="204" cy="267" r="3.2" fill="#2b2233"/>
-          <circle cx="190" cy="281" r="7" fill="#d8283f"/><circle cx="188" cy="279" r="2" fill="#fff" opacity=".6"/>
-          <circle cx="190" cy="300" r="12" fill="#d8283f"/>
-          <circle cx="190" cy="300" r="8" fill="#2a1820"/>
-        </g>
-        <!-- player with a water gun -->
-        <g id="player">
-          <path d="M22 318 C22 286 30 268 44 268 C58 268 64 286 64 318Z" fill="var(--teal)"/>
-          <circle cx="43" cy="251" r="14" fill="#c68a5e"/>
-          <path d="M29 248 C30 234 56 232 58 246 C50 241 38 241 29 248Z" fill="#3a2a22"/>
-          <circle cx="50" cy="250" r="1.8" fill="#2b2233"/>
-          <path d="M50 280 L78 290" stroke="var(--teal)" stroke-width="9" stroke-linecap="round"/>
-          <circle cx="80" cy="291" r="5" fill="#c68a5e"/>
-          <g id="gun">
-            <rect x="80" y="292" width="8" height="15" rx="3" fill="#e8a317"/>
-            <rect x="74" y="282" width="36" height="12" rx="6" fill="#1f9bd1"/>
-            <rect x="108" y="285" width="10" height="6" rx="2" fill="#e8a317"/>
-            <circle cx="89" cy="277" r="7" fill="#8fd3f4" stroke="#1f9bd1" stroke-width="2"/>
-          </g>
-        </g>
-        <!-- water stream -->
-        <path id="stream" d="M117 288 Q150 278 186 300" stroke="#3fa9e6" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="20 4"/>
-        <path id="streamCore" d="M117 288 Q150 278 186 300" stroke="#d6f1ff" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="10 12"/>
-        <g id="splash" fill="#3fa9e6"><circle cx="176" cy="284" r="3.5"/><circle cx="168" cy="292" r="2.6"/><circle cx="172" cy="310" r="3"/><circle cx="182" cy="314" r="2.6"/><circle cx="204" cy="312" r="3"/><circle cx="206" cy="288" r="2.4"/><circle cx="163" cy="303" r="2"/></g>
-        <!-- counter -->
-        <rect x="0" y="316" width="300" height="24" fill="var(--cran)"/>
-        <path d="M0 316h300" stroke="var(--gold)" stroke-width="3"/>
-        <text x="288" y="334" text-anchor="end" font-size="14" font-weight="700" fill="#fff" id="balLabel">Balloon 1</text>
-        <g id="burst" opacity="0"></g>
-        <text id="popText" class="popword" x="190" y="140" text-anchor="middle" font-size="72" opacity="0">POP!</text>
-      </svg>
+      <div class="stage" id="stage" role="img" aria-label="Your game"></div>
       <div class="meter" id="meter" aria-hidden="true"></div>
+      <div class="posestat" id="poseStat" hidden></div>
       <div class="racestat" id="raceStat" hidden></div>
       <div class="stats">
-        <div class="stat"><div class="v" id="sTime">0:00</div><div class="l">This balloon</div></div>
-        <div class="stat"><div class="v" id="sPopped">0</div><div class="l">Balloons popped</div></div>
+        <div class="stat"><div class="v" id="sTime">0:00</div><div class="l" id="sTimeL">This balloon</div></div>
+        <div class="stat"><div class="v" id="sPopped">0</div><div class="l" id="sPoppedL">Balloons popped</div></div>
         <div class="stat"><div class="v" id="sPoints">0</div><div class="l">Points</div></div>
       </div>
       <div class="boothfoot">
@@ -424,6 +397,8 @@ body.wide .banner{margin:0 0 6px}
         <div class="codebox"><small>Race code: type it on your device to join</small><span id="boardCode">----</span><small class="pageurl" id="pageUrl"></small></div>
       </div>
       <div class="boardctl">
+        <button class="choice" data-bgame="balloon" aria-pressed="true">Balloon Race</button>
+        <button class="choice" data-bgame="horse" aria-pressed="false">Horse Race</button>
         <button class="choice" data-bmode="all" aria-pressed="true">Units 1–4</button>
         <button class="choice" data-bmode="u4" aria-pressed="false">Unit 4 only</button>
         <button class="btn" id="boardStart">Start race</button>
@@ -437,6 +412,7 @@ body.wide .banner{margin:0 0 6px}
       </div>
     </div>
     <div class="banner" id="boardBanner" aria-live="polite"></div>
+    <div class="boothsign" id="boothSign" hidden>Balloon Race</div>
     <div class="lanes" id="lanes"></div>
     <div class="waiting" id="boardWait">Waiting for teams. Each team opens this page, types the race code and its team name, then presses <b>Join race</b>.</div>
   </section>
@@ -1837,9 +1813,33 @@ const Sound = (()=>{
     ng.gain.setValueAtTime(0.0001,t); ng.gain.linearRampToValueAtTime(0.22,t+0.04); ng.gain.exponentialRampToValueAtTime(0.001,t+D);
     n.connect(hp); hp.connect(bp); bp.connect(ng); ng.connect(sfxBus); n.start(t); n.stop(t+D);
   }
+  function tone(type,f0,f1,t,d,vol){ const o=ctx.createOscillator(),g=ctx.createGain(); o.type=type; o.frequency.setValueAtTime(f0,t); if(f1) o.frequency.exponentialRampToValueAtTime(f1,t+d);
+    g.gain.setValueAtTime(0.0001,t); g.gain.linearRampToValueAtTime(vol,t+0.015); g.gain.exponentialRampToValueAtTime(0.001,t+d); o.connect(g); g.connect(sfxBus); o.start(t); o.stop(t+d+0.05); }
+  function clop(t){ // wood-block hoof tap
+    const n=noise(0.06), bp=ctx.createBiquadFilter(), g=ctx.createGain(); bp.type="bandpass"; bp.frequency.value=1800; bp.Q.value=6;
+    g.gain.setValueAtTime(0.9,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.06); n.connect(bp); bp.connect(g); g.connect(sfxBus); n.start(t); n.stop(t+0.07);
+    tone("sine",900,500,t,0.05,0.15);
+  }
+  function gallop(){ if(!init()) return; const t=ctx.currentTime+0.01; [0,.09,.27,.36].forEach(d=>clop(t+d)); }
+  function thud(t,v){ tone("sine",140,40,t,0.25,v); const n=noise(0.12), lp=ctx.createBiquadFilter(), g=ctx.createGain(); lp.type="lowpass"; lp.frequency.value=400;
+    g.gain.setValueAtTime(v*0.8,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.12); n.connect(lp); lp.connect(g); g.connect(sfxBus); n.start(t); n.stop(t+0.13); }
+  function fall(){ if(!init()) return; const t=ctx.currentTime+0.01; tone("sine",900,300,t,0.35,0.12); thud(t+0.33,0.9); }
+  function flop(){ if(!init()) return; const t=ctx.currentTime+0.01; // a long slide whistle, then a big comic thud
+    const o=ctx.createOscillator(),g=ctx.createGain(),lfo=ctx.createOscillator(),lg=ctx.createGain(); o.type="sine";
+    o.frequency.setValueAtTime(1400,t); o.frequency.exponentialRampToValueAtTime(220,t+0.8); lfo.frequency.value=7; lg.gain.value=25; lfo.connect(lg); lg.connect(o.frequency);
+    g.gain.setValueAtTime(0.0001,t); g.gain.linearRampToValueAtTime(0.13,t+0.04); g.gain.exponentialRampToValueAtTime(0.001,t+0.8);
+    o.connect(g); g.connect(sfxBus); o.start(t); lfo.start(t); o.stop(t+0.85); lfo.stop(t+0.85);
+    thud(t+0.78,1.2); thud(t+0.95,0.5); }
+  function rise(){ if(!init()) return; const t=ctx.currentTime+0.01; tone("sine",350,900,t,0.3,0.12); tone("triangle",700,1400,t+0.05,0.25,0.05); }
+  function fanfare(){ if(!init()) return; const t=ctx.currentTime+0.02; // short original bugle call
+    [[67,0,.14],[72,.15,.14],[76,.30,.14],[79,.45,.30],[76,.78,.14],[79,.93,.6]].forEach(([m,st,d])=>{ const tt=t+st, o=ctx.createOscillator(), o2=ctx.createOscillator(), g=ctx.createGain(), lp=ctx.createBiquadFilter();
+      o.type="sawtooth"; o2.type="square"; o.frequency.value=hz(m); o2.frequency.value=hz(m)*1.002; lp.type="lowpass"; lp.frequency.value=2400;
+      g.gain.setValueAtTime(0.0001,tt); g.gain.linearRampToValueAtTime(0.12,tt+0.03); g.gain.setValueAtTime(0.1,tt+d*0.7); g.gain.exponentialRampToValueAtTime(0.001,tt+d);
+      o.connect(lp); o2.connect(lp); lp.connect(g); g.connect(sfxBus); o.start(tt); o2.start(tt); o.stop(tt+d+0.05); o2.stop(tt+d+0.05); });
+  }
   function setMusic(v){ musicOn=v; setPref("music",v); if(musicBus) musicBus.gain.setTargetAtTime(v?0.07:0, ctx.currentTime, 0.05); }
   function setSfx(v){ sfxOn=v; setPref("sfx",v); if(sfxBus) sfxBus.gain.setTargetAtTime(v?1:0, ctx.currentTime, 0.02); }
-  return {unlock,startMusic,stopMusic,pop,pump,miss,setMusic,setSfx,get musicOn(){return musicOn;},get sfxOn(){return sfxOn;}};
+  return {unlock,startMusic,stopMusic,pop,pump,miss,gallop,fall,flop,rise,fanfare,setMusic,setSfx,get musicOn(){return musicOn;},get sfxOn(){return sfxOn;}};
 })();
 function syncSoundBtns(){
   const m=document.getElementById("musicBtn"), s=document.getElementById("sfxBtn");
@@ -1862,10 +1862,12 @@ const HRI_OPTS = [["causation","Causation"],["comparison","Comparison"],["ccot",
 // Never offer these as distractors for each other (near-identical definitions).
 const CLASH = {"Western Christendom":"Roman Catholic Church","Roman Catholic Church":"Western Christendom"};
 U4RAW.forEach(([q,opts,why])=>BANK.push({u:4,k:"mcq",q,opts:opts.map(t=>({t,w:null})),a:0,why}));
+// Drop reasoning prompts that point to a passage or source the game cannot show.
+for(let i=BANK.length-1;i>=0;i--){ const b=BANK[i]; if(b.k==="hri" && /\b(passage|source|excerpt|described above)\b/i.test(b.q)) BANK.splice(i,1); }
 
 const PUMPS = 10;
 const COLORS = ["var(--cran)","var(--pumpkin)","var(--teal)","var(--plum)","var(--gold)"];
-const KEY = "apwThanksgivingBalloon1";
+const KEY = "apwThanksgivingRace2";
 const $ = id => document.getElementById(id);
 const esc = s => String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function seedFn(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19;}h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);let a=(h^h>>>16)>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
@@ -1959,17 +1961,42 @@ function answer(j){
   locked = true;
   S.cur.chosen = j;
   const ok = j===S.cur.a;
-  S.answered++;
-  if(ok){ S.correct++; S.points++; S.roundCorrect++; S.air++; }
-  else { S.points--; S.air=Math.max(0,S.air-1); }
-  S.roundAsked++;
+  S.answered++; S.roundAsked++;
+  let ev;
+  if(isHorse()){
+    S.posture = S.posture||0;
+    if(ok){ S.correct++; S.roundCorrect++;
+      if(S.posture>0){ S.posture--; ev = S.posture===1 ? "kneesUp" : "stand"; }
+      else { S.points++; S.air++; ev = "step"; } }
+    else if(S.posture<2){ S.posture++; ev = S.posture===1 ? "kneel" : "flat"; }
+    else ev = "still";
+  } else {
+    if(ok){ S.correct++; S.points++; S.roundCorrect++; S.air++; ev = "pump"; }
+    else { S.points--; S.air=Math.max(0,S.air-1); ev = "leak"; }
+  }
+  S.cur.ev = ev;
   save();
   showFeedback(j,false);
-  updateBooth(ok);
-  if(ok && S.air>=PUMPS){ setTimeout(popBalloon, 650); return; }
-  if(ok) Sound.pump(); else Sound.miss();
+  updateBooth(ev);
+  if(S.air>=PUMPS){ setTimeout(finishRound, 650); return; }
+  playEvent(ev);
   if(ok) autoNext = setTimeout(newQuestion, 1100);
 }
+function playEvent(ev){
+  if(S && S.code) return; // in a class race, the projector plays every team's sounds
+  const f = {pump:Sound.pump, leak:Sound.miss, step:Sound.gallop, kneesUp:Sound.rise, stand:Sound.rise, kneel:Sound.fall, flat:Sound.flop}[ev];
+  if(f) f();
+}
+const FB = {
+  pump:"Correct! One squirt of water.",
+  step:"Correct! Your horse gallops ahead one step.",
+  kneesUp:"Correct! Your horse gets up onto its knees. One more right answer gets it standing.",
+  stand:"Correct! Your horse is back on its feet. Your next right answer moves it forward.",
+  leak:"Not quite. Your balloon lets out some air, and you lose one point.",
+  kneel:"Not quite. Your horse stumbles to its knees. Your next right answer gets it back up instead of moving it forward.",
+  flat:"Not quite. Your horse falls flat! It takes two right answers to get it standing again.",
+  still:"Not quite. Your horse is already down, so nothing else changes."
+};
 function showFeedback(j, restoring){
   const c = S.cur, b = BANK[c.i], ok = j===c.a;
   $("qcard").querySelectorAll(".opt").forEach((el,k)=>{
@@ -1982,65 +2009,200 @@ function showFeedback(j, restoring){
     why = (c.opts[j] && c.opts[j].w) || b.why || "";
     if(b.k==="term") why = "“"+c.opts[c.a].t+"” matches this definition.";
   }
+  const head = FB[c.ev] || (ok ? "Correct!" : "Not quite.");
   const slot = $("fbSlot");
   if(ok){
-    slot.innerHTML = '<div class="fb ok"><b>Correct! One pump of air.</b></div>';
+    slot.innerHTML = '<div class="fb ok"><b>'+esc(head)+'</b></div>';
     if(restoring) autoNext = setTimeout(newQuestion, 600);
   } else {
-    slot.innerHTML = '<div class="fb no"><b>Not quite. Your balloon lets out some air, and you lose one point.</b>The answer is '+"ABCD"[c.a]+'. '+esc(why)+'</div><div class="fbrow"><button class="btn" id="nextQ">Next question</button></div>';
+    slot.innerHTML = '<div class="fb no"><b>'+esc(head)+'</b>The answer is '+"ABCD"[c.a]+'. '+esc(why)+'</div><div class="fbrow"><button class="btn" id="nextQ">Next question</button></div>';
     $("nextQ").addEventListener("click", newQuestion);
     if(!restoring) $("nextQ").focus({preventScroll:true});
   }
 }
 
-/* ---------- Balloon ---------- */
+/* ---------- Scenes: drawn once here, used by the team booth and the projector board ---------- */
+const Scenes = (()=>{
+  const BAL = "M172 4C252 4 296 54 296 112C296 168 236 198 172 202C108 198 48 168 48 112C48 54 92 4 172 4Z";
+  let SH=""; for(let k=0;k<16;k++){ const a=k/16*Math.PI*2, r1=38, r2=118+(k%3)*18;
+    SH+='<path d="M'+(172+Math.cos(a)*r1).toFixed(1)+' '+(104+Math.sin(a)*r1).toFixed(1)+' L'+(172+Math.cos(a)*r2).toFixed(1)+' '+(104+Math.sin(a)*r2).toFixed(1)+'" stroke="'+(k%3?"var(--bcol)":"#ffd34d")+'" stroke-width="7" stroke-linecap="round"/>'; }
+  // Over-the-shoulder view: the wall and the clown on a shelf ahead, the counter and water gun below, the player's back in front.
+  function balloon(){
+    return '<svg class="scene lsvg bscene" viewBox="0 0 300 400" preserveAspectRatio="xMidYMax meet" aria-hidden="true">'+
+      '<rect width="300" height="400" fill="#123a4a"/>'+
+      '<path d="M0 40L40 0M0 100L100 0M0 160L160 0M0 220L220 0M40 240L280 0M100 240L300 40M160 240L300 100M220 240L300 160M0 0L240 240M60 0L300 240M120 0L300 180M180 0L300 120M240 0L300 60M0 60L180 240M0 120L120 240M0 180L60 240" stroke="#1d5568" stroke-width="3"/>'+
+      // balloon rises from the clown's head
+      '<g class="wob"><g class="bal"><path d="'+BAL+'" fill="var(--bcol)"/><path d="'+BAL+'" fill="url(#shineB)"/><path d="M165 201h14l-7 9z" fill="var(--bcol)"/></g></g>'+
+      // clown head on the shelf
+      '<g transform="translate(-18,0)">'+
+        '<circle cx="160" cy="228" r="14" fill="#ef7d2a"/><circle cx="155" cy="244" r="11" fill="#ef7d2a"/>'+
+        '<circle cx="220" cy="228" r="14" fill="#ef7d2a"/><circle cx="225" cy="244" r="11" fill="#ef7d2a"/>'+
+        '<circle cx="190" cy="236" r="29" fill="#fff8ee" stroke="#2b2233" stroke-width="2"/>'+
+        '<path d="M174 222q5-6 10 0M196 222q5-6 10 0" stroke="#2b2233" stroke-width="2.5" fill="none" stroke-linecap="round"/>'+
+        '<circle cx="179" cy="228" r="2.8" fill="#2b2233"/><circle cx="201" cy="228" r="2.8" fill="#2b2233"/>'+
+        '<ellipse cx="172" cy="240" rx="6" ry="4" fill="#f4a3b4" opacity=".85"/><ellipse cx="208" cy="240" rx="6" ry="4" fill="#f4a3b4" opacity=".85"/>'+
+        '<circle cx="190" cy="238" r="6" fill="#d8283f"/><circle cx="188" cy="236" r="1.8" fill="#fff" opacity=".6"/>'+
+        '<circle cx="190" cy="253" r="10" fill="#d8283f"/><circle cx="190" cy="253" r="6.5" fill="#2a1820"/>'+
+        '<path d="M158 270l8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8v6h-64z" fill="#ffd34d" stroke="#2b2233" stroke-width="1.5"/>'+
+      '</g>'+
+      '<rect y="276" width="300" height="12" fill="#0d2c38"/><rect y="274" width="300" height="3" fill="#2a7f99"/>'+
+      // counter
+      '<rect y="322" width="300" height="78" fill="var(--cran)"/><rect y="318" width="300" height="5" fill="var(--gold)"/>'+
+      '<path d="M0 352h300" stroke="rgba(255,255,255,.18)" stroke-width="2"/>'+
+      // the player, seen from behind: hooded sweatshirt in the team's color, hood up, gloves on
+      // arms reach forward (away from us), so they are drawn first and the body covers the shoulders
+      '<path d="M140 362 L158 380 L226 330 L214 316Z" fill="var(--pcol)"/><path d="M140 362 L158 380 L226 330 L214 316Z" fill="rgba(0,0,0,.18)"/>'+
+      '<path d="M208 322 L222 312 L228 320 L214 330Z" fill="rgba(0,0,0,.28)"/>'+
+      '<path d="M30 372 L52 380 L80 334 L66 326Z" fill="var(--pcol)"/><path d="M30 372 L52 380 L80 334 L66 326Z" fill="rgba(0,0,0,.18)"/>'+
+      '<circle cx="73" cy="327" r="8" fill="#2b2f3a"/>'+
+      '<path d="M16 400 C18 374 32 358 60 352 L136 352 C164 358 178 374 180 400Z" fill="var(--pcol)"/>'+
+      '<path d="M98 352 C130 354 166 362 180 400 L98 400Z" fill="rgba(0,0,0,.14)"/>'+
+      '<path d="M60 352 C50 372 46 386 46 400 M136 352 C146 372 150 386 150 400" stroke="rgba(0,0,0,.18)" stroke-width="2" fill="none"/>'+
+      '<path d="M62 358 C54 320 70 288 98 286 C126 288 142 320 134 358 C118 366 78 366 62 358Z" fill="var(--pcol)"/>'+
+      '<path d="M98 287 C126 289 142 320 134 358 C122 363 108 365 98 365Z" fill="rgba(0,0,0,.14)"/>'+
+      '<path d="M98 289 C100 312 99 338 98 364" stroke="rgba(0,0,0,.3)" stroke-width="2" fill="none"/>'+
+      '<path d="M64 352 C80 360 116 360 132 352" stroke="rgba(0,0,0,.22)" stroke-width="3" fill="none"/>'+
+      // water gun mounted on the counter, in the player's gloved hand, aimed up at the clown's mouth
+      '<circle cx="220" cy="320" r="8" fill="#2b2f3a"/>'+
+      '<path d="M214 322 L234 322 L234 304 L214 304Z" fill="#0d2c38"/>'+
+      '<path d="M214 314 L232 308 L218 286 L208 290Z" fill="#1f9bd1"/>'+
+      '<circle cx="212" cy="287" r="5" fill="#ffd34d"/><circle cx="230" cy="296" r="8" fill="#8fd3f4" stroke="#1f9bd1" stroke-width="2"/>'+
+      '<path d="M210 316 a8 8 0 0 1 14 -2" stroke="#2b2f3a" stroke-width="6" fill="none" stroke-linecap="round"/>'+
+      // the stream arcs from the nozzle up into the mouth
+      '<path class="stream" d="M211 285 Q200 258 176 254" stroke="#3fa9e6" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="20 4"/>'+
+      '<g class="splash" fill="#8fd3f4"><circle cx="160" cy="250" r="3"/><circle cx="186" cy="246" r="2.6"/><circle cx="164" cy="262" r="2.4"/><circle cx="184" cy="263" r="2.8"/><circle cx="156" cy="257" r="2"/></g>'+
+      '<text class="rlabel" x="290" y="392" text-anchor="end" font-size="15" font-weight="700" fill="#fff">Balloon 1</text>'+
+      '<g class="burst">'+SH+'</g><text class="popword" x="172" y="124" text-anchor="middle" font-size="72">POP!</text>'+
+    '</svg>';
+  }
+
+  /* Horse, facing right, drawn in a 130 x 100 box with the ground at y = 96. Three poses. */
+  const COAT="#b8743f", COAT2="#96592c", MANE="#3b2a20", HOOF="#2b2233";
+  function cloth(x,y,col,num,rot){ return '<g transform="rotate('+(rot||0)+' '+(x+13)+' '+(y+10)+')"><rect x="'+x+'" y="'+y+'" width="26" height="20" rx="3" fill="'+col+'" stroke="#fff" stroke-width="1.5"/><text x="'+(x+13)+'" y="'+(y+15)+'" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">'+num+'</text></g>'; }
+  function upper(col,num){ return ''+
+    '<path d="M24 40 C8 44 4 60 10 76 C14 62 18 54 28 48Z" fill="'+MANE+'"/>'+
+    '<ellipse cx="60" cy="44" rx="38" ry="17" fill="'+COAT+'"/>'+
+    '<path d="M84 38 L96 10 L110 14 L100 48Z" fill="'+COAT+'"/>'+
+    '<ellipse cx="112" cy="20" rx="17" ry="9" transform="rotate(28 112 20)" fill="'+COAT+'"/>'+
+    '<path d="M98 8 L101 -3 L106 9Z" fill="'+COAT2+'"/>'+
+    '<path d="M84 36 C88 22 92 12 98 6 L102 12 C96 20 92 30 90 42Z" fill="'+MANE+'"/>'+
+    '<circle cx="107" cy="15" r="2.2" fill="'+HOOF+'"/><circle cx="123" cy="29" r="1.6" fill="'+HOOF+'"/>'+
+    cloth(47,30,col,num);
+  }
+  function horse(col,num){
+    const up = '<g class="pose up">'+
+      '<path d="M30 52 L28 90 L36 90 L40 54Z" fill="'+COAT2+'"/><path d="M42 54 L44 90 L52 90 L52 54Z" fill="'+COAT+'"/>'+
+      '<path d="M78 54 L78 90 L86 90 L88 52Z" fill="'+COAT2+'"/><path d="M88 52 L92 90 L100 90 L98 50Z" fill="'+COAT+'"/>'+
+      '<rect x="27" y="89" width="10" height="7" fill="'+HOOF+'"/><rect x="43" y="89" width="10" height="7" fill="'+HOOF+'"/><rect x="77" y="89" width="10" height="7" fill="'+HOOF+'"/><rect x="91" y="89" width="10" height="7" fill="'+HOOF+'"/>'+
+      upper(col,num)+'</g>';
+    const kneel = '<g class="pose kneel">'+
+      '<path d="M30 52 L28 90 L36 90 L40 54Z" fill="'+COAT2+'"/><path d="M42 54 L44 90 L52 90 L52 54Z" fill="'+COAT+'"/>'+
+      '<rect x="27" y="89" width="10" height="7" fill="'+HOOF+'"/><rect x="43" y="89" width="10" height="7" fill="'+HOOF+'"/>'+
+      '<path d="M80 66 L82 92 L110 95 L110 88 L90 86 L90 64Z" fill="'+COAT2+'"/>'+
+      '<g transform="rotate(20 34 52)">'+upper(col,num)+'</g>'+
+      '<path d="M90 70 L92 91 L120 94 L120 87 L100 85 L100 68Z" fill="'+COAT+'"/>'+
+      '<rect x="108" y="87" width="8" height="8" fill="'+HOOF+'"/><rect x="118" y="86" width="8" height="8" fill="'+HOOF+'"/>'+
+    '</g>';
+    const flat = '<g class="pose flat">'+
+      '<path d="M34 80 L6 58" stroke="'+COAT2+'" stroke-width="9" stroke-linecap="round"/><path d="M40 86 L12 98" stroke="'+COAT+'" stroke-width="9" stroke-linecap="round"/>'+
+      '<path d="M84 80 L106 54" stroke="'+COAT2+'" stroke-width="9" stroke-linecap="round"/><path d="M80 86 L96 66" stroke="'+COAT+'" stroke-width="9" stroke-linecap="round"/>'+
+      '<circle cx="5" cy="57" r="5.5" fill="'+HOOF+'"/><circle cx="11" cy="99" r="5.5" fill="'+HOOF+'"/><circle cx="107" cy="52" r="5.5" fill="'+HOOF+'"/><circle cx="97" cy="64" r="5.5" fill="'+HOOF+'"/>'+
+      '<path d="M26 84 C14 86 6 92 0 96 C10 96 18 94 28 90Z" fill="'+MANE+'"/>'+
+      '<ellipse cx="60" cy="82" rx="38" ry="14" fill="'+COAT+'"/>'+
+      '<path d="M90 76 L118 82 L114 94 L88 90Z" fill="'+COAT+'"/>'+
+      '<ellipse cx="122" cy="90" rx="16" ry="8" transform="rotate(-6 122 90)" fill="'+COAT+'"/>'+
+      '<path d="M108 82 L106 70 L114 80Z" fill="'+COAT2+'"/>'+
+      '<path d="M114 84 l6 6 m0 -6 l-6 6" stroke="'+HOOF+'" stroke-width="2.2" stroke-linecap="round"/>'+
+      '<path d="M132 92 q4 6 -1 8" stroke="#e86a8a" stroke-width="3.5" fill="none" stroke-linecap="round"/>'+
+      cloth(47,68,col,num,-4)+
+      '<g class="stars" fill="#ffd34d" stroke="#8a6a00" stroke-width=".8"><path d="M112 58 l2.4 5 5.4 .6 -4 3.6 1.2 5.3 -5 -2.8 -5 2.8 1.2 -5.3 -4 -3.6 5.4 -.6z"/><path d="M134 66 l1.8 3.6 4 .5 -3 2.6 .9 3.9 -3.7 -2 -3.7 2 .9 -3.9 -3 -2.6 4 -.5z"/></g>'+
+    '</g>';
+    return '<g class="horse">'+up+kneel+flat+'</g>';
+  }
+  // A racetrack strip, W wide and 120 tall; the horse sits in a group we slide along it.
+  function track(W, col, num){
+    let checks=""; for(let r=0;r<6;r++) for(let c=0;c<2;c++) checks+='<rect x="'+(W-46+c*9)+'" y="'+(12+r*17)+'" width="9" height="17" fill="'+((r+c)%2?"#fff":"#13263a")+'"/>';
+    return '<svg class="scene lsvg" viewBox="0 0 '+W+' 120" aria-hidden="true">'+
+      '<rect width="'+W+'" height="120" fill="#2f8a52"/>'+
+      '<rect y="58" width="'+W+'" height="62" fill="#c9a36b"/><rect y="58" width="'+W+'" height="4" fill="#a9844f"/>'+
+      '<path d="M0 10H'+W+'" stroke="#fff" stroke-width="4"/>'+
+      '<path d="M18 58V120" stroke="#fff" stroke-width="3" stroke-dasharray="6 6"/>'+
+      checks+
+      '<g class="hflag" style="transform-box:fill-box;transform-origin:0 0"><path d="M'+(W-28)+' 4V40" stroke="#13263a" stroke-width="3"/><path d="M'+(W-28)+' 6h22l-6 8 6 8h-22z" fill="#ffd34d"/></g>'+
+      '<g class="hmove" style="transform:translateX(18px)"><g transform="translate(0,20)">'+horse(col,num)+'</g></g>'+
+      '<text class="rlabel" x="'+(W-60)+'" y="112" text-anchor="end" font-size="15" font-weight="700" fill="#13263a">Race 1</text>'+
+    '</svg>';
+  }
+  // Where the horse's nose should be after `steps` of 10.
+  function horseX(W, steps){ return 18 + Math.max(0,Math.min(10,steps))/10 * (W - 46 - 18 - 132); }
+  return {balloon, horse, track, horseX};
+})();
+
+/* ---------- The team's booth ---------- */
+const isHorse = () => !!S && S.game==="horse";
 function balloonColor(){ return COLORS[(S.round-1)%COLORS.length]; }
-function updateBooth(pumped){
-  const col = balloonColor();
-  $("bshape").setAttribute("fill", col); $("bknot").setAttribute("fill", col);
-  const f = Math.max(0,Math.min(S.air,PUMPS))/PUMPS;
-  const sc = 0.12 + 0.88*f;
-  $("balloon").style.transform = "scale("+sc.toFixed(3)+")";
-  $("stage").classList.toggle("tense", S.air>=7);
-  $("balloon").style.opacity = 1; $("popText").setAttribute("opacity",0); $("burst").setAttribute("opacity",0);
+const POSE_TXT = ["Your horse is standing.","Your horse is on its knees. Your next right answer gets it up.","Your horse is flat on the ground! It takes two right answers to get it up."];
+const TRACK_W = 420;
+let stageGame = null;
+function buildStage(){
+  if(stageGame===S.game && $("stage").firstChild) return;
+  stageGame = S.game;
+  $("stage").innerHTML = isHorse() ? Scenes.track(TRACK_W, "var(--cran)", 1) : Scenes.balloon();
+}
+function updateBooth(ev){
+  buildStage();
+  const st=$("stage"), h=isHorse(), col = h ? "var(--cran)" : balloonColor(), pose=S.posture||0;
+  st.style.setProperty("--bcol", col); st.style.setProperty("--pcol", "#16a394");
+  st.classList.remove("popping","finishing");
+  if(h){
+    st.querySelector(".hmove").style.transform = "translateX("+Scenes.horseX(TRACK_W,S.air).toFixed(1)+"px)";
+    const hs = st.querySelector(".horse"); hs.setAttribute("class","horse p"+pose+(ev==="step"?" gallop":""));
+  } else {
+    const f = Math.max(0,Math.min(S.air,PUMPS))/PUMPS;
+    st.querySelector(".bal").style.transform = "scale("+(0.12+0.88*f).toFixed(3)+")";
+    st.classList.toggle("tense", S.air>=7);
+  }
+  st.querySelector(".rlabel").textContent = (h?"Race ":"Balloon ")+S.round;
   $("meter").style.setProperty("--bal", col);
   $("meter").innerHTML = Array.from({length:PUMPS},(_,k)=>'<i class="'+(k<S.air?"on":"")+'"></i>').join("");
   $("sPopped").textContent = S.log.length;
   $("sPoints").textContent = S.points;
   $("sLeaves").textContent = "Screen leaves: "+S.leaves;
   $("sWho").textContent = S.name;
-  $("balLabel").textContent = "Balloon "+S.round;
-  $("stageLabel").textContent = "Balloon "+S.round+": "+S.air+" of "+PUMPS+" pumps";
+  $("sTimeL").textContent = h ? "This race" : "This balloon";
+  $("sPoppedL").textContent = h ? "Races won" : "Balloons popped";
+  const ps=$("poseStat"); ps.hidden = !h; if(h) ps.textContent = POSE_TXT[pose];
+  st.setAttribute("aria-label", h ? "Race "+S.round+": step "+S.air+" of "+PUMPS+". "+POSE_TXT[pose] : "Balloon "+S.round+": "+S.air+" of "+PUMPS+" pumps");
   Live.send();
-  if(pumped){ const st=$("stage"); st.classList.add("spraying"); clearTimeout(st._spr); st._spr=setTimeout(()=>st.classList.remove("spraying"),900); }
+  if(ev==="pump"){ st.classList.add("spray"); clearTimeout(st._spr); st._spr=setTimeout(()=>st.classList.remove("spray"),900); }
 }
-function popBalloon(){
-  Sound.pop();
+function roundWord(cap){ return (isHorse() ? (cap?"Race":"race") : (cap?"Balloon":"balloon")); }
+function showRoundModal(r){
+  const h=isHorse();
+  $("popH").textContent = h ? "Finish line!" : "Balloon popped!";
+  $("popWhich").textContent = (S.name ? S.name+", "+roundWord(false) : roundWord(true))+" "+r.round+(h?" finished in":" popped in");
+  $("popTime").textContent = fmt(r.ms);
+  $("popDetail").textContent = r.correct+" right out of "+r.asked+" questions"+(r.leaves?", "+r.leaves+" screen leave"+(r.leaves>1?"s":""):"")+".";
+  $("nextBalloon").textContent = h ? "Start the next race" : "Grab a new balloon";
+  $("popVeil").hidden = false;
+}
+function finishRound(){
+  const h=isHorse();
+  if(!S.code){ if(h) Sound.fanfare(); else Sound.pop(); }
   const ms = Date.now()-S.roundStart;
-  S.log.push({round:S.round, ms, asked:S.roundAsked, correct:S.roundCorrect, leaves:S.roundLeaves});
+  const r = {round:S.round, ms, asked:S.roundAsked, correct:S.roundCorrect, leaves:S.roundLeaves};
+  S.log.push(r);
   S.phase = "popped"; save(); Live.send();
-  // burst graphics
-  const col = balloonColor();
-  $("balloon").style.opacity = 0;
-  let shards = "";
-  for(let k=0;k<14;k++){
-    const a = k/14*Math.PI*2, r1=30+Math.random()*14, r2=95+Math.random()*45;
-    const x1=190+Math.cos(a)*r1, y1=118+Math.sin(a)*r1, x2=190+Math.cos(a)*r2, y2=118+Math.sin(a)*r2;
-    shards += '<path d="M'+x1.toFixed(1)+' '+y1.toFixed(1)+' L'+x2.toFixed(1)+' '+y2.toFixed(1)+'" stroke="'+(k%3?col:"var(--gold)")+'" stroke-width="'+(4+Math.random()*4).toFixed(1)+'" stroke-linecap="round"/>';
-  }
-  $("burst").innerHTML = shards; $("burst").setAttribute("opacity",1); $("popText").setAttribute("opacity",1);
+  const st=$("stage"); st.classList.add(h?"finishing":"popping");
   $("sPopped").textContent = S.log.length;
   setTimeout(()=>{
-    $("popWhich").textContent = (S.name?S.name+", b":"B")+"alloon "+S.round+" popped in";
-    $("popTime").textContent = fmt(ms);
-    $("popDetail").textContent = S.roundCorrect+" right out of "+S.roundAsked+" questions"+(S.roundLeaves?", "+S.roundLeaves+" screen leave"+(S.roundLeaves>1?"s":""):"")+".";
-    $("popVeil").hidden = false; $("nextBalloon").focus();
+    showRoundModal(r); $("nextBalloon").focus();
     if(S.code) setTimeout(()=>{ if(!$("popVeil").hidden && S.phase==="popped"){ $("popVeil").hidden=true; startRound(); } }, 2200);
   }, 900);
 }
 function startRound(){
-  S.round++; S.air=0; S.roundAsked=0; S.roundCorrect=0; S.roundLeaves=0; S.roundStart=Date.now(); S.phase="play";
-  updateBooth(false); newQuestion();
+  S.round++; S.air=0; S.posture=0; S.roundAsked=0; S.roundCorrect=0; S.roundLeaves=0; S.roundStart=Date.now(); S.phase="play";
+  updateBooth(null); newQuestion();
 }
 
 /* ---------- Screen-leave penalty ---------- */
@@ -2049,12 +2211,18 @@ function markAway(){ if(S && S.phase==="play" && !$("game").hidden) away = true;
 function cameBack(){
   if(!away) return; away = false;
   if(!S || S.phase!=="play") return;
-  penalize("You left the game screen. You lose one pump of air and one point.");
+  penalize("You left the game screen.");
 }
 function penalize(msg){
-  S.leaves++; S.roundLeaves++; S.points--; S.air=Math.max(0,S.air-1); Sound.miss();
-  save(); updateBooth(false);
-  $("leaveMsg").textContent = msg;
+  S.leaves++; S.roundLeaves++;
+  let what;
+  if(isHorse()){
+    S.posture = S.posture||0;
+    if(S.posture<2){ S.posture++; what = S.posture===1 ? "Your horse stumbles to its knees." : "Your horse falls flat!"; if(!S.code){ if(S.posture===1) Sound.fall(); else Sound.flop(); } }
+    else { S.points--; what = "Your horse is already down, so you lose one point."; if(!S.code) Sound.miss(); }
+  } else { S.points--; S.air=Math.max(0,S.air-1); what = "You lose one pump of air and one point."; if(!S.code) Sound.miss(); }
+  save(); updateBooth(null);
+  $("leaveMsg").textContent = msg+" "+what;
   $("leaveVeil").hidden = false; $("leaveOk").focus();
 }
 document.addEventListener("visibilitychange",()=>{ if(document.hidden) markAway(); else setTimeout(()=>{ if(document.hasFocus()) cameBack(); },120); });
@@ -2069,7 +2237,7 @@ function startGame(){
   const name = $("nameIn").value.trim();
   if(!name){ $("startMsg").innerHTML = '<span class="err">Type your name first.</span>'; $("nameIn").focus(); return; }
   const code = null;
-  S = {name, code, mode, game:gameType, round:0, air:0, points:0, correct:0, answered:0, asked:0, leaves:0,
+  S = {name, code, mode, game:gameType, posture:0, round:0, air:0, points:0, correct:0, answered:0, asked:0, leaves:0,
        roundAsked:0, roundCorrect:0, roundLeaves:0, roundStart:0, log:[], queues:{}, lastUnit:null, cur:null, phase:"play", started:Date.now()};
   Sound.unlock(); if(!code) Sound.startMusic();
   show("game"); startTick(); startRound();
@@ -2078,15 +2246,16 @@ function startGame(){
 function endGame(){
   S.phase = "over"; save(); Live.send();
   clearInterval(tick); clearTimeout(autoNext); Sound.stopMusic();
-  $("rWho").textContent = S.name+", "+(S.mode==="u4"?"Unit 4 only":"Units 1–4")+", Balloon Burst Race";
+  const h = isHorse();
+  $("rWho").textContent = S.name+", "+(S.mode==="u4"?"Unit 4 only":"Units 1–4")+", "+(h?"Horse Race":"Balloon Burst Race");
   const acc = S.answered ? Math.round(100*S.correct/S.answered) : 0;
   const best = S.log.length ? fmt(Math.min(...S.log.map(r=>r.ms))) : "—";
   $("rSummary").innerHTML = [
-    [S.log.length,"Balloons popped"],[S.points,"Points"],[S.correct+" / "+S.answered,"Correct answers"],[acc+"%","Accuracy"],[best,"Fastest balloon"],[S.leaves,"Screen leaves"]
+    [S.log.length, h?"Races won":"Balloons popped"],[S.points,"Points"],[S.correct+" / "+S.answered,"Correct answers"],[acc+"%","Accuracy"],[best, h?"Fastest race":"Fastest balloon"],[S.leaves,"Screen leaves"]
   ].map(([v,l])=>'<div><b>'+esc(v)+'</b><span>'+esc(l)+'</span></div>').join("");
   $("rTable").innerHTML = S.log.length
-    ? '<thead><tr><th>Balloon</th><th>Time</th><th>Right / asked</th><th>Screen leaves</th></tr></thead><tbody>'+S.log.map(r=>'<tr><td>'+r.round+'</td><td>'+fmt(r.ms)+'</td><td>'+r.correct+' / '+r.asked+'</td><td>'+r.leaves+'</td></tr>').join("")+'</tbody>'
-    : '<tbody><tr><td>No balloons popped yet.</td></tr></tbody>';
+    ? '<thead><tr><th>'+(h?"Race":"Balloon")+'</th><th>Time</th><th>Right / asked</th><th>Screen leaves</th></tr></thead><tbody>'+S.log.map(r=>'<tr><td>'+r.round+'</td><td>'+fmt(r.ms)+'</td><td>'+r.correct+' / '+r.asked+'</td><td>'+r.leaves+'</td></tr>').join("")+'</tbody>'
+    : '<tbody><tr><td>'+(h?"No races finished yet.":"No balloons popped yet.")+'</td></tr></tbody>';
   show("results");
 }
 
@@ -2135,7 +2304,7 @@ const Live = (()=>{
     if(conn && conn.open) return;
     try{ if(conn) conn.close(); }catch(e){}
     conn = peer.connect(hostId(code), {reliable:true});
-    conn.on("open",()=>{ status("Connected to race "+code+". Your clown is on the projector."); send(); });
+    conn.on("open",()=>{ status("Connected to race "+code+". Your team is on the projector."); send(); });
     conn.on("data",d=>{ if(d && d.type==="board") onBoard(d); });
     conn.on("close",()=>{ if(dead) return; status("Lost the projector. Reconnecting…"); retry(2500); });
     conn.on("error",()=>retry(3000));
@@ -2157,11 +2326,11 @@ const Live = (()=>{
   }
   function onBoard(bp){
     if(!S || !S.code) return;
-    const m = bp.mode==="u4" ? "u4" : "all";
+    const m = bp.mode==="u4" ? "u4" : "all", g = bp.game==="horse" ? "horse" : "balloon";
     if(S.phase==="lobby"){
-      if(bp.state==="racing"){ S.mode=m; startRace(); }
+      if(bp.state==="racing"){ S.mode=m; S.game=g; startRace(); }
       else if(bp.state==="ended") lobbyMsg("This race has ended. Wait for a new race code.");
-      else lobbyMsg("Find your clown on the projector. Content: "+(m==="u4"?"Unit 4 only":"Units 1–4")+". The race starts when Mr. Johnson presses Start.");
+      else lobbyMsg("Find your team on the projector. Game: "+(g==="horse"?"Horse Race":"Balloon Race")+". Content: "+(m==="u4"?"Unit 4 only":"Units 1–4")+". The race starts when Mr. Johnson presses Start.");
     } else if(bp.state==="ended" && S.phase!=="over"){
       $("popVeil").hidden=true; $("leaveVeil").hidden=true; endGame();
     }
@@ -2169,7 +2338,7 @@ const Live = (()=>{
   function send(){
     if(!conn || !conn.open || !S) return;
     try{ conn.send({type:"team", p:{role:"team", team:String(S.name).slice(0,40), air:S.air, popped:S.log.length, points:S.points,
-      round:S.round, ready:S.phase==="lobby", done:S.phase==="over"}}); }catch(e){}
+      round:S.round, game:S.game, posture:S.posture||0, ready:S.phase==="lobby", done:S.phase==="over"}}); }catch(e){}
   }
   function leave(){
     dead=true; clearTimeout(retryT); clearInterval(beatT);
@@ -2217,7 +2386,7 @@ function joinRace(){
   const name = $("teamIn").value.trim();
   if(!code){ $("joinMsg").innerHTML='<span class="err">Type the race code from the projector.</span>'; $("codeIn").focus(); return; }
   if(!name){ $("joinMsg").innerHTML='<span class="err">Type your team name.</span>'; $("teamIn").focus(); return; }
-  S = {name, code, seed:code, seqPos:0, mode:"all", game:"balloon", round:0, air:0, points:0, correct:0, answered:0, asked:0, leaves:0,
+  S = {name, code, seed:code, seqPos:0, mode:"all", game:"balloon", posture:0, round:0, air:0, points:0, correct:0, answered:0, asked:0, leaves:0,
        roundAsked:0, roundCorrect:0, roundLeaves:0, roundStart:0, log:[], queues:{}, lastUnit:null, cur:null, phase:"lobby", started:Date.now()};
   save(); Sound.unlock();
   $("lobbyH").textContent = "You’re in, "+name+"!";
@@ -2235,114 +2404,150 @@ $("codeIn").addEventListener("keydown",e=>{ if(e.key==="Enter") $("teamIn").focu
 $("lobbyLeave").addEventListener("click",()=>{ Live.leave(); clearSave(); S=null; show("setup"); });
 
 const Board = (()=>{
-  const CODE_KEY="apwBoardCode", ABC="ACDEFHJKMNPRTWXY34679";
-  let room=null, unsub=null, lanes=new Map(), order=[], bannerT=null, lastTeams=[], timeT=null;
-  let B = {code:null, mode:"all", state:"lobby", startedAt:0};
+  const ABC="ACDEFHJKMNPRTWXY34679";
+  const SILKS=["#e0546a","#16a394","#ef7d2a","#7a4fb0","#c08a00","#d14b9a","#5bbf3a","#b02a3e","#e8b100","#8e5a2b","#00a6c8","#5d6d7e"];
+  let room=null, lanes=new Map(), order=[], shown=[], bannerT=null, lastTeams=[], timeT=null, laneGame=null, laneCount=0, trackW=1000, rows=1, cols=1;
+  let B = {code:null, mode:"all", game:"balloon", state:"lobby", startedAt:0};
   const BKEY="apwBoardState";
+  const isH = () => B.game==="horse";
+  const keyOf = t => String(t).trim().toLowerCase();
   function saveB(){ try{ localStorage.setItem(BKEY, JSON.stringify(B)); }catch(e){} }
-  function pushB(){ saveB(); if(room) room.broadcast({type:"board", mode:B.mode, state:B.state, startedAt:B.startedAt}); controls(); }
+  function pushB(){ saveB(); if(room) room.broadcast({type:"board", mode:B.mode, game:B.game, state:B.state, startedAt:B.startedAt}); controls(); }
   function controls(){
     document.querySelectorAll("[data-bmode]").forEach(b=>{ b.setAttribute("aria-pressed", b.dataset.bmode===B.mode?"true":"false"); b.disabled = B.state!=="lobby"; b.hidden = B.state==="ended"; });
+    document.querySelectorAll("[data-bgame]").forEach(b=>{ b.setAttribute("aria-pressed", b.dataset.bgame===B.game?"true":"false"); b.disabled = B.state!=="lobby"; b.hidden = B.state==="ended"; });
     const st=$("boardStart");
     st.textContent = B.state==="lobby" ? "Start race" : B.state==="racing" ? "End race" : "Race over";
     st.disabled = B.state==="ended";
     $("raceTime").hidden = B.state==="lobby";
+    $("boothSign").textContent = isH() ? "Horse Race" : "Balloon Race";
     clearInterval(timeT);
     if(B.state==="racing"){ const tk=()=>{$("raceTime").textContent=fmt(Date.now()-B.startedAt);}; tk(); timeT=setInterval(tk,500); }
   }
   function standings(){
     const t=[...lastTeams].sort((a,b)=>(b.popped-a.popped)||(b.air-a.air)||(b.points-a.points));
     if(!t.length) return "Race over.";
-    return "Race over! "+t.slice(0,3).map((x,i)=>["1st","2nd","3rd"][i]+": "+x.team+" ("+x.popped+" popped)").join("   ");
+    return "Race over! "+t.slice(0,3).map((x,i)=>["1st","2nd","3rd"][i]+": "+x.team+" ("+x.popped+(isH()?" won":" popped")+")").join("   ");
   }
   function setMode(m){ if(B.state!=="lobby") return; B.mode=m; pushB(); }
+  function setGame(g){ if(B.state!=="lobby") return; B.game=g; pushB(); rebuild(); }
   function startStop(){
     if(B.state==="lobby"){ B.state="racing"; B.startedAt=Date.now(); pushB(); Sound.unlock(); Sound.startMusic(); banner("Go!"); }
     else if(B.state==="racing"){ B.state="ended"; pushB(); Sound.stopMusic(); clearTimeout(bannerT); $("boardBanner").textContent=standings(); $("raceTime").textContent=fmt(Date.now()-B.startedAt); clearInterval(timeT); }
   }
   const newCode = () => Array.from({length:4},()=>ABC[Math.floor(Math.random()*ABC.length)]).join("");
-  const BAL = "M190 6C258 6 298 58 298 118C298 180 242 226 190 232C138 226 82 180 82 118C82 58 122 6 190 6Z";
-  let shards=""; for(let k=0;k<14;k++){ const a=k/14*Math.PI*2, r1=34, r2=110+(k%3)*14;
-    shards+='<path d="M'+(190+Math.cos(a)*r1).toFixed(1)+' '+(118+Math.sin(a)*r1).toFixed(1)+' L'+(190+Math.cos(a)*r2).toFixed(1)+' '+(118+Math.sin(a)*r2).toFixed(1)+'" stroke="'+(k%3?"var(--cran)":"var(--gold)")+'" stroke-width="6" stroke-linecap="round"/>'; }
-  function scene(){
-    const clown = $("clown").outerHTML.replace(' id="clown"','');
-    const player = $("player").outerHTML.replace(/ id="(player|gun)"/g,'');
-    return '<svg class="lsvg" viewBox="0 0 300 340" aria-hidden="true"><rect width="300" height="340" fill="var(--paper2)"/>'+
-      '<g class="lwob"><g class="lbal"><path class="lshape" d="'+BAL+'"/><path d="'+BAL+'" fill="url(#shineB)"/><path class="lknot" d="M183 231h14l-7 9z"/></g></g>'+
-      clown+player+
-      '<path class="lstream" d="M117 288 Q150 278 186 300" stroke="#3fa9e6" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="20 4"/>'+
-      '<rect x="0" y="316" width="300" height="24" fill="var(--cran)"/><path d="M0 316h300" stroke="var(--gold)" stroke-width="3"/>'+
-      '<text class="lround" x="288" y="334" text-anchor="end" font-size="14" font-weight="700" fill="#fff">Balloon 1</text>'+
-      '<g class="lburst">'+shards+'</g><text class="lpop popword" x="190" y="140" text-anchor="middle" font-size="72">POP!</text></svg>';
+  function laneHTML(l){
+    if(isH()) return '<div class="lname"></div><div class="ltrack">'+Scenes.track(trackW, l.col, l.num)+'</div>'+
+      '<div class="lstats"><div><b class="lp">0</b><span>won</span></div><div><b class="la">0/10</b><span>steps</span></div><div><b class="lpts">0</b><span>points</span></div></div>';
+    return '<div class="lname"></div>'+Scenes.balloon()+
+      '<div class="lstats"><div><b class="lp">0</b><span>popped</span></div><div><b class="la">0/10</b><span>water</span></div><div><b class="lpts">0</b><span>points</span></div></div>';
   }
   function makeLane(){
-    const el=document.createElement("div"); el.className="lane";
-    el.innerHTML='<div class="lname"></div>'+scene()+'<div class="lstats"><div><b class="lp">0</b><span>popped</span></div><div><b class="la">0/10</b><span>water</span></div><div><b class="lpts">0</b><span>points</span></div></div>';
-    $("lanes").appendChild(el);
-    return {el, last:null, sprayT:null, popT:null};
+    laneCount++;
+    const l={el:document.createElement("div"), last:null, num:laneCount, col:SILKS[(laneCount-1)%SILKS.length], t:[]};
+    l.el.className="lane"; l.el.style.setProperty("--pcol", l.col); l.el.innerHTML=laneHTML(l); $("lanes").appendChild(l.el);
+    return l;
+  }
+  function rebuild(){
+    laneGame=B.game; $("lanes").classList.toggle("horse", isH());
+    lanes.forEach(l=>{ l.el.innerHTML=laneHTML(l); l.last=null; l.el.className="lane"; });
+    apply(false); layout();
   }
   function banner(t){ $("boardBanner").textContent=t; clearTimeout(bannerT); bannerT=setTimeout(()=>{$("boardBanner").textContent="";},4500); }
-  function layout(n){
-    const cols = n<=8 ? Math.max(n,1) : Math.ceil(n/2), rows = n<=8 ? 1 : 2;
-    const L=$("lanes").style;
-    L.setProperty("--cols", cols);
-    L.setProperty("--nameSize", cols<=2?"32px":cols<=4?"25px":cols<=6?"20px":"16px");
-    L.setProperty("--statSize", cols<=2?"20px":cols<=4?"17px":cols<=6?"15px":"13px");
-    lastRows = rows; fit();
-  }
-  let lastRows = 1;
-  function fit(){
-    const box=$("lanes"); if($("board").hidden) return;
-    const top = box.getBoundingClientRect().top, gap = 12;
-    const avail = window.innerHeight - top - 12 - gap*(lastRows-1);
-    const per = avail/lastRows - 96; // room for team name and stats
-    box.style.setProperty("--laneMax", Math.max(110, Math.floor(per))+"px");
-  }
-  window.addEventListener("resize", fit);
-  function render(peers){
-    // one lane per team name: if a team reloads or rejoins, keep only its newest connection
-    const byName = new Map();
-    peers.filter(p=>p.presence && p.presence.role==="team" && typeof p.presence.team==="string").forEach(p=>{
-      const k=p.presence.team.trim().toLowerCase(), o=byName.get(k); if(!o || p.updatedAt>o.updatedAt) byName.set(k,p); });
-    const teams = [...byName.values()];
-    lastTeams = teams.map(p=>({team:p.presence.team, popped:+p.presence.popped||0, air:+p.presence.air||0, points:+p.presence.points||0}));
-    const live = new Set(teams.map(p=>p.presence.team.trim().toLowerCase()));
-    for(const [k,l] of lanes){ if(!live.has(k)){ l.el.remove(); lanes.delete(k); order=order.filter(x=>x!==k); } }
-    teams.forEach(p=>{ const k=p.presence.team.trim().toLowerCase(); if(!lanes.has(k)){ lanes.set(k, makeLane()); order.push(k); } });
-    order.forEach(k=>$("lanes").appendChild(lanes.get(k).el)); // keep join order
+  function flash(l, cls, ms){ l.el.classList.add(cls); clearTimeout(l.t[cls]); l.t[cls]=setTimeout(()=>l.el.classList.remove(cls), ms); }
+  function apply(events){
     let best=0;
-    teams.forEach(p=>{ const v=(+p.presence.popped||0)*PUMPS+(+p.presence.air||0); if(v>best) best=v; });
-    teams.forEach(p=>{
-      const pr=p.presence, l=lanes.get(p.presence.team.trim().toLowerCase()), el=l.el;
-      const air=Math.max(0,Math.min(PUMPS,+pr.air||0)), popped=Math.max(0,+pr.popped||0), round=Math.max(1,+pr.round||1);
-      const col = COLORS[(round-1)%COLORS.length];
+    shown.forEach(p=>{ const v=(+p.presence.popped||0)*PUMPS+(+p.presence.air||0); if(v>best) best=v; });
+    shown.forEach(p=>{
+      const pr=p.presence, l=lanes.get(keyOf(pr.team)); if(!l) return;
+      const el=l.el, h=isH();
+      const air=Math.max(0,Math.min(PUMPS,+pr.air||0)), popped=Math.max(0,+pr.popped||0), round=Math.max(1,+pr.round||1), pose=Math.max(0,Math.min(2,+pr.posture||0));
       el.querySelector(".lname").textContent = pr.team || "Team";
-      el.querySelector(".lshape").setAttribute("fill", col); el.querySelector(".lknot").setAttribute("fill", col);
-      el.querySelector(".lbal").style.transform = "scale("+(0.12+0.88*air/PUMPS).toFixed(3)+")";
-      el.classList.toggle("ltense", air>=7);
-      el.querySelector(".lround").textContent = pr.done ? "Finished" : pr.ready ? "Ready" : "Balloon "+round;
       el.querySelector(".lp").textContent = popped;
       el.querySelector(".la").textContent = air+"/"+PUMPS;
       el.querySelector(".lpts").textContent = (+pr.points||0);
       el.classList.toggle("lead", best>0 && popped*PUMPS+air===best);
-      if(l.last){
-        if(air>l.last.air && popped===l.last.popped){ el.classList.add("spray"); clearTimeout(l.sprayT); l.sprayT=setTimeout(()=>el.classList.remove("spray"),900); }
-        if(popped>l.last.popped){
-          el.classList.add("lpopping"); clearTimeout(l.popT); l.popT=setTimeout(()=>el.classList.remove("lpopping"),1800);
-          Sound.pop(); if(B.state!=="ended") banner((pr.team||"A team")+" popped balloon "+popped+"!");
+      el.querySelector(".rlabel").textContent = pr.done ? "Finished" : pr.ready ? "Ready" : (h?"Race ":"Balloon ")+round;
+      const was = l.last, pts = +pr.points||0;
+      if(h){
+        // every team's good and bad moments play out loud on the projector
+        if(events && was && popped===was.popped){
+          if(air>was.air) Sound.gallop();
+          if(pose>was.pose){ if(pose===2) Sound.flop(); else Sound.fall(); }
+          else if(pose<was.pose) Sound.rise();
+          else if(pts<was.pts) Sound.miss();
+        }
+        el.querySelector(".hmove").style.transform = "translateX("+Scenes.horseX(trackW,air).toFixed(1)+"px)";
+        el.querySelector(".horse").setAttribute("class","horse p"+pose+(events && was && air>was.air && popped===was.popped ? " gallop" : ""));
+        if(events && was && popped>was.popped){
+          flash(l,"finishing",2200); Sound.fanfare();
+          if(B.state!=="ended") banner((pr.team||"A team")+" crossed the finish line! ("+popped+(popped===1?" race":" races")+" won)");
+        }
+      } else {
+        el.style.setProperty("--bcol", COLORS[(round-1)%COLORS.length]);
+        el.querySelector(".bal").style.transform = "scale("+(0.12+0.88*air/PUMPS).toFixed(3)+")";
+        el.classList.toggle("tense", air>=7);
+        if(events && was){
+          if(air>was.air && popped===was.popped){ flash(l,"spray",900); Sound.pump(); }
+          else if(popped===was.popped && (air<was.air || pts<was.pts)) Sound.miss();
+          if(popped>was.popped){ flash(l,"popping",1800); Sound.pop(); if(B.state!=="ended") banner((pr.team||"A team")+" popped balloon "+popped+"!"); }
         }
       }
-      l.last={air,popped};
+      l.last={air,popped,pose,pts};
     });
-    $("boardCount").textContent = teams.length+(teams.length===1?" team":" teams");
-    $("boardWait").hidden = teams.length>0;
-    layout(teams.length);
+  }
+  function layout(){
+    const n=Math.max(shown.length,1), L=$("lanes").style;
+    if(isH()){ cols = n<=6 ? 1 : 2; rows = Math.ceil(n/cols); }
+    else { cols = n<=8 ? n : Math.ceil(n/2); rows = n<=8 ? 1 : 2; }
+    L.setProperty("--cols", cols);
+    if(isH()){
+      L.setProperty("--nameW", cols===1 ? "clamp(120px,15vw,220px)" : "clamp(90px,10vw,150px)");
+      L.setProperty("--statW", cols===1 ? "clamp(150px,15vw,220px)" : "clamp(110px,11vw,160px)");
+      L.setProperty("--nameSize", cols===1 ? (rows<=4?"26px":"20px") : "16px");
+      L.setProperty("--statSize", cols===1 ? (rows<=4?"18px":"15px") : "13px");
+    } else {
+      L.setProperty("--nameSize", cols<=2?"32px":cols<=4?"25px":cols<=6?"20px":"16px");
+      L.setProperty("--statSize", cols<=2?"20px":cols<=4?"17px":cols<=6?"15px":"13px");
+    }
+    $("boothSign").hidden = !shown.length;
+    fit();
+  }
+  function fit(){
+    const box=$("lanes"); if($("board").hidden || !shown.length) return;
+    const avail = window.innerHeight - box.getBoundingClientRect().top - 14;
+    if(isH()){
+      const rowH = Math.max(52, Math.min(150, Math.floor(avail/rows) - 2));
+      const tr = box.querySelector(".ltrack"); const cw = tr ? tr.clientWidth : 900;
+      const W = Math.max(360, Math.round(120*cw/rowH));
+      if(Math.abs(W-trackW)>6){ trackW=W; lanes.forEach(l=>{ const t=l.el.querySelector(".ltrack"); if(t) t.innerHTML=Scenes.track(W,l.col,l.num); }); apply(false); }
+    } else {
+      const l0 = box.querySelector(".lane"), nm = l0 ? l0.querySelector(".lname").offsetHeight + l0.querySelector(".lstats").offsetHeight + 4 : 120;
+      box.style.setProperty("--laneMax", Math.max(110, Math.floor(avail/rows - nm))+"px");
+    }
+  }
+  window.addEventListener("resize", ()=>{ if(!$("board").hidden) fit(); });
+  function render(peers){
+    // one lane per team name: if a team reloads or rejoins, keep only its newest connection
+    const byName = new Map();
+    peers.filter(p=>p.presence && p.presence.role==="team" && typeof p.presence.team==="string").forEach(p=>{
+      const k=keyOf(p.presence.team), o=byName.get(k); if(!o || p.updatedAt>o.updatedAt) byName.set(k,p); });
+    shown = [...byName.values()];
+    lastTeams = shown.map(p=>({team:p.presence.team, popped:+p.presence.popped||0, air:+p.presence.air||0, points:+p.presence.points||0}));
+    const live = new Set(shown.map(p=>keyOf(p.presence.team)));
+    for(const [k,l] of lanes){ if(!live.has(k)){ l.el.remove(); lanes.delete(k); order=order.filter(x=>x!==k); } }
+    shown.forEach(p=>{ const k=keyOf(p.presence.team); if(!lanes.has(k)){ lanes.set(k, makeLane()); order.push(k); } });
+    order.forEach(k=>$("lanes").appendChild(lanes.get(k).el)); // keep join order
+    if(laneGame!==B.game) rebuild(); else { apply(true); layout(); }
+    $("boardCount").textContent = shown.length+(shown.length===1?" team":" teams");
+    $("boardWait").hidden = shown.length>0;
   }
   async function open(fresh){
     try{ const v=localStorage.getItem(BKEY); if(v) B=Object.assign(B, JSON.parse(v)); }catch(e){}
-    if(!B.code || fresh){ B={code:newCode(), mode:B.mode||"all", state:"lobby", startedAt:0}; }
+    if(!B.code || fresh){ B={code:newCode(), mode:B.mode||"all", game:B.game||"balloon", state:"lobby", startedAt:0}; }
     const code=B.code; saveB();
     close(true);
+    laneGame=B.game; $("lanes").classList.toggle("horse", isH());
     show("board"); $("boardCode").textContent=code; syncSoundBtns(); controls(); showQR();
     Sound.unlock(); if(B.state==="racing") Sound.startMusic();
     if(B.state==="ended") $("boardBanner").textContent="Race over. Press “New race code” for another race.";
@@ -2360,11 +2565,11 @@ const Board = (()=>{
   }
   function close(keepScreen){
     if(room){ room.destroy(); room=null; }
-    lanes.forEach(l=>l.el.remove()); lanes.clear(); order=[]; $("boardBanner").textContent="";
+    lanes.forEach(l=>l.el.remove()); lanes.clear(); order=[]; shown=[]; laneCount=0; $("boardBanner").textContent=""; $("boothSign").hidden=true;
     clearInterval(timeT);
     if(!keepScreen){ Sound.stopMusic(); show("setup"); }
   }
-  return {open, close, setMode, startStop};
+  return {open, close, setMode, setGame, startStop};
 })();
 function showQR(){
   const url = location.href.split("#")[0];
@@ -2381,6 +2586,8 @@ $("boardBtn").addEventListener("click",()=>Board.open(false));
 $("boardNew").addEventListener("click",()=>Board.open(true));
 $("boardExit").addEventListener("click",()=>Board.close(false));
 document.querySelectorAll("[data-bmode]").forEach(b=>b.addEventListener("click",()=>Board.setMode(b.dataset.bmode)));
+document.querySelectorAll("[data-bgame]").forEach(b=>b.addEventListener("click",()=>Board.setGame(b.dataset.bgame)));
+document.querySelectorAll(".horseIcon").forEach(svg=>{ svg.innerHTML = Scenes.horse("var(--cran)",1); });
 $("boardStart").addEventListener("click",()=>Board.startStop());
 $("boardMusic").addEventListener("click",()=>{ Sound.unlock(); Sound.setMusic(!Sound.musicOn); if(Sound.musicOn) Sound.startMusic(); syncSoundBtns(); });
 $("boardSfx").addEventListener("click",()=>{ Sound.unlock(); Sound.setSfx(!Sound.sfxOn); syncSoundBtns(); });
@@ -2394,18 +2601,11 @@ $("boardFs").addEventListener("click",()=>$("fsBtn").click());
   if(S.phase==="over"){ endGame(); return; }
   if(S.code) Live.join(S.code);
   if(S.phase==="lobby"){ $("lobbyH").textContent="You’re in, "+S.name+"!"; show("lobby"); return; }
-  show("game"); startTick(); updateBooth(false);
-  if(S.phase==="popped"){ popBalloonResume(); return; }
+  show("game"); startTick(); updateBooth(null);
+  if(S.phase==="popped"){ showRoundModal(S.log[S.log.length-1]); return; }
   if(S.cur) renderQ(); else newQuestion();
-  penalize("The game was reloaded or reopened. That counts as leaving the screen: you lose one pump of air and one point.");
+  penalize("The game was reloaded or reopened. That counts as leaving the screen.");
 })();
-function popBalloonResume(){
-  const r = S.log[S.log.length-1];
-  $("popWhich").textContent = S.name+", balloon "+r.round+" popped in";
-  $("popTime").textContent = fmt(r.ms);
-  $("popDetail").textContent = r.correct+" right out of "+r.asked+" questions.";
-  $("popVeil").hidden = false;
-}
 </script>
 </body>
 </html>
