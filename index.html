@@ -1,147 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hinduism and Buddhism</title>
+<title>AP World History — Class Tools</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700;800&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
 <style>
-  :root{
-    --bg:#F6F0E4; --card:#FFFCF6; --ink:#2B1F17; --soft:#6E5E50; --line:#E3D6C0;
-    --saffron:#A85508; --saffron-tint:#FCE9D2;
-    --maroon:#7A1F2B; --maroon-tint:#F4E0E2;
-    --teal:#2F6A70; --teal-tint:#DDEDEE;
+  :root {
+    --paper: #edf1f3;
+    --surface: #ffffff;
+    --ink: #1b2a3f;
+    --muted: #4f5d6e;
+    --rule: #c7d0d8;
+    --gold: #b8862a;
+    --sea: #2e6c70;
+    --sea-soft: #d5e6e5;
+    --gold-soft: #f1e3c3;
+    --cran: #1a5ea8;
+    --cran-soft: #d8e7f6;
+    color-scheme: light;
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#1B1612; --card:#251E18; --ink:#F1E9DC; --soft:#BCAE9C; --line:#3B3128;
-      --saffron:#F0A050; --saffron-tint:#3A2814;
-      --maroon:#E58A95; --maroon-tint:#3A1D22;
-      --teal:#7FC0C6; --teal-tint:#1B2E30;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #121a24;
+      --surface: #1a2532;
+      --ink: #e6ebf0;
+      --muted: #a6b2bf;
+      --rule: #34424f;
+      --gold: #d9ab52;
+      --sea: #6fb3b0;
+      --sea-soft: #1f3a3c;
+      --gold-soft: #3d3220;
+      --cran: #5aa2ec;
+      --cran-soft: #1c3550;
+      color-scheme: dark;
     }
   }
-  :root[data-theme="dark"]{
-    --bg:#1B1612; --card:#251E18; --ink:#F1E9DC; --soft:#BCAE9C; --line:#3B3128;
-    --saffron:#F0A050; --saffron-tint:#3A2814;
-    --maroon:#E58A95; --maroon-tint:#3A1D22;
-    --teal:#7FC0C6; --teal-tint:#1B2E30;
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Alegreya Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.5;
   }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{background:var(--bg);color:var(--ink);font-family:"Lora",Georgia,serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:960px;margin:0 auto;padding:18px 16px 64px}
+  a { color: inherit; }
 
-  .credit-row{display:flex;justify-content:flex-end}
-  .credit{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:13.5px;
-    border:1px solid var(--soft);border-radius:999px;padding:5px 14px;background:var(--card)}
+  .topbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: .75rem clamp(1rem, 4vw, 2.5rem);
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .ai-label {
+    margin: 0;
+    font-size: .9rem;
+    font-style: italic;
+    color: var(--muted);
+  }
 
-  header{margin:28px 0 8px;border-bottom:3px double var(--line);padding-bottom:22px}
-  .eyebrow{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:13px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--saffron);margin:0 0 6px}
-  h1{font-family:"Fraunces",Georgia,serif;font-weight:700;font-size:clamp(32px,6vw,52px);
-    line-height:1.05;letter-spacing:-.015em;margin:0 0 10px}
-  h1 .amp{color:var(--maroon);font-style:italic;font-weight:500}
-  .lede{color:var(--soft);font-size:17px;max-width:62ch;margin:0}
+  main {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: clamp(1.75rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.5rem) 4rem;
+  }
 
-  section{margin-top:38px}
-  h2{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:21px;margin:0 0 4px;display:flex;align-items:baseline;gap:10px}
-  h2 .num{font-size:14px;color:var(--soft);font-weight:500}
-  .section-note{color:var(--soft);font-size:15px;margin:0 0 14px}
+  .intro h1 {
+    font-family: "Alegreya", Georgia, "Times New Roman", serif;
+    font-weight: 800;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 0 0 .6rem;
+  }
+  .intro p {
+    margin: 0;
+    max-width: 38rem;
+    color: var(--muted);
+    font-size: 1.15rem;
+  }
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px}
-  .card{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
-    border-top:5px solid var(--c);border-radius:12px;padding:16px 18px 18px;color:inherit;text-decoration:none;
-    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease}
-  a.card:hover,a.card:focus-visible{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08);border-color:var(--c);outline:none}
-  .card h3{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:19px;margin:0;line-height:1.2}
-  .card p{margin:0;font-size:15px;color:var(--soft)}
-  .card .go{margin-top:auto;padding-top:6px;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:14px;color:var(--c)}
-  .tags{display:flex;gap:6px;flex-wrap:wrap}
-  .tag{font-family:"Fraunces",Georgia,serif;font-size:12px;font-weight:600;background:var(--t);color:var(--c);
-    border-radius:999px;padding:2px 10px}
-  .hindu{--c:var(--saffron);--t:var(--saffron-tint)}
-  .writing{--c:var(--teal);--t:var(--teal-tint)}
-  .final{--c:var(--maroon);--t:var(--maroon-tint)}
-  .card.pending{opacity:.6}
+  .course { margin-top: 2.5rem; }
+  .course h2 {
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0 0 .75rem;
+  }
+  .course .tools { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
 
-  footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--soft);font-size:13.5px}
+  /* Featured: the class race, first thing students see */
+  .feature a {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .25rem 1rem;
+    align-items: center;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 6px solid var(--cran);
+    border-radius: 3px;
+    padding: 1rem 1.25rem;
+    margin-top: 2rem;
+  }
+  .feature a:hover { border-color: var(--cran); }
+  .feature a:hover .tool-name { text-decoration: underline; text-underline-offset: 3px; }
+  .feature a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .feature .icons { grid-row: span 3; display: flex; align-items: flex-end; gap: .3rem; }
+  .feature .icons svg { height: 3.4rem; width: auto; }
+  .feature .tool-name { font-size: 1.45rem; font-family: "Alegreya", Georgia, serif; }
+  .kind-race { background: var(--cran-soft); }
+
+  /* Timeline scale shared by every unit row */
+  .scale {
+    display: grid;
+    grid-template-columns: var(--label-col) 1fr;
+    gap: 1.25rem;
+    margin: 2.75rem 0 .5rem;
+    font-size: .85rem;
+    color: var(--muted);
+  }
+  .scale-years { position: relative; height: 1.4rem; border-bottom: 2px solid var(--ink); }
+  .scale-years span { position: absolute; bottom: .25rem; transform: translateX(-50%); font-variant-numeric: tabular-nums; }
+  .scale-years span:first-child { transform: none; }
+  .scale-years span:last-child { transform: translateX(-100%); }
+
+  :root { --label-col: 13.5rem; }
+
+  .unit {
+    display: grid;
+    grid-template-columns: var(--label-col) 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 0 1.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .unit-head .num {
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 800;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .unit-head h2 {
+    font-family: "Alegreya", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin: .3rem 0 .2rem;
+  }
+  .unit-head .dates { color: var(--muted); font-size: .95rem; font-variant-numeric: tabular-nums; }
+
+  .span {
+    position: relative;
+    height: .6rem;
+    margin: .55rem 0 1.1rem;
+    background: repeating-linear-gradient(90deg, var(--rule) 0 1px, transparent 1px 9.0909%);
+    border-radius: 1px;
+  }
+  .span::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: var(--from);
+    width: var(--width);
+    background: var(--sea);
+    border-radius: 1px;
+  }
+
+  .tools { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
+  .tools a {
+    display: block;
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--sea);
+    padding: .8rem 1rem .85rem;
+    border-radius: 3px;
+  }
+  .tools a:hover { border-color: var(--sea); }
+  .tools a:hover .tool-name { text-decoration: underline; text-underline-offset: 3px; }
+  .tools a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .tool-name { font-weight: 700; font-size: 1.1rem; display: block; }
+  .tool-kind {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 500;
+    padding: .05rem .5rem;
+    border-radius: 2px;
+    margin: .2rem 0 .25rem;
+    justify-self: start;
+  }
+  .kind-study { background: var(--sea-soft); }
+  .kind-game { background: var(--gold-soft); }
+  .tool-desc { display: block; color: var(--muted); font-size: .98rem; }
+
+  @media (max-width: 720px) {
+    :root { --label-col: 1fr; }
+    .scale { display: none; }
+    .unit { grid-template-columns: 1fr; gap: .5rem; }
+    .unit-head { display: flex; align-items: baseline; gap: .75rem; flex-wrap: wrap; }
+    .unit-head h2 { margin: 0; }
+    .unit-head .dates { width: 100%; }
+    .feature a { grid-template-columns: 1fr; }
+    .feature .icons { grid-row: auto; }
+    .feature .icons svg { height: 2.6rem; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="credit-row"><span class="credit">Prepared with AI support, reviewed by Mr. Johnson</span></div>
+<header class="topbar">
+  <p class="ai-label">Prepared with AI support, reviewed by Mr. Johnson</p>
+</header>
 
-  <header>
-    <p class="eyebrow">Mr. Johnson · Class resources</p>
-    <h1>Hinduism <span class="amp">&amp;</span> Buddhism</h1>
-    <p class="lede">Every practice tool for the course in one place. Pick the one that matches what you're working on. Your progress saves in the browser you use, so stick to the same device when you can.</p>
-  </header>
+<main>
+  <section class="intro">
+    <h1>AP World History</h1>
+    <p>Study guides, review games, and notebooks for Mr. Johnson’s class, arranged by unit from 1200 to 1750.</p>
+  </section>
 
-  <section>
-    <h2><span class="num">01</span> Hinduism unit</h2>
-    <p class="section-note">Readings from Eck and Prothero, the gods, and the Bhagavad Gita.</p>
-    <div class="grid">
-      <a class="card hindu" href="hindu-diversity-team-builder.html">
-        <div class="tags"><span class="tag">Writing practice</span></div>
-        <h3>Build the T.E.A.M. Paragraph: Hindu Diversity</h3>
-        <p>Drag sentences into place to build three paragraphs from Diana Eck and Stephen Prothero on Hinduism's oneness and manyness.</p>
-        <span class="go">Open →</span>
-      </a>
-      <a class="card hindu" href="hinduism-test-review.html">
-        <div class="tags"><span class="tag">Test review</span></div>
-        <h3>Hinduism Test Review</h3>
-        <p>Practice every part of the Hinduism test: god IDs, Gita stanza terms, the conceptual questions, and the TEA paragraph, with mastery tracking.</p>
-        <span class="go">Open →</span>
-      </a>
+  <section class="feature" aria-label="Class race">
+    <a href="thanksgiving-review.html">
+      <span class="icons" aria-hidden="true">
+        <svg viewBox="0 0 96 110"><path d="M48 8c19 0 32 15 32 34 0 21-17 38-32 40-15-2-32-19-32-40C16 23 29 8 48 8z" fill="var(--cran)"/><ellipse cx="37" cy="28" rx="6" ry="10" fill="#fff" opacity=".35" transform="rotate(-25 37 28)"/><path d="M44 82h8l-4 6z" fill="var(--cran)"/><path d="M48 88c-4 6 4 10 0 18" stroke="var(--muted)" stroke-width="2" fill="none"/></svg>
+        <svg viewBox="0 -6 132 104"><path d="M24 40 C8 44 4 60 10 76 C14 62 18 54 28 48Z" fill="#3b2a20"/><path d="M30 52 L28 90 L36 90 L40 54Z" fill="#96592c"/><path d="M42 54 L44 90 L52 90 L52 54Z" fill="#b8743f"/><path d="M78 54 L78 90 L86 90 L88 52Z" fill="#96592c"/><path d="M88 52 L92 90 L100 90 L98 50Z" fill="#b8743f"/><rect x="27" y="89" width="10" height="7" fill="#2b2233"/><rect x="43" y="89" width="10" height="7" fill="#2b2233"/><rect x="77" y="89" width="10" height="7" fill="#2b2233"/><rect x="91" y="89" width="10" height="7" fill="#2b2233"/><ellipse cx="60" cy="44" rx="38" ry="17" fill="#b8743f"/><path d="M84 38 L96 10 L110 14 L100 48Z" fill="#b8743f"/><ellipse cx="112" cy="20" rx="17" ry="9" transform="rotate(28 112 20)" fill="#b8743f"/><path d="M98 8 L101 -3 L106 9Z" fill="#96592c"/><path d="M84 36 C88 22 92 12 98 6 L102 12 C96 20 92 30 90 42Z" fill="#3b2a20"/><circle cx="107" cy="15" r="2.2" fill="#2b2233"/><rect x="47" y="30" width="26" height="20" rx="3" fill="var(--cran)" stroke="#fff" stroke-width="1.5"/></svg>
+      </span>
+      <span class="tool-name">AP World Thanksgiving Review</span>
+      <span class="tool-kind kind-race">Class race game</span>
+      <span class="tool-desc">Join the Balloon Race or the Horse Race with your team’s race code, or practice on your own. Covers Units 1–4.</span>
+    </a>
+  </section>
+
+  <section class="course" aria-labelledby="course">
+    <h2 id="course">Across the course</h2>
+    <ul class="tools">
+      <li><a href="globe-review.html">
+        <span class="tool-name">Chronicle: AP World History Globe</span>
+        <span class="tool-kind kind-game">Review game</span>
+        <span class="tool-desc">Place historical events on the globe, then pin them to the right time window. Review one period or the whole course, 1200 to the present.</span>
+      </a></li>
+      <li><a href="lucky-you.html">
+        <span class="tool-name">Lucky You?</span>
+        <span class="tool-kind kind-study">Self-assessment</span>
+        <span class="tool-desc">See how the circumstances you were born into compare with the rest of the world, using real global data.</span>
+      </a></li>
+    </ul>
+  </section>
+
+  <div class="scale" aria-hidden="true">
+    <div></div>
+    <div class="scale-years">
+      <span style="left:0">1200</span>
+      <span style="left:27.27%">1350</span>
+      <span style="left:45.45%">1450</span>
+      <span style="left:72.73%">1600</span>
+      <span style="left:100%">1750</span>
+    </div>
+  </div>
+
+  <section class="unit" aria-labelledby="u1">
+    <div class="unit-head">
+      <div class="num">1</div>
+      <h2 id="u1">The Global Tapestry</h2>
+      <div class="dates">c. 1200–1450</div>
+    </div>
+    <div>
+      <div class="span" style="--from:0%;--width:45.45%" aria-hidden="true"></div>
+      <ul class="tools">
+        <li><a href="unit1-study-guide.html">
+          <span class="tool-name">Unit 1 Study Guide</span>
+          <span class="tool-kind kind-study">Study tool</span>
+          <span class="tool-desc">Flashcards, quizzes, fill-in-the-blank passages, and practice questions on Strayer’s <i>Ways of the World</i>.</span>
+        </a></li>
+      </ul>
     </div>
   </section>
 
-  <section>
-    <h2><span class="num">02</span> Paragraph writing</h2>
-    <p class="section-note">Plan, write, and turn in your T.E.A.M. paragraph.</p>
-    <div class="grid">
-      <a class="card writing" id="workspace-card" href="PASTE-NETLIFY-LINK-HERE">
-        <div class="tags"><span class="tag">Password protected</span></div>
-        <h3>TEAM Paragraph Workspace</h3>
-        <p>Choose your question, plan in the organizer, write with the course readings at hand, then copy and submit your paragraph.</p>
-        <span class="go">Open (class password needed) →</span>
-      </a>
+  <section class="unit" aria-labelledby="u3">
+    <div class="unit-head">
+      <div class="num">3</div>
+      <h2 id="u3">Land-Based Empires</h2>
+      <div class="dates">c. 1450–1750</div>
+    </div>
+    <div>
+      <div class="span" style="--from:45.45%;--width:54.55%" aria-hidden="true"></div>
+      <ul class="tools">
+        <li><a href="unit3-study-guide.html">
+          <span class="tool-name">Unit 3 Study Guide</span>
+          <span class="tool-kind kind-study">Study tool</span>
+          <span class="tool-desc">Review of the Ottoman, Mughal, and other land-based empires, built from class notes and the review sheet.</span>
+        </a></li>
+      </ul>
     </div>
   </section>
 
-  <section>
-    <h2><span class="num">03</span> Final assessment</h2>
-    <p class="section-note">Hinduism and Buddhism together, for the final.</p>
-    <div class="grid">
-      <a class="card final" href="final-study-tool.html">
-        <div class="tags"><span class="tag">Study on your own</span></div>
-        <h3>Final Assessment Study Tool</h3>
-        <p>The test format, fill-in-the-blank narratives, flash cards, Buddhist concepts, paragraph practice, and myth analysis, with a progress page.</p>
-        <span class="go">Open →</span>
-      </a>
-      <a class="card final" href="final-review-arena.html">
-        <div class="tags"><span class="tag">In class, teacher-led</span></div>
-        <h3>Final Review Arena</h3>
-        <p>Team review game in three rounds: Myth Court, Story Swat, and Suffering Clinic, with a shared scoreboard.</p>
-        <span class="go">Open →</span>
-      </a>
+  <section class="unit" aria-labelledby="u4">
+    <div class="unit-head">
+      <div class="num">4</div>
+      <h2 id="u4">Transoceanic Interconnections</h2>
+      <div class="dates">c. 1450–1750</div>
+    </div>
+    <div>
+      <div class="span" style="--from:45.45%;--width:54.55%" aria-hidden="true"></div>
+      <ul class="tools">
+        <li><a href="cargo-crossing.html">
+          <span class="tool-name">Cargo Crossing: The Columbian Exchange</span>
+          <span class="tool-kind kind-game">Review game</span>
+          <span class="tool-desc">Team game for the Crash Course World History video on the Columbian Exchange.</span>
+        </a></li>
+        <li><a href="colonial-societies-game.html">
+          <span class="tool-name">Building Colonial Societies</span>
+          <span class="tool-kind kind-game">Review game</span>
+          <span class="tool-desc">Team game comparing colonial societies in the Americas, Strayer pp. 209–219.</span>
+        </a></li>
+        <li><a href="ports-of-power.html">
+          <span class="tool-name">Ports of Power</span>
+          <span class="tool-kind kind-game">Review game</span>
+          <span class="tool-desc">Review game on Europeans and Asian commerce and the Portuguese trading post empire, Strayer pp. 247–254.</span>
+        </a></li>
+      </ul>
     </div>
   </section>
-
-  <footer>Hinduism and Buddhism · Mr. Johnson</footer>
-</div>
-<script>
-  // Until the Netlify link is pasted in above, show the workspace card as "coming soon" instead of a broken link.
-  (function(){
-    var c=document.getElementById('workspace-card');
-    if(c && c.getAttribute('href').indexOf('PASTE-')===0){
-      var d=document.createElement('div'); d.className=c.className+' pending'; d.innerHTML=c.innerHTML;
-      d.querySelector('.go').textContent='Link coming soon';
-      c.replaceWith(d);
-    }
-  })();
-</script>
+</main>
 </body>
 </html>
