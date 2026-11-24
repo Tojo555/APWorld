@@ -919,6 +919,76 @@
   .saq-score.s1 { background: var(--paper); color: var(--gold); border: 1px solid var(--gold-soft); }
   .saq-score.s0 { background: var(--brick-bg); color: var(--brick); }
   .test-format { margin-top: 12px; padding: 10px 14px; border-left: 3px solid var(--gold); background: var(--paper-raised); font-size: 0.86rem; line-height: 1.55; max-width: 76ch; }
+
+  /* ===== Added: Ways to Review, Self-Check, Key Concepts (Unit 4 features) ===== */
+  .xr { --on-accent: #FFF8EC; }
+  .xr .x-head h2 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.6rem; font-style: italic; margin: 0; }
+  .xr .x-head p { color: var(--ink-soft); font-size: 0.93rem; margin: 6px 0 18px; max-width: 66ch; }
+  .navbtn.xr-ways { color: var(--gold); font-weight: 700; }
+  .xr-sep { height: 1px; background: var(--rule); margin: 8px 0; }
+  @media (max-width: 860px) { .xr-sep { display: none; } }
+  .xr-mast { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .xr-mast .btn { font-size: 1rem; padding: 10px 18px; }
+  .xr .x-note { padding: 10px 14px; border-left: 3px solid var(--gold); background: var(--paper-raised); font-size: 0.88rem; max-width: 76ch; margin: 0 0 16px; }
+  .xr .x-list { display: grid; gap: 14px; }
+  .xr .x-way { display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 14px; padding: 18px 20px; }
+  .xr .x-num { width: 40px; height: 40px; border-radius: 50%; background: var(--indigo); color: var(--paper); display: grid; place-items: center; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.4rem; font-weight: 700; }
+  .xr .x-way h3 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.25rem; margin: 0; }
+  .xr .x-way p { margin: 6px 0 0; font-size: 0.92rem; max-width: 66ch; }
+  .xr .x-tag { display: inline-block; margin-left: 6px; padding: 2px 9px; border-radius: 999px; font-family: "Karla", sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; }
+  .xr .x-tag.top { background: var(--gold); color: var(--on-accent); }
+  .xr .x-tag.strong { background: var(--brick-bg); color: var(--brick); }
+  .xr .x-actions { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .xr .x-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.9rem; }
+  .xr .x-link:hover { border-color: var(--gold); }
+  .xr .x-play { width: 0; height: 0; border-left: 10px solid var(--brick); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+  .xr .x-acc { padding: 4px 18px; }
+  .xr .x-acc details { border-bottom: 1px solid var(--rule); }
+  .xr .x-acc details:last-child { border-bottom: none; }
+  .xr .x-acc summary { cursor: pointer; padding: 14px 0; list-style: none; display: flex; gap: 12px; align-items: baseline; }
+  .xr .x-acc summary::-webkit-details-marker { display: none; }
+  .xr .x-acc summary .no { font-size: 0.78rem; font-weight: 700; color: var(--gold); min-width: 3.2em; }
+  .xr .x-acc summary .nm { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.2rem; font-weight: 600; }
+  .xr .x-acc summary::after { content: "+"; margin-left: auto; color: var(--ink-soft); font-size: 1.2rem; }
+  .xr .x-acc details[open] summary::after { content: "\2013"; }
+  .xr .x-acc .body { padding: 0 0 14px calc(3.2em + 12px); }
+  .xr .x-acc .body h4 { margin: 10px 0 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+  .xr .x-acc ul { margin: 0; padding-left: 18px; }
+  .xr .x-acc li { margin-bottom: 6px; font-size: 0.92rem; max-width: 72ch; }
+  @media (max-width: 560px) { .xr .x-acc .body { padding-left: 0; } }
+  .xr .x-bar { position: sticky; top: 8px; z-index: 3; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; margin-bottom: 14px; font-weight: 700; }
+  .xr .x-q { padding: 14px 18px; margin-bottom: 12px; }
+  .xr .x-tl { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .xr .x-qt { font-weight: 600; margin-bottom: 10px; }
+  .xr .x-opts { display: grid; gap: 8px; }
+  .xr .x-opt { display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: inherit; font-size: 0.93rem; cursor: pointer; }
+  .xr .x-opt:hover { border-color: var(--gold); }
+  .xr .x-opt .l { font-weight: 700; color: var(--gold); min-width: 1em; }
+  .xr .x-opt.sel { border-color: var(--gold); background: var(--paper-dark); box-shadow: inset 3px 0 0 var(--gold); }
+  .xr .x-opt.unsure { color: var(--ink-soft); font-style: italic; }
+  .xr .x-total { display: flex; align-items: baseline; gap: 12px; padding: 16px 20px; margin-bottom: 12px; flex-wrap: wrap; }
+  .xr .x-total .big { font-family: "Cormorant Garamond", Georgia, serif; font-size: 3.2rem; font-weight: 700; line-height: 1; }
+  .xr .x-total .lbl { color: var(--ink-soft); }
+  .xr .x-tt { padding: 8px 18px; margin-bottom: 18px; }
+  .xr .x-tr { display: grid; grid-template-columns: 3.2em minmax(0,1fr) 110px 7.5em; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .xr .x-tr:last-child { border-bottom: none; }
+  .xr .x-tr .no { font-weight: 700; color: var(--gold); }
+  .xr .x-tr .nm { font-weight: 600; min-width: 0; }
+  @media (max-width: 560px) { .xr .x-tr { grid-template-columns: 3em minmax(0,1fr) 7.5em; } .xr .x-meter { display: none; } }
+  .xr .x-meter { display: flex; gap: 3px; }
+  .xr .x-meter span { flex: 1; height: 10px; border-radius: 2px; background: var(--rule); }
+  .xr .x-meter span.on { background: var(--sage); }
+  .xr .x-chip { justify-self: start; padding: 3px 10px; border-radius: 999px; font-size: 0.76rem; font-weight: 700; white-space: nowrap; }
+  .xr .x-chip.solid { background: var(--sage-bg); color: var(--sage); }
+  .xr .x-chip.review { background: var(--paper-dark); color: var(--gold); }
+  .xr .x-chip.study { background: var(--brick-bg); color: var(--brick); }
+  .xr .x-rec { padding: 16px 20px; margin-bottom: 14px; border-left: 4px solid var(--accent); }
+  .xr .x-rec h3 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.25rem; margin: 0 0 6px; }
+  .xr .x-rec ol { margin: 6px 0 0; padding-left: 20px; }
+  .xr .x-rec li { margin-bottom: 6px; font-size: 0.92rem; }
+  .xr .x-lb { background: none; border: none; padding: 0; color: var(--indigo); text-decoration: underline; cursor: pointer; font: inherit; }
+  .xr .x-missed { padding: 12px 16px; margin-bottom: 10px; font-size: 0.92rem; }
+  .xr .x-missed .ans { color: var(--sage); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -936,12 +1006,18 @@
     <div class="mcq-callout">
       <strong>For the multiple-choice section:</strong> the best way to review is to complete the Unit 3 Progress Check on AP Classroom and read through the feedback it gives you. The Practice MCQs here are extra reps, not a replacement.
     </div>
+    <div class="xr-mast"><button class="btn primary" data-xgo="ways">Ways to Review</button><button class="btn" data-xgo="check">Take the Self-Check</button></div>
   </header>
 
     <div class="layout">
     <nav class="index" id="navBar">
       <div class="index-label">Study Sections</div>
       <button class="navbtn active" data-pane="start">Start Here</button>
+      <div class="xr-sep"></div>
+      <button class="navbtn xr-ways" data-pane="ways">Ways to Review</button>
+      <button class="navbtn" data-pane="check">Self-Check</button>
+      <button class="navbtn" data-pane="concepts">Key Concepts</button>
+      <div class="xr-sep"></div>
       <button class="navbtn" data-pane="essay">Key Question Prep</button>
       <button class="navbtn" data-pane="cq">Concept Quiz</button>
       <button class="navbtn" data-pane="saq">SAQ Practice</button>
@@ -951,6 +1027,71 @@
     </nav>
 
     <main>
+      <!-- ================= ADDED: WAYS TO REVIEW ================= -->
+      <section class="pane xr" id="pane-ways">
+        <div class="x-head">
+          <h2>Ways to Review</h2>
+          <p>Possible ways to study for the Unit 3 test. You don’t have to do all of them. Pick the ones that work for you, but start with the notes.</p>
+        </div>
+        <div class="x-list">
+          <div class="card x-way"><div class="x-num">1</div><div>
+            <h3>Use the AI Tool</h3>
+            <p>This site is the AI tool. Start with the Self-Check to find out which topics you know and which ones to study, then use the other sections.</p>
+            <div class="x-actions"><button class="btn primary" data-xgo="check">Start with the Self-Check</button><button class="btn" data-xgo="concepts">Key Concepts</button><button class="btn" data-xgo="essay">Key Question Prep</button><button class="btn" data-xgo="cq">Concept Quiz</button><button class="btn" data-xgo="saq">SAQ Practice</button><button class="btn" data-xgo="pmcq">Practice MCQs</button></div>
+          </div></div>
+          <div class="card x-way"><div class="x-num">2</div><div>
+            <h3>Review the notes for Unit 3 <span class="x-tag top">Above all</span></h3>
+            <p>When Mr. Johnson makes the test, the notes are where he looks to see what we covered. <strong>Study your noteshells above all.</strong></p>
+          </div></div>
+          <div class="card x-way"><div class="x-num">3</div><div>
+            <h3>Practice the Multiple Choice Progress Checks in AP Classroom</h3>
+            <p>Do the Unit 3 Progress Check and read the feedback on the questions you miss. It is the closest practice to the real exam.</p>
+            <div class="x-actions"><a class="x-link" href="https://myap.collegeboard.org/" target="_blank" rel="noopener">Open AP Classroom</a></div>
+          </div></div>
+          <div class="card x-way"><div class="x-num">4</div><div>
+            <h3>Watch review videos on Unit 3 <span class="x-tag strong">Strongly recommended</span></h3>
+            <p><strong>Heimler’s full Unit 3 review is excellent and thorough.</strong> Heimler also has shorter videos for each topic (3.1, 3.2, and so on) if you want to review one topic at a time.</p>
+            <div class="x-actions">
+              <a class="x-link" href="https://www.youtube.com/results?search_query=Heimler+AP+World+History+UNIT+3+REVIEW+Everything+You+NEED+to+Know" target="_blank" rel="noopener"><span class="x-play" aria-hidden="true"></span>Heimler · Full Unit 3 review</a>
+              <a class="x-link" href="https://www.youtube.com/results?search_query=Heimler+AP+World+History+Topic+3.1" target="_blank" rel="noopener"><span class="x-play" aria-hidden="true"></span>Heimler · Topic videos</a>
+            </div>
+            <p style="margin-top:14px;"><strong>Other video reviews of Unit 3:</strong></p>
+            <div class="x-actions">
+              <a class="x-link" href="https://www.youtube.com/watch?v=3CrtzpespUY" target="_blank" rel="noopener"><span class="x-play" aria-hidden="true"></span>OER Project · Unit 3 overview</a>
+              <a class="x-link" href="https://www.youtube.com/results?search_query=Freemanpedia+AP+World+History+Unit+3+review" target="_blank" rel="noopener"><span class="x-play" aria-hidden="true"></span>Freemanpedia · Unit 3 review</a>
+            </div>
+            <div class="x-note" style="margin:16px 0 0;"><strong>Take notes while you watch.</strong> Watching alone is not enough to remember it. Pause the video, write the main ideas in your own words, and then test yourself with a <strong>question guide</strong>. The Video Notes Guide goes with the Heimler and Freemanpedia reviews and is organized by topic, with start times for both videos. The OER Project video has its own guide. Each has space to write and an answer key at the end (Word documents):</div>
+            <div class="x-actions">
+              <a class="x-link" href="https://tojo555.github.io/APWorld/Unit3_Video_Notes_Guide.docx" target="_blank" rel="noopener">↓ Unit 3 Video Notes Guide</a>
+              <a class="x-link" href="https://tojo555.github.io/APWorld/OER_Unit3_Video_Questions.docx" target="_blank" rel="noopener">↓ OER Project question guide</a>
+            </div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- ================= ADDED: SELF-CHECK ================= -->
+      <section class="pane xr" id="pane-check">
+        <div class="x-head">
+          <h2>Self-Check: What Do I Need to Study?</h2>
+          <p>12 short questions covering every Unit 3 topic (3.1 to 3.4). Answer honestly. If you don’t know, choose “Not sure yet” instead of guessing, so your results show what you really need to study. When you finish, you’ll see how you did on each topic and what to do next.</p>
+        </div>
+        <div id="xScQuiz">
+          <div class="card x-bar"><span id="xScCount">0 of 12 answered</span><button class="btn primary" id="xScSubmit" disabled>See my results</button></div>
+          <div id="xScList"></div>
+          <div class="row" style="justify-content:center; margin-top:8px;"><button class="btn primary" id="xScSubmit2" disabled>See my results</button></div>
+        </div>
+        <div id="xScResults" hidden></div>
+      </section>
+
+      <!-- ================= ADDED: KEY CONCEPTS ================= -->
+      <section class="pane xr" id="pane-concepts">
+        <div class="x-head">
+          <h2>Key Concepts</h2>
+          <p>The main ideas of Unit 3, organized by AP topic. Click a topic to open it. Your noteshells are still the most important thing to study; use this to check that you know the big ideas.</p>
+        </div>
+        <div class="card x-acc" id="xConceptAcc"></div>
+      </section>
+
       <!-- ================= KEY QUESTION PREP ================= -->
       <section class="pane active" id="pane-start">
         <div class="pane-head">
@@ -2167,6 +2308,123 @@
   buildSaq();
   initPracticeMCQGate();
   renderProgressPage();
+})();
+</script>
+
+<script>
+/* ===== Added: Ways to Review, Self-Check, Key Concepts (Unit 4 features) ===== */
+(function () {
+  "use strict";
+  const D = {"n": 3, "name": "Unit 3", "topics": {"3.1": {"name": "Empires Expand", "g": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], "o": [3, 4, 5]}, "3.2": {"name": "Empires: Administration", "g": [11, 12, 13, 14, 15, 16, 17, 18, 19], "o": [1, 2, 6, 9, 10, 11, 12]}, "3.3": {"name": "Empires: Belief Systems", "g": [20, 21, 22, 23, 24, 25, 26], "o": [7, 8]}, "3.4": {"name": "Comparison in Land-Based Empires", "g": [27], "o": [3, 13]}}, "sc": [["3.1", "What one factor helped the Ottoman, Safavid, Mughal, and Qing empires all expand?", ["Gunpowder weapons", "Control of Atlantic trade routes", "Alliances with European powers", "Conversion to Christianity"], "Historians sometimes call them “gunpowder empires.” Gunpowder came from China and spread along trade routes."], ["3.1", "Why was the Ottoman capture of Constantinople in 1453 so important?", ["It ended the Byzantine Empire and opened the way into Eastern Europe", "It gave the Ottomans control of the Atlantic Ocean", "It made the Ottomans Shia Muslims", "It ended the Mongol Empire"], "Constantinople, renamed Istanbul, was the last center of the Roman (Byzantine) Empire."], ["3.1", "What was the main disagreement between Sunni and Shia Muslims?", ["Who was the rightful successor to Muhammad", "Whether to pray five times a day", "Whether the Quran was holy", "Whether to make the hajj to Mecca"], "Shia believed only Muhammad’s family (through Ali) could lead; Sunnis did not. The Safavids were Shia; the Ottomans and Mughals were Sunni."], ["3.1", "How did the Qing Dynasty come to power?", ["The Manchus from the north conquered the weakened Ming Dynasty", "Han Chinese rebels drove out the Mongols", "The Mughals conquered China", "Portuguese traders helped a new dynasty take power"], "The Qing were Manchu outsiders ruling a Han Chinese majority, which shaped how they legitimized their rule."], ["3.2", "Louis XIV requiring nobles to live at Versailles is an example of", ["consolidating power by taking it away from the nobility", "legitimizing power through religion", "tax farming", "religious syncretism"], "Keeping nobles at court, competing for his attention, moved power away from them and into the king’s hands."], ["3.2", "The Ottoman devshirme system", ["took Christian boys from the Balkans and trained them as loyal soldiers and officials", "let religious communities govern themselves", "sold the right to collect taxes to the highest bidder", "required nobles to live in Istanbul"], "Devshirme recruits became janissaries or bureaucrats loyal only to the sultan. Self-governing communities = millet; selling tax rights = tax farming."], ["3.2", "Mughal zamindars were", ["local landowning elites who collected taxes for the emperor", "enslaved soldiers trained in Delhi", "Hindu priests who advised Akbar", "Persian artists who painted royal portraits"], "Zamindars collected taxes from peasants on their land for the Mughal government, often keeping some for themselves."], ["3.2", "The Ottoman millet system", ["let religious communities like Jews and Christians run their own affairs if they stayed loyal and paid taxes", "forced all subjects to convert to Islam", "trained Christian boys as soldiers", "divided the empire among the sultan’s sons"], "The millet system is an example of religious toleration used to rule a diverse empire."], ["3.3", "What started the Protestant Reformation?", ["Martin Luther’s 1517 challenge to Church practices like selling indulgences", "The Council of Trent", "The Ottoman conquest of Constantinople", "The Spanish conquest of the Aztecs"], "Luther’s Ninety-Five Theses spread quickly thanks to the printing press. The Council of Trent was the Catholic response."], ["3.3", "What did the Catholic Church’s Council of Trent do?", ["Cleaned up corruption but kept Catholic teachings on salvation", "Accepted Luther’s ideas and reunited the Church", "Made the king of France head of the Church", "Banned the printing press"], "The Catholic Reformation fixed abuses but reaffirmed doctrine, so the split with Protestants became permanent."], ["3.3", "Sikhism, founded by Guru Nanak,", ["blended Hindu and Islamic ideas and rejected the caste system", "was a branch of Shia Islam", "was the state religion of the Safavids", "spread from China along the Silk Roads"], "Sikhism kept belief in one God and in reincarnation, but rejected caste and focused on good works."], ["3.4", "Akbar’s policies and the Ottoman millet system both show", ["rulers using religious toleration to govern diverse peoples", "rulers forcing all subjects to share one religion", "the spread of Protestantism", "European control of Asian empires"], "Both Muslim empires ruled large non-Muslim populations and found toleration useful for keeping order."]], "concepts": [["3.1", "Empires Expand", [["The four empires (MOMS)", ["<b>Ottoman</b> (Sunni): gunpowder and <b>janissaries</b>; took <b>Constantinople</b> (1453), renamed Istanbul.", "<b>Safavid</b> (Shia, Persia): Shah <b>Ismail</b> founded it; Shah <b>Abbas</b> built a gunpowder army of enslaved Christians from the Caucasus.", "<b>Mughal</b> (Sunni, South Asia): <b>Babur</b> defeated the Delhi Sultanate (1526); <b>Akbar</b> expanded it.", "<b>Qing</b> (Manchu): Manchus conquered the weakened Ming in the 1600s."]], ["Conflict", ["<b>Sunni vs. Shia</b>: disagreement over Muhammad’s successor.", "Ottoman–Safavid wars; Safavid–Mughal wars over Afghanistan; Ottomans vs. the Habsburgs; the Hindu <b>Marathas</b> vs. the Mughals."]]]], ["3.2", "Empires: Administration", [["Legitimize and consolidate", ["<b>Legitimize</b>: show the right to rule. <b>Consolidate</b>: take power from other groups.", "Religion: the <b>divine right of kings</b> in Europe. Art: <b>Kangxi</b>’s portraits with books, showing Confucian learning.", "Monumental architecture: Inca Sun Temple, <b>Versailles</b> (nobles kept at court), Topkapi and Süleymaniye, the <b>Taj Mahal</b>, the Forbidden City."]], ["Running the empire", ["Bureaucracies: the Ottoman <b>devshirme</b>; the Qing <b>banner system</b> and civil service exam.", "Taxes: Mughal <b>zamindars</b>, Ottoman <b>tax farming</b>, Aztec tribute lists.", "Toleration: the Ottoman <b>millet system</b>; Akbar’s policies."]]]], ["3.3", "Empires: Belief Systems", [["Christianity", ["Corruption (simony, <b>indulgences</b>) led to <b>Martin Luther</b>’s Ninety-Five Theses (1517) and the <b>Protestant Reformation</b>, spread by the printing press.", "The <b>Council of Trent</b> reformed abuses but kept doctrine, making the split permanent."]], ["Islam and South Asia", ["The Safavids made Shia Islam mandatory, deepening the <b>Sunni–Shia split</b>.", "<b>Sikhism</b> (Guru Nanak): a blend of Hindu and Islamic ideas that rejected caste.", "Akbar tolerated all faiths; Aurangzeb did not."]]]], ["3.4", "Comparison in Land-Based Empires", [["Similarities and differences", ["All used gunpowder, bureaucracies, and religion to rule, and most tolerated minorities to keep order.", "Different sources of legitimacy: Islam (Ottoman caliph, Safavid Shia state), Confucian tradition (Qing), toleration and syncretism (Akbar)."]]]]], "existing": [["essay", "Key Question Prep"], ["cq", "Concept Quiz"], ["saq", "SAQ Practice"], ["pmcq", "Practice MCQs"]]};
+  const P = "apwh_u" + D.n + "_x_";
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(P + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(P + k, JSON.stringify(v)); } catch (e) {} }
+  };
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+  const L = ["A", "B", "C", "D"];
+
+  /* Ways to Review is always open, like Unit 4 */
+  const waysBtn = $('.navbtn[data-pane="ways"]');
+  if (waysBtn) { waysBtn.disabled = false; waysBtn.title = ""; }
+
+  function go(pane) {
+    let b = document.querySelector('.navbtn[data-pane="' + pane + '"]');
+    if (!b || b.disabled || b.style.display === "none") b = document.querySelector('.navbtn[data-pane="start"]') || b;
+    if (b) b.click();
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", e => { const t = e.target.closest("[data-xgo]"); if (t) go(t.dataset.xgo); });
+
+  /* Key Concepts */
+  $("#xConceptAcc").innerHTML = D.concepts.map(([no, name, groups]) =>
+    "<details id='xt" + no.replace(".", "-") + "'><summary><span class='no'>" + no + "</span><span class='nm'>" + esc(name) + "</span></summary><div class='body'>" +
+    groups.map(([h, items]) => "<h4>" + esc(h) + "</h4><ul>" + items.map(i => "<li>" + i + "</li>").join("") + "</ul>").join("") + "</div></details>").join("");
+  function openTopic(t) {
+    go("concepts");
+    const d = document.getElementById("xt" + t.replace(".", "-"));
+    if (d) { d.open = true; setTimeout(() => d.scrollIntoView({ block: "start" }), 30); }
+  }
+
+  /* Self-Check */
+  const SC = D.sc, UNSURE = -1;
+  const fresh = q => shuffle(q[2].map((t, k) => ({ t, ok: k === 0 })));
+  let order = SC.map(fresh);
+  const so = store.get("scOrder", null);
+  if (Array.isArray(so) && so.length === SC.length) so.forEach((o, i) => { if (Array.isArray(o) && o.length === 4) order[i] = o; });
+  let ans = store.get("scAns", null);
+  if (!Array.isArray(ans) || ans.length !== SC.length) ans = SC.map(() => null);
+  const save = () => { store.set("scAns", ans); store.set("scOrder", order); };
+  function renderQuiz() {
+    $("#xScList").innerHTML = SC.map((q, i) =>
+      "<div class='card x-q'><div class='x-tl'>Question " + (i + 1) + " · Topic " + q[0] + "</div><div class='x-qt'>" + esc(q[1]) + "</div><div class='x-opts'>" +
+      order[i].map((o, k) => "<button class='x-opt" + (ans[i] === k ? " sel" : "") + "' data-q='" + i + "' data-k='" + k + "' aria-pressed='" + (ans[i] === k) + "'><span class='l'>" + L[k] + "</span><span>" + esc(o.t) + "</span></button>").join("") +
+      "<button class='x-opt unsure" + (ans[i] === UNSURE ? " sel" : "") + "' data-q='" + i + "' data-k='" + UNSURE + "' aria-pressed='" + (ans[i] === UNSURE) + "'><span class='l'>?</span><span>Not sure yet</span></button></div></div>").join("");
+    count();
+  }
+  function count() {
+    const n = ans.filter(a => a !== null).length;
+    $("#xScCount").textContent = n + " of " + SC.length + " answered";
+    $("#xScSubmit").disabled = $("#xScSubmit2").disabled = n < SC.length;
+  }
+  $("#xScList").addEventListener("click", e => {
+    const b = e.target.closest(".x-opt"); if (!b) return;
+    const i = +b.dataset.q, k = +b.dataset.k;
+    ans[i] = k; save();
+    b.parentElement.querySelectorAll(".x-opt").forEach(x => { const on = +x.dataset.k === k; x.classList.toggle("sel", on); x.setAttribute("aria-pressed", on); });
+    count();
+  });
+  const nums = a => {
+    if (a.length > 2 && a.every((v, i) => i === 0 || v === a[i - 1] + 1)) return "questions " + a[0] + "–" + a[a.length - 1];
+    return a.length === 1 ? "question " + a[0] : "questions " + a.slice(0, -1).join(", ") + (a.length > 2 ? "," : "") + " and " + a[a.length - 1];
+  };
+  const correct = i => ans[i] !== null && ans[i] >= 0 && order[i][ans[i]] && order[i][ans[i]].ok;
+  function results() {
+    const by = {};
+    Object.keys(D.topics).forEach(t => by[t] = { r: 0, n: 0 });
+    SC.forEach((q, i) => { by[q[0]].n++; if (correct(i)) by[q[0]].r++; });
+    const tot = Object.values(by).reduce((s, x) => s + x.r, 0);
+    const lvl = x => x.r === x.n ? "solid" : x.r / x.n >= 0.5 ? "review" : "study";
+    const LB = { solid: "Solid", review: "Review", study: "Study first" };
+    const ts = Object.keys(D.topics).filter(t => by[t].n);
+    const weak = ts.filter(t => lvl(by[t]) !== "solid").sort((a, b) => by[a].r / by[a].n - by[b].r / by[b].n);
+    let h = "<div class='card x-total'><span class='big'>" + tot + "/" + SC.length + "</span><span class='lbl'>" +
+      (weak.length ? "Your study plan is below, starting with the topics that need the most work." : "You got every topic right. Keep it fresh with the practice sections and the AP Classroom Progress Check.") + "</span></div>";
+    h += "<div class='card x-tt'>" + ts.map(t => { const x = by[t], v = lvl(x);
+      return "<div class='x-tr'><span class='no'>" + t + "</span><span class='nm'>" + esc(D.topics[t].name) + "</span><span class='x-meter' aria-label='" + x.r + " of " + x.n + " correct'>" +
+        Array.from({ length: x.n }, (_, k) => "<span" + (k < x.r ? " class='on'" : "") + "></span>").join("") + "</span><span class='x-chip " + v + "'>" + LB[v] + " · " + x.r + "/" + x.n + "</span></div>"; }).join("") + "</div>";
+    if (weak.length) {
+      h += "<div class='x-head'><h2>Your study plan</h2><p>Work through these in order. Topics marked “Study first” need the most attention.</p></div>";
+      h += weak.map((t, idx) => {
+        const T = D.topics[t], v = lvl(by[t]), steps = [];
+        if (v === "study") steps.push("Start with your <strong>noteshells for " + t + "</strong>. That is where the test comes from.");
+        steps.push("Read <button class='x-lb' data-topic='" + t + "'>Key Concepts " + t + ": " + esc(T.name) + "</button>.");
+        if (v === "study") steps.push("Watch <a href='https://www.youtube.com/results?search_query=" + encodeURIComponent("Heimler AP World History Topic " + t) + "' target='_blank' rel='noopener'>Heimler’s topic " + t + " video</a> and take notes in your own words.");
+        const g = [];
+        if (T.g.length) g.push(D.name + " Video Notes Guide " + nums(T.g));
+        if (T.o.length) g.push("OER Project guide " + nums(T.o));
+        if (g.length) steps.push("Answer these from the <button class='x-lb' data-xgo='ways'>video question guides</button>: " + g.join("; ") + ".");
+        return "<div class='card x-rec' style='--accent: var(" + (v === "study" ? "--brick" : "--gold") + ");'><h3>" + (idx + 1) + ". Topic " + t + ": " + esc(T.name) + " <span class='x-chip " + v + "' style='vertical-align:middle;'>" + LB[v] + "</span></h3><ol>" + steps.map(s => "<li>" + s + "</li>").join("") + "</ol></div>";
+      }).join("");
+    }
+    h += "<div class='card x-rec' style='--accent: var(--indigo);'><h3>For every topic</h3><ol><li>Do the <strong>" + D.name + " Progress Check in AP Classroom</strong> and read the feedback. It is the closest practice to the real multiple choice.</li><li>Then practice in this tool: " +
+      D.existing.map(([p, t]) => "<button class='x-lb' data-xgo='" + p + "'>" + esc(t) + "</button>").join(", ") + ".</li></ol></div>";
+    const missed = SC.map((q, i) => ({ q, i })).filter(({ i }) => !correct(i));
+    if (missed.length) h += "<div class='x-head' style='margin-top:24px;'><h2>Questions to look at again</h2></div>" + missed.map(({ q, i }) =>
+      "<div class='card x-missed'><div class='x-tl'>Topic " + q[0] + "</div><div style='font-weight:600;'>" + esc(q[1]) + "</div><div>" +
+      (ans[i] === UNSURE ? "You chose “Not sure yet.”" : "Your answer: " + esc(order[i][ans[i]].t)) + "</div><div><span class='ans'>Correct answer:</span> " + esc(q[2][0]) + "</div><div style='color:var(--ink-soft); margin-top:4px;'>" + esc(q[3]) + "</div></div>").join("");
+    h += "<div class='row' style='justify-content:center; margin-top:16px;'><button class='btn' id='xScEdit'>Change my answers</button><button class='btn primary' id='xScRetake'>Retake with a fresh start</button></div>";
+    const res = $("#xScResults"); res.innerHTML = h; res.hidden = false; $("#xScQuiz").hidden = true;
+    store.set("scDone", true);
+    res.querySelectorAll("[data-topic]").forEach(b => b.onclick = () => openTopic(b.dataset.topic));
+    $("#xScEdit").onclick = () => { res.hidden = true; $("#xScQuiz").hidden = false; store.set("scDone", false); };
+    $("#xScRetake").onclick = () => { ans = SC.map(() => null); order = SC.map(fresh); save(); store.set("scDone", false); renderQuiz(); res.hidden = true; $("#xScQuiz").hidden = false; window.scrollTo(0, 0); };
+  }
+  $("#xScSubmit").onclick = $("#xScSubmit2").onclick = () => { results(); window.scrollTo(0, 0); };
+  renderQuiz();
+  if (store.get("scDone", false) && ans.every(a => a !== null)) results();
 })();
 </script>
 </body>

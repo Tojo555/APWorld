@@ -314,6 +314,76 @@
   .mcq-wrong-line { color: var(--brick); }
   .mcq-correct-line { color: var(--sage); }
   .mcq-flag-line { color: var(--gold); font-style: italic; }
+
+  /* ===== Added: Ways to Review, Self-Check, Key Concepts (Unit 4 features) ===== */
+  .xr { --on-accent: #FFF8EC; }
+  .xr .x-head h2 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.6rem; font-style: italic; margin: 0; }
+  .xr .x-head p { color: var(--ink-soft); font-size: 0.93rem; margin: 6px 0 18px; max-width: 66ch; }
+  .navbtn.xr-ways { color: var(--gold); font-weight: 700; }
+  .xr-sep { height: 1px; background: var(--rule); margin: 8px 0; }
+  @media (max-width: 860px) { .xr-sep { display: none; } }
+  .xr-mast { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .xr-mast .btn { font-size: 1rem; padding: 10px 18px; }
+  .xr .x-note { padding: 10px 14px; border-left: 3px solid var(--gold); background: var(--paper-raised); font-size: 0.88rem; max-width: 76ch; margin: 0 0 16px; }
+  .xr .x-list { display: grid; gap: 14px; }
+  .xr .x-way { display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 14px; padding: 18px 20px; }
+  .xr .x-num { width: 40px; height: 40px; border-radius: 50%; background: var(--indigo); color: var(--paper); display: grid; place-items: center; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.4rem; font-weight: 700; }
+  .xr .x-way h3 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.25rem; margin: 0; }
+  .xr .x-way p { margin: 6px 0 0; font-size: 0.92rem; max-width: 66ch; }
+  .xr .x-tag { display: inline-block; margin-left: 6px; padding: 2px 9px; border-radius: 999px; font-family: "Karla", sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; }
+  .xr .x-tag.top { background: var(--gold); color: var(--on-accent); }
+  .xr .x-tag.strong { background: var(--brick-bg); color: var(--brick); }
+  .xr .x-actions { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .xr .x-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.9rem; }
+  .xr .x-link:hover { border-color: var(--gold); }
+  .xr .x-play { width: 0; height: 0; border-left: 10px solid var(--brick); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+  .xr .x-acc { padding: 4px 18px; }
+  .xr .x-acc details { border-bottom: 1px solid var(--rule); }
+  .xr .x-acc details:last-child { border-bottom: none; }
+  .xr .x-acc summary { cursor: pointer; padding: 14px 0; list-style: none; display: flex; gap: 12px; align-items: baseline; }
+  .xr .x-acc summary::-webkit-details-marker { display: none; }
+  .xr .x-acc summary .no { font-size: 0.78rem; font-weight: 700; color: var(--gold); min-width: 3.2em; }
+  .xr .x-acc summary .nm { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.2rem; font-weight: 600; }
+  .xr .x-acc summary::after { content: "+"; margin-left: auto; color: var(--ink-soft); font-size: 1.2rem; }
+  .xr .x-acc details[open] summary::after { content: "\2013"; }
+  .xr .x-acc .body { padding: 0 0 14px calc(3.2em + 12px); }
+  .xr .x-acc .body h4 { margin: 10px 0 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+  .xr .x-acc ul { margin: 0; padding-left: 18px; }
+  .xr .x-acc li { margin-bottom: 6px; font-size: 0.92rem; max-width: 72ch; }
+  @media (max-width: 560px) { .xr .x-acc .body { padding-left: 0; } }
+  .xr .x-bar { position: sticky; top: 8px; z-index: 3; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; margin-bottom: 14px; font-weight: 700; }
+  .xr .x-q { padding: 14px 18px; margin-bottom: 12px; }
+  .xr .x-tl { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .xr .x-qt { font-weight: 600; margin-bottom: 10px; }
+  .xr .x-opts { display: grid; gap: 8px; }
+  .xr .x-opt { display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); font: inherit; font-size: 0.93rem; cursor: pointer; }
+  .xr .x-opt:hover { border-color: var(--gold); }
+  .xr .x-opt .l { font-weight: 700; color: var(--gold); min-width: 1em; }
+  .xr .x-opt.sel { border-color: var(--gold); background: var(--paper-dark); box-shadow: inset 3px 0 0 var(--gold); }
+  .xr .x-opt.unsure { color: var(--ink-soft); font-style: italic; }
+  .xr .x-total { display: flex; align-items: baseline; gap: 12px; padding: 16px 20px; margin-bottom: 12px; flex-wrap: wrap; }
+  .xr .x-total .big { font-family: "Cormorant Garamond", Georgia, serif; font-size: 3.2rem; font-weight: 700; line-height: 1; }
+  .xr .x-total .lbl { color: var(--ink-soft); }
+  .xr .x-tt { padding: 8px 18px; margin-bottom: 18px; }
+  .xr .x-tr { display: grid; grid-template-columns: 3.2em minmax(0,1fr) 110px 7.5em; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .xr .x-tr:last-child { border-bottom: none; }
+  .xr .x-tr .no { font-weight: 700; color: var(--gold); }
+  .xr .x-tr .nm { font-weight: 600; min-width: 0; }
+  @media (max-width: 560px) { .xr .x-tr { grid-template-columns: 3em minmax(0,1fr) 7.5em; } .xr .x-meter { display: none; } }
+  .xr .x-meter { display: flex; gap: 3px; }
+  .xr .x-meter span { flex: 1; height: 10px; border-radius: 2px; background: var(--rule); }
+  .xr .x-meter span.on { background: var(--sage); }
+  .xr .x-chip { justify-self: start; padding: 3px 10px; border-radius: 999px; font-size: 0.76rem; font-weight: 700; white-space: nowrap; }
+  .xr .x-chip.solid { background: var(--sage-bg); color: var(--sage); }
+  .xr .x-chip.review { background: var(--paper-dark); color: var(--gold); }
+  .xr .x-chip.study { background: var(--brick-bg); color: var(--brick); }
+  .xr .x-rec { padding: 16px 20px; margin-bottom: 14px; border-left: 4px solid var(--accent); }
+  .xr .x-rec h3 { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.25rem; margin: 0 0 6px; }
+  .xr .x-rec ol { margin: 6px 0 0; padding-left: 20px; }
+  .xr .x-rec li { margin-bottom: 6px; font-size: 0.92rem; }
+  .xr .x-lb { background: none; border: none; padding: 0; color: var(--indigo); text-decoration: underline; cursor: pointer; font: inherit; }
+  .xr .x-missed { padding: 12px 16px; margin-bottom: 10px; font-size: 0.92rem; }
+  .xr .x-missed .ans { color: var(--sage); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -324,12 +394,18 @@
   <header class="masthead">
     <div class="kicker">Networks of Exchange &nbsp;·&nbsp; c. 1200–1450</div>
     <h1 class="title">AP World History Unit 2 Review</h1>
+    <div class="xr-mast"><button class="btn primary" data-xgo="ways">Ways to Review</button><button class="btn" data-xgo="check">Take the Self-Check</button></div>
   </header>
 
   <div class="layout">
     <nav class="index" id="navBar">
       <div class="index-label">Sections</div>
       <button class="navbtn active" data-pane="start">Start Here</button>
+      <div class="xr-sep"></div>
+      <button class="navbtn xr-ways" data-pane="ways">Ways to Review</button>
+      <button class="navbtn" data-pane="check">Self-Check</button>
+      <button class="navbtn" data-pane="concepts">Key Concepts</button>
+      <div class="xr-sep"></div>
       <button class="navbtn" data-pane="toolkit">Causation Toolkit</button>
       <button class="navbtn" data-pane="quiz">Answer the Questions</button>
       <button class="navbtn" data-pane="leq">Historical Reasoning Identification</button>
@@ -338,6 +414,71 @@
     </nav>
 
     <main>
+      <!-- ================= ADDED: WAYS TO REVIEW ================= -->
+      <section class="pane xr" id="pane-ways">
+        <div class="x-head">
+          <h2>Ways to Review</h2>
+          <p>Possible ways to study for the Unit 2 test. You don’t have to do all of them. Pick the ones that work for you, but start with the notes.</p>
+        </div>
+        <div class="x-list">
+          <div class="card x-way"><div class="x-num">1</div><div>
+            <h3>Use the AI Tool</h3>
+            <p>This site is the AI tool. Start with the Self-Check to find out which topics you know and which ones to study, then use the other sections.</p>
+            <div class="x-actions"><button class="btn primary" data-xgo="check">Start with the Self-Check</button><button class="btn" data-xgo="concepts">Key Concepts</button><button class="btn" data-xgo="toolkit">Causation Toolkit</button><button class="btn" data-xgo="leq">Historical Reasoning Identification</button><button class="btn" data-xgo="pmcq">Practice MCQs</button><button class="btn" data-xgo="progress">My Progress</button></div>
+          </div></div>
+          <div class="card x-way"><div class="x-num">2</div><div>
+            <h3>Review the notes for Unit 2 <span class="x-tag top">Above all</span></h3>
+            <p>When Mr. Johnson makes the test, the notes are where he looks to see what we covered. <strong>Study your noteshells above all.</strong></p>
+          </div></div>
+          <div class="card x-way"><div class="x-num">3</div><div>
+            <h3>Practice the Multiple Choice Progress Checks in AP Classroom</h3>
+            <p>Do the Unit 2 Progress Check and read the feedback on the questions you miss. It is the closest practice to the real exam.</p>
+            <div class="x-actions"><a class="x-link" href="https://myap.collegeboard.org/" target="_blank" rel="noopener">Open AP Classroom</a></div>
+          </div></div>
+          <div class="card x-way"><div class="x-num">4</div><div>
+            <h3>Watch review videos on Unit 2 <span class="x-tag strong">Strongly recommended</span></h3>
+            <p><strong>Heimler’s full Unit 2 review is excellent and thorough.</strong> Heimler also has shorter videos for each topic (2.1, 2.2, and so on) if you want to review one topic at a time.</p>
+            <div class="x-actions">
+              <a class="x-link" href="https://www.youtube.com/results?search_query=Heimler+AP+World+History+UNIT+2+REVIEW+Everything+You+NEED+to+Know" target="_blank" rel="noopener"><span class="x-play" aria-hidden="true"></span>Heimler · Full Unit 2 review</a>
+              <a class="x-link" href="https://www.youtube.com/results?search_query=Heimler+AP+World+History+Topic+2.1" target="_blank" rel="noopener"><span class="x-play" aria-hidden="true"></span>Heimler · Topic videos</a>
+            </div>
+            <p style="margin-top:14px;"><strong>Other video reviews of Unit 2:</strong></p>
+            <div class="x-actions">
+              <a class="x-link" href="https://www.youtube.com/watch?v=i2-ceqnQEcQ" target="_blank" rel="noopener"><span class="x-play" aria-hidden="true"></span>OER Project · Unit 2 overview</a>
+              <a class="x-link" href="https://www.youtube.com/results?search_query=Freemanpedia+AP+World+History+Unit+2+review" target="_blank" rel="noopener"><span class="x-play" aria-hidden="true"></span>Freemanpedia · Unit 2 review</a>
+            </div>
+            <div class="x-note" style="margin:16px 0 0;"><strong>Take notes while you watch.</strong> Watching alone is not enough to remember it. Pause the video, write the main ideas in your own words, and then test yourself with a <strong>question guide</strong>. The Video Notes Guide goes with the Heimler and Freemanpedia reviews and is organized by topic, with start times for both videos. The OER Project video has its own guide. Each has space to write and an answer key at the end (Word documents):</div>
+            <div class="x-actions">
+              <a class="x-link" href="https://tojo555.github.io/APWorld/Unit2_Video_Notes_Guide.docx" target="_blank" rel="noopener">↓ Unit 2 Video Notes Guide</a>
+              <a class="x-link" href="https://tojo555.github.io/APWorld/OER_Unit2_Video_Questions.docx" target="_blank" rel="noopener">↓ OER Project question guide</a>
+            </div>
+          </div></div>
+        </div>
+      </section>
+
+      <!-- ================= ADDED: SELF-CHECK ================= -->
+      <section class="pane xr" id="pane-check">
+        <div class="x-head">
+          <h2>Self-Check: What Do I Need to Study?</h2>
+          <p>16 short questions covering every Unit 2 topic (2.1 to 2.7). Answer honestly. If you don’t know, choose “Not sure yet” instead of guessing, so your results show what you really need to study. When you finish, you’ll see how you did on each topic and what to do next.</p>
+        </div>
+        <div id="xScQuiz">
+          <div class="card x-bar"><span id="xScCount">0 of 16 answered</span><button class="btn primary" id="xScSubmit" disabled>See my results</button></div>
+          <div id="xScList"></div>
+          <div class="row" style="justify-content:center; margin-top:8px;"><button class="btn primary" id="xScSubmit2" disabled>See my results</button></div>
+        </div>
+        <div id="xScResults" hidden></div>
+      </section>
+
+      <!-- ================= ADDED: KEY CONCEPTS ================= -->
+      <section class="pane xr" id="pane-concepts">
+        <div class="x-head">
+          <h2>Key Concepts</h2>
+          <p>The main ideas of Unit 2, organized by AP topic. Click a topic to open it. Your noteshells are still the most important thing to study; use this to check that you know the big ideas.</p>
+        </div>
+        <div class="card x-acc" id="xConceptAcc"></div>
+      </section>
+
       <!-- ============ TOOLKIT ============ -->
       <!-- ============ START HERE ============ -->
       <section class="pane active" id="pane-start">
@@ -2220,6 +2361,123 @@
   renderProgress();
   initPracticeMCQGate();
   setStartUnlocked(!!safeGet(START_ACK_KEY, false));
+})();
+</script>
+
+<script>
+/* ===== Added: Ways to Review, Self-Check, Key Concepts (Unit 4 features) ===== */
+(function () {
+  "use strict";
+  const D = {"n": 2, "name": "Unit 2", "topics": {"2.1": {"name": "The Silk Roads", "g": [1, 2, 3, 4, 5, 6, 7, 8], "o": [1, 2, 4, 10]}, "2.2": {"name": "The Mongol Empire", "g": [9, 10, 11, 12], "o": [5, 6, 7, 8, 9]}, "2.3": {"name": "Exchange in the Indian Ocean", "g": [13, 14, 15, 16, 17, 18, 19], "o": [3]}, "2.4": {"name": "Trans-Saharan Trade Routes", "g": [20, 21], "o": [3]}, "2.5": {"name": "Cultural Consequences of Connectivity", "g": [22, 23, 24, 25], "o": [11]}, "2.6": {"name": "Environmental Consequences of Connectivity", "g": [26, 27], "o": [12]}, "2.7": {"name": "Comparison of Economic Exchange", "g": [28], "o": [5, 6]}}, "sc": [["2.1", "A caravanserai was", ["an inn along the Silk Roads where merchants could rest safely and exchange ideas", "a Chinese ship used in Indian Ocean trade", "a tax that the Mongols charged merchants", "a group of soldiers that guarded camels"], "Caravanserais were about a day’s journey apart. They gave safety to merchants and brought different cultures together."], ["2.1", "China’s “flying money” let a merchant", ["deposit money in one place and withdraw it in another", "exchange goods without using any money", "pay taxes in gold coins", "borrow money from the Mongol khan"], "Flying money was an early form of paper credit, so merchants didn’t have to carry heavy coins."], ["2.1", "Why were mostly luxury goods traded on the Silk Roads?", ["Overland travel was so costly that only high-value goods were worth carrying", "The Mongols banned trade in everyday goods", "Common goods could only be carried by ship", "Luxury goods were lighter to carry by sea"], "Camels carried little, and the trip was long and dangerous, so merchants carried silk, porcelain, and other expensive goods."], ["2.2", "The Pax Mongolica was", ["a period of peace across the Mongol Empire that made trade safer and easier", "a Ming Dynasty ban on trading with the Mongols", "the treaty that ended the Mongol invasions of Europe", "a Mongol tax on Silk Roads merchants"], "Once the conquests ended, the Mongols protected merchants, paid high prices, and encouraged trade across Eurasia."], ["2.2", "A khanate was", ["one of the regions the Mongol Empire split into, ruled by a descendant of Genghis Khan", "a Mongol trading city on the Silk Roads", "a fortified inn for Mongol soldiers", "the Mongol written language"], "After Genghis Khan died, the empire broke into khanates, such as the Yuan in China and the Golden Horde in Russia."], ["2.2", "Which was an effect of Mongol rule?", ["Knowledge and technology, such as Islamic medicine and gunpowder, spread across Eurasia", "Trade on the Silk Roads ended for a century", "Christianity became China’s state religion", "The Mongols invented paper money"], "The Mongols were destructive but connected Eurasia. Paper money came from China, not the Mongols."], ["2.3", "Why did monsoon winds matter for Indian Ocean trade?", ["They blew in predictable directions by season, so sailors could time their voyages", "They made the Indian Ocean too dangerous to cross", "They only blew from east to west, so ships could not return", "They powered the first steam ships"], "Merchants learned the seasonal pattern and sailed out with one monsoon and home with the other."], ["2.3", "Which is an example of a diaspora community?", ["Arab and Persian merchants who settled in East African port cities", "Mongol armies that returned home after conquering China", "Pilgrims who traveled to Mecca and came back", "Chinese farmers who moved from one province to another"], "A diaspora is a community living away from its homeland. Merchant diasporas spread Islam and new customs around the Indian Ocean."], ["2.3", "What was the main purpose of Zheng He’s voyages?", ["To show Ming power and enroll states in China’s tributary system", "To conquer and settle the East African coast", "To find a sea route to Europe", "To spread Buddhism to the Middle East"], "Zheng He’s huge fleets collected tribute and prestige; they did not build forts or colonies."], ["2.4", "What innovation helped trans-Saharan trade expand?", ["The camel saddle, which let camels carry heavier loads", "The lateen sail", "The magnetic compass alone", "Paved roads across the desert"], "Better camel saddles let caravans carry more gold and salt across the Sahara."], ["2.4", "Mali grew wealthy mainly by", ["controlling the gold trade and taxing merchants", "selling silk to China", "conquering the Swahili city-states", "mining silver for the Mongols"], "Mali controlled West African gold and taxed trade. Mansa Musa ruled at its height."], ["2.5", "How did gunpowder spread?", ["From China to the Muslim world and Europe, partly through Mongol contact", "From Europe to China along the Silk Roads", "From Mali across the Sahara", "It was invented separately in each region"], "Gunpowder was invented in China and spread west, changing the balance of power."], ["2.5", "Why is Ibn Battuta important to historians?", ["He wrote detailed accounts of the many places he traveled in Dar al-Islam", "He led the Mongol conquest of Baghdad", "He founded the Swahili city-states", "He was the first person to cross the Sahara"], "A Moroccan scholar who traveled for about 30 years, he left a firsthand record of life across the Muslim world."], ["2.6", "How did the bubonic plague spread across Afro-Eurasia?", ["Along trade routes, with fleas on rats traveling with merchants and ships", "Through contaminated water in European cities only", "From Europe to China with returning crusaders", "Only through Mongol armies"], "The plague began in China in the 1330s; its spread follows the trade routes. It devastated Asia, the Middle East, North Africa, and Europe."], ["2.6", "Champa rice reached China through", ["the tribute system, and it helped China’s population grow", "Portuguese traders", "the trans-Saharan trade", "the Mongol conquest of Persia"], "The Champa Kingdom sent it as tribute. Fast-ripening rice meant more food and more people."], ["2.7", "How was Indian Ocean trade different from Silk Roads trade?", ["Ships carried more bulk goods by sea, using the monsoons", "It only carried luxury goods", "It was controlled entirely by the Mongols", "It did not spread religion"], "Ships could carry far more than camels, so everyday goods such as textiles and spices were traded in bulk."]], "concepts": [["2.1", "The Silk Roads", [["Trade", ["A network of overland routes across Eurasia, mainly for <b>luxury goods</b> such as silk and porcelain, because overland travel was costly.", "Demand led artisans and peasants (for example, in the Yangzi delta) to produce more goods for trade."]], ["Innovations", ["<b>Caravanserais</b>: inns about a day apart for safety and exchange.", "<b>Money economy</b> and <b>flying money</b> (paper credit) from China; <b>bills of exchange</b> and <b>banking houses</b> spread to Europe."]], ["Cities", ["Trade cities such as <b>Kashgar</b> and <b>Samarkand</b> grew rich at the crossroads of routes."]]]], ["2.2", "The Mongol Empire and the Making of the Modern World", [["Conquest", ["The largest land empire in history; it conquered the <b>Song</b> and the <b>Abbasids</b> (Baghdad, 1258). It split into <b>khanates</b> ruled by Genghis Khan’s descendants."]], ["Connection", ["<b>Pax Mongolica</b>: Mongol control made the Silk Roads safer; the Mongols protected merchants and encouraged trade and diplomacy.", "Transfers: Greek and Islamic medicine to Europe, Hindu-Arabic numerals, the <b>Uyghur script</b>, gunpowder."]]]], ["2.3", "Exchange in the Indian Ocean", [["How it worked", ["Seasonal <b>monsoon winds</b> set sailing times.", "Ships carried <b>bulk goods</b> (textiles, spices) as well as luxuries.", "Technology: magnetic <b>compass</b>, <b>astrolabe</b>, <b>lateen sail</b>, Chinese <b>junk</b>."]], ["People and states", ["<b>Swahili city-states</b> brokered gold, ivory, and enslaved people from the interior and became Islamic.", "<b>Diaspora communities</b> of Arab, Persian, and Chinese merchants spread religion and customs.", "<b>Malacca</b> controlled a key strait. <b>Zheng He</b> (Ming, 1405–1433) sailed for tribute and prestige."]]]], ["2.4", "Trans-Saharan Trade Routes", [["Trade", ["<b>Gold</b> from West Africa and <b>salt</b> from the Sahara.", "The <b>camel saddle</b> and caravans made bigger, safer trips possible."]], ["Mali", ["Grew rich from gold and taxes; rulers converted to Islam. <b>Mansa Musa</b>’s famous hajj; <b>Timbuktu</b> a center of trade and learning."]]]], ["2.5", "Cultural Consequences of Connectivity", [["What spread", ["Religion: <b>Buddhism</b> to China via the Silk Roads; Islam to Africa and Southeast Asia; Hinduism to Southeast Asia.", "Learning and technology: Greek works via the House of Wisdom; <b>gunpowder</b>, paper, and the compass from China.", "Cities rose (<b>Hangzhou</b>) and fell (<b>Baghdad</b>, 1258).", "Travelers: <b>Ibn Battuta</b> and Marco Polo wrote about what they saw."]]]], ["2.6", "Environmental Consequences of Connectivity", [["Crops and disease", ["<b>Champa rice</b> reached China through tribute; sugar and bananas also spread.", "The <b>bubonic plague</b> (Black Death) spread along trade routes from China in the 1330s and devastated Afro-Eurasia."]]]], ["2.7", "Comparison of Economic Exchange", [["Similarities and differences", ["All three networks expanded through new technology and commercial practices, and all spread religion and ideas.", "Silk Roads: overland, mostly luxuries. Indian Ocean: by sea with the monsoons, bulk goods. Trans-Saharan: gold and salt by camel caravan."]]]]], "existing": [["toolkit", "Causation Toolkit"], ["leq", "Historical Reasoning Identification"], ["pmcq", "Practice MCQs"], ["progress", "My Progress"]]};
+  const P = "apwh_u" + D.n + "_x_";
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(P + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(P + k, JSON.stringify(v)); } catch (e) {} }
+  };
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+  const L = ["A", "B", "C", "D"];
+
+  /* Ways to Review is always open, like Unit 4 */
+  const waysBtn = $('.navbtn[data-pane="ways"]');
+  if (waysBtn) { waysBtn.disabled = false; waysBtn.title = ""; }
+
+  function go(pane) {
+    let b = document.querySelector('.navbtn[data-pane="' + pane + '"]');
+    if (!b || b.disabled || b.style.display === "none") b = document.querySelector('.navbtn[data-pane="start"]') || b;
+    if (b) b.click();
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", e => { const t = e.target.closest("[data-xgo]"); if (t) go(t.dataset.xgo); });
+
+  /* Key Concepts */
+  $("#xConceptAcc").innerHTML = D.concepts.map(([no, name, groups]) =>
+    "<details id='xt" + no.replace(".", "-") + "'><summary><span class='no'>" + no + "</span><span class='nm'>" + esc(name) + "</span></summary><div class='body'>" +
+    groups.map(([h, items]) => "<h4>" + esc(h) + "</h4><ul>" + items.map(i => "<li>" + i + "</li>").join("") + "</ul>").join("") + "</div></details>").join("");
+  function openTopic(t) {
+    go("concepts");
+    const d = document.getElementById("xt" + t.replace(".", "-"));
+    if (d) { d.open = true; setTimeout(() => d.scrollIntoView({ block: "start" }), 30); }
+  }
+
+  /* Self-Check */
+  const SC = D.sc, UNSURE = -1;
+  const fresh = q => shuffle(q[2].map((t, k) => ({ t, ok: k === 0 })));
+  let order = SC.map(fresh);
+  const so = store.get("scOrder", null);
+  if (Array.isArray(so) && so.length === SC.length) so.forEach((o, i) => { if (Array.isArray(o) && o.length === 4) order[i] = o; });
+  let ans = store.get("scAns", null);
+  if (!Array.isArray(ans) || ans.length !== SC.length) ans = SC.map(() => null);
+  const save = () => { store.set("scAns", ans); store.set("scOrder", order); };
+  function renderQuiz() {
+    $("#xScList").innerHTML = SC.map((q, i) =>
+      "<div class='card x-q'><div class='x-tl'>Question " + (i + 1) + " · Topic " + q[0] + "</div><div class='x-qt'>" + esc(q[1]) + "</div><div class='x-opts'>" +
+      order[i].map((o, k) => "<button class='x-opt" + (ans[i] === k ? " sel" : "") + "' data-q='" + i + "' data-k='" + k + "' aria-pressed='" + (ans[i] === k) + "'><span class='l'>" + L[k] + "</span><span>" + esc(o.t) + "</span></button>").join("") +
+      "<button class='x-opt unsure" + (ans[i] === UNSURE ? " sel" : "") + "' data-q='" + i + "' data-k='" + UNSURE + "' aria-pressed='" + (ans[i] === UNSURE) + "'><span class='l'>?</span><span>Not sure yet</span></button></div></div>").join("");
+    count();
+  }
+  function count() {
+    const n = ans.filter(a => a !== null).length;
+    $("#xScCount").textContent = n + " of " + SC.length + " answered";
+    $("#xScSubmit").disabled = $("#xScSubmit2").disabled = n < SC.length;
+  }
+  $("#xScList").addEventListener("click", e => {
+    const b = e.target.closest(".x-opt"); if (!b) return;
+    const i = +b.dataset.q, k = +b.dataset.k;
+    ans[i] = k; save();
+    b.parentElement.querySelectorAll(".x-opt").forEach(x => { const on = +x.dataset.k === k; x.classList.toggle("sel", on); x.setAttribute("aria-pressed", on); });
+    count();
+  });
+  const nums = a => {
+    if (a.length > 2 && a.every((v, i) => i === 0 || v === a[i - 1] + 1)) return "questions " + a[0] + "–" + a[a.length - 1];
+    return a.length === 1 ? "question " + a[0] : "questions " + a.slice(0, -1).join(", ") + (a.length > 2 ? "," : "") + " and " + a[a.length - 1];
+  };
+  const correct = i => ans[i] !== null && ans[i] >= 0 && order[i][ans[i]] && order[i][ans[i]].ok;
+  function results() {
+    const by = {};
+    Object.keys(D.topics).forEach(t => by[t] = { r: 0, n: 0 });
+    SC.forEach((q, i) => { by[q[0]].n++; if (correct(i)) by[q[0]].r++; });
+    const tot = Object.values(by).reduce((s, x) => s + x.r, 0);
+    const lvl = x => x.r === x.n ? "solid" : x.r / x.n >= 0.5 ? "review" : "study";
+    const LB = { solid: "Solid", review: "Review", study: "Study first" };
+    const ts = Object.keys(D.topics).filter(t => by[t].n);
+    const weak = ts.filter(t => lvl(by[t]) !== "solid").sort((a, b) => by[a].r / by[a].n - by[b].r / by[b].n);
+    let h = "<div class='card x-total'><span class='big'>" + tot + "/" + SC.length + "</span><span class='lbl'>" +
+      (weak.length ? "Your study plan is below, starting with the topics that need the most work." : "You got every topic right. Keep it fresh with the practice sections and the AP Classroom Progress Check.") + "</span></div>";
+    h += "<div class='card x-tt'>" + ts.map(t => { const x = by[t], v = lvl(x);
+      return "<div class='x-tr'><span class='no'>" + t + "</span><span class='nm'>" + esc(D.topics[t].name) + "</span><span class='x-meter' aria-label='" + x.r + " of " + x.n + " correct'>" +
+        Array.from({ length: x.n }, (_, k) => "<span" + (k < x.r ? " class='on'" : "") + "></span>").join("") + "</span><span class='x-chip " + v + "'>" + LB[v] + " · " + x.r + "/" + x.n + "</span></div>"; }).join("") + "</div>";
+    if (weak.length) {
+      h += "<div class='x-head'><h2>Your study plan</h2><p>Work through these in order. Topics marked “Study first” need the most attention.</p></div>";
+      h += weak.map((t, idx) => {
+        const T = D.topics[t], v = lvl(by[t]), steps = [];
+        if (v === "study") steps.push("Start with your <strong>noteshells for " + t + "</strong>. That is where the test comes from.");
+        steps.push("Read <button class='x-lb' data-topic='" + t + "'>Key Concepts " + t + ": " + esc(T.name) + "</button>.");
+        if (v === "study") steps.push("Watch <a href='https://www.youtube.com/results?search_query=" + encodeURIComponent("Heimler AP World History Topic " + t) + "' target='_blank' rel='noopener'>Heimler’s topic " + t + " video</a> and take notes in your own words.");
+        const g = [];
+        if (T.g.length) g.push(D.name + " Video Notes Guide " + nums(T.g));
+        if (T.o.length) g.push("OER Project guide " + nums(T.o));
+        if (g.length) steps.push("Answer these from the <button class='x-lb' data-xgo='ways'>video question guides</button>: " + g.join("; ") + ".");
+        return "<div class='card x-rec' style='--accent: var(" + (v === "study" ? "--brick" : "--gold") + ");'><h3>" + (idx + 1) + ". Topic " + t + ": " + esc(T.name) + " <span class='x-chip " + v + "' style='vertical-align:middle;'>" + LB[v] + "</span></h3><ol>" + steps.map(s => "<li>" + s + "</li>").join("") + "</ol></div>";
+      }).join("");
+    }
+    h += "<div class='card x-rec' style='--accent: var(--indigo);'><h3>For every topic</h3><ol><li>Do the <strong>" + D.name + " Progress Check in AP Classroom</strong> and read the feedback. It is the closest practice to the real multiple choice.</li><li>Then practice in this tool: " +
+      D.existing.map(([p, t]) => "<button class='x-lb' data-xgo='" + p + "'>" + esc(t) + "</button>").join(", ") + ".</li></ol></div>";
+    const missed = SC.map((q, i) => ({ q, i })).filter(({ i }) => !correct(i));
+    if (missed.length) h += "<div class='x-head' style='margin-top:24px;'><h2>Questions to look at again</h2></div>" + missed.map(({ q, i }) =>
+      "<div class='card x-missed'><div class='x-tl'>Topic " + q[0] + "</div><div style='font-weight:600;'>" + esc(q[1]) + "</div><div>" +
+      (ans[i] === UNSURE ? "You chose “Not sure yet.”" : "Your answer: " + esc(order[i][ans[i]].t)) + "</div><div><span class='ans'>Correct answer:</span> " + esc(q[2][0]) + "</div><div style='color:var(--ink-soft); margin-top:4px;'>" + esc(q[3]) + "</div></div>").join("");
+    h += "<div class='row' style='justify-content:center; margin-top:16px;'><button class='btn' id='xScEdit'>Change my answers</button><button class='btn primary' id='xScRetake'>Retake with a fresh start</button></div>";
+    const res = $("#xScResults"); res.innerHTML = h; res.hidden = false; $("#xScQuiz").hidden = true;
+    store.set("scDone", true);
+    res.querySelectorAll("[data-topic]").forEach(b => b.onclick = () => openTopic(b.dataset.topic));
+    $("#xScEdit").onclick = () => { res.hidden = true; $("#xScQuiz").hidden = false; store.set("scDone", false); };
+    $("#xScRetake").onclick = () => { ans = SC.map(() => null); order = SC.map(fresh); save(); store.set("scDone", false); renderQuiz(); res.hidden = true; $("#xScQuiz").hidden = false; window.scrollTo(0, 0); };
+  }
+  $("#xScSubmit").onclick = $("#xScSubmit2").onclick = () => { results(); window.scrollTo(0, 0); };
+  renderQuiz();
+  if (store.get("scDone", false) && ans.every(a => a !== null)) results();
 })();
 </script>
 </body>
