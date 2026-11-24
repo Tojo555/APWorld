@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unit 4 Transoceanic Interconnections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: same parchment study-guide shell as the Unit 3 tool (sidebar menu + panes),
+     with an ocean chart for the review race. */
+  :root {
+    --paper: #EFE6D2;
+    --paper-raised: #F7F0E1;
+    --paper-dark: #E4D5B4;
+    --ink: #2A2117;
+    --ink-soft: #6B5D48;
+    --gold: #93641B;
+    --gold-soft: #C79A3F;
+    --indigo: #1F3A5C;
+    --sage: #43613C;
+    --sage-bg: #DCE6D3;
+    --brick: #8B3A3A;
+    --brick-bg: #F0DCDA;
+    --sea: #BFD3D6;
+    --sea-deep: #8FB0B6;
+    --sea-line: rgba(31,58,92,0.25);
+    --hull: #6B4423;
+    --sail: #FBF6EA;
+    --rule: rgba(42,33,23,0.18);
+    --shadow: rgba(42,33,23,0.16);
+    --on-accent: #FFFFFF;
+    --t1: #B5432F; --t2: #1F5C8A; --t3: #3F7A3A; --t4: #8A5A12; --t5: #6B3F8A; --t6: #1E7A78;
+    --f-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --f-body: "Karla", -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1C1812; --paper-raised: #26201A; --paper-dark: #302820;
+      --ink: #EDE3CF; --ink-soft: #B7A88C; --gold: #D2A44C; --gold-soft: #E4C27C;
+      --indigo: #7C9FC6; --sage: #9BC28C; --sage-bg: #263524; --brick: #E09A9A; --brick-bg: #3A2424;
+      --sea: #1E3438; --sea-deep: #15272B; --sea-line: rgba(156,200,210,0.22);
+      --hull: #A87A4E; --sail: #EDE3CF;
+      --rule: rgba(237,227,207,0.16); --shadow: rgba(0,0,0,0.4); --on-accent: #1C1812;
+      --t1: #E0806C; --t2: #7FB0DC; --t3: #8FC686; --t4: #DDB061; --t5: #BC94DA; --t6: #6CC9C4;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1C1812; --paper-raised: #26201A; --paper-dark: #302820;
+    --ink: #EDE3CF; --ink-soft: #B7A88C; --gold: #D2A44C; --gold-soft: #E4C27C;
+    --indigo: #7C9FC6; --sage: #9BC28C; --sage-bg: #263524; --brick: #E09A9A; --brick-bg: #3A2424;
+    --sea: #1E3438; --sea-deep: #15272B; --sea-line: rgba(156,200,210,0.22);
+    --hull: #A87A4E; --sail: #EDE3CF;
+    --rule: rgba(237,227,207,0.16); --shadow: rgba(0,0,0,0.4); --on-accent: #1C1812;
+    --t1: #E0806C; --t2: #7FB0DC; --t3: #8FC686; --t4: #DDB061; --t5: #BC94DA; --t6: #6CC9C4;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--f-display); font-weight: 600; margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
+  a { color: var(--indigo); }
+  button { font-family: var(--f-body); }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  /* attribution: top right, beside (not on top of) the masthead */
+  .attribution {
+    position: absolute;
+    top: 14px;
+    right: max(16px, env(safe-area-inset-right, 0px));
+    z-index: 5;
+    font-size: 0.74rem;
+    line-height: 1.3;
+    color: var(--ink);
+    background: var(--paper-raised);
+    border: 1px solid var(--gold-soft);
+    border-radius: 3px;
+    padding: 5px 10px;
+    max-width: 170px;
+    text-align: right;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  .shell {
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-block: 26px 60px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  header.masthead {
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+    padding-right: 200px;
+  }
+  @media (max-width: 680px) {
+    .attribution { position: static; max-width: none; width: fit-content; margin: 0 0 12px auto; text-align: right; }
+    header.masthead { padding-right: 0; }
+  }
+  .kicker { font-size: 0.82rem; color: var(--gold); font-weight: 700; letter-spacing: 0.04em; }
+  h1.title { font-size: clamp(1.9rem, 4.4vw, 3rem); font-style: italic; margin-top: 4px; line-height: 1.1; }
+  .subtitle { color: var(--ink-soft); font-size: 0.95rem; margin: 8px 0 0; max-width: 64ch; }
+  .mast-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+  .layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 800px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+  nav.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); border-right: 1px solid var(--rule); padding-right: 16px; }
+  .index-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 8px; }
+  .navbtn {
+    display: block; width: 100%; text-align: left; background: none; border: none;
+    font-size: 0.93rem; color: var(--ink-soft); padding: 8px 6px; cursor: pointer;
+    border-left: 3px solid transparent; margin-left: -3px;
+  }
+  .navbtn:hover { color: var(--ink); }
+  .navbtn.active { color: var(--ink); border-left-color: var(--gold); font-weight: 700; }
+  .navbtn.locked { opacity: 0.5; }
+  .navbtn.locked::after { content: " · locked"; font-size: 0.75rem; }
+  .navbtn.ways { color: var(--gold); font-weight: 700; }
+  .nav-sep { height: 1px; background: var(--rule); margin: 8px 0; }
+  @media (max-width: 800px) {
+    nav.index { position: static; border-right: none; border-bottom: 1px solid var(--rule); padding: 0 0 10px; display: flex; gap: 4px; overflow-x: auto; }
+    .index-label, .nav-sep { display: none; }
+    .navbtn { white-space: nowrap; width: auto; border-left: none; border-bottom: 3px solid transparent; margin-left: 0; padding: 6px 10px; }
+    .navbtn.active { border-bottom-color: var(--gold); }
+  }
+
+  main { min-width: 0; }
+  section.pane { display: none; }
+  section.pane.active { display: block; }
+  .pane-head { margin-bottom: 18px; }
+  .pane-head h2 { font-size: 1.6rem; font-style: italic; }
+  .pane-head p { color: var(--ink-soft); font-size: 0.93rem; margin: 6px 0 0; max-width: 66ch; }
+
+  .card { background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 0 1px 2px var(--shadow); }
+  .btn {
+    font-size: 0.88rem; font-weight: 600; padding: 9px 16px; border-radius: 4px;
+    border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.primary { background: var(--gold); border-color: var(--gold); color: var(--on-accent); }
+  .btn.primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+  .btn.big { font-size: 1rem; padding: 11px 20px; }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn:disabled:hover { background: transparent; color: var(--ink); }
+  .btn.primary:disabled:hover { background: var(--gold); color: var(--on-accent); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .note { padding: 10px 14px; border-left: 3px solid var(--gold); background: var(--paper-raised); font-size: 0.88rem; max-width: 76ch; margin: 0 0 16px; }
+  .note.warn { border-left-color: var(--brick); background: var(--brick-bg); }
+
+  /* ---------- Start Here ---------- */
+  .start-total { display: flex; align-items: baseline; gap: 12px; padding: 16px 20px; margin-bottom: 12px; }
+  .start-total .big { font-family: var(--f-display); font-size: 3.2rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .start-total .lbl { color: var(--ink-soft); }
+  .split-bar { display: flex; height: 26px; border-radius: 4px; overflow: hidden; margin-bottom: 6px; }
+  .split-bar .seg { display: flex; align-items: center; justify-content: center; color: var(--on-accent); font-size: 0.8rem; font-weight: 700; }
+  .split-caption { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 18px; }
+  .pt-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+  @media (max-width: 640px) { .pt-grid { grid-template-columns: minmax(0, 1fr); } }
+  .pt-card { padding: 16px 18px; border-top: 4px solid var(--accent); }
+  .pt-card .pts-big { font-family: var(--f-display); font-size: 2rem; font-weight: 700; color: var(--accent); }
+  .pt-card h3 { font-size: 1.2rem; margin: 2px 0 8px; }
+  .pt-card p { margin: 0 0 6px; font-size: 0.9rem; }
+  .goal { display: inline-block; margin-top: 6px; padding: 3px 10px; border-radius: 999px; background: var(--sage-bg); color: var(--sage); font-weight: 700; font-size: 0.82rem; }
+  .howto-card { padding: 16px 20px; margin-bottom: 14px; }
+  .howto-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+  .howto-card ul { margin: 0; padding-left: 20px; }
+  .howto-card li { margin-bottom: 6px; font-size: 0.9rem; }
+
+  /* ---------- Ways to Review ---------- */
+  .ways-list { display: grid; gap: 14px; counter-reset: way; }
+  .way {
+    display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 14px;
+    padding: 16px 18px; align-items: start;
+  }
+  .way .num {
+    font-family: var(--f-display); font-size: 2.3rem; font-weight: 700; line-height: 1; color: var(--gold);
+    text-align: center; border-right: 1px solid var(--rule); padding-right: 10px;
+  }
+  .way h3 { font-size: 1.25rem; }
+  .way p { margin: 6px 0 0; font-size: 0.92rem; max-width: 66ch; }
+  .way .tag { display: inline-block; margin-left: 6px; padding: 2px 9px; border-radius: 999px; font-family: var(--f-body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; }
+  .tag.top { background: var(--gold); color: var(--on-accent); }
+  .tag.strong { background: var(--brick-bg); color: var(--brick); }
+  .way .actions { margin-top: 10px; }
+  .video-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); text-decoration: none; color: var(--ink); font-weight: 600; font-size: 0.9rem; }
+  .video-link:hover { border-color: var(--gold); }
+  .video-link .play { width: 0; height: 0; border-left: 10px solid var(--brick); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+
+  /* ---------- Key concepts accordion ---------- */
+  .acc { padding: 4px 18px; }
+  .acc details { border-bottom: 1px solid var(--rule); }
+  .acc details:last-child { border-bottom: none; }
+  .acc summary { cursor: pointer; padding: 14px 0; list-style: none; display: flex; gap: 12px; align-items: baseline; }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary .topic-no { font-size: 0.78rem; font-weight: 700; color: var(--gold); min-width: 3.2em; font-variant-numeric: tabular-nums; }
+  .acc summary .topic-name { font-family: var(--f-display); font-size: 1.2rem; font-weight: 600; }
+  .acc summary::after { content: "+"; margin-left: auto; color: var(--ink-soft); font-size: 1.2rem; }
+  .acc details[open] summary::after { content: "–"; }
+  .acc .body { padding: 0 0 14px calc(3.2em + 12px); }
+  .acc .body h4 { margin: 10px 0 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+  .acc ul { margin: 0; padding-left: 18px; }
+  .acc li { margin-bottom: 6px; font-size: 0.92rem; max-width: 72ch; }
+  @media (max-width: 560px) { .acc .body { padding-left: 0; } }
+  .term { font-weight: 700; }
+
+  /* ---------- SAQ ---------- */
+  .name-row { padding: 14px 18px; margin-bottom: 16px; }
+  .name-row label { font-weight: 700; font-size: 0.9rem; }
+  input[type="text"], textarea, select {
+    font-family: var(--f-body); font-size: 0.95rem; color: var(--ink); background: var(--paper);
+    border: 1px solid var(--rule); border-radius: 4px; padding: 9px 12px;
+  }
+  input[type="text"] { width: min(320px, 100%); }
+  textarea { width: 100%; min-height: 96px; resize: vertical; line-height: 1.5; }
+  .saq-set { padding: 18px 20px; margin-bottom: 20px; }
+  .saq-set h3 { font-size: 1.3rem; margin-bottom: 10px; }
+  .stimulus { font-family: var(--f-display); font-size: 1.08rem; line-height: 1.55; padding: 12px 16px; background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; }
+  .stimulus p { margin: 0 0 10px; }
+  .stimulus p:last-of-type { margin-bottom: 0; }
+  .stim-label { font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; }
+  .saq-kind { margin: -4px 0 10px; font-size: 0.85rem; color: var(--ink-soft); }
+  .stimulus .tcap { font-family: var(--f-body); font-size: 0.9rem; margin-bottom: 8px; }
+  .tbl-wrap { overflow-x: auto; }
+  .stim-tbl { border-collapse: collapse; font-family: var(--f-body); font-size: 0.9rem; width: 100%; min-width: 420px; }
+  .stim-tbl th, .stim-tbl td { border: 1px solid var(--rule); padding: 6px 10px; text-align: left; }
+  .stim-tbl th { background: var(--paper-dark); }
+  .stim-tbl td:nth-child(2) { text-align: right; font-variant-numeric: tabular-nums; }
+  .stimulus .attr { font-family: var(--f-body); font-size: 0.82rem; color: var(--ink-soft); margin-top: 8px; }
+  .saq-part { margin-top: 16px; }
+  .saq-part .q { font-weight: 600; margin-bottom: 6px; }
+  .saq-part .q b { color: var(--gold); margin-right: 4px; }
+  .wc { font-size: 0.8rem; color: var(--ink-soft); margin: 4px 0 6px; font-variant-numeric: tabular-nums; }
+  .reveal { margin-top: 10px; padding: 12px 14px; border-radius: 4px; background: var(--sage-bg); font-size: 0.9rem; }
+  .reveal h4 { margin: 0 0 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--sage); }
+  .reveal ul { margin: 0 0 8px; padding-left: 18px; }
+  .screenshot-note { margin-top: 8px; font-size: 0.84rem; color: var(--ink); }
+
+  /* ---------- MCQ ---------- */
+  .mcq-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-size: 0.88rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .mcq-card { padding: 18px 20px; }
+  .mcq-card .stimulus { margin-bottom: 14px; }
+  .mcq-q { font-weight: 600; font-size: 1rem; margin-bottom: 10px; }
+  .opts { display: grid; gap: 8px; }
+  .opt {
+    text-align: left; padding: 10px 14px; border: 1px solid var(--rule); border-radius: 4px;
+    background: var(--paper); color: var(--ink); cursor: pointer; font-size: 0.93rem; display: flex; gap: 10px;
+  }
+  .opt:hover:not(:disabled) { border-color: var(--gold); }
+  .opt .letter { font-weight: 700; color: var(--gold); }
+  .opt.right { background: var(--sage-bg); border-color: var(--sage); }
+  .opt.wrong { background: var(--brick-bg); border-color: var(--brick); }
+  .opt:disabled { cursor: default; }
+  .feedback { margin-top: 12px; font-size: 0.9rem; }
+  .score-big { font-family: var(--f-display); font-size: 3rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* ---------- Self-check ---------- */
+  .sc-bar { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 8px); z-index: 3; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; margin-bottom: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .sc-q { padding: 14px 18px; margin-bottom: 12px; }
+  .sc-q .tlabel { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+  .sc-q .qt { font-weight: 600; margin-bottom: 10px; }
+  .opt.sel { border-color: var(--gold); background: var(--paper-dark); box-shadow: inset 3px 0 0 var(--gold); }
+  .opt.unsure { color: var(--ink-soft); font-style: italic; }
+  .topic-table { padding: 8px 18px; margin-bottom: 18px; }
+  .trow { display: grid; grid-template-columns: 3.2em minmax(0, 1fr) 110px 7.5em; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .trow:last-child { border-bottom: none; }
+  .trow .no { font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .trow .nm { font-weight: 600; min-width: 0; }
+  .meter { display: flex; gap: 3px; }
+  .meter span { flex: 1; height: 10px; border-radius: 2px; background: var(--rule); }
+  .meter span.on { background: var(--sage); }
+  .chip-s { justify-self: start; padding: 3px 10px; border-radius: 999px; font-size: 0.76rem; font-weight: 700; white-space: nowrap; }
+  .chip-s.solid { background: var(--sage-bg); color: var(--sage); }
+  .chip-s.review { background: var(--paper-dark); color: var(--gold); }
+  .chip-s.study { background: var(--brick-bg); color: var(--brick); }
+  @media (max-width: 560px) { .trow { grid-template-columns: 2.6em minmax(0, 1fr) 6.8em; } .trow .meter { grid-column: 2 / 4; grid-row: 2; } }
+  .rec { padding: 16px 20px; margin-bottom: 14px; border-left: 4px solid var(--accent); }
+  .rec h3 { font-size: 1.25rem; margin-bottom: 6px; }
+  .rec ol { margin: 6px 0 0; padding-left: 20px; }
+  .rec li { margin-bottom: 6px; font-size: 0.92rem; }
+  .linkbtn { background: none; border: none; padding: 0; color: var(--indigo); text-decoration: underline; cursor: pointer; font-size: inherit; }
+  .missed { padding: 12px 16px; margin-bottom: 10px; font-size: 0.92rem; }
+  .missed .ans { color: var(--sage); font-weight: 700; }
+
+  /* ---------- Review race ---------- */
+  .game-setup { padding: 18px 20px; }
+  .game-setup h3 { font-size: 1.25rem; margin-bottom: 8px; }
+  .mode-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+  @media (max-width: 640px) { .mode-grid { grid-template-columns: minmax(0, 1fr); } }
+  .field { display: grid; gap: 4px; margin-bottom: 10px; }
+  .field label { font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); }
+  .team-inputs { display: grid; gap: 6px; margin-bottom: 10px; }
+  .team-inputs .ti { display: flex; gap: 8px; align-items: center; }
+  .swatch { width: 14px; height: 14px; border-radius: 3px; flex: none; }
+  .team-inputs input { width: 100%; }
+
+  .race { padding: 14px 16px 18px; }
+  .route-ruler { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 10px; margin-bottom: 4px; }
+  .route-ruler .ticks { position: relative; height: 34px; }
+  .route-ruler .tick { position: absolute; bottom: 0; transform: translateX(-50%); font-size: 0.68rem; color: var(--ink-soft); text-align: center; white-space: nowrap; line-height: 1.1; }
+  .route-ruler .tick.alt { bottom: 16px; }
+  .route-ruler .tick.end { font-weight: 700; color: var(--ink); }
+  .lane { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 10px; align-items: center; margin-bottom: 6px; }
+  .lane .tname { font-weight: 700; font-size: 0.9rem; display: flex; gap: 6px; align-items: center; min-width: 0; }
+  .lane .tname span.n { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .lane .tname .legs { margin-left: auto; font-variant-numeric: tabular-nums; color: var(--ink-soft); font-weight: 600; }
+  .water {
+    position: relative; height: 52px; border-radius: 4px;
+    background:
+      repeating-linear-gradient(90deg, transparent 0, transparent calc(10% - 1px), var(--sea-line) calc(10% - 1px), var(--sea-line) 10%),
+      linear-gradient(180deg, var(--sea), var(--sea-deep));
+    overflow: hidden;
+  }
+  .water .goal-flag { position: absolute; right: 0; top: 0; bottom: 0; width: 6px; background: repeating-linear-gradient(180deg, var(--ink) 0 6px, var(--paper) 6px 12px); }
+  .ship { position: absolute; top: 2px; width: 52px; height: 46px; transform: translateX(-4px); transition: left 0.9s cubic-bezier(.3,.7,.3,1); }
+  .ship svg { width: 100%; height: 100%; display: block; animation: bob 2.4s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(2px) rotate(1.5deg); } }
+  @media (prefers-reduced-motion: reduce) { .ship { transition: none; } .ship svg { animation: none; } }
+  @media (max-width: 600px) {
+    .route-ruler, .lane { grid-template-columns: 74px minmax(0, 1fr); }
+    .lane .tname { font-size: 0.78rem; }
+    .lane .tname .legs { display: none; }
+    .route-ruler .tick { font-size: 0.6rem; }
+    .route-ruler .tick.mid { display: none; }
+    .ship { width: 40px; height: 36px; top: 8px; }
+  }
+
+  .gq { padding: 16px 20px; margin-top: 14px; }
+  .gq .qmeta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+  .gq .gprompt { font-family: var(--f-display); font-size: clamp(1.3rem, 2.6vw, 1.9rem); font-weight: 600; line-height: 1.25; margin-bottom: 12px; }
+  .gq .opts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 640px) { .gq .opts { grid-template-columns: minmax(0, 1fr); } }
+  .gq .opt { font-size: 1.02rem; }
+  .timer { font-family: var(--f-display); font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .timer.low { color: var(--brick); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+  .chip { display: inline-flex; gap: 8px; align-items: center; padding: 8px 14px; border-radius: 999px; border: 2px solid var(--rule); background: var(--paper); color: var(--ink); cursor: pointer; font-weight: 700; font-size: 0.92rem; }
+  .chip[aria-pressed="true"] { border-color: var(--sage); background: var(--sage-bg); }
+  .chip[aria-pressed="true"]::after { content: "✓"; color: var(--sage); }
+  .banner { padding: 18px 20px; margin-top: 14px; text-align: center; border: 2px solid var(--gold); }
+  .banner h3 { font-size: 1.8rem; font-style: italic; }
+  .banner p { margin: 6px 0 12px; color: var(--ink-soft); }
+
+  /* projector view: hide everything but the race */
+  body.projector header.masthead, body.projector nav.index { display: none; }
+  body.projector .layout { grid-template-columns: minmax(0, 1fr); }
+  body.projector .shell { max-width: none; }
+  body.projector .attribution { position: static; margin: 0 0 10px auto; width: fit-content; max-width: none; }
+  @media (min-width: 601px) { body.projector .route-ruler, body.projector .lane { grid-template-columns: 200px minmax(0, 1fr); } }
+  body.projector .water { height: 64px; }
+  body.projector .ship { width: 62px; height: 56px; }
+  body.projector .gq .gprompt { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+  body.projector .gq .opt { font-size: 1.2rem; padding: 14px 18px; }
+</style>
+
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} [hidden]{display:none!important} img{max-width:100%}</style>
+</head>
+<body>
+<div class="shell">
+  <div class="attribution">Prepared with AI support, reviewed by Mr. Johnson</div>
+
+  <header class="masthead">
+    <span class="kicker">AP World History &nbsp;·&nbsp; Unit 4 Review &nbsp;·&nbsp; c. 1450–1750</span>
+    <h1 class="title">Transoceanic Interconnections</h1>
+    <p class="subtitle">Review and review game in one place: the test format, ways to study, key concepts by topic, short-answer and multiple-choice practice, and a team race along da Gama’s route to India.</p>
+    <div class="mast-actions">
+      <button class="btn primary big" data-goto="ways">Ways to Review</button>
+      <button class="btn big" data-goto="game">Play the Review Race</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="index" id="navBar" aria-label="Study sections">
+      <div class="index-label">Study Sections</div>
+      <button class="navbtn active" data-pane="start">Start Here</button>
+      <button class="navbtn ways" data-pane="ways">Ways to Review</button>
+      <div class="nav-sep"></div>
+      <button class="navbtn gated" data-pane="check">Self-Check</button>
+      <button class="navbtn gated" data-pane="concepts">Key Concepts</button>
+      <button class="navbtn gated" data-pane="saq">SAQ Practice</button>
+      <button class="navbtn gated" data-pane="mcq">Practice MCQs</button>
+      <div class="nav-sep"></div>
+      <button class="navbtn" data-pane="game">Review Race</button>
+    </nav>
+
+    <main>
+      <!-- ================= START HERE ================= -->
+      <section class="pane active" id="pane-start">
+        <div class="pane-head">
+          <h2>Start Here: How the Unit 4 Test Works</h2>
+          <p>Read this page first. It explains what the test looks like and what each part is worth. The study sections unlock when you have read it.</p>
+        </div>
+
+        <div class="card start-total">
+          <span class="big">20</span>
+          <span class="lbl">points total &nbsp;·&nbsp; 40 minutes for regular timers</span>
+        </div>
+        <div class="split-bar" role="img" aria-label="Multiple choice is 50 percent, short answer is 50 percent">
+          <div class="seg" style="width:50%; background:var(--gold);">MCQ · 10 pts</div>
+          <div class="seg" style="width:50%; background:var(--indigo);">SAQ · 10 pts</div>
+        </div>
+        <div class="split-caption">The test is split evenly between multiple choice and short answer.</div>
+
+        <div class="pt-grid">
+          <div class="card pt-card" style="--accent: var(--gold);">
+            <div class="pts-big">10 pts</div>
+            <h3>AP-style multiple choice</h3>
+            <p><strong>12 questions</strong>, worth <strong>1 point each</strong>.</p>
+            <p>Get <strong>10 or more right</strong> and you earn the full 10 points.</p>
+            <span class="goal">Goal: 10 / 12</span>
+          </div>
+          <div class="card pt-card" style="--accent: var(--indigo);">
+            <div class="pts-big">10 pts</div>
+            <h3>Short-answer questions (SAQs)</h3>
+            <p><strong>Two SAQs</strong>, which means <strong>six questions</strong>, worth <strong>2 points each</strong>.</p>
+            <p>Earn <strong>10 or more</strong> of the 12 points and you earn the full 10 points.</p>
+            <span class="goal">Goal: 10 / 12</span>
+          </div>
+        </div>
+
+        <div class="card howto-card">
+          <h3>Good to know</h3>
+          <ul>
+            <li>10/12 on the SAQs and 10/12 on the MCQs = <strong>100% on the test</strong>.</li>
+            <li>There are <strong>no bonus points</strong> on this test.</li>
+            <li><strong>Students who qualify for extra time will be able to complete the test during the regular period.</strong> The test is 40 minutes long for regular timers.</li>
+          </ul>
+        </div>
+
+        <div class="card howto-card">
+          <h3>How to use this site</h3>
+          <ul>
+            <li><strong>Ways to Review:</strong> Mr. Johnson’s list of the best ways to study, including the Heimler video he strongly recommends.</li>
+            <li><strong>Self-Check:</strong> 18 quick questions that show which topics (4.1 to 4.8) you know and which ones to study, with a study plan for each. A good place to start.</li>
+            <li><strong>Key Concepts:</strong> the main ideas of each Unit 4 topic. Use it alongside your noteshells, not instead of them.</li>
+            <li><strong>SAQ Practice:</strong> write your own answers, then unlock ideas and sample answers to compare.</li>
+            <li><strong>Practice MCQs:</strong> 12 questions, the same number as the test. Aim for 10.</li>
+            <li><strong>Review Race:</strong> a team game for class, or a solo race against the computer.</li>
+          </ul>
+        </div>
+
+        <div class="row" style="justify-content:center; margin-top:6px;">
+          <button class="btn primary big" id="startReadBtn">I’ve read this — unlock the study sections</button>
+        </div>
+      </section>
+
+      <!-- ================= WAYS TO REVIEW ================= -->
+      <section class="pane" id="pane-ways">
+        <div class="pane-head">
+          <h2>Ways to Review</h2>
+          <p>Possible ways to study for the Unit 4 test, in Mr. Johnson’s words. You don’t have to do all of them. Pick the ones that work for you, but start with the notes.</p>
+        </div>
+        <div class="ways-list">
+          <div class="card way">
+            <div class="num">1</div>
+            <div>
+              <h3>Use the AI Tool</h3>
+              <p>This site is the AI tool. It has the test information above, and more: key concepts by topic, SAQ practice, practice multiple choice, and the review race.</p>
+              <div class="actions row">
+                <button class="btn primary" data-goto="check">Start with the Self-Check</button>
+                <button class="btn" data-goto="concepts">Key Concepts</button>
+                <button class="btn" data-goto="saq">SAQ Practice</button>
+                <button class="btn" data-goto="mcq">Practice MCQs</button>
+              </div>
+            </div>
+          </div>
+          <div class="card way">
+            <div class="num">2</div>
+            <div>
+              <h3>Review the notes for Unit 4 <span class="tag top">Above all</span></h3>
+              <p>When Mr. Johnson makes the test, the notes are where he looks to see what we covered. <strong>Study your noteshells above all.</strong></p>
+            </div>
+          </div>
+          <div class="card way">
+            <div class="num">3</div>
+            <div>
+              <h3>Practice the Multiple Choice Progress Checks in AP Classroom</h3>
+              <p>They are already unlocked for you. Read the feedback on the questions you miss.</p>
+              <div class="actions">
+                <a class="video-link" href="https://myap.collegeboard.org/" target="_blank" rel="noopener">Open AP Classroom</a>
+              </div>
+            </div>
+          </div>
+          <div class="card way">
+            <div class="num">4</div>
+            <div>
+              <h3>Watch Heimler’s History videos on Unit 4 <span class="tag strong">Strongly recommended</span></h3>
+              <p><strong>Mr. Johnson strongly recommends this first video from Heimler, which is excellent and thorough.</strong></p>
+              <div class="actions">
+                <a class="video-link" href="https://www.youtube.com/results?search_query=Heimler+AP+World+History+UNIT+4+REVIEW+Everything+You+NEED+to+Know" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span>AP World History UNIT 4 REVIEW [Everything You NEED to Know!]</a>
+              </div>
+              <p style="margin-top:14px;"><strong>Heimler also has shorter videos for each section of the unit</strong> (4.1, 4.2, 4.3, and so on), so you can review one topic at a time. Here is the first one; search his channel for the rest.</p>
+              <div class="actions">
+                <a class="video-link" href="https://www.youtube.com/watch?v=TPaLulRrKuM" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span>Heimler · Topic 4.1 video</a>
+              </div>
+              <p style="margin-top:14px;"><strong>Other video reviews of Unit 4:</strong></p>
+              <div class="actions row">
+                <a class="video-link" href="https://www.youtube.com/watch?v=MGlmnZbLVfY" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span>OER Project · Unit 4 video</a>
+                <a class="video-link" href="https://www.youtube.com/watch?v=GzEwQbuo0ug" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span>Freemanpedia · Unit 4 video</a>
+              </div>
+              <div class="note" style="margin:16px 0 0;"><strong>Take notes while you watch.</strong> Watching alone is not enough to remember it. Pause the video, write the main ideas in your own words, and then test yourself with the <strong>question guide for that video</strong>. There is one each for the Heimler review, the OER Project video, and the Freemanpedia video: 15 questions in the order of the video, with start times, space to write, and an answer key at the end. Download the one that goes with your video (Word document):</div>
+              <div class="actions row" style="margin-top:10px;">
+                <a class="video-link" href="https://tojo555.github.io/APWorld/Heimler_Unit4_Video_Questions.docx" target="_blank" rel="noopener">↓ Heimler question guide</a>
+                <a class="video-link" href="https://tojo555.github.io/APWorld/OER_Unit4_Video_Questions.docx" target="_blank" rel="noopener">↓ OER Project question guide</a>
+                <a class="video-link" href="https://tojo555.github.io/APWorld/Freemanpedia_Unit4_Video_Questions.docx" target="_blank" rel="noopener">↓ Freemanpedia question guide</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SELF-CHECK ================= -->
+      <section class="pane" id="pane-check">
+        <div class="pane-head">
+          <h2>Self-Check: What Do I Need to Study?</h2>
+          <p>Eighteen short questions, at least two for each Unit 4 topic (4.1 to 4.8). Answer honestly. If you don’t know, choose “Not sure yet” instead of guessing, so your results show what you really need to study. When you finish, you’ll see how you did on each topic and what to do next.</p>
+        </div>
+        <div id="scQuiz">
+          <div class="sc-bar card"><span id="scCount">0 of 18 answered</span><button class="btn primary" id="scSubmit" disabled>See my results</button></div>
+          <div id="scList"></div>
+          <div class="row" style="justify-content:center; margin-top:8px;"><button class="btn primary big" id="scSubmit2" disabled>See my results</button></div>
+        </div>
+        <div id="scResults" hidden></div>
+      </section>
+
+      <!-- ================= KEY CONCEPTS ================= -->
+      <section class="pane" id="pane-concepts">
+        <div class="pane-head">
+          <h2>Key Concepts</h2>
+          <p>The main ideas of Unit 4, organized by the eight AP topics. Click a topic to open it. Your noteshells are still the most important thing to study; use this to check that you know the big ideas.</p>
+        </div>
+        <div class="card acc" id="conceptAcc"></div>
+      </section>
+
+      <!-- ================= SAQ ================= -->
+      <section class="pane" id="pane-saq">
+        <div class="pane-head">
+          <h2>SAQ Practice</h2>
+          <p>These sets are modeled on real AP short-answer questions: SAQ 1 uses a historian’s argument, SAQ 2 uses a primary source, and SAQ 3 has no source. Each has parts a), b), and c). The test has two sets like these, 2 points per part. Read the verbs carefully: <strong>identify</strong> means name it; <strong>describe</strong> and <strong>explain</strong> mean give specific evidence and say how or why. Write your own answer first. Once you’ve written at least 20 words for a part, you can unlock ideas and sample answers to compare with. This site does not grade what you type.</p>
+        </div>
+        <div class="note"><strong>Before you start:</strong> these practice questions are not the same quality as the questions you will see on the AP Exam, which are written and tested by experts. Use them as extra practice, but make the <strong>AP Classroom Progress Checks</strong> your priority. They are the closest thing to the real exam.</div>
+        <div class="note warn">The source passages below were written by AI to sound like real sources. They are not real quotations, and the attributions are generic, not real authors. The Kongo letter is modeled on real letters by Afonso I, but it is not his actual wording. Sample answers are AI-written too, so they may not earn full credit. Check with Mr. Johnson if you are unsure.</div>
+        <div class="card name-row row">
+          <label for="studentName">Your name</label>
+          <input type="text" id="studentName" placeholder="First and last name" autocomplete="name">
+          <span style="font-size:0.84rem; color:var(--ink-soft);">Want feedback? Screenshot your answer with your name showing and send it to Mr. Johnson.</span>
+        </div>
+        <div id="saqList"></div>
+      </section>
+
+      <!-- ================= MCQ ================= -->
+      <section class="pane" id="pane-mcq">
+        <div class="pane-head">
+          <h2>Practice MCQs</h2>
+          <p>Twelve questions in four sets of three, the same number as the test, in AP format: a passage or table, then questions on argument, evidence, causation, and continuity. More than one answer may look true. Pick the one that <em>best</em> answers the question. Your goal on the test is 10 of 12.</p>
+        </div>
+        <div class="note"><strong>Before you start:</strong> these practice questions are not the same quality as the questions you will see on the AP Exam, which are written and tested by experts. Use them as extra practice, but make the <strong>AP Classroom Progress Checks</strong> your priority. They are the closest thing to the real exam.</div>
+        <div class="card howto-card" id="mcqGate">
+          <h3>Please read before starting</h3>
+          <ul>
+            <li><strong>The passages are invented.</strong> AI wrote them to sound like period sources and historians. Don’t cite them. The table uses rounded estimates from the Trans-Atlantic Slave Trade Database.</li>
+            <li><strong>These questions are AI-generated</strong>, so a fact or a wrong-answer choice could be slightly off.</li>
+            <li><strong>This is extra practice.</strong> The best multiple-choice prep is still the Unit 4 Progress Check in AP Classroom.</li>
+          </ul>
+          <div class="row" style="margin-top:12px;"><button class="btn primary" id="mcqAckBtn">I understand — show the questions</button></div>
+        </div>
+        <div id="mcqBody" hidden>
+          <div class="mcq-head"><span id="mcqProgress"></span><span id="mcqScore"></span></div>
+          <div class="card mcq-card" id="mcqCard"></div>
+        </div>
+      </section>
+
+      <!-- ================= REVIEW RACE ================= -->
+      <section class="pane" id="pane-game">
+        <div class="pane-head" id="gameHead">
+          <h2>Review Race: Lisbon to Calicut</h2>
+          <p>Follow Vasco da Gama’s 1497–98 route around Africa to India. Every correct answer sails your ship one leg. First ship to reach Calicut wins. The race takes about 10 to 15 minutes.</p>
+          <div class="card howto-card" style="margin-top:16px;">
+            <h3>Also: Swatting Scholars (PowerPoint)</h3>
+            <p style="margin:0 0 10px; font-size:0.9rem; max-width:70ch;">The class swatter game for Unit 4. Round 1 is Hit the Dot, 12 <strong>individual</strong> vocabulary questions. Rounds 2 and 3 are <strong>team</strong> rounds: 12 AP-style multiple-choice questions and 4 short-answer sets, with one team answer each. Opens in PowerPoint.</p>
+            <a class="video-link" href="https://tojo555.github.io/APWorld/Swatting_Scholars_Unit4.pptx" target="_blank" rel="noopener">Open Swatting Scholars: Unit 4 (.pptx)</a>
+          </div>
+        </div>
+        <div id="gameRoot"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- storage (best effort) ---------- */
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem("u4_" + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem("u4_" + k, JSON.stringify(v)); } catch (e) {} }
+  };
+  const $ = (s, r) => (r || document).querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+  const LETTERS = ["A", "B", "C", "D"];
+
+  /* ---------- navigation & gating ---------- */
+  let unlocked = store.get("unlocked", false);
+  function refreshLocks() {
+    document.querySelectorAll(".navbtn.gated").forEach(b => b.classList.toggle("locked", !unlocked));
+  }
+  function show(pane) {
+    const btn = document.querySelector('.navbtn[data-pane="' + pane + '"]');
+    if (btn && btn.classList.contains("gated") && !unlocked) pane = "start";
+    document.querySelectorAll(".navbtn").forEach(b => b.classList.toggle("active", b.dataset.pane === pane));
+    document.querySelectorAll("section.pane").forEach(s => s.classList.toggle("active", s.id === "pane-" + pane));
+    if (pane !== "game") document.body.classList.remove("projector");
+    if (location.hash !== "#" + pane) history.replaceState(null, "", "#" + pane);
+    window.scrollTo({ top: 0 });
+  }
+  document.addEventListener("click", e => {
+    const t = e.target.closest("[data-pane],[data-goto]");
+    if (!t) return;
+    show(t.dataset.pane || t.dataset.goto);
+  });
+  $("#startReadBtn").addEventListener("click", () => { unlocked = true; store.set("unlocked", true); refreshLocks(); show("ways"); });
+  refreshLocks();
+
+  /* ---------- KEY CONCEPTS ---------- */
+  const CONCEPTS = [
+    { no: "4.1", name: "Technological Innovations", groups: [
+      ["Borrowed from Asia and the Islamic world", [
+        "<span class='term'>Magnetic compass</span> (from China) and <span class='term'>astrolabe</span> (Greek, improved by Islamic scholars) let sailors find direction and latitude far from land.",
+        "<span class='term'>Lateen sail</span> (triangular, from Indian Ocean and Arab sailors) let ships sail against the wind.",
+        "Knowledge of wind and current patterns, such as the Indian Ocean monsoons and the Atlantic trade winds, made long ocean crossings possible."]],
+      ["European developments", [
+        "<span class='term'>Caravel</span>: a small, fast Portuguese ship that combined square and lateen sails. Larger <span class='term'>carracks</span> and <span class='term'>galleons</span> carried more cargo and cannons.",
+        "Better cartography (maps and charts), spread by the printing press.",
+        "Gunpowder weapons mounted on ships gave Europeans a military edge at sea, though not on land in Asia."]]
+    ]},
+    { no: "4.2", name: "Exploration: Causes and Events", groups: [
+      ["Why Europeans explored", [
+        "Wealth: Europeans wanted direct access to Asian spices, silk, and gold, and wanted to <strong>bypass Muslim and Venetian middlemen</strong> who controlled the trade.",
+        "Europe was on the edge of the rich Afro-Eurasian trade world, so it had a strong motive to reach the Indian Ocean.",
+        "Religion: spreading Christianity, and the crusading mindset from the Reconquista of Spain.",
+        "Competition between European states: monarchs sponsored voyages to gain wealth and prestige over rivals (“God, gold, and glory”)."]],
+      ["Key voyages", [
+        "Portugal: Prince Henry the Navigator sponsored voyages down the West African coast. <span class='term'>Bartolomeu Dias</span> rounded the Cape of Good Hope (1488). <span class='term'>Vasco da Gama</span> reached Calicut, India (1498).",
+        "Spain: <span class='term'>Columbus</span> reached the Caribbean (1492) for Ferdinand and Isabella. The <span class='term'>Treaty of Tordesillas</span> (1494) divided the non-European world between Spain and Portugal. Magellan’s expedition sailed around the world (1519–1522).",
+        "England, France, and the Netherlands searched for a Northwest Passage and built fishing and fur trades in North America."]],
+      ["Comparison: Zheng He", [
+        "China’s Ming voyages (1405–1433) used far larger fleets than the Portuguese, but they sought tribute and prestige, not conquest or trading posts, and the court ended them. Europeans kept going and built empires."]]
+    ]},
+    { no: "4.3", name: "Columbian Exchange", groups: [
+      ["What it was", [
+        "The transfer of plants, animals, diseases, and people between the Eastern and Western Hemispheres after 1492."]],
+      ["Disease", [
+        "Smallpox, measles, and influenza killed huge numbers of Native Americans, up to 90% in some regions (the <span class='term'>Great Dying</span>). This made conquest easier and created labor shortages that Europeans filled with enslaved Africans."]],
+      ["Crops and animals", [
+        "Americas → Afro-Eurasia: <strong>maize, potatoes, cassava (manioc), tomatoes, cacao, tobacco</strong>. Potatoes and maize helped populations grow in Europe, China, and Africa.",
+        "Afro-Eurasia → Americas: <strong>horses, cattle, pigs, sheep, wheat, sugar, rice, bananas</strong>. Horses transformed life on the Great Plains. Grazing livestock damaged Native farmland.",
+        "Enslaved Africans brought rice-growing knowledge and crops to the Americas."]],
+      ["Environment", [
+        "Sugar and tobacco plantations led to deforestation and soil exhaustion. Cash-crop farming reshaped whole landscapes in the Caribbean and Brazil."]]
+    ]},
+    { no: "4.4", name: "Maritime Empires Established", groups: [
+      ["In the Indian Ocean and Asia", [
+        "<span class='term'>Portuguese trading-post empire</span>: fortified posts at Goa, Hormuz, and Malacca, plus the <span class='term'>cartaz</span> system forcing ships to buy passes. Portugal never controlled most Indian Ocean trade and often became a carrier within Asian trade (for example, between China and Japan).",
+        "Spain founded <span class='term'>Manila</span> in the Philippines (1571). Manila galleons carried American silver across the Pacific to trade for Chinese goods.",
+        "The Dutch <span class='term'>VOC</span> (East India Company, 1602) and the British East India Company (1600) were <span class='term'>joint-stock companies</span>: investors pooled money and shared profits and risks. The Dutch used violence to monopolize nutmeg, cloves, and mace in the spice islands.",
+        "Strong Asian states limited Europeans: Tokugawa Japan expelled missionaries and allowed only the Dutch to trade at Nagasaki; Ming and Qing China restricted European trade to set ports."]],
+      ["In the Americas", [
+        "Cortés defeated the Aztecs (1519–1521) with Native allies such as the Tlaxcalans, steel weapons, and smallpox. Pizarro conquered the Inca (1532) during an Inca civil war.",
+        "Portugal colonized Brazil; England, France, and the Netherlands colonized North America and the Caribbean."]],
+      ["Mercantilism", [
+        "The economic idea behind these empires: a state should export more than it imports and gather gold and silver. Colonies supplied raw materials and bought the home country’s goods."]]
+    ]},
+    { no: "4.5", name: "Maritime Empires Maintained and Developed", groups: [
+      ["Labor systems", [
+        "<span class='term'>Chattel slavery</span>: enslaved Africans were property for life, and so were their children. About 12.5 million Africans were taken across the Atlantic on the <span class='term'>Middle Passage</span>, mostly to Brazil and the Caribbean.",
+        "<span class='term'>Encomienda</span>: Spanish settlers were granted the labor and tribute of Native people.",
+        "<span class='term'>Mita</span>: the Spanish adapted the Inca rotational labor draft to force Native men to work in the silver mines at <span class='term'>Potosí</span>.",
+        "<span class='term'>Hacienda</span>: large Spanish estates producing food and livestock for local markets.",
+        "<span class='term'>Indentured servitude</span>: in British North America, workers labored a set number of years in exchange for passage."]],
+      ["Silver and the global economy", [
+        "Silver from Potosí and Mexico flowed to Europe and, through Manila, to China, where the Ming collected taxes in silver. This made the first truly global trade network.",
+        "The flood of silver caused inflation in Spain and Europe."]],
+      ["Africa and the slave trade", [
+        "African rulers and merchants controlled the capture and sale of captives. Europeans mostly traded at the coast.",
+        "Some states, such as <span class='term'>Dahomey</span> and Asante, grew powerful from the trade. King <span class='term'>Afonso I</span> of Kongo converted to Christianity but protested the slave trade’s damage to his kingdom."]],
+      ["Culture and religion", [
+        "Catholic missionaries converted many Native Americans, and religions blended (<span class='term'>syncretism</span>): the <span class='term'>Virgin of Guadalupe</span> in Mexico, and <span class='term'>Vodou</span> in Haiti, which blended West African religions with Catholicism."]]
+    ]},
+    { no: "4.6", name: "Internal and External Challenges to State Power", groups: [
+      ["Resistance to colonial rule", [
+        "<span class='term'>Pueblo Revolt</span> (1680): Pueblo peoples drove the Spanish out of New Mexico for about twelve years.",
+        "<span class='term'>Maroon</span> societies: communities of people who escaped slavery, such as Palmares in Brazil and maroon communities in Jamaica.",
+        "<span class='term'>Queen Nzinga</span> of Ndongo and Matamba resisted Portuguese expansion in Angola for decades."]],
+      ["Challenges inside empires", [
+        "The Marathas, led by Shivaji, fought the Mughal Empire in India.",
+        "Revolts by peasants and others were common during the seventeenth-century crisis (connect to the Little Ice Age from Unit 3)."]]
+    ]},
+    { no: "4.7", name: "Changing Social Hierarchies", groups: [
+      ["New colonial hierarchies", [
+        "Spanish America’s <span class='term'>casta system</span> ranked people by ancestry: <strong>peninsulares</strong> (born in Spain) at the top, then <strong>creoles</strong> (European descent, born in the Americas), <strong>mestizos</strong> (European and Native), <strong>mulattoes</strong> (European and African), Native Americans, and enslaved Africans."]],
+      ["Elites keeping power", [
+        "Rulers kept power while bringing in new groups: the Manchu Qing kept the Chinese civil service exams; the Mughals used Hindu Rajputs as officials; the Ottomans used the devshirme."]],
+      ["Gender and demographics", [
+        "Because more men than women were taken in the Atlantic slave trade, parts of West Africa had more women than men, and polygyny increased.",
+        "Spain expelled its Jews in 1492; many were welcomed by the Ottoman Empire."]]
+    ]},
+    { no: "4.8", name: "Continuity and Change, 1450–1750", groups: [
+      ["Changes", [
+        "For the first time, the Americas were linked to Afro-Eurasia, creating a global trade network.",
+        "New maritime empires (Portuguese, Spanish, Dutch, British, French).",
+        "The Columbian Exchange changed populations, diets, and environments, and the African diaspora reshaped the Americas."]],
+      ["Continuities", [
+        "Asian merchants and states still carried most Indian Ocean trade; Europeans joined it rather than replacing it.",
+        "Land-based empires (Ottoman, Safavid, Mughal, Qing) remained powerful.",
+        "Coerced labor and slavery existed before 1450 and continued, but on a far larger scale."]]
+    ]}
+  ];
+  $("#conceptAcc").innerHTML = CONCEPTS.map((c, i) =>
+    "<details id='t" + c.no.replace(".", "-") + "'" + (i === 0 ? " open" : "") + "><summary><span class='topic-no'>" + c.no + "</span><span class='topic-name'>" + c.name + "</span></summary><div class='body'>" +
+    c.groups.map(g => "<h4>" + g[0] + "</h4><ul>" + g[1].map(x => "<li>" + x + "</li>").join("") + "</ul>").join("") +
+    "</div></details>").join("");
+
+  /* ---------- SAQ ---------- */
+  const SAQ = [
+    { title: "Practice SAQ 1 · Secondary source",
+      kind: "Modeled on AP SAQ 1: a historian’s argument. Use evidence to support it and to challenge it.",
+      stimulus: [
+        "“It is tempting to read the history of the early modern world backward from the nineteenth century, when European powers ruled much of Asia. Before 1750, however, the picture looks very different. The great states of Asia — the Ottoman, Safavid, and Mughal empires, and Ming and then Qing China — were wealthier, more populous, and militarily stronger on land than any European kingdom. Europeans who arrived in Asian waters had little that Asians wished to buy, and they paid for silk, porcelain, cotton textiles, and spices largely with silver mined in the Americas.",
+        "Where Asian rulers were strong, Europeans had to accept their terms. The Mughal emperors granted trading privileges to the English and the Dutch as favors, and could withdraw them. The Tokugawa shoguns expelled Christian missionaries and confined Dutch traders to a small artificial island in Nagasaki harbor. The Qing restricted European merchants to designated ports and set the rules under which trade took place. In the Indian Ocean, Gujarati, Arab, Malay, and Chinese merchants continued to carry most goods, as they had for centuries.",
+        "Europeans were, for the most part, junior partners in an Asian-centered economy. They entered a trading world that was already old and rich when they arrived, and they prospered in it chiefly by fitting themselves into networks that others had built.”"
+      ],
+      attr: "Historian, book on global economic history, published in 2008 (invented passage for practice)",
+      parts: [
+        { l: "a)", q: "Identify ONE piece of historical evidence NOT mentioned in the passage that would support the author’s argument that Europeans were “junior partners” in Asian trade before 1750.",
+          ideas: ["Not acceptable here: anything the passage already gives (Mughal trading privileges, Tokugawa and Nagasaki, Qing port rules, paying with American silver, Asian merchants carrying most goods)", "The Portuguese cartaz system failed to stop Asian merchants, who sailed routes the Portuguese did not patrol, and pepper still reached the Red Sea", "The Portuguese made much of their profit as carriers within Asia, for example shipping Chinese silk to Japan for Japanese silver", "The Portuguese could stay at Macau only with Ming permission (from 1557)", "Shah Abbas of the Safavid Empire used English ships to help him take Hormuz from the Portuguese in 1622"],
+          samples: ["The Portuguese tried to control Indian Ocean trade with the cartaz system, but Gujarati and Arab merchants kept sailing routes the Portuguese did not patrol, so pepper still reached the Red Sea. This supports the idea that Europeans could not dominate a trading world that Asians had built.", "Much of Portugal’s profit came from carrying goods between Asian countries, such as Chinese silk to Japan in exchange for Japanese silver. This shows the Portuguese prospered by fitting into Asian trade rather than controlling it."] },
+        { l: "b)", q: "Explain ONE piece of historical evidence that would challenge or modify the author’s argument.",
+          ideas: ["The Dutch VOC conquered the Banda Islands and used violence to monopolize nutmeg, cloves, and mace", "Spain colonized the Philippines (Manila, 1571) and converted much of the population to Catholicism", "Portugal seized and held fortified ports such as Goa, Malacca, and Hormuz by force", "Where Asian states were weak or divided, Europeans were able to dictate terms, especially in island Southeast Asia"],
+          samples: ["The argument is challenged by the Dutch East India Company in the spice islands. The Dutch used military force to take over the Banda Islands and controlled the production of nutmeg and cloves, so in that region Europeans were not junior partners but rulers who set the terms of trade.", "The Spanish colonization of the Philippines modifies the argument. After founding Manila in 1571, Spain ruled the islands and spread Catholicism, which shows that Europeans could build real colonies in Asia where there was no strong state to stop them."] },
+        { l: "c)", q: "Explain ONE way European participation in Asian trade between 1450 and 1750 affected the global economy.",
+          ideas: ["American silver flowed to China through Manila and Europe, linking the Americas, Europe, and Asia in the first global trade network", "Chinese demand for silver (Ming taxes paid in silver) drove silver mining at Potosí and in Mexico", "Joint-stock companies such as the VOC and the British East India Company created new ways to fund and share the risks of long-distance trade", "The flood of silver contributed to inflation in Spain and Europe"],
+          samples: ["European trade in Asia helped create the first truly global economy. Spanish galleons carried silver from Potosí and Mexico across the Pacific to Manila, where Chinese merchants exchanged it for silk and porcelain, so the Americas, Asia, and Europe were all connected by one trade network.", "Europeans created joint-stock companies, like the Dutch VOC, to pay for trade in Asia. Investors pooled their money and shared the risks, which allowed European merchants to fund large, long-distance voyages."] }
+      ] },
+    { title: "Practice SAQ 2 · Primary source",
+      kind: "Modeled on AP SAQ 2: a primary source. Think about context, purpose, and connections.",
+      stimulus: [
+        "“Most high and powerful Prince, we make known to Your Highness that our kingdom is being lost in many ways. Merchants come each day from your ships and from the island of São Tomé, bringing goods of every kind, and many of our people, eager for these wares, seize our free subjects, even nobles and the sons of nobles and men of our own lineage, and sell them to the white men who are in our kingdom. They carry them away to be sold in other lands, and our country is being emptied of its people.",
+        "We have received from Your Highness priests and teachers, and through them the holy faith of Jesus Christ, and we desire nothing more than that our people should learn it and read the books of the Church. For this reason we ask that you send us only priests and men to teach in schools, and no more merchandise, unless it be wine and flour for the holy sacrament. It is our will that in these kingdoms there should be no trade in slaves nor any outlet for them.",
+        "And so that this harm may cease, we have ordered that any white man who wishes to buy people in our kingdom must first show them to three officers of our court, who will see whether they are slaves or free men, and only then may they be taken to the ships.”"
+      ],
+      attr: "King of Kongo who had converted to Christianity, letter to the King of Portugal, 1526 (invented passage closely modeled on the letters of Afonso I; not a direct quotation)",
+      parts: [
+        { l: "a)", q: "Describe the historical context in which this letter was written.",
+          ideas: ["Portuguese voyages down the West African coast in the 1400s reached Kongo in the 1480s", "Kongo’s rulers adopted Christianity and exchanged ambassadors with Portugal", "Demand for enslaved labor was growing on sugar plantations, first on São Tomé and then in Brazil"],
+          samples: ["In the 1400s, Portuguese sailors explored down the West African coast looking for gold and a route to Asia, and they reached Kongo in the 1480s. Kongo’s rulers converted to Christianity, but at the same time the demand for enslaved workers on sugar plantations in São Tomé and later Brazil was growing, which pulled Kongo into the slave trade."] },
+        { l: "b)", q: "Explain ONE way the letter illustrates how African rulers tried to control their interactions with Europeans in this period.",
+          ideas: ["The king accepted Christianity and literacy but tried to limit the trade he found harmful", "He appointed officers to inspect captives and decide who could be sold, trying to regulate the trade", "He writes to the Portuguese king as an equal, showing Kongo dealt with Portugal through diplomacy rather than as a conquered state"],
+          samples: ["The letter shows that African rulers tried to control trade on their own terms. The king set up three officers to inspect people before they could be sold, so that only enslaved people and not free subjects would be taken to the ships.", "The king chose which parts of European culture to accept. He welcomed priests, teachers, and the Christian faith, but he asked Portugal to stop sending merchandise because the trade in people was damaging his kingdom."] },
+        { l: "c)", q: "Explain ONE way the experience of another African state in the Atlantic trade differed from Kongo’s experience.",
+          ideas: ["Dahomey and Asante grew stronger by controlling the supply of captives and gaining firearms", "Kongo was weakened over time by the trade, civil wars, and Portuguese involvement", "Ndongo under Queen Nzinga resisted the Portuguese militarily", "Benin for a time restricted the export of enslaved men"],
+          samples: ["Unlike Kongo, which was weakened by the slave trade, Dahomey grew more powerful from it. Dahomey’s kings controlled the capture and sale of people and traded them for guns, which they used to expand their state.", "Kongo tried to use letters and diplomacy to limit the trade, but in Ndongo, Queen Nzinga fought the Portuguese for decades, resisting their expansion militarily."] }
+      ] },
+    { title: "Practice SAQ 3 · No source",
+      kind: "Modeled on AP SAQ 3 and 4: no source. Comparison questions like this one are common.",
+      stimulus: null,
+      attr: "",
+      parts: [
+        { l: "a)", q: "Identify ONE similarity in the ways Spain and Britain established colonies in the Americas in the period 1450–1750.",
+          ideas: ["Both used coerced labor (Spanish mita and encomienda; British indentured servitude and chattel slavery)", "Both relied on enslaved Africans for plantation agriculture in the Caribbean", "Both colonial economies followed mercantilist ideas, sending raw materials to the home country", "Both displaced Native peoples, whose numbers fell sharply from disease"],
+          samples: ["Both Spain and Britain used enslaved Africans to work on plantations in the Caribbean, growing sugar to send back to Europe."] },
+        { l: "b)", q: "Explain ONE difference between the labor systems used in Spanish America and in British North America.",
+          ideas: ["Spain relied heavily on coerced Native labor (mita in the mines, encomienda), while British North America relied more on indentured European servants and enslaved Africans", "Spanish America drew labor from large, settled Native populations; British colonists found smaller, more mobile populations that they mostly pushed off the land"],
+          samples: ["In Spanish America, the Spanish forced Native Americans to work through systems like the mita, which sent Native men to the silver mines of Potosí. In British North America, colonists relied more on indentured servants from Europe and later on enslaved Africans instead of Native labor."] },
+        { l: "c)", q: "Explain ONE reason for a difference in the ways Spanish and British colonists interacted with Native American peoples.",
+          ideas: ["Spain conquered large, densely populated empires (Aztec, Inca) whose labor and tribute systems it could take over; British colonists met smaller societies and wanted land more than labor", "Many more British colonists came as families, so they formed separate settler societies, while Spanish colonists were mostly men, leading to more intermarriage and a large mestizo population", "Spanish colonization had a strong missionary goal of converting Native peoples, while British colonists put less emphasis on conversion"],
+          samples: ["The Spanish conquered large empires like the Aztec and the Inca, which already had systems of tribute and labor, so they could rule over Native people and use their labor. British colonists arrived in areas with smaller Native societies and mostly wanted land to farm, so they pushed Native peoples off the land instead of ruling them.", "Because Spanish colonists were mostly men, many had children with Native women, which created a large mestizo population. British colonists more often came as families, so they lived more separately from Native Americans."] }
+      ] }
+  ];
+  const MIN_WORDS = 20;
+  const saqAnswers = store.get("saq", {});
+  const words = s => (s.trim().match(/\S+/g) || []).length;
+  $("#saqList").innerHTML = SAQ.map((s, si) =>
+    "<div class='card saq-set'><h3>" + s.title + "</h3>" +
+    "<p class='saq-kind'>" + s.kind + "</p>" +
+    (s.stimulus ? "<div class='stimulus'>" + s.stimulus.map(x => "<p>" + x + "</p>").join("") + "<div class='attr'>Source: " + s.attr + "</div></div>" : "<div class='note' style='margin:0;'>Answer a, b, and c. There is no source for this set.</div>") +
+    s.parts.map((p, pi) => {
+      const id = "saq-" + si + "-" + pi;
+      return "<div class='saq-part'><div class='q'><b>" + p.l + "</b>" + p.q + "</div>" +
+        "<textarea id='" + id + "' data-key='" + id + "' aria-label='Your answer to part " + p.l + "' placeholder='Write your answer in complete sentences.'></textarea>" +
+        "<div class='wc' id='" + id + "-wc'></div>" +
+        "<button class='btn' id='" + id + "-btn' disabled>Unlock ideas and sample answers</button>" +
+        "<div class='reveal' id='" + id + "-rev' hidden><h4>Ideas that would earn credit</h4><ul>" + p.ideas.map(x => "<li>" + x + "</li>").join("") + "</ul>" +
+        "<h4>Sample answers</h4><ul>" + p.samples.map(x => "<li>" + x + "</li>").join("") + "</ul>" +
+        "<div class='screenshot-note'>Want Mr. Johnson to look at your answer? Screenshot it with your name showing and send it to him.</div></div></div>";
+    }).join("") + "</div>").join("");
+  document.querySelectorAll("#saqList textarea").forEach(ta => {
+    const id = ta.id, btn = $("#" + id + "-btn"), wc = $("#" + id + "-wc");
+    ta.value = saqAnswers[id] || "";
+    const upd = () => {
+      const n = words(ta.value);
+      wc.textContent = n >= MIN_WORDS ? n + " words" : n + " / " + MIN_WORDS + " words to unlock";
+      btn.disabled = n < MIN_WORDS;
+      saqAnswers[id] = ta.value; store.set("saq", saqAnswers);
+    };
+    ta.addEventListener("input", upd); upd();
+    btn.addEventListener("click", () => { const r = $("#" + id + "-rev"); r.hidden = !r.hidden; btn.textContent = r.hidden ? "Unlock ideas and sample answers" : "Hide ideas and sample answers"; });
+  });
+  const nameEl = $("#studentName");
+  nameEl.value = store.get("name", "");
+  nameEl.addEventListener("input", () => store.set("name", nameEl.value));
+
+  /* ---------- PRACTICE MCQs ---------- */
+  const STIM = {
+    A: { html: "<p>“When our fleets first came into these seas, the Moors of Calicut and Cambay thought us no more than another sort of merchant. They have since learned otherwise. We hold the fortresses of Goa, Hormuz, and Malacca, and from them our armadas patrol the routes by which pepper and cloves pass westward. Every ship that sails within reach of our guns is required to carry a cartaz bearing the seal of the Governor, and to call at one of our fortresses to pay duties upon its cargo. Those found without it are taken as lawful prize.</p><p>Yet I must tell Your Highness plainly that the profit of these seas does not come to your treasury as it ought. The Gujarati and Arab merchants have learned to sail by routes our ships do not watch, and much pepper still reaches the Red Sea and from there the markets of Cairo and Venice. The trade of Malacca is carried by Javanese, Tamils, and Gujaratis as it was before we came. Worse, many of Your Highness’s own captains and officials trade on their own account, selling cartazes to their friends and filling their holds with goods that pay no duty.</p><p>If we are to keep what we have won, we must have more ships and more men, for these seas are vast and we are few.”</p>",
+      attr: "Portuguese royal official in Goa, report to the King of Portugal, circa 1540 (invented passage for practice)" },
+    B: { html: "<p>“For generations, the collapse of Native American populations after 1492 was explained almost entirely by biology. Peoples who had been isolated from Afro-Eurasia for thousands of years, the argument went, had no acquired immunity to smallpox, measles, and influenza, and so they died in numbers that no human decision could have prevented. There is truth in this account. Epidemics swept through the Caribbean, Mexico, and the Andes, sometimes ahead of the Europeans themselves, and in some regions killed a majority of the population within a generation.</p><p>But disease did not act alone. In the Caribbean, Taíno communities were forced into gold mining and food production for Spanish settlers, leaving fields untended and families separated. In the Andes, men were drafted for months at a time to labor in the silver mines, and many never returned to their villages. Warfare, forced relocation, famine, and the breakdown of local economies weakened communities and left survivors less able to recover from each new epidemic. Populations that might have rebounded after an outbreak, as European populations did after the Black Death, instead continued to fall.</p><p>The demographic catastrophe of the Americas, in other words, was produced by the meeting of new diseases with colonial systems that demanded labor and tribute from people already in crisis.”</p>",
+      attr: "Historian, book on the early Spanish Americas, published in 2016 (invented passage for practice)" },
+    C: { html: "<p class='tcap'><strong>Estimated number of enslaved Africans who arrived in the Americas, by region, 1501–1866</strong></p><div class='tbl-wrap'><table class='stim-tbl'><thead><tr><th>Region of arrival</th><th>Enslaved Africans (estimated)</th><th>Main colonial products</th></tr></thead><tbody>" +
+        "<tr><td>Brazil (Portuguese)</td><td>4,860,000</td><td>Sugar, gold, coffee</td></tr>" +
+        "<tr><td>British Caribbean</td><td>2,320,000</td><td>Sugar</td></tr>" +
+        "<tr><td>Spanish Americas</td><td>1,290,000</td><td>Silver, sugar, ranching</td></tr>" +
+        "<tr><td>French Caribbean</td><td>1,120,000</td><td>Sugar, coffee</td></tr>" +
+        "<tr><td>Dutch Americas</td><td>440,000</td><td>Sugar</td></tr>" +
+        "<tr><td>Mainland North America (British, later U.S.)</td><td>390,000</td><td>Tobacco, rice, cotton</td></tr>" +
+        "</tbody></table></div>",
+      attr: "Rounded estimates based on the Trans-Atlantic Slave Trade Database (Slave Voyages). Figures rounded for practice; check exact numbers before citing." },
+    D: { html: "<p>“It is a thing well known in this kingdom that the offices of honor and profit, the seats of the high courts, the governorships, and the great positions of the Church are given for the most part to men sent from Spain, while we who were born in these Indies, sons and grandsons of the conquerors and first settlers, are passed over. It is said in Madrid that the air and the stars of America make men weak of mind and fickle of character, so that a Spaniard born here is not fit to govern. This opinion is as false as it is injurious.</p><p>Our colleges and universities produce men of learning equal to any in Salamanca. Our merchants carry on a trade that reaches from Seville to Manila. Our cities are adorned with churches as rich as those of Europe, and in none of them is there greater devotion than to Our Lady of Guadalupe, who chose to appear on the hill of Tepeyac to a poor Indian and to make this land her own.</p><p>We do not ask for more than justice: that those born in this land, who know its peoples, its languages, and its needs, be given a fair share in its government, and that we not be treated as strangers in the country our fathers won for the Crown.”</p>",
+      attr: "Spanish-descended author born in Mexico City, petition to the Spanish king, circa 1725 (invented passage for practice)" }
+  };
+  const MCQ = [
+    { s: "A", q: "The second paragraph of the passage best supports which of the following conclusions about Indian Ocean trade in the sixteenth century?",
+      o: ["Existing Asian merchant networks continued to carry much of the region’s trade despite Portuguese efforts to control it.", "The Portuguese successfully diverted the spice trade away from the Red Sea and the Mediterranean.", "Chinese merchants took over the trade of Malacca after the Portuguese arrived.", "Asian merchants abandoned sea trade in favor of overland routes across Central Asia."],
+      why: "The author admits that pepper still reaches the Red Sea and that Malacca’s trade is carried by Asian merchants “as it was before we came.” That is a continuity. Choice B is the opposite of what he reports." },
+    { s: "A", q: "The system described in the first paragraph is best understood as an attempt to",
+      o: ["profit from existing trade by controlling and taxing sea routes rather than by producing goods", "establish large settler colonies similar to those in the Americas", "use economic pressure to convert Asian merchants to Christianity", "replace all Silk Road commerce with a single sea route controlled by the Crown"],
+      why: "The trading-post empire used forts, armed ships, and the cartaz to collect duties on trade that already existed. Portugal did not settle large populations in Asia." },
+    { s: "A", q: "Which of the following most directly enabled the Portuguese to establish the fortresses mentioned in the first paragraph?",
+      o: ["Ships armed with cannons, combined with the absence of a dominant naval power in the Indian Ocean", "An alliance with the Mughal Empire, which supplied soldiers for Portuguese garrisons", "Wealth from American silver mines, which allowed Portugal to purchase the ports", "The Treaty of Tordesillas, which Asian rulers accepted as dividing the region"],
+      why: "Naval artillery let Portugal overpower individual port cities, and after the Ming voyages ended no Asian state kept a large navy in these waters. The silver mines were Spanish, and Asian rulers never recognized Tordesillas." },
+    { s: "B", q: "Which of the following best describes the author’s argument?",
+      o: ["Colonial labor demands and violence made the effects of epidemic disease on Native populations worse.", "Epidemic disease played only a minor role in the decline of Native American populations.", "Native American populations recovered from epidemics as quickly as European populations recovered from the Black Death.", "Native Americans lacked immunity mainly because Spanish settlers kept them from developing it."],
+      why: "The author agrees disease mattered (“There is truth in this account”) but argues it combined with forced labor, warfare, and famine. Choice B overstates the argument, and C is the opposite of what the passage says." },
+    { s: "B", q: "Which of the following, if true, would most directly support the author’s argument in the second paragraph?",
+      o: ["Records showing that Andean villages required to send men to the silver mines lost population faster than villages that were not", "Accounts showing that smallpox reached parts of Mexico before Spanish soldiers did", "Evidence that European populations recovered from the Black Death within about a century", "Data showing that Caribbean populations declined faster than Andean populations"],
+      why: "The second paragraph argues that labor drafts made decline worse, so evidence linking the mine draft to faster population loss supports it. Choice B supports the disease explanation in the first paragraph, not the second." },
+    { s: "B", q: "The demographic changes described in the passage most directly contributed to which of the following developments?",
+      o: ["The expansion of the Atlantic slave trade to supply labor for plantations in the Americas", "The end of Spanish colonization in the Caribbean", "A decrease in the amount of land available for European livestock in the Americas", "The rise of new Native American empires that halted European expansion"],
+      why: "As Native populations collapsed, Europeans turned to enslaved Africans to supply plantation labor. Population loss left more land, not less, for European livestock." },
+    { s: "C", q: "The data in the table best support which of the following conclusions?",
+      o: ["Most enslaved Africans were taken to regions that produced sugar and other tropical cash crops.", "Mainland North America was the main destination of the Atlantic slave trade.", "The Spanish Americas imported more enslaved Africans than any other region.", "Enslaved Africans were taken mainly to regions that produced silver."],
+      why: "Brazil and the Caribbean, the major sugar regions, received the large majority. Mainland North America received the fewest of the regions listed." },
+    { s: "C", q: "Which of the following best explains why far fewer enslaved Africans were brought to mainland North America than to Brazil and the Caribbean?",
+      o: ["Harsh conditions and high death rates on sugar plantations led to continuous new imports, while enslaved populations in North America grew through natural increase.", "British colonists in North America relied almost entirely on Native American labor.", "The British did not take part in the Atlantic slave trade before 1750.", "Portuguese law forbade the sale of enslaved Africans to colonies of other European states."],
+      why: "Sugar work was so deadly that planters kept importing new captives; in North America the enslaved population grew by natural increase. The British were major slave traders, and the British Caribbean row in the table shows it." },
+    { s: "C", q: "The patterns shown in the table were most directly made possible by which of the following developments in Africa?",
+      o: ["African states and merchants on the coast supplied captives in exchange for goods such as textiles and firearms.", "European armies conquered most of the African interior in order to capture enslaved people.", "North African states ended the trans-Saharan slave trade, redirecting captives to the Atlantic coast.", "African rulers agreed to a single treaty that set the terms of the trade with all European states."],
+      why: "Before the late 1800s, Europeans rarely controlled the African interior; African rulers and merchants controlled the capture and sale of captives at the coast." },
+    { s: "D", q: "The author’s complaints in the first paragraph most directly reflect which feature of Spanish colonial society?",
+      o: ["A social hierarchy that placed people born in Spain above Spaniards born in the Americas", "Laws that prevented American-born Spaniards from owning land or haciendas", "A casta system that ranked mestizos above American-born Spaniards", "The Church’s refusal to allow Spaniards born in the Americas to become priests"],
+      why: "The author is a creole complaining that peninsulares get the high offices. Creoles did own land and haciendas, and in the casta system they ranked above mestizos." },
+    { s: "D", q: "The author’s description of devotion to Our Lady of Guadalupe is best understood as evidence of",
+      o: ["a growing sense of a distinct American identity, drawing on a tradition that blended Catholic and Native elements", "the decline of Catholic belief in New Spain by the eighteenth century", "resistance to Spanish rule organized by Native American religious leaders", "the spread of Protestant ideas from northern Europe to the Spanish colonies"],
+      why: "The author uses Guadalupe, who appeared to a Native man and made “this land her own,” to argue that America is special. Guadalupe is a classic example of syncretism." },
+    { s: "D", q: "The policy that the author criticizes was most directly intended to",
+      o: ["keep distant colonies under the control of the Crown by appointing officials whose loyalty was to Spain", "reward the descendants of the conquerors for their service to the Crown", "prepare the American colonies for self-government", "encourage intermarriage between Spaniards and Native Americans"],
+      why: "Appointing peninsulares to high office was a way to keep a distant empire loyal to Madrid. The author says creoles, the conquerors’ descendants, were the ones passed over." }
+  ];
+  let mcqState = null;
+  function mcqStart() {
+    mcqState = { i: 0, score: 0, answered: [], order: MCQ.map(q => shuffle(q.o.map((t, k) => ({ t, ok: k === 0 })))) };
+    mcqRender();
+  }
+  function mcqRender() {
+    const st = mcqState, card = $("#mcqCard");
+    $("#mcqProgress").textContent = st.i < MCQ.length ? "Question " + (st.i + 1) + " of " + MCQ.length : "Finished";
+    $("#mcqScore").textContent = "Score: " + st.score + " / " + st.answered.filter(x => x !== undefined).length;
+    if (st.i >= MCQ.length) {
+      const msg = st.score >= 10 ? "That would be full credit on the test. Nice work." : "The goal is 10 of 12. Review the topics you missed in Key Concepts and your notes, then try again.";
+      card.innerHTML = "<div style='text-align:center;'><div class='score-big'>" + st.score + " / " + MCQ.length + "</div><p>" + msg + "</p><button class='btn primary' id='mcqAgain'>Try again</button></div>";
+      $("#mcqAgain").onclick = mcqStart; return;
+    }
+    const q = MCQ[st.i], s = STIM[q.s], opts = st.order[st.i], ans = st.answered[st.i];
+    let first = MCQ.findIndex(x => x.s === q.s), last = first; while (last + 1 < MCQ.length && MCQ[last + 1].s === q.s) last++;
+    card.innerHTML = "<div class='stim-label'>Questions " + (first + 1) + "–" + (last + 1) + " refer to the " + (q.s === "C" ? "table" : "passage") + " below.</div><div class='stimulus'>" + s.html + "<div class='attr'>Source: " + s.attr + "</div></div>" +
+      "<div class='mcq-q'>" + (st.i + 1) + ". " + q.q + "</div><div class='opts'>" +
+      opts.map((o, k) => {
+        let cls = "opt"; if (ans !== undefined) { if (o.ok) cls += " right"; else if (k === ans) cls += " wrong"; }
+        return "<button class='" + cls + "' data-k='" + k + "'" + (ans !== undefined ? " disabled" : "") + "><span class='letter'>" + LETTERS[k] + "</span><span>" + o.t + "</span></button>";
+      }).join("") + "</div>" +
+      (ans !== undefined ? "<div class='feedback'><strong>" + (opts[ans].ok ? "Correct." : "Not quite.") + "</strong> " + q.why + "</div>" : "") +
+      "<div class='row' style='justify-content:space-between; margin-top:14px;'><button class='btn' id='mcqPrev'" + (st.i === 0 ? " disabled" : "") + ">&larr; Previous</button>" +
+      "<button class='btn primary' id='mcqNext'" + (ans === undefined ? " disabled" : "") + ">" + (st.i === MCQ.length - 1 ? "See my score" : "Next question") + " &rarr;</button></div>";
+    card.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+      const k = +b.dataset.k; st.answered[st.i] = k; if (opts[k].ok) st.score++; mcqRender();
+    });
+    $("#mcqPrev").onclick = () => { st.i--; mcqRender(); };
+    $("#mcqNext").onclick = () => { st.i++; mcqRender(); };
+  }
+  function mcqOpen() { $("#mcqGate").hidden = true; $("#mcqBody").hidden = false; if (!mcqState) mcqStart(); }
+  $("#mcqAckBtn").addEventListener("click", () => { store.set("mcqAck", true); mcqOpen(); });
+  if (store.get("mcqAck", false)) mcqOpen();
+
+  /* ---------- SELF-CHECK ---------- */
+  const SC_TOPICS = {
+    "4.1": { name: "Technological Innovations", h: [1], f: [2], o: [3] },
+    "4.2": { name: "Exploration: Causes and Events", h: [2], f: [1, 3], o: [2, 6] },
+    "4.3": { name: "Columbian Exchange", h: [6, 7], f: [5, 6, 7], o: [5, 11, 12, 13, 14] },
+    "4.4": { name: "Maritime Empires Established", h: [3, 4, 5, 8], f: [4, 8, 11, 12], o: [7] },
+    "4.5": { name: "Maritime Empires Maintained and Developed", h: [11, 12, 13, 14], f: [9, 10, 13], o: [8, 9] },
+    "4.6": { name: "Challenges to State Power", h: [9], f: [14], o: [] },
+    "4.7": { name: "Changing Social Hierarchies", h: [13, 15], f: [15], o: [] },
+    "4.8": { name: "Continuity and Change", h: [10], f: [9], o: [10, 15] }
+  };
+  const SC = [
+    { t: "4.1", q: "Which feature let Portuguese caravels sail against the wind?", o: ["The lateen (triangular) sail", "The magnetic compass, which let ships hold a course into the wind", "The square sail, which caught strong winds from behind", "The astrolabe, which showed sailors the wind direction"], why: "The lateen sail, borrowed from Indian Ocean and Arab sailors, let ships catch wind from either side. The compass shows direction; it does not help a ship sail into the wind." },
+    { t: "4.1", q: "Sailors used the astrolabe to find their", o: ["latitude (how far north or south they were)", "longitude (how far east or west they were)", "compass direction of travel", "distance from the nearest coast"], why: "The astrolabe measured the angle of the sun or stars to find latitude. Longitude could not be measured reliably until the late 1700s." },
+    { t: "4.2", q: "What was the main ECONOMIC reason Europeans looked for a sea route to Asia?", o: ["To get around the Ottoman and Venetian middlemen who made Asian goods so expensive", "To spread Christianity to the rulers of Asia", "To find buyers in Asia for European goods that Asians were eager to buy", "To find new farmland for Europe’s growing population"], why: "Spreading Christianity was a real motive, but it was religious, not economic. Asians wanted few European goods, which is why Europeans paid in silver." },
+    { t: "4.2", q: "How were Zheng He’s Chinese voyages (1405–1433) different from Portuguese voyages?", o: ["They sought tribute and prestige rather than forts and control of trade, and China ended them", "They used smaller, less advanced ships than the Portuguese", "They aimed to conquer and settle the coast of East Africa", "They were paid for by private merchants, not the state"], why: "China’s ships were much larger than Portugal’s, and the voyages did not conquer or settle. They collected tribute and showed off Ming power until the court stopped them." },
+    { t: "4.3", q: "What was the main cause of the “Great Dying” in the Americas?", o: ["Afro-Eurasian diseases like smallpox, made worse by war and forced labor", "Warfare, since Spanish armies killed most Native Americans in battle", "Famine caused by the Little Ice Age", "Europeans banning Native farming of maize"], why: "War and forced labor made things worse, but disease was the main killer. Native Americans had no immunity, and up to 90% died in some regions." },
+    { t: "4.3", q: "Where did American crops like maize and potatoes cause the biggest population growth after 1492?", o: ["In Afro-Eurasia, including Europe, China, and Africa", "In the Americas, where the crops were native", "Only in Spain and Portugal, which controlled the trade", "Nowhere; they were grown mainly as cash crops for export"], why: "The crops were already eaten in the Americas, where populations were collapsing. The big effect was new calories and population growth in Afro-Eurasia." },
+    { t: "4.4", q: "The Portuguese “trading-post empire” in the Indian Ocean relied mainly on", o: ["armed ships and fortified ports used to control and tax existing trade", "conquering and settling large territories, as Spain did in the Americas", "taking over the production of spices on the islands where they grew", "an alliance with the Ming navy"], why: "Portugal held a few forts (Goa, Hormuz, Malacca) and taxed trade with the cartaz. Seizing spice production was what the Dutch did later." },
+    { t: "4.4", q: "How was a joint-stock company like the Dutch VOC different from a voyage paid for by a king?", o: ["Private investors pooled money and shared the profits and risks, under a charter from the state", "It was a free-market business that any merchant could compete against", "The king owned it and kept all the profits", "It was run by Asian merchants"], why: "Joint-stock companies were not free-market businesses: the state gave them monopolies. What made them new was that private investors shared the risk." },
+    { t: "4.4", q: "Under mercantilism, colonies existed mainly to", o: ["supply raw materials and buy the home country’s goods, so gold and silver flowed in", "make manufactured goods to sell back to the home country", "trade freely with any nation that offered the best price", "pay taxes directly to the Pope"], why: "Colonies sent raw materials home and bought the home country’s finished goods. Making manufactured goods in the colonies would compete with the home country." },
+    { t: "4.5", q: "The Spanish mita was", o: ["a forced, rotating labor draft, adapted from the Inca, used in the silver mines", "a grant that gave Spanish settlers the labor and tribute of Native people", "a large estate producing food and livestock for local markets", "a contract to work a set number of years in exchange for passage"], why: "The grant of Native labor is the encomienda, and the large estate is the hacienda. The mita was the rotating draft for mines like Potosí." },
+    { t: "4.5", q: "Why did so much American silver end up in China?", o: ["China had a huge demand for silver, and Ming taxes were paid in it", "China needed silver to buy European manufactured goods", "Spain owed China money from a war", "China had conquered the Philippines"], why: "Europeans paid silver for Chinese silk and porcelain because China wanted few European goods. The Ming collected taxes in silver, so demand was enormous." },
+    { t: "4.5", q: "How did West African states like Asante take part in the Atlantic trade?", o: ["They supplied gold, ivory, and captives to Europeans and grew more powerful", "European armies conquered them and ran the trade from the interior", "They refused all contact with European traders", "They bought enslaved people from the Americas"], why: "Before the late 1800s, Europeans rarely controlled the African interior. African rulers and merchants controlled the supply, and states like Asante grew stronger." },
+    { t: "4.6", q: "Maroon societies, like the one led by Queen Nanny in Jamaica, were", o: ["communities of people who escaped slavery and resisted colonial rule", "Native American peoples who drove the Spanish out of New Mexico", "African kingdoms that fought Portuguese expansion in Angola", "Dutch settlements in the Caribbean"], why: "Driving the Spanish from New Mexico was the Pueblo Revolt, and resisting the Portuguese in Angola was Queen Nzinga. Maroons were people who escaped slavery." },
+    { t: "4.6", q: "The Fronde in France (beginning in 1648) is an example of", o: ["nobles and peasants rebelling against a monarch’s growing power and taxes", "a revolt against Spanish rule in the Netherlands", "a revolt by enslaved people in the French Caribbean", "a Native American war against French fur traders"], why: "French nobles, threatened by absolutism and new taxes, led rebellions. They were crushed, and the monarchy grew stronger." },
+    { t: "4.7", q: "In Spanish America’s casta system, who held the highest status?", o: ["Peninsulares, people born in Spain", "Creoles, wealthy Spaniards born in the Americas", "Mestizos, of Spanish and Native ancestry", "Native American nobles who allied with the Spanish"], why: "Creoles were often wealthy, but peninsulares held the top offices. Creoles resented being ranked below them." },
+    { t: "4.7", q: "How did the Atlantic slave trade change many West African societies?", o: ["More men than women were taken, so women outnumbered men and polygyny increased", "More women than men were taken, because women were wanted for household labor", "Populations grew because of new trade goods", "It had little effect on family structures"], why: "Europeans bought men at about two to one for plantation and mining work, creating a gender imbalance and more polygyny." },
+    { t: "4.8", q: "Which was a CONTINUITY in Indian Ocean trade from 1450 to 1750?", o: ["Asian merchants, such as Gujaratis, kept carrying much of the trade", "The Portuguese took control of most of the trade through the cartaz system", "The Americas joined Indian Ocean trade for the first time", "Trade in the Indian Ocean declined sharply"], why: "The Portuguese tried, but never controlled most Indian Ocean trade. Asian merchants kept trading as before." },
+    { t: "4.8", q: "Which was a major CHANGE in this period?", o: ["The Americas were linked to Afro-Eurasia, creating the first global trade network", "European empires replaced the Asian land empires as the world’s richest states", "The Silk Roads came under European control", "Slavery appeared for the first time"], why: "The Asian land empires (Mughal, Qing, Ottoman) were still the richest and strongest through 1750. The new global link through the Americas was the big change." }
+  ];
+  const SC_UNSURE = -1;
+  const scOrder = SC.map(q => shuffle(q.o.map((t, k) => ({ t, ok: k === 0 }))));
+  let scAns = store.get("scAns2", null);
+  if (!Array.isArray(scAns) || scAns.length !== SC.length) scAns = SC.map(() => null);
+  let scOrderSaved = store.get("scOrder2", null);
+  if (Array.isArray(scOrderSaved) && scOrderSaved.length === SC.length) scOrderSaved.forEach((o, i) => { if (Array.isArray(o) && o.length === 4) scOrder[i] = o; });
+  function scSave() { store.set("scAns2", scAns); store.set("scOrder2", scOrder); }
+  function scRenderQuiz() {
+    $("#scList").innerHTML = SC.map((q, i) =>
+      "<div class='card sc-q'><div class='tlabel'>Question " + (i + 1) + " · Topic " + q.t + "</div><div class='qt'>" + esc(q.q) + "</div><div class='opts'>" +
+      scOrder[i].map((o, k) => "<button class='opt" + (scAns[i] === k ? " sel" : "") + "' data-q='" + i + "' data-k='" + k + "' aria-pressed='" + (scAns[i] === k) + "'><span class='letter'>" + LETTERS[k] + "</span><span>" + esc(o.t) + "</span></button>").join("") +
+      "<button class='opt unsure" + (scAns[i] === SC_UNSURE ? " sel" : "") + "' data-q='" + i + "' data-k='" + SC_UNSURE + "' aria-pressed='" + (scAns[i] === SC_UNSURE) + "'><span class='letter'>?</span><span>Not sure yet</span></button>" +
+      "</div></div>").join("");
+    scCount();
+  }
+  function scCount() {
+    const n = scAns.filter(a => a !== null).length;
+    $("#scCount").textContent = n + " of " + SC.length + " answered";
+    $("#scSubmit").disabled = $("#scSubmit2").disabled = n < SC.length;
+  }
+  $("#scList").addEventListener("click", e => {
+    const b = e.target.closest(".opt"); if (!b) return;
+    const i = +b.dataset.q, k = +b.dataset.k;
+    scAns[i] = k; scSave();
+    b.parentElement.querySelectorAll(".opt").forEach(x => { const on = +x.dataset.k === k; x.classList.toggle("sel", on); x.setAttribute("aria-pressed", on); });
+    scCount();
+  });
+  function heimlerTopicLink(t) {
+    if (t === "4.1") return "https://www.youtube.com/watch?v=TPaLulRrKuM";
+    return "https://www.youtube.com/results?search_query=" + encodeURIComponent("Heimler AP World History Topic " + t);
+  }
+  const listNums = a => a.length === 1 ? "question " + a[0] : "questions " + a.slice(0, -1).join(", ") + (a.length > 2 ? "," : "") + " and " + a[a.length - 1];
+  function scResults() {
+    const byT = {};
+    SC.forEach((q, i) => { const r = byT[q.t] || (byT[q.t] = { right: 0, total: 0 }); r.total++; if (scAns[i] !== null && scAns[i] >= 0 && scOrder[i][scAns[i]].ok) r.right++; });
+    const totalRight = Object.values(byT).reduce((s, r) => s + r.right, 0);
+    const level = r => r.right === r.total ? "solid" : r.right / r.total >= 0.5 ? "review" : "study";
+    const LBL = { solid: "Solid", review: "Review", study: "Study first" };
+    const topics = Object.keys(SC_TOPICS);
+    const weak = topics.filter(t => level(byT[t]) !== "solid").sort((a, b) => (byT[a].right / byT[a].total) - (byT[b].right / byT[b].total));
+    let html = "<div class='card start-total'><span class='big'>" + totalRight + "/" + SC.length + "</span><span class='lbl'>" +
+      (weak.length === 0 ? "You got every topic right. Keep it fresh with the SAQ and MCQ practice and the AP Classroom Progress Check." : "Your study plan is below, starting with the topics that need the most work.") + "</span></div>";
+    html += "<div class='card topic-table'>" + topics.map(t => {
+      const r = byT[t], lv = level(r);
+      return "<div class='trow'><span class='no'>" + t + "</span><span class='nm'>" + SC_TOPICS[t].name + "</span><span class='meter' aria-label='" + r.right + " of " + r.total + " correct'>" +
+        Array.from({ length: r.total }, (_, k) => "<span" + (k < r.right ? " class='on'" : "") + "></span>").join("") + "</span><span class='chip-s " + lv + "'>" + LBL[lv] + " · " + r.right + "/" + r.total + "</span></div>";
+    }).join("") + "</div>";
+    if (weak.length) {
+      html += "<div class='pane-head'><h2>Your study plan</h2><p>Work through these in order. Topics marked “Study first” need the most attention.</p></div>";
+      html += weak.map((t, idx) => {
+        const T = SC_TOPICS[t], lv = level(byT[t]);
+        const guides = [];
+        if (T.h.length) guides.push("Heimler guide " + listNums(T.h));
+        if (T.f.length) guides.push("Freemanpedia guide " + listNums(T.f));
+        if (T.o.length) guides.push("OER Project guide " + listNums(T.o));
+        const steps = [];
+        if (lv === "study") steps.push("Start with your <strong>noteshells for " + t + "</strong>. That is where the test comes from.");
+        steps.push("Read <button class='linkbtn' data-topic='" + t + "'>Key Concepts " + t + ": " + T.name + "</button>.");
+        if (lv === "study") steps.push("Watch <a href='" + heimlerTopicLink(t) + "' target='_blank' rel='noopener'>Heimler’s topic " + t + " video</a> and take notes in your own words.");
+        if (guides.length) steps.push("Answer these from the video question guides: " + guides.join("; ") + ".");
+        return "<div class='card rec' style='--accent: var(" + (lv === "study" ? "--brick" : "--gold") + ");'><h3>" + (idx + 1) + ". Topic " + t + ": " + T.name + " <span class='chip-s " + lv + "' style='font-family:var(--f-body); vertical-align:middle;'>" + LBL[lv] + "</span></h3><ol>" + steps.map(s => "<li>" + s + "</li>").join("") + "</ol></div>";
+      }).join("");
+    }
+    html += "<div class='card rec' style='--accent: var(--indigo);'><h3>For every topic</h3><ol><li>Do the <strong>Unit 4 Progress Check in AP Classroom</strong> and read the feedback. It is the closest practice to the real multiple choice.</li><li>Then try the <button class='linkbtn' data-goto='saq'>SAQ Practice</button> and <button class='linkbtn' data-goto='mcq'>Practice MCQs</button>.</li></ol></div>";
+    const missed = SC.map((q, i) => ({ q, i })).filter(({ i }) => !(scAns[i] !== null && scAns[i] >= 0 && scOrder[i][scAns[i]].ok));
+    if (missed.length) {
+      html += "<div class='pane-head' style='margin-top:24px;'><h2>Questions to look at again</h2></div>" + missed.map(({ q, i }) =>
+        "<div class='card missed'><div class='tlabel' style='font-size:0.74rem; font-weight:700; color:var(--gold); letter-spacing:0.06em; text-transform:uppercase;'>Topic " + q.t + "</div><div style='font-weight:600;'>" + esc(q.q) + "</div>" +
+        "<div>" + (scAns[i] === SC_UNSURE ? "You chose “Not sure yet.”" : "Your answer: " + esc(scOrder[i][scAns[i]].t)) + "</div>" +
+        "<div><span class='ans'>Correct answer:</span> " + esc(q.o[0]) + "</div><div style='color:var(--ink-soft); margin-top:4px;'>" + esc(q.why) + "</div></div>").join("");
+    }
+    html += "<div class='row' style='justify-content:center; margin-top:16px;'><button class='btn' id='scEdit'>Change my answers</button><button class='btn primary' id='scRetake'>Retake with a fresh start</button></div>";
+    const res = $("#scResults"); res.innerHTML = html; res.hidden = false; $("#scQuiz").hidden = true;
+    store.set("scDone2", true);
+    window.scrollTo({ top: 0 });
+    res.querySelectorAll("[data-topic]").forEach(b => b.onclick = () => openTopic(b.dataset.topic));
+    $("#scEdit").onclick = () => { res.hidden = true; $("#scQuiz").hidden = false; store.set("scDone2", false); };
+    $("#scRetake").onclick = () => { scAns = SC.map(() => null); SC.forEach((q, i) => scOrder[i] = shuffle(q.o.map((t, k) => ({ t, ok: k === 0 })))); scSave(); store.set("scDone2", false); scRenderQuiz(); res.hidden = true; $("#scQuiz").hidden = false; window.scrollTo({ top: 0 }); };
+  }
+  function openTopic(t) {
+    show("concepts");
+    const d = document.getElementById("t" + t.replace(".", "-"));
+    if (d) { d.open = true; setTimeout(() => d.scrollIntoView({ block: "start" }), 30); }
+  }
+  $("#scSubmit").onclick = $("#scSubmit2").onclick = scResults;
+  scRenderQuiz();
+  if (store.get("scDone2", false) && scAns.every(a => a !== null)) scResults();
+
+  /* ---------- REVIEW RACE ---------- */
+  const GQ = [
+    ["Which Portuguese ship combined square and lateen sails so it could sail against the wind?", "Caravel", "Dhow", "Junk", "Trireme"],
+    ["The lateen sail came to Europeans from sailors in", "the Indian Ocean and Arab world", "the Inca Empire", "Scandinavia", "the Aztec Empire"],
+    ["The magnetic compass first came from", "China", "Portugal", "Mali", "Peru"],
+    ["Who reached Calicut, India, by sailing around Africa in 1498?", "Vasco da Gama", "Christopher Columbus", "Ferdinand Magellan", "Hernán Cortés"],
+    ["Who first rounded the Cape of Good Hope, in 1488?", "Bartolomeu Dias", "Vasco da Gama", "Zheng He", "Francisco Pizarro"],
+    ["The Treaty of Tordesillas (1494) divided the non-European world between", "Spain and Portugal", "England and France", "Spain and the Netherlands", "Portugal and the Ottomans"],
+    ["A major reason Europeans wanted a sea route to Asia was to", "bypass Muslim and Venetian middlemen in the spice trade", "escape Mongol rule in Europe", "find new land to grow wheat", "spread Buddhism"],
+    ["How did Zheng He’s voyages differ from Portuguese voyages?", "They sought tribute and prestige, not forts and conquest", "They used much smaller ships", "They reached the Americas", "They were paid for by private merchants"],
+    ["Which disease killed the most Native Americans after 1492?", "Smallpox", "Malaria", "Cholera", "Polio"],
+    ["Which crop traveled from the Americas to Afro-Eurasia?", "Potatoes", "Wheat", "Sugar cane", "Coffee"],
+    ["Which animal transformed life for Native peoples of the Great Plains?", "The horse", "The llama", "The camel", "The water buffalo"],
+    ["Which American crop became a staple food in parts of Africa?", "Cassava (manioc)", "Rice", "Millet", "Sorghum"],
+    ["The “Great Dying” refers to", "the collapse of Native American populations from disease", "the Black Death in Europe", "a famine during the Little Ice Age in China", "battle deaths in the Thirty Years War"],
+    ["The Portuguese system that forced Indian Ocean ships to buy passes was the", "cartaz", "mita", "encomienda", "jizya"],
+    ["Spanish galleons traded American silver for Chinese goods in which city?", "Manila", "Malacca", "Goa", "Batavia"],
+    ["The VOC was the", "Dutch East India Company", "Venetian merchants’ guild", "Portuguese royal navy", "Spanish missionary order"],
+    ["In a joint-stock company,", "investors pool money and share profits and risks", "the government owns every ship", "one family owns the whole business", "craftsmen form a guild"],
+    ["The Dutch used force to control the trade in which goods?", "Nutmeg and cloves", "Silk and tea", "Silver and gold", "Furs and timber"],
+    ["Mercantilism is the idea that a state should", "export more than it imports and gather gold and silver", "allow free trade with all nations", "rank merchants at the bottom of society", "avoid having colonies"],
+    ["Cortés defeated the Aztecs with the help of", "Native allies such as the Tlaxcalans, and smallpox", "the Inca army", "the Portuguese navy", "Ottoman cannons"],
+    ["Pizarro conquered the", "Inca Empire", "Aztec Empire", "Songhai Empire", "Kingdom of Kongo"],
+    ["The richest silver mine in Spanish America was at", "Potosí", "Calicut", "Elmina", "Tenochtitlan"],
+    ["Why did so much American silver end up in China?", "China had huge demand, and Ming taxes were paid in silver", "China needed silver to pay Ottoman tribute", "Spain owed China war debts", "China had conquered the Philippines"],
+    ["The mita was", "a rotational forced labor draft used in Spanish silver mines", "the Ottoman system of slave soldiers", "a pass for Indian Ocean ships", "a Russian tax paid in furs"],
+    ["The encomienda gave Spanish settlers", "the right to Native people’s labor and tribute", "land for the Catholic Church", "shares in a trading company", "a tax on non-Christians"],
+    ["A hacienda was", "a large estate producing food and livestock for local markets", "a small family farm", "a fortified trading post", "a mining town"],
+    ["The main crop on Brazilian and Caribbean plantations was", "sugar", "cotton", "wheat", "tea"],
+    ["The Middle Passage was", "the Atlantic crossing of enslaved Africans to the Americas", "the route around the Cape of Good Hope", "the Pacific galleon route", "a Silk Road trade route"],
+    ["About how many Africans were taken across the Atlantic in the slave trade?", "About 12.5 million", "About 500,000", "About 1 million", "About 50 million"],
+    ["Which African state grew powerful by selling captives to Europeans?", "Dahomey", "The Safavid Empire", "The Mughal Empire", "The Aztec Empire"],
+    ["Which king of Kongo converted to Christianity and protested the slave trade?", "Afonso I", "Mansa Musa", "Shivaji", "Akbar"],
+    ["Which queen resisted the Portuguese in Angola?", "Nzinga", "Isabella", "Catherine the Great", "Nur Jahan"],
+    ["Which 1680 revolt drove the Spanish out of New Mexico?", "The Pueblo Revolt", "The Fronde", "The Maratha revolt", "The Taiping Rebellion"],
+    ["Maroon societies were made up of", "people who had escaped slavery", "Portuguese merchants in Asia", "Spanish-born elites", "Dutch settlers"],
+    ["Who was at the top of the casta system?", "Peninsulares", "Creoles", "Mestizos", "Mulattoes"],
+    ["Creoles were people", "of European descent born in the Americas", "of mixed European and Native ancestry", "born in Spain", "of mixed European and African ancestry"],
+    ["Mestizos were people of", "mixed European and Native American ancestry", "mixed European and African ancestry", "Spanish birth", "African birth"],
+    ["The Virgin of Guadalupe is an example of", "religious syncretism", "mercantilism", "a joint-stock company", "the Protestant Reformation"],
+    ["Vodou in Haiti blended", "West African religions and Catholicism", "Islam and Hinduism", "Buddhism and Daoism", "Protestantism and Judaism"],
+    ["How did Tokugawa Japan respond to Europeans?", "It expelled missionaries and let only the Dutch trade at Nagasaki", "It opened all its ports", "It let Portugal build a colony", "It made Christianity the state religion"],
+    ["Which was a CONTINUITY in Indian Ocean trade after the Portuguese arrived?", "Asian merchants still carried most of the trade", "Portugal controlled all of the trade", "Trade in the Indian Ocean ended", "American merchants took over"],
+    ["How did the slave trade affect the population of parts of West Africa?", "More women than men remained, and polygyny increased", "More men than women remained", "It had no effect on population", "Populations grew rapidly"],
+    ["Indentured servants worked", "a set number of years in exchange for passage", "for life, as did their children", "by rotating turns in the mines", "only on Sundays"],
+    ["Spain expelled which group in 1492, many of whom the Ottomans welcomed?", "Jews", "Hindus", "Protestants", "Mongols"],
+    ["French and Russian traders in North America and Siberia mainly sought", "fur", "silver", "sugar", "nutmeg"]
+  ];
+  const ROUTE = ["Lisbon", "Madeira", "Cape Verde", "Elmina", "Kongo", "Cape of Good Hope", "Mozambique", "Mombasa", "Malindi", "Arabian Sea", "Calicut"];
+  const LEGS = 10;
+  const TEAM_COLORS = ["--t1", "--t2", "--t3", "--t4", "--t5", "--t6"];
+  const DEFAULT_NAMES = ["São Gabriel", "São Rafael", "Berrio", "Santa Maria", "Pinta", "Niña"];
+  const BOT = { easy: { label: "Calm seas (slow)", p: 0.45 }, med: { label: "Trade winds (medium)", p: 0.6 }, hard: { label: "Monsoon (fast)", p: 0.75 } };
+  const root = $("#gameRoot");
+  let G = null, timerId = null;
+
+  function shipSVG(colorVar) {
+    return "<svg viewBox='0 0 60 52' aria-hidden='true'>" +
+      "<line x1='30' y1='6' x2='30' y2='38' stroke='var(--hull)' stroke-width='2'/>" +
+      "<line x1='16' y1='14' x2='16' y2='38' stroke='var(--hull)' stroke-width='1.6'/>" +
+      "<path d='M30 6 L42 6 L40 9 L30 9 Z' fill='var(" + colorVar + ")'/>" +
+      "<rect x='21' y='11' width='18' height='16' rx='2' fill='var(--sail)' stroke='var(--hull)' stroke-width='0.8'/>" +
+      "<path d='M27 15 h6 M30 13 v10' stroke='var(" + colorVar + ")' stroke-width='2.2'/>" +
+      "<path d='M16 13 L6 34 L16 34 Z' fill='var(--sail)' stroke='var(--hull)' stroke-width='0.8'/>" +
+      "<path d='M3 36 L57 36 L50 46 L10 46 Z' fill='var(--hull)'/>" +
+      "<path d='M8 40 L52 40' stroke='var(" + colorVar + ")' stroke-width='2'/>" +
+      "</svg>";
+  }
+  function stopTimer() { if (timerId) { clearInterval(timerId); timerId = null; } }
+
+  let actx = null;
+  function chime(good) {
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      const notes = good ? [523, 659, 784] : [330, 262];
+      notes.forEach((f, i) => {
+        const o = actx.createOscillator(), g = actx.createGain();
+        o.type = "triangle"; o.frequency.value = f;
+        const t = actx.currentTime + i * 0.12;
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.18, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+        o.connect(g).connect(actx.destination); o.start(t); o.stop(t + 0.4);
+      });
+    } catch (e) {}
+  }
+
+  function renderSetup() {
+    stopTimer(); document.body.classList.remove("projector"); $("#gameHead").hidden = false;
+    const n = store.get("teamCount", 4);
+    root.innerHTML =
+      "<div class='mode-grid'>" +
+        "<div class='card game-setup'><h3>Class race</h3><p style='margin:0 0 12px; font-size:0.9rem; color:var(--ink-soft);'>Project this screen. Teams answer each question on paper or whiteboards; you mark which teams got it right and their ships sail.</p>" +
+          "<div class='field'><label for='teamCount'>Number of teams</label><select id='teamCount'>" + [2,3,4,5,6].map(k => "<option" + (k === n ? " selected" : "") + ">" + k + "</option>").join("") + "</select></div>" +
+          "<div class='team-inputs' id='teamInputs'></div>" +
+          "<div class='field'><label for='timerSecs'>Answer timer</label><select id='timerSecs'><option value='0'>No timer</option><option value='20'>20 seconds</option><option value='30' selected>30 seconds</option><option value='45'>45 seconds</option></select></div>" +
+          "<button class='btn primary big' id='startClass'>Start class race</button></div>" +
+        "<div class='card game-setup'><h3>Solo practice</h3><p style='margin:0 0 12px; font-size:0.9rem; color:var(--ink-soft);'>Race your ship against a rival fleet. Answer correctly to sail one leg; the rival sails on its own luck.</p>" +
+          "<div class='field'><label for='soloName'>Your ship’s name</label><input type='text' id='soloName' value='" + esc(store.get("soloName", "") || "My caravel") + "'></div>" +
+          "<div class='field'><label for='soloLevel'>Rival speed</label><select id='soloLevel'>" + Object.keys(BOT).map(k => "<option value='" + k + "'" + (k === "med" ? " selected" : "") + ">" + BOT[k].label + "</option>").join("") + "</select></div>" +
+          "<button class='btn primary big' id='startSolo'>Start solo race</button></div>" +
+      "</div>";
+    const drawInputs = () => {
+      const k = +$("#teamCount").value, saved = store.get("teamNames", DEFAULT_NAMES);
+      $("#teamInputs").innerHTML = Array.from({ length: k }, (_, i) =>
+        "<div class='ti'><span class='swatch' style='background:var(" + TEAM_COLORS[i] + ")'></span><input type='text' id='team" + i + "' aria-label='Team " + (i + 1) + " name' value='" + esc(saved[i] || DEFAULT_NAMES[i]) + "'></div>").join("");
+    };
+    $("#teamCount").onchange = () => { store.set("teamCount", +$("#teamCount").value); drawInputs(); };
+    drawInputs();
+    $("#startClass").onclick = () => {
+      const k = +$("#teamCount").value;
+      const names = Array.from({ length: k }, (_, i) => ($("#team" + i).value.trim() || DEFAULT_NAMES[i]));
+      store.set("teamNames", names.concat(DEFAULT_NAMES.slice(k)));
+      G = { mode: "class", teams: names.map((nm, i) => ({ name: nm, color: TEAM_COLORS[i], pos: 0 })), deck: shuffle(GQ), qi: 0, phase: "ask", picks: new Set(), secs: +$("#timerSecs").value, winners: null };
+      document.body.classList.add("projector"); $("#gameHead").hidden = true;
+      renderGame();
+    };
+    $("#startSolo").onclick = () => {
+      const nm = $("#soloName").value.trim() || "My caravel"; store.set("soloName", nm);
+      const lvl = $("#soloLevel").value;
+      G = { mode: "solo", lvl, teams: [{ name: nm, color: "--t2", pos: 0 }, { name: "Rival fleet", color: "--t1", pos: 0 }], deck: shuffle(GQ), qi: 0, phase: "ask", choice: null, winners: null, right: 0, asked: 0 };
+      renderGame();
+    };
+  }
+
+  function raceHTML() {
+    const ticks = ROUTE.map((p, i) => {
+      const cls = "tick" + (i === 0 || i === LEGS ? " end" : " mid") + (i % 2 ? " alt" : "");
+      return "<span class='" + cls + "' style='left:" + (i * 10) + "%'>" + p + "</span>";
+    }).join("");
+    return "<div class='card race'><div class='route-ruler'><span></span><div class='ticks' style='margin:0 26px 0 4px;'>" + ticks + "</div></div>" +
+      G.teams.map((t, i) =>
+        "<div class='lane'><div class='tname'><span class='swatch' style='background:var(" + t.color + ")'></span><span class='n'>" + esc(t.name) + "</span><span class='legs'>" + t.pos + "/" + LEGS + "</span></div>" +
+        "<div class='water'><div class='goal-flag'></div><div class='ship' id='ship" + i + "' style='left:calc(" + (t.pos / LEGS) + " * (100% - 52px))'>" + shipSVG(t.color) + "</div></div></div>").join("") +
+      "</div>";
+  }
+
+  function renderGame() {
+    stopTimer();
+    const q = G.deck[G.qi % G.deck.length];
+    if (!G.opts || G.optsFor !== G.qi) { G.opts = shuffle(q.slice(1).map((t, k) => ({ t, ok: k === 0 }))); G.optsFor = G.qi; }
+    let html = "<div class='row' style='justify-content:space-between; margin-bottom:10px;'>" +
+      "<strong style='font-family:var(--f-display); font-size:1.3rem; font-style:italic;'>Review Race · Lisbon to Calicut</strong>" +
+      "<div class='row'>" + (G.mode === "class" ? "<button class='btn' id='projToggle'>" + (document.body.classList.contains("projector") ? "Show menu" : "Projector view") + "</button>" : "") +
+      "<button class='btn' id='quitRace'>End race</button></div></div>" + raceHTML();
+
+    if (G.winners) {
+      const names = G.winners.map(i => esc(G.teams[i].name)).join(" and ");
+      let sub = G.mode === "solo"
+        ? (G.winners.includes(0) ? "You reached Calicut" + (G.winners.length > 1 ? " at the same time as the rival fleet" : " first") + ". You got " + G.right + " of " + G.asked + " questions right." : "The rival fleet reached Calicut first. You got " + G.right + " of " + G.asked + " questions right. Try again?")
+        : "After " + (G.qi) + " questions.";
+      html += "<div class='card banner'><h3>" + names + " reach" + (G.winners.length > 1 ? "" : "es") + " Calicut!</h3><p>" + sub + "</p><div class='row' style='justify-content:center;'><button class='btn primary big' id='again'>Race again</button><button class='btn' id='toSetup'>Change setup</button></div></div>";
+      root.innerHTML = html; wireTop();
+      $("#again").onclick = () => { G.teams.forEach(t => t.pos = 0); G.deck = shuffle(GQ); G.qi = 0; G.phase = "ask"; G.winners = null; G.picks = new Set(); G.right = 0; G.asked = 0; G.choice = null; renderGame(); };
+      $("#toSetup").onclick = renderSetup;
+      return;
+    }
+
+    const revealed = G.phase !== "ask";
+    html += "<div class='card gq'><div class='qmeta'><span>Question " + (G.qi + 1) + "</span>" + (G.mode === "class" && G.secs && !revealed ? "<span class='timer' id='timer'>" + G.secs + "</span>" : "") + "</div>" +
+      "<div class='gprompt'>" + esc(q[0]) + "</div><div class='opts'>" +
+      G.opts.map((o, k) => {
+        let cls = "opt";
+        if (revealed && o.ok) cls += " right";
+        if (revealed && G.mode === "solo" && k === G.choice && !o.ok) cls += " wrong";
+        const dis = G.mode === "class" || revealed;
+        return "<button class='" + cls + "' data-k='" + k + "'" + (dis ? " disabled" : "") + "><span class='letter'>" + LETTERS[k] + "</span><span>" + esc(o.t) + "</span></button>";
+      }).join("") + "</div>";
+
+    if (G.mode === "class") {
+      if (!revealed) html += "<div class='row' style='margin-top:14px;'><button class='btn primary big' id='reveal'>Reveal answer</button></div>";
+      else html += "<div style='margin-top:14px; font-weight:700;'>Which teams got it right?</div><div class='chips'>" +
+        G.teams.map((t, i) => "<button class='chip' data-t='" + i + "' aria-pressed='" + G.picks.has(i) + "'><span class='swatch' style='background:var(" + t.color + ")'></span>" + esc(t.name) + "</button>").join("") +
+        "</div><div class='row'><button class='btn primary big' id='sail'>Sail! Next question</button></div>";
+    } else if (revealed) {
+      const ok = G.opts[G.choice].ok;
+      html += "<div class='feedback'><strong>" + (ok ? "Correct, you sail one leg." : "Not quite.") + "</strong> " + (G.botMoved ? "The rival fleet sailed one leg." : "The rival fleet was becalmed.") + "</div>" +
+        "<div class='row' style='margin-top:12px;'><button class='btn primary big' id='nextQ'>Next question</button></div>";
+    }
+    html += "</div>";
+    root.innerHTML = html; wireTop();
+
+    if (G.mode === "class") {
+      if (!revealed) {
+        $("#reveal").onclick = () => { G.phase = "mark"; renderGame(); };
+        if (G.secs) {
+          let left = G.secs; const el = $("#timer");
+          timerId = setInterval(() => { left--; if (!el.isConnected) return stopTimer(); el.textContent = Math.max(left, 0); el.classList.toggle("low", left <= 5); if (left <= 0) { stopTimer(); chime(false); } }, 1000);
+        }
+      } else {
+        root.querySelectorAll(".chip").forEach(c => c.onclick = () => {
+          const i = +c.dataset.t; G.picks.has(i) ? G.picks.delete(i) : G.picks.add(i);
+          c.setAttribute("aria-pressed", G.picks.has(i));
+        });
+        $("#sail").onclick = () => {
+          const movers = [...G.picks];
+          movers.forEach(i => G.teams[i].pos = Math.min(LEGS, G.teams[i].pos + 1));
+          if (movers.length) chime(true);
+          animateThen(() => {
+            const w = G.teams.map((t, i) => t.pos >= LEGS ? i : -1).filter(i => i >= 0);
+            G.qi++; G.phase = "ask"; G.picks = new Set();
+            if (w.length) G.winners = w;
+            renderGame();
+          });
+        };
+      }
+    } else {
+      if (!revealed) {
+        root.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+          G.choice = +b.dataset.k; G.phase = "result"; G.asked++;
+          const ok = G.opts[G.choice].ok;
+          if (ok) { G.right++; G.teams[0].pos = Math.min(LEGS, G.teams[0].pos + 1); }
+          G.botMoved = Math.random() < BOT[G.lvl].p;
+          if (G.botMoved) G.teams[1].pos = Math.min(LEGS, G.teams[1].pos + 1);
+          chime(ok);
+          renderGame();
+        });
+      } else {
+        $("#nextQ").onclick = () => {
+          const w = G.teams.map((t, i) => t.pos >= LEGS ? i : -1).filter(i => i >= 0);
+          G.qi++; G.phase = "ask"; G.choice = null;
+          if (w.length) G.winners = w;
+          renderGame();
+        };
+      }
+    }
+  }
+  function animateThen(fn) {
+    G.teams.forEach((t, i) => { const s = $("#ship" + i); if (s) s.style.left = "calc(" + (t.pos / LEGS) + " * (100% - 52px))"; });
+    const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setTimeout(fn, reduce ? 0 : 950);
+  }
+  function wireTop() {
+    const p = $("#projToggle");
+    if (p) p.onclick = () => { document.body.classList.toggle("projector"); $("#gameHead").hidden = document.body.classList.contains("projector"); p.textContent = document.body.classList.contains("projector") ? "Show menu" : "Projector view"; };
+    $("#quitRace").onclick = renderSetup;
+  }
+  renderSetup();
+
+  /* ---------- initial route ---------- */
+  const startPane = (location.hash || "").slice(1);
+  if (["start", "ways", "check", "concepts", "saq", "mcq", "game"].includes(startPane)) show(startPane);
+  window.addEventListener("hashchange", () => { const h = location.hash.slice(1); if (h) show(h); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AP World History Unit 2 Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EFE6D2;
+    --paper-raised: #F7F0E1;
+    --paper-dark: #E4D5B4;
+    --ink: #2A2117;
+    --ink-soft: #6B5D48;
+    --gold: #93641B;
+    --gold-soft: #C79A3F;
+    --indigo: #1F3A5C;
+    --sage: #43613C;
+    --sage-bg: #DCE6D3;
+    --brick: #8B3A3A;
+    --brick-bg: #F0DCDA;
+    --rule: rgba(42,33,23,0.18);
+    --shadow: rgba(42,33,23,0.16);
+    color-scheme: light;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1C1812; --paper-raised: #26201A; --paper-dark: #302820;
+      --ink: #EDE3CF; --ink-soft: #B7A88C; --gold: #D2A44C; --gold-soft: #E4C27C;
+      --indigo: #7C9FC6; --sage: #9BC28C; --sage-bg: #263524;
+      --brick: #E09A9A; --brick-bg: #3A2424;
+      --rule: rgba(237,227,207,0.16); --shadow: rgba(0,0,0,0.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1C1812; --paper-raised: #26201A; --paper-dark: #302820;
+    --ink: #EDE3CF; --ink-soft: #B7A88C; --gold: #D2A44C; --gold-soft: #E4C27C;
+    --indigo: #7C9FC6; --sage: #9BC28C; --sage-bg: #263524;
+    --brick: #E09A9A; --brick-bg: #3A2424;
+    --rule: rgba(237,227,207,0.16); --shadow: rgba(0,0,0,0.4);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: inherit; }
+  html, body { margin: 0; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Karla", -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display {
+    font-family: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    font-weight: 600; letter-spacing: 0.01em; margin: 0;
+  }
+
+  .shell { position: relative; max-width: 1180px; margin: 0 auto; padding: 28px 24px 60px; }
+
+  /* attribution: top right of the first page, clear of the headings */
+  .attribution {
+    position: absolute; top: 12px; right: 24px; z-index: 5;
+    font-size: 0.72rem; line-height: 1.3; color: var(--ink-soft);
+    background: var(--paper-raised); border: 1px solid var(--rule);
+    border-radius: 3px; padding: 4px 10px; max-width: 170px; text-align: right;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  @media (max-width: 700px) {
+    .attribution { position: static; margin: 0 auto 12px; max-width: none; width: fit-content; text-align: center; }
+  }
+
+  header.masthead { border-bottom: 3px double var(--ink); padding: 34px 0 18px; margin-bottom: 22px; }
+  @media (max-width: 700px) { header.masthead { padding-top: 6px; } }
+  .kicker { font-size: 0.82rem; color: var(--gold); font-weight: 700; }
+  h1.title { font-size: clamp(1.9rem, 4vw, 2.9rem); font-style: italic; margin-top: 4px; }
+  .subtitle { color: var(--ink-soft); font-size: 0.95rem; margin-top: 6px; max-width: 70ch; line-height: 1.5; }
+
+  .layout { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: start; }
+  @media (max-width: 780px) { .layout { grid-template-columns: 1fr; } }
+  nav.index { position: sticky; top: 18px; border-right: 1px solid var(--rule); padding-right: 18px; }
+  @media (max-width: 780px) {
+    nav.index { position: static; border-right: none; border-bottom: 1px solid var(--rule);
+      padding-right: 0; padding-bottom: 14px; display: flex; gap: 6px; overflow-x: auto; }
+  }
+  .index-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 10px; }
+  @media (max-width: 780px) { .index-label { display: none; } }
+  .navbtn {
+    display: block; width: 100%; text-align: left; background: none; border: none;
+    font-family: "Karla", sans-serif; font-size: 0.92rem; color: var(--ink-soft);
+    padding: 8px 4px; cursor: pointer; border-left: 3px solid transparent; margin-left: -3px;
+  }
+  .navbtn:hover { color: var(--ink); }
+  .navbtn.active { color: var(--ink); border-left-color: var(--gold); font-weight: 600; }
+  @media (max-width: 780px) {
+    .navbtn { white-space: nowrap; border-left: none; border-bottom: 3px solid transparent; margin-left: 0; padding: 6px 10px; width: auto; }
+    .navbtn.active { border-bottom-color: var(--gold); }
+  }
+
+  main { min-width: 0; }
+  section.pane { display: none; }
+  section.pane.active { display: block; }
+  .pane-head { margin-bottom: 18px; }
+  .pane-head h2 { font-size: 1.5rem; font-style: italic; }
+  .pane-head p { color: var(--ink-soft); font-size: 0.92rem; margin: 4px 0 0; max-width: 68ch; line-height: 1.5; }
+
+  .card { background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 0 1px 2px var(--shadow); }
+  .pad { padding: 18px 22px; }
+
+  .btn {
+    font-family: "Karla", sans-serif; font-size: 0.86rem; font-weight: 600;
+    padding: 8px 16px; border-radius: 4px; border: 1px solid var(--ink);
+    background: transparent; color: var(--ink); cursor: pointer;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.primary { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .btn.primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+  .btn.small { padding: 4px 11px; font-size: 0.78rem; }
+  .btn.on { background: var(--ink); color: var(--paper); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+  .badge {
+    display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 3px; border: 1px solid;
+    white-space: nowrap;
+  }
+  .badge.real { color: var(--sage); border-color: var(--sage); background: var(--sage-bg); }
+  .badge.ai { color: var(--gold); border-color: var(--gold-soft); background: var(--paper); }
+
+  /* ---- toolkit ---- */
+  .tk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 18px; }
+  .tk-card h3 { font-size: 1.15rem; font-style: italic; color: var(--gold); margin-bottom: 6px; }
+  .tk-card p, .tk-card li { font-size: 0.9rem; line-height: 1.5; margin: 0 0 6px; }
+  .tk-card ul { margin: 0; padding-left: 18px; }
+  .callout { border-left: 3px solid var(--indigo); background: var(--paper-raised); padding: 10px 14px; font-size: 0.88rem; line-height: 1.5; margin-bottom: 18px; }
+  .callout.warn { border-left-color: var(--brick); }
+  .chain-demo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0 4px; }
+  .chain-demo .node { background: var(--paper); border: 1px solid var(--ink); border-radius: 4px; padding: 6px 10px; font-size: 0.82rem; }
+  .chain-demo .arr { color: var(--gold); font-weight: 700; }
+  table.sig { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  table.sig th { text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); padding: 8px; border-bottom: 1px solid var(--rule); }
+  table.sig td { padding: 8px; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.45; }
+  table.sig tr:last-child td { border-bottom: none; }
+
+  /* ---- pickers ---- */
+  .filterbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; font-size: 0.82rem; color: var(--ink-soft); }
+  .picker { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; margin-bottom: 18px; }
+  .pick {
+    text-align: left; font-family: "Karla", sans-serif; background: var(--paper-raised);
+    border: 1px solid var(--rule); border-radius: 5px; padding: 9px 11px; cursor: pointer; color: var(--ink);
+  }
+  .pick:hover { border-color: var(--gold-soft); }
+  .pick.active { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-soft) inset; }
+  .pick .pt { font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; display: block; }
+  .pick .best { font-size: 0.72rem; color: var(--ink-soft); margin-left: 6px; }
+
+  /* ---- passage ---- */
+  .ptitle { font-size: 1.35rem; font-style: italic; margin-bottom: 4px; }
+  .psource { font-size: 0.78rem; color: var(--ink-soft); line-height: 1.4; margin-bottom: 10px; }
+  .ask { background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; padding: 10px 14px; margin-bottom: 14px; font-size: 0.86rem; line-height: 1.5; }
+  .ask .ask-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--indigo); margin-bottom: 4px; }
+  .ask ol { margin: 4px 0 0; padding-left: 20px; }
+  .ptext { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.12rem; line-height: 1.65; }
+  .ptext .snum { font-family: "Karla", sans-serif; font-size: 0.62rem; color: var(--gold); font-weight: 700; margin-right: 2px; vertical-align: super; }
+  .ptext mark.key { background: var(--sage-bg); color: inherit; padding: 0 1px; }
+  .pnote { font-size: 0.76rem; color: var(--ink-soft); margin-top: 8px; font-style: italic; }
+
+  /* ---- board ---- */
+  .board-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 16px 0 6px; }
+  .tray { min-height: 56px; display: flex; flex-direction: column; gap: 8px; padding: 10px; border: 1px dashed var(--rule); border-radius: 6px; background: var(--paper-dark); }
+  .tray.dragover { border-color: var(--gold); }
+  .tray-empty { font-size: 0.82rem; color: var(--ink-soft); padding: 6px; font-style: italic; }
+  .dchip {
+    display: flex; gap: 8px; align-items: flex-start; background: var(--paper-raised);
+    border: 1px solid var(--rule); border-radius: 5px; padding: 8px 10px;
+    font-size: 0.88rem; line-height: 1.42; cursor: grab; user-select: none; box-shadow: 0 1px 1px var(--shadow);
+  }
+  .dchip:hover { border-color: var(--gold-soft); }
+  .dchip.selected { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-soft) inset; }
+  .dchip.dragging { opacity: 0.4; }
+  .dchip .tag { flex: 0 0 auto; font-size: 0.68rem; font-weight: 700; color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 3px; padding: 1px 5px; margin-top: 2px; }
+  .dchip.correct { background: var(--sage-bg); border-color: var(--sage); cursor: default; }
+  .dchip.incorrect { background: var(--brick-bg); border-color: var(--brick); cursor: default; }
+  .dchip .mark { margin-left: auto; font-weight: 700; flex: 0 0 auto; }
+  .dchip.correct .mark { color: var(--sage); }
+  .dchip.incorrect .mark { color: var(--brick); }
+  .zones { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+  .zones.chain { grid-template-columns: 1fr; max-width: 640px; gap: 0; }
+  .zone { border: 2px dashed var(--rule); border-radius: 6px; padding: 10px; background: var(--paper-raised); min-height: 110px; }
+  .zone.dragover { border-color: var(--gold); background: var(--paper-dark); }
+  .zone-head { margin-bottom: 8px; }
+  .zone-name { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 1.05rem; }
+  .zone-hint { font-size: 0.76rem; color: var(--ink-soft); line-height: 1.35; }
+  .zone-badge { font-size: 0.68rem; color: var(--indigo); font-weight: 700; margin-left: 6px; }
+  .zone-items { display: flex; flex-direction: column; gap: 8px; min-height: 36px; }
+  .zone-arrow { text-align: center; color: var(--gold); font-size: 1.2rem; line-height: 1.6; }
+  .status { text-align: center; margin: 14px 0 0; font-size: 0.95rem; color: var(--ink-soft); min-height: 1.4em; }
+  .status.good { color: var(--sage); font-weight: 600; }
+  .status.bad { color: var(--brick); font-weight: 600; }
+
+  .qcount { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin: 16px 0 6px; }
+  .qprompt { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.35rem; font-weight: 600; line-height: 1.3; padding: 12px 16px; border-left: 3px solid var(--indigo); background: var(--paper); border-radius: 0 4px 4px 0; }
+  .qhelp { font-size: 0.8rem; color: var(--ink-soft); margin-top: 6px; }
+  .pick-group { grid-column: 1 / -1; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); font-weight: 700; margin-top: 8px; }
+  .prog-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .prog-tile { background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; box-shadow: 0 1px 2px var(--shadow); }
+  .prog-tile .pt-name { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
+  .prog-tile .pt-num { font-family: "Cormorant Garamond", serif; font-size: 1.8rem; font-weight: 700; line-height: 1.1; }
+  .prog-tile .pt-sub { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 8px; }
+  .prog-bar { height: 6px; background: var(--paper-dark); border-radius: 3px; overflow: hidden; }
+  .prog-bar > span { display: block; height: 100%; background: var(--sage); }
+  .prog-h { font-size: 1.15rem; font-style: italic; color: var(--gold); margin: 0 0 8px; }
+  .navbtn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .start-total { display: flex; align-items: baseline; gap: 12px; padding: 14px 22px; margin-bottom: 14px; }
+  .start-total .st-big { font-family: "Cormorant Garamond", serif; font-size: 3rem; font-weight: 700; line-height: 1; color: var(--gold); }
+  .start-total .st-lab { font-size: 1rem; font-weight: 600; }
+  .start-bar { display: flex; height: 34px; border-radius: 5px; overflow: hidden; border: 1px solid var(--rule); margin-bottom: 6px; }
+  .start-bar span { display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; color: var(--paper); white-space: nowrap; }
+  .start-bar .sb-mcq { width: 48%; background: var(--gold); }
+  .start-bar .sb-text { width: 32%; background: var(--indigo); }
+  .start-bar .sb-hrp { width: 20%; background: var(--sage); }
+  .start-legend { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 18px; }
+  .start-parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin-bottom: 18px; }
+  .start-part { padding: 16px 18px; }
+  .start-part .sp-pts { font-family: "Cormorant Garamond", serif; font-size: 1.9rem; font-weight: 700; line-height: 1; }
+  .start-part .sp-pct { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 6px; }
+  .start-part h3 { font-size: 1.1rem; font-style: italic; color: var(--gold); margin: 0 0 6px; }
+  .start-part p { font-size: 0.88rem; line-height: 1.5; margin: 0 0 6px; }
+  .start-part.p-mcq { border-top: 4px solid var(--gold); }
+  .start-part.p-text { border-top: 4px solid var(--indigo); }
+  .start-part.p-hrp { border-top: 4px solid var(--sage); }
+  .start-where { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .start-where th { text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); padding: 8px; border-bottom: 1px solid var(--rule); }
+  .start-where td { padding: 9px 8px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+  .start-where tr:last-child td { border-bottom: none; }
+  .results { margin-top: 16px; }
+  .res-item { padding: 12px 4px; border-top: 1px solid var(--rule); font-size: 0.88rem; line-height: 1.5; }
+  .res-item:first-child { border-top: none; }
+  .res-top { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px; }
+  .res-top .tag { font-size: 0.68rem; font-weight: 700; color: var(--gold); border: 1px solid var(--gold-soft); border-radius: 3px; padding: 1px 5px; }
+  .res-text { font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.02rem; font-style: italic; }
+  .res-text mark { background: var(--sage-bg); color: inherit; font-style: normal; font-weight: 600; padding: 0 1px; }
+  .res-line { margin: 3px 0 0; }
+  .res-line .ok { color: var(--sage); font-weight: 700; }
+  .res-line .no { color: var(--brick); font-weight: 700; }
+  .res-why { color: var(--ink-soft); margin-top: 3px; }
+  .res-keylabel { font-size: 0.74rem; color: var(--indigo); }
+
+  /* ---- progress ---- */
+  table.prog { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  table.prog th { text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); padding: 10px 8px; border-bottom: 1px solid var(--rule); }
+  table.prog td { padding: 8px; border-bottom: 1px solid var(--rule); }
+  table.prog tr:last-child td { border-bottom: none; }
+  .ptag { display: inline-block; font-size: 0.76rem; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--rule); }
+  .ptag.yes { border-color: var(--sage); background: var(--sage-bg); color: var(--sage); }
+  .ptag.part { border-color: var(--gold-soft); color: var(--gold); }
+  .ptag.no { color: var(--ink-soft); }
+
+  .footer-note { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--rule); font-size: 0.8rem; color: var(--ink-soft); line-height: 1.5; }
+  /* ---- historical reasoning identification ---- */
+  .saq-stim { background: var(--paper-dark); border-radius: 5px; padding: 14px 16px; margin-bottom: 16px; }
+  #leqStimText { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.05rem; line-height: 1.5; }
+  .hri-streak { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 16px 0 6px; font-size: 0.9rem; }
+  .streak-dots { display: inline-flex; gap: 5px; }
+  .streak-dot { width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--ink-soft); }
+  .streak-dot.on { background: var(--sage); border-color: var(--sage); }
+  .streak-mastered { color: var(--sage); font-weight: 700; }
+  .leq-prompt { font-size: 1.3rem; line-height: 1.4; }
+  .leq-prompt mark { background: var(--sage-bg); color: inherit; padding: 0 3px; border-radius: 2px; }
+  .leq-guide summary { cursor: pointer; font-weight: 600; font-size: 0.92rem; }
+  .leq-guide .tk-card h3 { font-size: 1.05rem; font-style: italic; color: var(--gold); margin-bottom: 4px; }
+  .leq-guide .tk-card p { font-size: 0.86rem; line-height: 1.5; margin: 0; }
+  .leq-thesis { font-size: 0.88rem; line-height: 1.5; color: var(--ink); margin: 8px 0; }
+  .leq-clue { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; }
+  /* ---- practice MCQs ---- */
+  .quiz-score { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 14px; }
+  .quiz-card { padding: 26px 28px; max-width: 640px; margin: 0 auto; }
+  .quiz-prompt-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 8px; }
+  .quiz-prompt { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600; line-height: 1.3; margin-bottom: 20px; }
+  .quiz-options { display: grid; gap: 10px; }
+  .quiz-option {
+    text-align: left; background: var(--paper); border: 1px solid var(--rule); border-radius: 5px;
+    padding: 12px 14px; font-family: "Karla", sans-serif; font-size: 0.92rem; cursor: pointer; color: var(--ink);
+    transition: border-color .15s, background .15s;
+  }
+  .quiz-option:hover { border-color: var(--gold-soft); }
+  .quiz-option.correct { background: var(--sage-bg); border-color: var(--sage); color: var(--ink); }
+  .quiz-option.incorrect { background: var(--brick-bg); border-color: var(--brick); color: var(--ink); }
+  .quiz-option:disabled { cursor: default; }
+  .quiz-feedback { margin-top: 16px; font-size: 0.9rem; min-height: 1.4em; }
+  .quiz-feedback.correct { color: var(--sage); }
+  .quiz-feedback.incorrect { color: var(--brick); }
+  .quiz-actions { margin-top: 18px; justify-content: flex-end; }
+  .mcq-gate { max-width: 760px; margin: 0 auto 22px; padding: 22px 26px; border: 1px solid var(--brick); }
+  .mcq-gate-title { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.2rem; color: var(--brick); margin-bottom: 10px; }
+  .mcq-gate-text p { font-size: 0.9rem; line-height: 1.55; margin: 0 0 12px; color: var(--ink); }
+  .mcq-gate-text p:last-child { margin-bottom: 0; }
+  .mcq-reminder { max-width: 900px; margin: 0 auto 16px; padding: 8px 14px; border-left: 3px solid var(--brick); background: var(--paper-raised); font-size: 0.8rem; line-height: 1.5; color: var(--ink-soft); }
+  .stimulus-box {
+    max-width: 900px; margin: 0 auto 16px; padding: 18px 22px; background: var(--paper-dark);
+    position: sticky; top: calc(env(safe-area-inset-top, 0px) + 40px); z-index: 20; box-shadow: 0 2px 8px var(--shadow);
+  }
+  .stimulus-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 6px; }
+  #pmcqStimulusText { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.08rem; line-height: 1.55; }
+  .stimulus-source { margin-top: 10px; font-size: 0.78rem; color: var(--ink-soft); font-style: italic; }
+  @media (max-width: 900px), (max-height: 760px) { .stimulus-box { position: static; } }
+  .mcq-wrong-line, .mcq-correct-line, .mcq-flag-line { font-size: 0.9rem; line-height: 1.5; margin-bottom: 8px; }
+  .mcq-wrong-line { color: var(--brick); }
+  .mcq-correct-line { color: var(--sage); }
+  .mcq-flag-line { color: var(--gold); font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <div class="attribution">Prepared with AI support, reviewed by Mr. Johnson</div>
+
+  <header class="masthead">
+    <div class="kicker">Networks of Exchange &nbsp;·&nbsp; c. 1200–1450</div>
+    <h1 class="title">AP World History Unit 2 Review</h1>
+  </header>
+
+  <div class="layout">
+    <nav class="index" id="navBar">
+      <div class="index-label">Sections</div>
+      <button class="navbtn active" data-pane="start">Start Here</button>
+      <button class="navbtn" data-pane="toolkit">Causation Toolkit</button>
+      <button class="navbtn" data-pane="quiz">Answer the Questions</button>
+      <button class="navbtn" data-pane="leq">Historical Reasoning Identification</button>
+      <button class="navbtn" data-pane="pmcq">Practice MCQs</button>
+      <button class="navbtn" data-pane="progress">My Progress</button>
+    </nav>
+
+    <main>
+      <!-- ============ TOOLKIT ============ -->
+      <!-- ============ START HERE ============ -->
+      <section class="pane active" id="pane-start">
+        <div class="pane-head">
+          <h2>Start Here: How the Unit 2 Test Works</h2>
+          <p>Read this page first. It explains what the test looks like, what each part is worth, and how to use this tool. The other sections unlock when you have read it.</p>
+        </div>
+
+        <div class="start-total card"><span class="st-big">25</span><span class="st-lab">points: the whole test is worth 25 points</span></div>
+        <div class="start-bar" role="img" aria-label="Share of the test: multiple choice 48 percent, causation analysis 32 percent, historical reasoning process recognition 20 percent">
+          <span class="sb-mcq">48%</span><span class="sb-text">32%</span><span class="sb-hrp">20%</span>
+        </div>
+        <div class="start-legend">How the 25 points are split: multiple choice (gold, 48%), causation analysis (blue, 32%), and process recognition (green, 20%).</div>
+
+        <div class="start-parts">
+          <div class="card start-part p-mcq">
+            <div class="sp-pts">12 pts</div><div class="sp-pct">48% of the test</div>
+            <h3>15 AP-style multiple-choice questions</h3>
+            <p>Your goal is to get <strong>12 correct</strong>.</p>
+            <p>If you get more than 12 correct, you earn (at most) <strong>one bonus point</strong>.</p>
+          </div>
+          <div class="card start-part p-text">
+            <div class="sp-pts">8 pts</div><div class="sp-pct">32% of the test</div>
+            <h3>Causation analysis</h3>
+            <p>Analyze the paragraphs to determine various types of <strong>causes and effects</strong>.</p>
+          </div>
+          <div class="card start-part p-hrp">
+            <div class="sp-pts">5 pts</div><div class="sp-pct">20% of the test</div>
+            <h3>Historical reasoning process recognition</h3>
+            <p>You will read an essay prompt and identify, and perhaps explain, which of the three it is asking for: <strong>causation</strong>, <strong>comparison</strong>, or <strong>continuity and change</strong>.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Study with the percentages in mind.</strong> Nearly half of the test (48%) is multiple choice, so nearly half of your study time should go to the content those questions cover. Causation analysis is about a third (32%). Process recognition is a fifth (20%), and it is the most learnable part: there are only three possible answers, so a little focused practice goes a long way. Of course, you may decide to study one of these parts more (the MCQs, for example) if it feels more challenging for you than the others. The percentages are a starting point, not a rule.
+        </div>
+        <div class="callout warn">
+          <strong>Finish most of your studying first.</strong> This tool is for quizzing yourself, not for learning the material for the first time. Do your studying with your notes, your textbook, and your class materials, then come here to check what you know. Think of it as a practice test, not a study guide.
+        </div>
+
+        <div class="card" style="padding: 6px 18px; margin-bottom: 18px;">
+          <table class="start-where">
+            <thead><tr><th>Part of the test</th><th>Practice it here</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>15 multiple-choice questions</td><td>Practice MCQs</td><td><button class="btn small goto-btn" data-pane="pmcq" disabled>Go</button></td></tr>
+              <tr><td>Causation analysis</td><td>Causation Toolkit and Answer the Questions</td><td><button class="btn small goto-btn" data-pane="toolkit" disabled>Go</button></td></tr>
+              <tr><td>Historical reasoning process recognition</td><td>Historical Reasoning Identification</td><td><button class="btn small goto-btn" data-pane="leq" disabled>Go</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row" style="justify-content:center; margin-top:6px;">
+          <button class="btn primary" id="startAckBtn">I’ve read this. Let’s start.</button>
+        </div>
+        <p class="pnote" id="startAckNote" style="text-align:center;"></p>
+      </section>
+
+      <section class="pane" id="pane-toolkit">
+        <div class="pane-head">
+          <h2>Causation Toolkit</h2>
+          <p>Read this once, then go practice. For every sentence, ask: what is this sentence’s job in the paragraph?</p>
+        </div>
+
+        <div class="tk-grid">
+          <div class="card pad tk-card">
+            <h3>Cause</h3>
+            <p>Why something happened. A paragraph can give you more than one cause of the same thing.</p>
+          </div>
+          <div class="card pad tk-card">
+            <h3>Effect</h3>
+            <p>What happened because of a cause. One cause can have several effects.</p>
+          </div>
+          <div class="card pad tk-card">
+            <h3>Main effect</h3>
+            <p>The big result the whole paragraph is explaining. When a paragraph lists several causes, they usually all lead to one main effect.</p>
+          </div>
+          <div class="card pad tk-card">
+            <h3>Root cause</h3>
+            <p>The <em>first</em> cause in a chain. It starts the other causes in motion.</p>
+            <div class="chain-demo">
+              <span class="node">Plague kills workers<br><small>root cause</small></span><span class="arr">→</span>
+              <span class="node">Labor shortage<br><small>cause</small></span><span class="arr">→</span>
+              <span class="node">Higher wages<br><small>main effect</small></span>
+            </div>
+          </div>
+          <div class="card pad tk-card">
+            <h3>Neither</h3>
+            <p>Some sentences give background or description. They are <strong>neither</strong> a cause nor an effect: where something is, what something was, or a fact that doesn’t explain why anything happened.</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Two quick tests.</strong> Cause test: can you put “because of this…” in front of the next event? Effect test: can you put “as a result…” in front of it? If neither fits, the sentence is probably background.
+        </div>
+
+        <div class="card pad" style="margin-bottom:18px;">
+          <h3 class="display" style="font-size:1.15rem; font-style:italic; color:var(--gold); margin-bottom:8px;">Signal words</h3>
+          <table class="sig">
+            <thead><tr><th>Type</th><th>Look for</th><th>Careful</th></tr></thead>
+            <tbody>
+              <tr><td>Cause cues</td><td>because, since, due to, to prepare for, required, the reason</td><td>“Then” and “following” show time order, not necessarily cause.</td></tr>
+              <tr><td>Effect cues</td><td>as a result, led to, resulted in, therefore, so, which made, allowed</td><td>“Meanwhile” and “at the same time” usually mean a separate event.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card pad">
+          <h3 class="display" style="font-size:1.15rem; font-style:italic; color:var(--gold); margin-bottom:8px;">About these passages</h3>
+          <p style="font-size:0.9rem; line-height:1.55; margin:0;"><span class="badge ai">AI-written</span> Every passage here was written by Claude to practice a specific skill. <strong>None is a real quotation. Don’t cite them.</strong> The facts are meant to be accurate, but double-check against your notes.</p>
+        </div>
+      </section>
+
+      <!-- ============ QUESTIONS ============ -->
+      <section class="pane" id="pane-quiz">
+        <div class="pane-head">
+          <h2>Answer the Questions</h2>
+          <p>Practice finding root causes, causes, main effects, and effects inside narrative paragraphs, from short and simple (Level 1) to long and tricky (Level 3). Read the paragraph, then answer each question (“What is the cause?” “Identify two effects of…” “Identify the root cause of…”) by dragging the right sentence into the answer box. On a phone, tap a sentence, then tap the box. After you check, the part of the sentence that does the causal work is highlighted and explained.</p>
+        </div>
+        <div class="filterbar" id="quizFilter"></div>
+        <div class="picker" id="quizPicker"></div>
+        <div class="card pad" id="quizCard">
+          <div class="ptitle" id="quizTitle"></div>
+          <div class="psource" id="quizSource"></div>
+          <div class="ptext" id="quizText"></div>
+          <div class="pnote" id="quizNote"></div>
+
+          <div class="qcount" id="quizCount"></div>
+          <div class="qprompt" id="quizPrompt"></div>
+          <div class="qhelp" id="quizHelp"></div>
+          <div class="board-label">Sentences to choose from</div>
+          <div class="tray" id="quizTray"></div>
+          <div class="board-label">Your answer</div>
+          <div class="zones" id="quizZones"></div>
+          <div class="status" id="quizStatus"></div>
+          <div class="row" style="justify-content:center; margin-top:12px;">
+            <button class="btn primary" id="quizCheck">Check my answer</button>
+            <button class="btn" id="quizReset">Clear</button>
+            <button class="btn" id="quizPrev">&larr; Previous passage</button>
+            <button class="btn" id="quizNext">Next question &rarr;</button>
+          </div>
+          <div class="results" id="quizResults"></div>
+        </div>
+      </section>
+
+      <!-- ============ HISTORICAL REASONING IDENTIFICATION ============ -->
+      <section class="pane" id="pane-leq">
+        <div class="pane-head">
+          <h2>Historical Reasoning Identification</h2>
+          <p>Every AP essay prompt and short-answer question asks for one of three kinds of thinking: causation, comparison, or continuity and change. Some items below are written like essay (LEQ) prompts and some like short-answer (SAQ) parts. Read each one, decide which kind it is, then see which words gave it away. The items start easier and generally get harder. <strong>To show mastery, get FIVE in a row right.</strong></p>
+        </div>
+        <details class="card pad leq-guide">
+          <summary>Quick guide to the three types</summary>
+          <div class="callout" style="margin:12px 0;"><strong>Look at the structure, not just the keywords.</strong> One event and its results is causation. Two different subjects in the same period is comparison. One subject followed across a long span of time is continuity and change.</div>
+          <div class="tk-grid">
+            <div class="tk-card"><h3>Causation</h3><p>The essay explains why something happened or what it led to. Words like caused, led to, shaped, accounts for, or made possible often appear, but the structure is what counts.</p></div>
+            <div class="tk-card"><h3>Comparison</h3><p>The essay lines up two or more different subjects side by side. Words like compare, same, alike, than, or like often appear, but the prompt may never say “compare.”</p></div>
+            <div class="tk-card"><h3>Continuity and change</h3><p>The essay follows one subject across a long span of time, often running from one AP period into the next (for example, c. 1200 to c. 1750). Words like changed, remained, persisted, shifted, or transformed often appear, and the prompt may never say “continuity and change.”</p></div>
+          </div>
+        </details>
+        <div class="hri-streak" id="leqStreak"></div>
+        <div class="quiz-score" id="leqScore"></div>
+        <div class="card quiz-card" style="max-width:760px;">
+          <div class="quiz-prompt-label" id="leqLabel"></div>
+          <div class="saq-stim" id="leqStimBox" style="display:none;">
+            <div class="stimulus-label">Stimulus</div>
+            <div id="leqStimText"></div>
+            <div class="stimulus-source" id="leqStimSource"></div>
+          </div>
+          <div class="quiz-prompt leq-prompt" id="leqPrompt"></div>
+          <div class="quiz-options" id="leqOptions"></div>
+          <div class="quiz-feedback" id="leqFeedback"></div>
+          <div class="row quiz-actions" style="justify-content:space-between;">
+            <button class="btn" id="leqPrev">&larr; Previous</button>
+            <button class="btn" id="leqNext">Next &rarr;</button>
+          </div>
+        </div>
+        <div class="row" style="justify-content:center; margin-top:12px;">
+          <button class="btn" id="leqRestart">Restart all</button>
+        </div>
+      </section>
+
+      <!-- ============ PRACTICE MCQs (AI-GENERATED) ============ -->
+      <section class="pane" id="pane-pmcq">
+        <div class="pane-head">
+          <h2>Practice MCQs (AI-Generated)</h2>
+          <p>Stimulus-based multiple choice, in the format the real AP exam uses, covering Unit 2 (Networks of Exchange, c. 1200–1450). Written by Claude to give you extra reps beyond the AP Classroom Progress Check.</p>
+        </div>
+
+        <div class="mcq-gate card" id="mcqGate">
+          <div class="mcq-gate-title">Please read before starting</div>
+          <div class="mcq-gate-text">
+            <p><strong>These questions are not of the same quality or rigor as the questions in the AP Classroom Unit 2 Progress Check.</strong> That said, they make good warm-up MCQs to get you ready for that practice, which is even more highly recommended. Be sure to do the Progress Check and read through its feedback.</p>
+            <p><strong>The passages introducing each set of questions (“stimuli”) are invented.</strong> Claude wrote them to sound like a period document, but they are not real quotations from an actual historical source. Don’t cite them, and don’t assume the wording reflects a real text.</p>
+            <p><strong>This section is also more error-prone than the rest of this study guide.</strong> The cause-and-effect paragraphs are short and every answer is explained sentence by sentence. These questions are AI-generated to mimic the AP question style, so specific facts, dates, and especially the wrong-answer choices could be subtly off.</p>
+          </div>
+          <div class="row" style="justify-content:center; margin-top:14px;">
+            <button class="btn primary" id="mcqAckBtn">I understand — show the questions</button>
+          </div>
+        </div>
+
+        <div id="mcqBody" style="display:none;">
+          <div class="mcq-reminder">Reminder: these are warm-up questions, not the same quality or rigor as the AP Classroom Unit 2 Progress Check (which is even more highly recommended). The stimulus passages are AI-invented, not real historical quotations, and this section is more error-prone than the rest of the guide.</div>
+          <div class="quiz-score" id="pmcqScore"></div>
+          <div class="card stimulus-box" id="pmcqStimulusBox" style="display:none;">
+            <div class="stimulus-label">Stimulus</div>
+            <div id="pmcqStimulusText"></div>
+            <div class="stimulus-source" id="pmcqStimulusSource"></div>
+          </div>
+          <div class="card quiz-card">
+            <div class="quiz-prompt-label" id="pmcqSetLabel"></div>
+            <div class="quiz-prompt" id="pmcqPrompt"></div>
+            <div class="quiz-options" id="pmcqOptions"></div>
+            <div class="quiz-feedback" id="pmcqFeedback"></div>
+            <div class="row quiz-actions" style="justify-content:space-between;">
+              <button class="btn" id="pmcqPrev">&larr; Previous</button>
+              <button class="btn" id="pmcqNext">Next question &rarr;</button>
+            </div>
+          </div>
+          <div class="row" style="justify-content:center; margin-top:12px;">
+            <button class="btn" id="pmcqRestart">Restart all 30</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROGRESS ============ -->
+      <section class="pane" id="pane-progress">
+        <div class="pane-head">
+          <h2>My Progress</h2>
+          <p>A check on every practice part of this tool. Scores are your best so far, and everything is saved in this browser only.</p>
+        </div>
+        <div class="prog-tiles" id="progTiles"></div>
+
+        <h3 class="prog-h">Answer the Questions (paragraphs)</h3>
+        <div class="card" style="padding: 6px 18px; margin-bottom: 20px;">
+          <table class="prog">
+            <thead><tr><th>Passage</th><th>Level</th><th>Points</th></tr></thead>
+            <tbody id="progBody"></tbody>
+          </table>
+        </div>
+
+        <h3 class="prog-h">Historical Reasoning Identification</h3>
+        <div class="card" style="padding: 6px 18px; margin-bottom: 20px;">
+          <table class="prog">
+            <thead><tr><th>Measure</th><th>Result</th><th>Tried</th></tr></thead>
+            <tbody id="leqProgBody"></tbody>
+          </table>
+        </div>
+
+        <h3 class="prog-h">Practice MCQs</h3>
+        <div class="card" style="padding: 6px 18px;">
+          <table class="prog">
+            <thead><tr><th>Set</th><th>Correct</th><th>Tried</th></tr></thead>
+            <tbody id="mcqProgBody"></tbody>
+          </table>
+        </div>
+        <div class="row" style="justify-content:center; margin-top:14px;">
+          <button class="btn" id="progReset">Reset all progress</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="footer-note">
+    All passages are <strong>AI-written</strong> for practice and are not quotations. The answer keys (which sentences answer each question, and why) and the practice MCQs were drafted with AI support. If anything looks off, check it against your notes.
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============ DATA ============ */
+  /*DATA_START*/
+  /* Vocabulary used everywhere: root cause, cause, main effect, effect, neither.
+     Unit fields: id, t (text), z (correct bucket), key (core phrase, highlighted in feedback), why. */
+  const Z = {
+    root:    { id:"root",    label:"Root cause", hint:"The first cause. It sets the other causes in motion." },
+    cause:   { id:"cause",   label:"Cause",      hint:"Why something happened." },
+    effect:  { id:"effect",  label:"Effect",     hint:"What happened because of the cause or the main effect." },
+    main:    { id:"main",    label:"Main effect", hint:"The big result the paragraph is explaining." },
+    neither: { id:"neither", label:"Neither",    hint:"Background or description. Not a cause or an effect." }
+  };
+  const NEITHER_WHY = "Neither a cause nor an effect. It gives background or description but doesn’t explain why something happened or what resulted.";
+
+  const PASSAGES = [
+    {
+      id: "black-death", title: "The Black Death in Europe", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["u1"],["u2"],["u3"],["u4"],["u5"],["u6"]],
+      units: [
+        { id:"u1", t:"In the early 1300s, most Europeans lived in small farming villages.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"u2", t:"In 1347 the Black Death reached Europe, and within a few years it killed roughly one in three people.", z:"cause", key:"the Black Death reached Europe", why:"The cause that the rest of the paragraph follows from. Everything after it describes what happened because of it." },
+        { id:"u3", t:"With so many workers dead, surviving peasants could demand higher wages for their labor.", z:"effect", key:"surviving peasants could demand higher wages for their labor", why:"An effect: fewer workers meant the survivors had more bargaining power." },
+        { id:"u4", t:"Many peasants left their lords’ estates to seek better pay in towns, weakening the old system of serfdom.", z:"effect", key:"Many peasants left their lords’ estates to seek better pay in towns", why:"A second effect: with better pay on offer, many peasants left the estates they had been tied to." },
+        { id:"u5", t:"Fearing the disease, some towns blamed outsiders and minorities, and violent attacks on Jewish communities spread.", z:"effect", key:"violent attacks on Jewish communities spread", why:"A third effect: fear of the disease led people to look for someone to blame." },
+        { id:"u6", t:"Many churches and town councils kept records of burials and deaths.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.effect, Z.neither] }
+    },
+    {
+      id: "yam", title: "The Mongol Relay Network", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["y1"],["y2"],["y3"],["y4"],["y5"],["y6"]],
+      units: [
+        { id:"y1", t:"In the thirteenth century the Mongols ruled the largest land empire in history.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"y2", t:"The khans built a relay system called the yam, with stations a day’s ride apart stocked with fresh horses and food.", z:"cause", key:"The khans built a relay system called the yam", why:"The cause: the yam itself. Every effect listed afterward flows from it." },
+        { id:"y3", t:"Official messengers could now deliver orders across the empire much faster than before.", z:"effect", key:"deliver orders across the empire much faster than before", why:"An effect: faster communication." },
+        { id:"y4", t:"Merchants and diplomats with official passes could rest at the stations, which made long journeys easier and safer.", z:"effect", key:"made long journeys easier and safer", why:"A second effect, signaled by “which made.” Travelers benefited as well as messengers." },
+        { id:"y5", t:"The khans learned of revolts and threats far sooner and could respond more quickly.", z:"effect", key:"learned of revolts and threats far sooner", why:"A third effect: quicker news let the khans react faster." },
+        { id:"y6", t:"Marco Polo later described the yam in his travel account.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.effect, Z.neither] }
+    },
+    {
+      id: "paper", title: "Paper Reaches the Islamic World", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["p1"],["p2"],["p3"],["p4"],["p5"],["p6"]],
+      units: [
+        { id:"p1", t:"Before the eighth century, writing in the Islamic world was done mostly on papyrus and parchment.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"p2", t:"According to tradition, after the Battle of Talas in 751 the Abbasids learned papermaking from captured Chinese craftsmen.", z:"cause", key:"the Abbasids learned papermaking from captured Chinese craftsmen", why:"The cause: the arrival of papermaking. The effects below all follow from it." },
+        { id:"p3", t:"Paper mills soon opened in cities such as Samarkand and Baghdad.", z:"effect", key:"Paper mills soon opened", why:"An effect: the new technology took root in local cities." },
+        { id:"p4", t:"Because paper was cheaper than parchment, books became affordable and bookshops multiplied.", z:"effect", key:"books became affordable and bookshops multiplied", why:"A second effect. “Because” links cheap paper to affordable books." },
+        { id:"p5", t:"Government offices began producing and copying far more records.", z:"effect", key:"producing and copying far more records", why:"A third effect: paper made record-keeping easier." },
+        { id:"p6", t:"Baghdad was founded in 762 as the capital of the Abbasid Caliphate.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.effect, Z.neither] }
+    },
+    {
+      id: "mansa-musa", title: "Mansa Musa’s Pilgrimage", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["n1"],["n2"],["n3"],["n4"],["n5"],["n6"]],
+      units: [
+        { id:"n1", t:"Mansa Musa ruled Mali, a West African kingdom, in the early 1300s.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"n2", t:"In 1324 he made a pilgrimage to Mecca with thousands of attendants and a vast amount of gold.", z:"cause", key:"thousands of attendants and a vast amount of gold", why:"A cause: the huge, gold-filled caravan is what people noticed." },
+        { id:"n3", t:"While in Cairo, he gave away so much gold that its value there dropped for years.", z:"cause", key:"he gave away so much gold that its value there dropped", why:"A second cause: his generosity made a lasting impression on Cairo’s merchants and officials." },
+        { id:"n4", t:"Merchants and travelers who saw his caravan carried stories of Mali’s riches across the Mediterranean world.", z:"cause", key:"carried stories of Mali’s riches across the Mediterranean world", why:"A third cause: eyewitnesses spread the news." },
+        { id:"n5", t:"As a result, Mali became famous across the Islamic world and Europe as one of the wealthiest kingdoms on Earth.", z:"main", key:"Mali became famous across the Islamic world and Europe", why:"The main effect, signaled by “As a result.” Everything else in the paragraph explains how this happened." },
+        { id:"n6", t:"Mecca is the holiest city in Islam.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.neither] }
+    },
+    {
+      id: "mongol-expansion", title: "Why the Mongols Won", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["e1"],["e2"],["e3"],["e4"],["e5"],["e6"]],
+      units: [
+        { id:"e1", t:"The Mongols came from the grasslands of Central Asia, where people lived as herders on horseback.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"e2", t:"Within about a century, the Mongols had built the largest land empire in history.", z:"main", key:"the largest land empire in history", why:"The main effect: the outcome the paragraph is explaining." },
+        { id:"e3", t:"Mongol warriors were skilled horse archers who could shoot accurately while riding at full speed.", z:"cause", key:"skilled horse archers", why:"A cause: military skill helped them win battles." },
+        { id:"e4", t:"Their enemies were often divided and fought one another instead of uniting against the Mongols.", z:"cause", key:"Their enemies were often divided", why:"A second cause: disunity made the Mongols’ enemies easier to defeat." },
+        { id:"e5", t:"Cities that resisted were destroyed, so many others surrendered without a fight.", z:"cause", key:"Cities that resisted were destroyed", why:"A third cause. “So” links fear of destruction to easy surrenders." },
+        { id:"e6", t:"Today, Mongolia is an independent country between Russia and China.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.neither] }
+    },
+    {
+      id: "iron", title: "Song Iron and the Vanishing Forests", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["i1"],["i2"],["i3"],["i4"],["i5"],["i6"]],
+      units: [
+        { id:"i1", t:"In the eleventh century, northern China was home to some of the largest ironworks in the world.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"i2", t:"The Song government ordered huge amounts of iron for weapons and armor.", z:"cause", key:"ordered huge amounts of iron for weapons and armor", why:"A cause: government demand for iron." },
+        { id:"i3", t:"Farmers and growing cities also bought large numbers of iron tools, nails, and pots.", z:"cause", key:"bought large numbers of iron tools, nails, and pots", why:"A second cause: everyday demand for iron." },
+        { id:"i4", t:"Blast furnaces burned enormous amounts of charcoal, which was made from wood.", z:"cause", key:"Blast furnaces burned enormous amounts of charcoal", why:"A third cause: making iron required charcoal, and charcoal came from trees." },
+        { id:"i5", t:"As a result, the forests around the northern ironworks were stripped bare.", z:"main", key:"the forests around the northern ironworks were stripped bare", why:"The main effect, signaled by “As a result.”" },
+        { id:"i6", t:"Kaifeng was the capital of the Northern Song dynasty.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.neither] }
+    },
+    {
+      id: "baghdad", title: "The Fall of Baghdad", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["b1"],["b2"],["b3"],["b4"],["b5"],["b6"]],
+      units: [
+        { id:"b1", t:"Baghdad was the capital of the Abbasid Caliphate and one of the largest cities in the world.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"b2", t:"In 1258 the caliph refused the Mongol commander Hülegü’s demand to surrender.", z:"root", key:"the caliph refused", why:"The root cause: the first event in the chain. Everything else in the paragraph follows from it." },
+        { id:"b3", t:"Hülegü responded by besieging the city with a huge army.", z:"cause", key:"besieging the city with a huge army", why:"A cause: the refusal led to the siege. It comes after the root cause and leads to the next step." },
+        { id:"b4", t:"Mongol siege engineers breached the walls after about a week of bombardment.", z:"cause", key:"breached the walls", why:"A cause: the siege broke through the city’s defenses, which directly led to its capture." },
+        { id:"b5", t:"Baghdad was captured, and the Abbasid Caliphate came to an end.", z:"main", key:"Baghdad was captured", why:"The main effect: the outcome the paragraph is explaining." },
+        { id:"b6", t:"Hülegü was a grandson of Genghis Khan.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.root, Z.cause, Z.main, Z.neither] },
+      chain: {
+        order: ["b2","b3","b4","b5"],
+        why: {
+          b2: "Root cause: the caliph’s refusal starts the chain.",
+          b3: "Cause: the refusal led Hülegü to besiege the city.",
+          b4: "Cause: the siege broke through the walls.",
+          b5: "Main effect: with the walls breached, Baghdad was captured.",
+          b1: "Neither. Background about the city.",
+          b6: "Neither. A fact about Hülegü’s family."
+        }
+      }
+    },
+    {
+      id: "monsoon", title: "Monsoon Winds and the Swahili Coast", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["w1"],["w5"],["w2"],["w3"],["w4"],["w6"]],
+      units: [
+        { id:"w1", t:"By the fourteenth century, Swahili ports such as Kilwa and Mombasa had become wealthy, busy trading cities.", z:"main", key:"had become wealthy, busy trading cities", why:"The main effect: the outcome the paragraph explains. The sentences that follow say how it came about." },
+        { id:"w5", t:"Kilwa’s merchants sold gold, ivory, and enslaved people and bought cloth and porcelain from Asia.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"w2", t:"Traders sailing the Indian Ocean depended on monsoon winds, which blow from the northeast in winter and the southwest in summer.", z:"root", key:"depended on monsoon winds", why:"The root cause: the wind pattern controlled when ships could sail, which sets the whole chain in motion." },
+        { id:"w3", t:"A merchant who arrived in the wrong season often had to wait months for the winds to turn.", z:"cause", key:"had to wait months for the winds to turn", why:"A cause: the wind pattern forced long waits." },
+        { id:"w4", t:"Many of these waiting merchants settled on the coast and built warehouses and homes.", z:"cause", key:"settled on the coast and built warehouses and homes", why:"A cause: waiting merchants put down roots, and their settlements helped the ports grow." },
+        { id:"w6", t:"Swahili is a Bantu language with many Arabic loanwords.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.root, Z.cause, Z.main, Z.neither] },
+      chain: {
+        order: ["w2","w3","w4","w1"],
+        why: {
+          w2: "Root cause: the monsoon pattern starts the chain.",
+          w3: "Cause: because of the winds, merchants had to wait months.",
+          w4: "Cause: the waiting merchants settled permanently.",
+          w1: "Main effect: their settlements helped the ports grow wealthy and busy.",
+          w5: "Neither. It describes what was traded.",
+          w6: "Neither. A fact about the Swahili language."
+        }
+      }
+    },
+    {
+      id: "mongol-peace", title: "The Mongols and the Silk Roads", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["t1"],["t2"],["t3"],["t4"],["t5"],["t6"]],
+      units: [
+        { id:"t1", t:"The Silk Roads were a network of land routes linking China with the Mediterranean world.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"t2", t:"In the thirteenth century the Mongols conquered most of the lands along these routes and placed them under one government.", z:"root", key:"conquered most of the lands along these routes and placed them under one government", why:"The root cause: one government over the whole route is what makes the later steps possible." },
+        { id:"t3", t:"Mongol rulers harshly punished bandits and gave merchants passes guaranteeing safe passage.", z:"cause", key:"harshly punished bandits and gave merchants passes guaranteeing safe passage", why:"A cause: unified rule let the Mongols make the roads safe." },
+        { id:"t4", t:"With the roads far safer, many more merchants risked the long journey between East and West.", z:"cause", key:"many more merchants risked the long journey between East and West", why:"A cause: safer roads brought more travelers, which directly produced the boom in trade." },
+        { id:"t5", t:"As a result, trade across Eurasia boomed, and silk, spices, and porcelain flowed westward in growing quantities.", z:"main", key:"trade across Eurasia boomed", why:"The main effect, signaled by “As a result.”" },
+        { id:"t6", t:"Silk was first produced in China thousands of years earlier.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.root, Z.cause, Z.main, Z.neither] },
+      chain: {
+        order: ["t2","t3","t4","t5"],
+        why: {
+          t2: "Root cause: Mongol conquest puts the routes under one government.",
+          t3: "Cause: unified rule lets the Mongols punish bandits and issue safe-passage passes.",
+          t4: "Cause: safer roads bring many more merchants.",
+          t5: "Main effect: more merchants means a boom in trade.",
+          t1: "Neither. Background about the Silk Roads.",
+          t6: "Neither. A fact about silk."
+        }
+      }
+    },
+    /* ===== LEVEL 1 (easier), additional ===== */
+    {
+      id: "champa", title: "Champa Rice in Song China", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["ch1"],["ch2"],["ch3"],["ch4"],["ch5"],["ch6"]],
+      units: [
+        { id:"ch1", t:"Rice was already the main food crop in southern China.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"ch2", t:"In the early 1000s, the Song government spread a fast-ripening rice from Vietnam called Champa rice.", z:"cause", key:"spread a fast-ripening rice from Vietnam", why:"The cause: the new rice. Every effect below follows from it." },
+        { id:"ch3", t:"In many areas, farmers could now harvest rice twice a year, so food supplies grew.", z:"effect", key:"farmers could now harvest rice twice a year", why:"An effect: faster-ripening rice meant more harvests." },
+        { id:"ch4", t:"With more food available, China’s population grew rapidly over the next two centuries.", z:"effect", key:"China’s population grew rapidly", why:"An effect: more food supported more people." },
+        { id:"ch5", t:"Growing cities and markets needed more goods, so craft production and trade expanded.", z:"effect", key:"craft production and trade expanded", why:"An effect: bigger cities created demand, and “so” signals the result." },
+        { id:"ch6", t:"Champa was a kingdom on the coast of what is now Vietnam.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.effect, Z.neither] }
+    },
+    {
+      id: "timbuktu", title: "The Rise of Timbuktu", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["ti1"],["ti2"],["ti3"],["ti4"],["ti5"],["ti6"]],
+      units: [
+        { id:"ti1", t:"By the 1400s, Timbuktu had become a famous center of trade and Islamic learning.", z:"main", key:"Timbuktu had become a famous center of trade and Islamic learning", why:"The main effect: the outcome the paragraph explains. It comes first, and the causes follow." },
+        { id:"ti2", t:"Timbuktu is located in the present-day country of Mali.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"ti3", t:"The city sat where camel caravans crossing the Sahara met river traffic on the Niger, so merchants from many regions gathered there.", z:"cause", key:"camel caravans crossing the Sahara met river traffic on the Niger", why:"A cause: its location brought traders together." },
+        { id:"ti4", t:"Mansa Musa had a great mosque built there after his pilgrimage to Mecca, and scholars were encouraged to settle in the city.", z:"cause", key:"Mansa Musa had a great mosque built there", why:"A second cause: a ruler’s support for religion and scholarship." },
+        { id:"ti5", t:"Wealthy merchants paid for teachers and for the copying of books.", z:"cause", key:"Wealthy merchants paid for teachers", why:"A third cause: private money supported learning." },
+        { id:"ti6", t:"Many of the city’s old manuscripts still survive today.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.neither] }
+    },
+    {
+      id: "compass", title: "The Magnetic Compass", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["co1"],["co2"],["co3"],["co4"],["co5"],["co6"]],
+      units: [
+        { id:"co1", t:"Sailors in the Indian Ocean and beyond began using the magnetic compass, which had been developed in China.", z:"cause", key:"began using the magnetic compass", why:"The cause: the compass. The effects that follow all depend on it." },
+        { id:"co2", t:"Ships could now stay on course even when clouds hid the sun and stars.", z:"effect", key:"stay on course even when clouds hid the sun and stars", why:"An effect: better navigation in bad weather." },
+        { id:"co3", t:"Captains became willing to make longer voyages far from the coast.", z:"effect", key:"willing to make longer voyages far from the coast", why:"An effect: confidence in navigation led to longer voyages." },
+        { id:"co4", t:"The earliest compasses were made from lodestone, a naturally magnetic rock.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"co5", t:"As a result, trade between distant ports increased.", z:"effect", key:"trade between distant ports increased", why:"An effect, signaled by “As a result.”" },
+        { id:"co6", t:"Arab, Indian, and Chinese ships all sailed these waters.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.effect, Z.neither] }
+    },
+    {
+      id: "plague-spread", title: "How the Plague Spread", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["pl1"],["pl2"],["pl3"],["pl4"],["pl5"],["pl6"]],
+      units: [
+        { id:"pl1", t:"The Black Death is thought to have begun in Central Asia.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"pl2", t:"Merchants and soldiers traveling the Silk Roads carried infected fleas and rats along their routes.", z:"cause", key:"carried infected fleas and rats along their routes", why:"A cause: travelers moved the disease overland." },
+        { id:"pl3", t:"Ships carried the disease from Black Sea ports to cities around the Mediterranean.", z:"cause", key:"Ships carried the disease", why:"A second cause: travel by sea moved the disease further." },
+        { id:"pl4", t:"Crowded, dirty towns let the disease pass quickly from person to person.", z:"cause", key:"Crowded, dirty towns let the disease pass quickly", why:"A third cause: living conditions helped it spread once it arrived." },
+        { id:"pl5", t:"As a result, the plague spread across Eurasia and North Africa within only a few years.", z:"main", key:"the plague spread across Eurasia and North Africa", why:"The main effect, signaled by “As a result.” It comes at the end, after the causes." },
+        { id:"pl6", t:"Doctors at the time did not know that bacteria caused disease.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.neither] }
+    },
+    {
+      id: "printing", title: "Printing in Song China", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["pr1"],["pr2"],["pr3"],["pr4"],["pr5"],["pr6"]],
+      units: [
+        { id:"pr1", t:"Before the Song dynasty, books in China were copied by hand.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"pr2", t:"Printers in Song China began using carved wooden blocks and later movable type to produce books.", z:"cause", key:"began using carved wooden blocks and later movable type", why:"The cause: new printing methods." },
+        { id:"pr3", t:"Books became much cheaper and far more common.", z:"effect", key:"Books became much cheaper and far more common", why:"An effect: printing lowered the cost of books." },
+        { id:"pr4", t:"More families could afford to educate their sons for the civil service examinations.", z:"effect", key:"More families could afford to educate their sons", why:"An effect: cheaper books made education affordable for more families." },
+        { id:"pr5", t:"Neo-Confucian ideas spread more widely among educated people.", z:"effect", key:"Neo-Confucian ideas spread more widely", why:"An effect: printed books carried ideas to more readers." },
+        { id:"pr6", t:"The civil service exams tested knowledge of the Confucian classics.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.effect, Z.neither] }
+    },
+
+    /* ===== LEVEL 2 (harder) ===== */
+    {
+      id: "italian-cities", title: "Venice, Genoa, and the Crusades", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["it1"],["it2"],["it3"],["it4"],["it5"],["it6"],["it7"],["it8"]],
+      units: [
+        { id:"it1", t:"By 1300, Venice and Genoa had grown into the wealthiest trading cities in Europe.", z:"main", key:"Venice and Genoa had grown into the wealthiest trading cities in Europe", why:"The main effect, stated first. The rest of the paragraph explains how it happened and what followed." },
+        { id:"it2", t:"Venice is built on islands in a lagoon at the top of the Adriatic Sea.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"it3", t:"The story began in 1095, when Pope Urban II called for a crusade and thousands of Europeans set out for the Holy Land.", z:"root", key:"Pope Urban II called for a crusade", why:"The root cause: the call for a crusade starts the whole chain." },
+        { id:"it4", t:"The crusaders needed ships to carry them and their supplies across the Mediterranean, and the Italian city-states had the largest fleets.", z:"cause", key:"the Italian city-states had the largest fleets", why:"A cause: crusaders needed transport and the Italian cities could provide it. It follows from the root cause." },
+        { id:"it5", t:"Venice and Genoa charged high fees for this service and won trading rights in ports of the eastern Mediterranean.", z:"cause", key:"charged high fees for this service and won trading rights", why:"A cause: fees and trading rights directly produced the cities’ wealth." },
+        { id:"it6", t:"Their growing wealth paid for large navies, banks, and magnificent public buildings.", z:"effect", key:"paid for large navies, banks, and magnificent public buildings", why:"An effect of the main effect: once the cities were rich, they spent that wealth." },
+        { id:"it7", t:"Genoa lies on the northwest coast of Italy.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"it8", t:"Their success also inspired merchants elsewhere in Europe to seek profits in long-distance trade.", z:"effect", key:"inspired merchants elsewhere in Europe", why:"A second effect of the main effect: the cities’ success influenced others." }
+      ],
+      sort: { zones: [Z.root, Z.cause, Z.main, Z.effect, Z.neither] },
+      chain: {
+        order: ["it3","it4","it5","it1"],
+        why: {
+          it3: "Root cause: the call for a crusade starts the chain.",
+          it4: "Cause: the crusaders needed ships, and the Italian cities had the fleets.",
+          it5: "Cause: the cities charged fees and won trading rights.",
+          it1: "Main effect: fees and trading rights made Venice and Genoa very wealthy.",
+          it6: "Not in the chain. It is an effect that comes after the main effect.",
+          it8: "Not in the chain. It is an effect that comes after the main effect."
+        }
+      }
+    },
+    {
+      id: "voyages-end", title: "The End of the Treasure Voyages", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["vo1"],["vo2"],["vo3"],["vo4"],["vo5"],["vo6"],["vo7"],["vo8"]],
+      units: [
+        { id:"vo1", t:"Between 1405 and 1433, Ming China sent large fleets under Admiral Zheng He across the Indian Ocean.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"vo2", t:"In 1433 the Ming court ended the treasure voyages for good.", z:"main", key:"the Ming court ended the treasure voyages", why:"The main effect: the decision the rest of the paragraph explains." },
+        { id:"vo3", t:"The voyages were extremely expensive, and the court was already worried about its budget.", z:"cause", key:"The voyages were extremely expensive", why:"A cause: the cost of the voyages." },
+        { id:"vo4", t:"Confucian officials at court argued that the voyages wasted money and that trade with foreigners was not a worthy goal for the empire.", z:"cause", key:"Confucian officials at court argued that the voyages wasted money", why:"A second cause: officials who opposed the voyages pressed their case." },
+        { id:"vo5", t:"Mongol raids along the northern border also forced the Ming to move money and soldiers north to defend the frontier.", z:"cause", key:"forced the Ming to move money and soldiers north", why:"A third cause: defense needs on the frontier pulled resources away." },
+        { id:"vo6", t:"Without government support, China’s large oceangoing fleet fell into disrepair and its shipbuilding shrank.", z:"effect", key:"China’s large oceangoing fleet fell into disrepair", why:"An effect of ending the voyages: the fleet decayed." },
+        { id:"vo7", t:"Later, European powers such as Portugal entered Indian Ocean trade routes that Chinese fleets no longer patrolled.", z:"effect", key:"entered Indian Ocean trade routes that Chinese fleets no longer patrolled", why:"A second effect of ending the voyages: other powers filled the gap." },
+        { id:"vo8", t:"Zheng He was a Muslim who served as a high-ranking court official.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.effect, Z.neither] }
+    },
+    {
+      id: "malacca", title: "The Rise of Malacca", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["ma1"],["ma2"],["ma3"],["ma4"],["ma5"],["ma6"],["ma7"],["ma8"],["ma9"]],
+      units: [
+        { id:"ma1", t:"Malacca was founded around 1400 on the coast of the Malay Peninsula.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"ma2", t:"It sat beside a narrow strait that nearly all ships sailing between the Indian Ocean and China had to pass through.", z:"cause", key:"nearly all ships sailing between the Indian Ocean and China had to pass through", why:"A cause: its location put it on the main shipping route." },
+        { id:"ma3", t:"Its location also suited the monsoon winds, so merchants could wait there between sailing seasons.", z:"cause", key:"merchants could wait there between sailing seasons", why:"A second cause: the monsoon timing made it a natural stopping place." },
+        { id:"ma4", t:"Its rulers kept harbor fees low and offered merchants protection from pirates.", z:"cause", key:"kept harbor fees low and offered merchants protection from pirates", why:"A third cause: policies that made the port safe and cheap." },
+        { id:"ma5", t:"Its rulers also adopted Islam, which attracted Muslim merchants from India and Arabia.", z:"cause", key:"adopted Islam, which attracted Muslim merchants", why:"A fourth cause: their religion drew in a major group of traders." },
+        { id:"ma6", t:"Within a century, Malacca had become one of the busiest ports in the world.", z:"main", key:"Malacca had become one of the busiest ports in the world", why:"The main effect: the outcome the causes lead to." },
+        { id:"ma7", t:"The city’s rulers grew rich enough to maintain a strong navy and a lavish court.", z:"effect", key:"grew rich enough to maintain a strong navy and a lavish court", why:"An effect of the main effect: the port’s success brought wealth." },
+        { id:"ma8", t:"Its wealth later attracted the Portuguese, who captured the city in 1511.", z:"effect", key:"attracted the Portuguese, who captured the city in 1511", why:"A second effect of the main effect: the city’s wealth drew a foreign attack." },
+        { id:"ma9", t:"The Strait of Malacca is named after the city.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.effect, Z.neither] }
+    },
+    {
+      id: "ain-jalut", title: "The Battle of Ain Jalut", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["aj1"],["aj2"],["aj3"],["aj4"],["aj5"],["aj6"],["aj7"],["aj8"],["aj9"]],
+      units: [
+        { id:"aj1", t:"In 1260 the Mamluks of Egypt defeated a Mongol army at Ain Jalut in Palestine.", z:"main", key:"the Mamluks of Egypt defeated a Mongol army at Ain Jalut", why:"The main effect: the victory the paragraph explains." },
+        { id:"aj2", t:"The Mamluks were a dynasty of soldiers who had originally been enslaved and trained for war.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"aj3", t:"The story began in 1259, when the Mongol Great Khan Möngke died and Mongol princes began competing over who would succeed him.", z:"root", key:"the Mongol Great Khan Möngke died", why:"The root cause: the Great Khan’s death starts the chain of events." },
+        { id:"aj4", t:"Hülegü, who was leading the Mongol army in Southwest Asia, withdrew with most of his troops to take part in the succession struggle.", z:"cause", key:"withdrew with most of his troops", why:"A cause that follows from the root cause: the succession fight pulled the army away." },
+        { id:"aj5", t:"Only a small Mongol force was left in Syria, so the Mamluks could meet it with greater numbers.", z:"cause", key:"Only a small Mongol force was left in Syria", why:"A cause: the withdrawal left a weak force behind." },
+        { id:"aj6", t:"The Mamluks were also experienced cavalry who used the terrain at Ain Jalut to ambush their enemy.", z:"cause", key:"used the terrain at Ain Jalut to ambush their enemy", why:"A separate cause: Mamluk skill and tactics. “Also” signals an additional cause." },
+        { id:"aj7", t:"The defeat stopped the Mongols’ advance and left Egypt outside their empire.", z:"effect", key:"stopped the Mongols’ advance", why:"An effect of the Mamluk victory." },
+        { id:"aj8", t:"Mamluk rulers gained great prestige as defenders of the Islamic world.", z:"effect", key:"great prestige as defenders of the Islamic world", why:"A second effect of the Mamluk victory." },
+        { id:"aj9", t:"Ain Jalut means “Spring of Goliath.”", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.root, Z.cause, Z.main, Z.effect, Z.neither] }
+    },
+    {
+      id: "islam-sea", title: "Islam in Southeast Asia", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["is1"],["is2"],["is3"],["is4"],["is5"],["is6"],["is7"],["is8"],["is9"]],
+      units: [
+        { id:"is1", t:"Today, Indonesia is home to more Muslims than any other country in the world.", z:"effect", key:"Indonesia is home to more Muslims than any other country", why:"A long-term effect of the main effect, even though the paragraph mentions it first." },
+        { id:"is2", t:"The islands of Southeast Asia lay along the sea route between India and China.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"is3", t:"Muslim merchants from India and Arabia, who dominated Indian Ocean trade, often married into local families and settled in port cities.", z:"cause", key:"often married into local families and settled in port cities", why:"A cause: merchants built personal ties with local people." },
+        { id:"is4", t:"Sufi teachers, who stressed personal devotion and tolerated local customs, made Islam easy for ordinary people to accept.", z:"cause", key:"made Islam easy for ordinary people to accept", why:"A second cause: religious teachers made conversion appealing." },
+        { id:"is5", t:"Local rulers who converted gained access to Muslim trading networks, so many chose to adopt Islam.", z:"cause", key:"Local rulers who converted gained access to Muslim trading networks", why:"A third cause: rulers had a trade reason to convert. “So” signals the result." },
+        { id:"is6", t:"By 1500, Islam had become the leading religion in much of the Malay Peninsula and the Indonesian islands.", z:"main", key:"Islam had become the leading religion", why:"The main effect: the outcome the three causes lead to." },
+        { id:"is7", t:"New Muslim sultanates grew up in port cities and became centers of trade and learning.", z:"effect", key:"New Muslim sultanates grew up in port cities", why:"An effect of the main effect: new Muslim states formed." },
+        { id:"is8", t:"Local traditions blended with Islamic practice, producing forms of Islam with distinctive regional features.", z:"effect", key:"Local traditions blended with Islamic practice", why:"A second effect of the main effect: blending of old and new customs." },
+        { id:"is9", t:"Hindu and Buddhist kingdoms had earlier dominated the region.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.effect, Z.neither] }
+    },
+
+    /* ===== LEVEL 3 (hardest) ===== */
+    {
+      id: "great-zimbabwe", title: "Great Zimbabwe", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["gz1"],["gz2"],["gz3"],["gz4"],["gz5"],["gz6"],["gz7"],["gz8"],["gz9"],["gz10"]],
+      units: [
+        { id:"gz1", t:"Great Zimbabwe is a ruined city of massive stone walls in southern Africa.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"gz2", t:"Its walls and towers were paid for by the wealth of the kingdom it ruled.", z:"effect", key:"paid for by the wealth of the kingdom it ruled", why:"An effect of the kingdom’s wealth. It appears early, before the paragraph explains where the wealth came from." },
+        { id:"gz3", t:"The walls were built from carefully cut stones laid without mortar.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"gz4", t:"The region contained rich deposits of gold, which Africans had mined for centuries.", z:"root", key:"rich deposits of gold", why:"The root cause: the gold in the ground is where the chain begins." },
+        { id:"gz5", t:"Traders on the Swahili coast, especially at Kilwa, wanted gold to sell in Indian Ocean markets, so they sent caravans inland.", z:"cause", key:"wanted gold to sell in Indian Ocean markets", why:"A cause that follows from the root cause: the gold created demand from coastal traders." },
+        { id:"gz6", t:"Great Zimbabwe’s rulers controlled the routes that carried gold to the coast and taxed the traders who used them.", z:"cause", key:"controlled the routes that carried gold to the coast and taxed the traders", why:"A cause: control of the trade routes turned gold into royal income." },
+        { id:"gz7", t:"Large herds of cattle, a sign of wealth, also fed a growing population.", z:"cause", key:"Large herds of cattle", why:"A separate cause: cattle supported the population. “Also” signals an additional cause." },
+        { id:"gz8", t:"Its rulers became rich enough to buy imported luxuries such as Chinese porcelain and Persian glass.", z:"effect", key:"buy imported luxuries such as Chinese porcelain and Persian glass", why:"An effect of the kingdom’s wealth." },
+        { id:"gz9", t:"The word zimbabwe is thought to come from a Shona phrase meaning “stone houses.”", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"gz10", t:"Between about 1100 and 1450, these advantages made Great Zimbabwe the capital of a wealthy kingdom.", z:"main", key:"made Great Zimbabwe the capital of a wealthy kingdom", why:"The main effect, saved for the end. “These advantages” refers back to the causes." }
+      ],
+      sort: { zones: [Z.root, Z.cause, Z.main, Z.effect, Z.neither] }
+    },
+    {
+      id: "yuan-fall", title: "The Fall of the Yuan Dynasty", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["yf1"],["yf2"],["yf3"],["yf4"],["yf5"],["yf6"],["yf7"],["yf8"],["yf9"],["yf10"]],
+      units: [
+        { id:"yf1", t:"In 1368, the Mongol-led Yuan dynasty collapsed, and the rebel leader Zhu Yuanzhang became the first Ming emperor.", z:"main", key:"the Mongol-led Yuan dynasty collapsed", why:"The main effect, stated first." },
+        { id:"yf2", t:"The Yuan dynasty had been founded by Kublai Khan, a grandson of Genghis Khan.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"yf3", t:"Beginning in the 1330s, a series of disasters struck China, including Yellow River floods, famine, and outbreaks of disease.", z:"root", key:"a series of disasters struck China", why:"The root cause: the disasters start the chain." },
+        { id:"yf4", t:"Hungry peasants, left without enough relief, grew angry at a government they saw as distant and foreign.", z:"cause", key:"Hungry peasants, left without enough relief, grew angry", why:"A cause: the disasters left people hungry and angry." },
+        { id:"yf5", t:"Secret religious societies, such as the Red Turbans, organized the angry peasants into armies and launched rebellions.", z:"cause", key:"organized the angry peasants into armies and launched rebellions", why:"A cause: the anger became organized rebellion." },
+        { id:"yf6", t:"The rebel armies grew strong enough to capture major cities, and many Yuan officials switched sides.", z:"cause", key:"many Yuan officials switched sides", why:"A cause: strong rebel armies and defections weakened the dynasty to the breaking point." },
+        { id:"yf7", t:"The Red Turbans are said to have believed in the coming of a future Buddha.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"yf8", t:"The new Ming rulers restored civil service examinations based on Confucian learning.", z:"effect", key:"restored civil service examinations", why:"An effect of the collapse: the new dynasty brought back an older system." },
+        { id:"yf9", t:"Ming armies drove the Mongol rulers out of China.", z:"effect", key:"drove the Mongol rulers out of China", why:"A second effect of the collapse." },
+        { id:"yf10", t:"Zhu Yuanzhang came from a poor peasant family and had once been a Buddhist monk.", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.root, Z.cause, Z.main, Z.effect, Z.neither] },
+      chain: {
+        order: ["yf3","yf4","yf5","yf6","yf1"],
+        why: {
+          yf3: "Root cause: the disasters start the chain.",
+          yf4: "Cause: the disasters left peasants hungry and angry.",
+          yf5: "Cause: secret societies organized the angry peasants into armies.",
+          yf6: "Cause: the rebel armies grew strong and officials switched sides.",
+          yf1: "Main effect: the weakened dynasty collapsed.",
+          yf8: "Not in the chain. It is an effect that comes after the collapse.",
+          yf9: "Not in the chain. It is an effect that comes after the collapse."
+        }
+      }
+    },
+    {
+      id: "caffa", title: "From Caffa to Europe", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["cf1"],["cf2"],["cf3"],["cf4"],["cf5"],["cf6"],["cf7"],["cf8"],["cf9"],["cf10"]],
+      units: [
+        { id:"cf1", t:"By the end of 1347, the Black Death had reached Europe.", z:"main", key:"the Black Death had reached Europe", why:"The main effect, stated first." },
+        { id:"cf2", t:"Caffa was a Genoese trading town on the Black Sea.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"cf3", t:"In 1346 plague began killing soldiers in a Mongol army that was besieging Caffa.", z:"root", key:"plague began killing soldiers in a Mongol army", why:"The root cause: the outbreak among the besiegers starts the chain." },
+        { id:"cf4", t:"The disease soon spread to the people inside the town’s walls.", z:"cause", key:"The disease soon spread to the people inside the town’s walls", why:"A cause: the disease moved from the army into the town." },
+        { id:"cf5", t:"Genoese merchants fled Caffa on ships bound for Italy.", z:"cause", key:"Genoese merchants fled Caffa on ships", why:"A cause: infected people boarded ships." },
+        { id:"cf6", t:"Those ships carried infected sailors, rats, and fleas across the Mediterranean.", z:"cause", key:"carried infected sailors, rats, and fleas", why:"A cause: the ships delivered the disease to Europe." },
+        { id:"cf7", t:"Genoa competed with Venice for control of Black Sea trade.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"cf8", t:"Within three years, the plague had killed roughly a third of Europe’s people.", z:"effect", key:"killed roughly a third of Europe’s people", why:"An effect of the plague reaching Europe." },
+        { id:"cf9", t:"Over time, port cities began holding arriving ships offshore for forty days to guard against disease.", z:"effect", key:"holding arriving ships offshore for forty days", why:"A second effect: cities changed their practices in response." },
+        { id:"cf10", t:"The word “quarantine” comes from Italian words meaning “forty days.”", z:"neither", key:null, why:NEITHER_WHY }
+      ],
+      sort: { zones: [Z.root, Z.cause, Z.main, Z.effect, Z.neither] },
+      chain: {
+        order: ["cf3","cf4","cf5","cf6","cf1"],
+        why: {
+          cf3: "Root cause: plague breaks out among the besiegers.",
+          cf4: "Cause: the disease spreads into the town.",
+          cf5: "Cause: merchants flee on ships.",
+          cf6: "Cause: the ships carry the disease across the Mediterranean.",
+          cf1: "Main effect: the Black Death reaches Europe.",
+          cf8: "Not in the chain. It is an effect that comes after the plague arrived.",
+          cf9: "Not in the chain. It is an effect that comes after the plague arrived."
+        }
+      }
+    },
+    {
+      id: "ibn-battuta", title: "Ibn Battuta’s Journeys", origin: "ai",
+      source: "Written for this review. Not a real quotation.",
+      sentences: [["ib1"],["ib2"],["ib3"],["ib4"],["ib5"],["ib6"],["ib7"],["ib8"],["ib9"],["ib10"]],
+      units: [
+        { id:"ib1", t:"Ibn Battuta was born in Tangier, Morocco, in 1304.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"ib2", t:"His book, the Rihla, gives modern historians a detailed picture of life across the Islamic world.", z:"effect", key:"gives modern historians a detailed picture of life across the Islamic world", why:"An effect of his travels. It appears early, before the paragraph explains how the travel was possible." },
+        { id:"ib3", t:"Over nearly thirty years, he was able to travel about 75,000 miles from West Africa to China, almost always within Muslim-ruled lands.", z:"main", key:"he was able to travel about 75,000 miles", why:"The main effect: the long journey that the causes made possible." },
+        { id:"ib4", t:"Muslim lands shared the Arabic language and a common body of Islamic law, so a trained scholar could be understood and respected almost anywhere.", z:"cause", key:"shared the Arabic language and a common body of Islamic law", why:"A cause: shared language and law made travel easier across regions." },
+        { id:"ib5", t:"The duty of charity and hospitality toward travelers meant that he could often count on food and lodging.", z:"cause", key:"charity and hospitality toward travelers", why:"A cause: religious custom helped meet a traveler’s needs." },
+        { id:"ib6", t:"Pilgrimage routes to Mecca, with their roadside inns and well-guarded caravans, made long-distance travel safer.", z:"cause", key:"made long-distance travel safer", why:"A cause: pilgrimage routes made travel safer." },
+        { id:"ib7", t:"A caravanserai was an inn where travelers and their animals could rest.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"ib8", t:"Rulers from India to the Maldives were eager to hire educated Muslim judges and rewarded him with gifts and posts.", z:"cause", key:"eager to hire educated Muslim judges", why:"A cause: rulers paid for his skills, which let him keep traveling." },
+        { id:"ib9", t:"Ibn Battuta died in Morocco around 1368 or 1369.", z:"neither", key:null, why:NEITHER_WHY },
+        { id:"ib10", t:"His descriptions also made distant places such as Delhi and Timbuktu known to readers in North Africa.", z:"effect", key:"made distant places such as Delhi and Timbuktu known to readers in North Africa", why:"A second effect of his travels. “Also” signals an additional result." }
+      ],
+      sort: { zones: [Z.cause, Z.main, Z.effect, Z.neither] }
+    }
+  ];
+
+  const LEVEL_OF = {
+    "champa":1, "timbuktu":1, "compass":1, "plague-spread":1, "printing":1,
+    "italian-cities":2, "voyages-end":2, "malacca":2, "ain-jalut":2, "islam-sea":2,
+    "great-zimbabwe":3, "yuan-fall":3, "caffa":3, "ibn-battuta":3
+  };
+
+  /* Questions ask only for: root cause, cause, main effect, effect.
+     parts = one answer box each (1 point per part): [label, [accepted unit ids]].
+     Boxes with the same accepted set can be filled in either order. Box labels are kept plain on purpose
+     (Cause / Effect / Main effect / Root cause, or 1st / 2nd / ...) so they never hint at the answer. */
+  const QUESTIONS = {
+    "black-death": [
+      {"prompt":"Identify the cause in this paragraph and two of its effects.","parts":[["Cause",["u2"]],["Effect",["u3","u4","u5"]],["Effect",["u3","u4","u5"]]]},
+      {"prompt":"Identify all three effects of the Black Death in Europe.","parts":[["Effect",["u3","u4","u5"]],["Effect",["u3","u4","u5"]],["Effect",["u3","u4","u5"]]]}
+    ],
+    "yam": [
+      {"prompt":"Identify the cause in this paragraph and two of its effects.","parts":[["Cause",["y2"]],["Effect",["y3","y4","y5"]],["Effect",["y3","y4","y5"]]]},
+      {"prompt":"Identify all three effects of the yam relay network.","parts":[["Effect",["y3","y4","y5"]],["Effect",["y3","y4","y5"]],["Effect",["y3","y4","y5"]]]}
+    ],
+    "paper": [
+      {"prompt":"Identify the cause in this paragraph and two of its effects.","parts":[["Cause",["p2"]],["Effect",["p3","p4","p5"]],["Effect",["p3","p4","p5"]]]},
+      {"prompt":"Identify all three effects of the Abbasids learning papermaking.","parts":[["Effect",["p3","p4","p5"]],["Effect",["p3","p4","p5"]],["Effect",["p3","p4","p5"]]]}
+    ],
+    "mansa-musa": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["n5"]],["Cause",["n2","n3","n4"]],["Cause",["n2","n3","n4"]]]},
+      {"prompt":"Identify all three causes of Mali becoming famous across the Mediterranean world.","parts":[["Cause",["n2","n3","n4"]],["Cause",["n2","n3","n4"]],["Cause",["n2","n3","n4"]]]}
+    ],
+    "mongol-expansion": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["e2"]],["Cause",["e3","e4","e5"]],["Cause",["e3","e4","e5"]]]},
+      {"prompt":"Identify all three causes of the Mongols building the largest land empire in history.","parts":[["Cause",["e3","e4","e5"]],["Cause",["e3","e4","e5"]],["Cause",["e3","e4","e5"]]]}
+    ],
+    "iron": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["i5"]],["Cause",["i2","i3","i4"]],["Cause",["i2","i3","i4"]]]},
+      {"prompt":"Identify all three causes of the forests around the northern ironworks being stripped bare.","parts":[["Cause",["i2","i3","i4"]],["Cause",["i2","i3","i4"]],["Cause",["i2","i3","i4"]]]}
+    ],
+    "baghdad": [
+      {"prompt":"Identify the root cause of the fall of Baghdad and two causes that follow it.","parts":[["Root cause",["b2"]],["Cause",["b3","b4"]],["Cause",["b3","b4"]]]},
+      {"prompt":"Put the root cause, the causes, and the main effect in the order they happened.","parts":[["1st",["b2"]],["2nd",["b3"]],["3rd",["b4"]],["4th",["b5"]]]}
+    ],
+    "monsoon": [
+      {"prompt":"Identify the root cause of the Swahili ports’ growth and two causes that follow it.","parts":[["Root cause",["w2"]],["Cause",["w3","w4"]],["Cause",["w3","w4"]]]},
+      {"prompt":"Put the root cause, the causes, and the main effect in the order they happened.","parts":[["1st",["w2"]],["2nd",["w3"]],["3rd",["w4"]],["4th",["w1"]]]}
+    ],
+    "mongol-peace": [
+      {"prompt":"Identify the root cause of the boom in trade and two causes that follow it.","parts":[["Root cause",["t2"]],["Cause",["t3","t4"]],["Cause",["t3","t4"]]]},
+      {"prompt":"Put the root cause, the causes, and the main effect in the order they happened.","parts":[["1st",["t2"]],["2nd",["t3"]],["3rd",["t4"]],["4th",["t5"]]]}
+    ],
+    "champa": [
+      {"prompt":"Identify the cause in this paragraph and two of its effects.","parts":[["Cause",["ch2"]],["Effect",["ch3","ch4","ch5"]],["Effect",["ch3","ch4","ch5"]]]},
+      {"prompt":"Identify all three effects of the spread of Champa rice.","parts":[["Effect",["ch3","ch4","ch5"]],["Effect",["ch3","ch4","ch5"]],["Effect",["ch3","ch4","ch5"]]]}
+    ],
+    "timbuktu": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["ti1"]],["Cause",["ti3","ti4","ti5"]],["Cause",["ti3","ti4","ti5"]]]},
+      {"prompt":"Identify all three causes of Timbuktu becoming a famous center of trade and Islamic learning.","parts":[["Cause",["ti3","ti4","ti5"]],["Cause",["ti3","ti4","ti5"]],["Cause",["ti3","ti4","ti5"]]]}
+    ],
+    "compass": [
+      {"prompt":"Identify the cause in this paragraph and two of its effects.","parts":[["Cause",["co1"]],["Effect",["co2","co3","co5"]],["Effect",["co2","co3","co5"]]]},
+      {"prompt":"Identify all three effects of sailors adopting the compass.","parts":[["Effect",["co2","co3","co5"]],["Effect",["co2","co3","co5"]],["Effect",["co2","co3","co5"]]]}
+    ],
+    "plague-spread": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["pl5"]],["Cause",["pl2","pl3","pl4"]],["Cause",["pl2","pl3","pl4"]]]},
+      {"prompt":"Identify all three causes of the plague spreading across Eurasia and North Africa so quickly.","parts":[["Cause",["pl2","pl3","pl4"]],["Cause",["pl2","pl3","pl4"]],["Cause",["pl2","pl3","pl4"]]]}
+    ],
+    "printing": [
+      {"prompt":"Identify the cause in this paragraph and two of its effects.","parts":[["Cause",["pr2"]],["Effect",["pr3","pr4","pr5"]],["Effect",["pr3","pr4","pr5"]]]},
+      {"prompt":"Identify all three effects of the new printing methods.","parts":[["Effect",["pr3","pr4","pr5"]],["Effect",["pr3","pr4","pr5"]],["Effect",["pr3","pr4","pr5"]]]}
+    ],
+    "italian-cities": [
+      {"prompt":"Identify the root cause, one cause that follows it, and the main effect.","parts":[["Root cause",["it3"]],["Cause",["it4","it5"]],["Main effect",["it1"]]]},
+      {"prompt":"Put the root cause, the causes, and the main effect in the order they happened.","parts":[["1st",["it3"]],["2nd",["it4"]],["3rd",["it5"]],["4th",["it1"]]]},
+      {"prompt":"Identify both effects of Venice and Genoa becoming wealthy.","parts":[["Effect",["it6","it8"]],["Effect",["it6","it8"]]]}
+    ],
+    "voyages-end": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["vo2"]],["Cause",["vo3","vo4","vo5"]],["Cause",["vo3","vo4","vo5"]]]},
+      {"prompt":"Identify all three causes of the Ming ending the treasure voyages.","parts":[["Cause",["vo3","vo4","vo5"]],["Cause",["vo3","vo4","vo5"]],["Cause",["vo3","vo4","vo5"]]]},
+      {"prompt":"Identify both effects of the Ming ending the treasure voyages.","parts":[["Effect",["vo6","vo7"]],["Effect",["vo6","vo7"]]]}
+    ],
+    "malacca": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["ma6"]],["Cause",["ma2","ma3","ma4","ma5"]],["Cause",["ma2","ma3","ma4","ma5"]]]},
+      {"prompt":"Identify all four causes of Malacca becoming one of the busiest ports in the world.","parts":[["Cause",["ma2","ma3","ma4","ma5"]],["Cause",["ma2","ma3","ma4","ma5"]],["Cause",["ma2","ma3","ma4","ma5"]],["Cause",["ma2","ma3","ma4","ma5"]]]},
+      {"prompt":"Identify both effects of Malacca becoming one of the busiest ports in the world.","parts":[["Effect",["ma7","ma8"]],["Effect",["ma7","ma8"]]]}
+    ],
+    "ain-jalut": [
+      {"prompt":"Identify the root cause, one cause that follows it, and the main effect.","parts":[["Root cause",["aj3"]],["Cause",["aj4","aj5","aj6"]],["Main effect",["aj1"]]]},
+      {"prompt":"Identify all three causes of the Mamluk victory at Ain Jalut, not counting the root cause.","parts":[["Cause",["aj4","aj5","aj6"]],["Cause",["aj4","aj5","aj6"]],["Cause",["aj4","aj5","aj6"]]]},
+      {"prompt":"Identify both effects of the Mamluk victory.","parts":[["Effect",["aj7","aj8"]],["Effect",["aj7","aj8"]]]}
+    ],
+    "islam-sea": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["is6"]],["Cause",["is3","is4","is5"]],["Cause",["is3","is4","is5"]]]},
+      {"prompt":"Identify all three causes of Islam becoming the leading religion in much of Southeast Asia.","parts":[["Cause",["is3","is4","is5"]],["Cause",["is3","is4","is5"]],["Cause",["is3","is4","is5"]]]},
+      {"prompt":"Identify all three effects of Islam becoming the leading religion.","parts":[["Effect",["is1","is7","is8"]],["Effect",["is1","is7","is8"]],["Effect",["is1","is7","is8"]]]}
+    ],
+    "great-zimbabwe": [
+      {"prompt":"Identify the root cause, one cause that follows it, and the main effect.","parts":[["Root cause",["gz4"]],["Cause",["gz5","gz6","gz7"]],["Main effect",["gz10"]]]},
+      {"prompt":"Identify all three causes of Great Zimbabwe becoming the capital of a wealthy kingdom, not counting the root cause.","parts":[["Cause",["gz5","gz6","gz7"]],["Cause",["gz5","gz6","gz7"]],["Cause",["gz5","gz6","gz7"]]]},
+      {"prompt":"Identify both effects of the kingdom’s wealth.","parts":[["Effect",["gz2","gz8"]],["Effect",["gz2","gz8"]]]}
+    ],
+    "yuan-fall": [
+      {"prompt":"Identify the root cause of the Yuan collapse and two causes that follow it.","parts":[["Root cause",["yf3"]],["Cause",["yf4","yf5","yf6"]],["Cause",["yf4","yf5","yf6"]]]},
+      {"prompt":"Put the root cause, the causes, and the main effect in the order they happened.","parts":[["1st",["yf3"]],["2nd",["yf4"]],["3rd",["yf5"]],["4th",["yf6"]],["5th",["yf1"]]]},
+      {"prompt":"Identify both effects of the Yuan collapse.","parts":[["Effect",["yf8","yf9"]],["Effect",["yf8","yf9"]]]}
+    ],
+    "caffa": [
+      {"prompt":"Identify the root cause of the plague reaching Europe and two causes that follow it.","parts":[["Root cause",["cf3"]],["Cause",["cf4","cf5","cf6"]],["Cause",["cf4","cf5","cf6"]]]},
+      {"prompt":"Put the root cause, the causes, and the main effect in the order they happened.","parts":[["1st",["cf3"]],["2nd",["cf4"]],["3rd",["cf5"]],["4th",["cf6"]],["5th",["cf1"]]]},
+      {"prompt":"Identify both effects of the plague reaching Europe.","parts":[["Effect",["cf8","cf9"]],["Effect",["cf8","cf9"]]]}
+    ],
+    "ibn-battuta": [
+      {"prompt":"Identify the main effect in this paragraph and two of its causes.","parts":[["Main effect",["ib3"]],["Cause",["ib4","ib5","ib6","ib8"]],["Cause",["ib4","ib5","ib6","ib8"]]]},
+      {"prompt":"Identify all four causes of Ibn Battuta being able to travel so far.","parts":[["Cause",["ib4","ib5","ib6","ib8"]],["Cause",["ib4","ib5","ib6","ib8"]],["Cause",["ib4","ib5","ib6","ib8"]],["Cause",["ib4","ib5","ib6","ib8"]]]},
+      {"prompt":"Identify both effects of Ibn Battuta’s travels.","parts":[["Effect",["ib2","ib10"]],["Effect",["ib2","ib10"]]]}
+    ]
+  };
+  /*DATA_END*/
+
+  /* ============ SETUP ============ */
+  PASSAGES.forEach(p => {
+    p.questions = QUESTIONS[p.id] || [];
+    p.level = LEVEL_OF[p.id] || 1;
+    p.byId = {};
+    p.units.forEach(u => { p.byId[u.id] = u; });
+    p.sentences.forEach((ids, i) => ids.forEach((id, j) => {
+      p.byId[id].label = String(i + 1) + (ids.length > 1 ? String.fromCharCode(97 + j) : "");
+    }));
+  });
+  PASSAGES.sort((a, b) => a.level - b.level);
+  const LEVEL_NAMES = { 1: "Level 1", 2: "Level 2", 3: "Level 3" };
+  const LEVEL_SHORT = { 1: "Level 1", 2: "Level 2", 3: "Level 3" };
+  const QUIZ_PASSAGES = PASSAGES.filter(p => p.questions.length);
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  }
+  function safeGet(key, fb) { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fb; } catch (e) { return fb; } }
+  function safeSet(key, v) { try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+  function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  function appendWithKey(parent, text, key) {
+    const i = key ? text.indexOf(key) : -1;
+    if (i < 0) { parent.appendChild(document.createTextNode(text)); return; }
+    parent.appendChild(document.createTextNode(text.slice(0, i)));
+    parent.appendChild(el("mark", null, key));
+    parent.appendChild(document.createTextNode(text.slice(i + key.length)));
+  }
+  function chipText(u) {
+    let t = u.t;
+    if (/^[a-z]/.test(t)) t = "… " + t;
+    if (!/[.!?”"]$/.test(t)) t += " …";
+    return t;
+  }
+  function renderParagraph(container, p, numbered) {
+    container.innerHTML = "";
+    p.sentences.forEach((ids, i) => {
+      if (numbered === true) container.appendChild(el("span", "snum", "[" + (i + 1) + "]"));
+      ids.forEach((id, j) => {
+        if (ids.length > 1 && numbered === true) container.appendChild(el("span", "snum", String.fromCharCode(97 + j)));
+        container.appendChild(document.createTextNode(" " + p.byId[id].t));
+      });
+      container.appendChild(document.createTextNode(" "));
+    });
+  }
+  function originBadge(p) {
+    return el("span", "badge " + p.origin, p.origin === "real" ? "Real excerpt" : "AI-written");
+  }
+  function renderAsk(container, lines) {
+    container.innerHTML = "";
+    container.appendChild(el("div", "ask-label", "On the test you’d be asked to identify"));
+    const ol = document.createElement("ol");
+    lines.forEach(l => ol.appendChild(el("li", null, l)));
+    container.appendChild(ol);
+  }
+
+  /* ============ NAV ============ */
+  const navButtons = document.querySelectorAll(".navbtn");
+  const panes = document.querySelectorAll(".pane");
+  navButtons.forEach(btn => btn.addEventListener("click", () => {
+    navButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    panes.forEach(p => p.classList.remove("active"));
+    document.getElementById("pane-" + btn.dataset.pane).classList.add("active");
+    if (btn.dataset.pane === "progress") renderProgress();
+  }));
+
+  /* ============ PROGRESS ============ */
+  const PROG_KEY = "apwh_causation_progress_v2";
+  let progress = safeGet(PROG_KEY, {});
+  function record(key, score, total) {
+    const rec = progress[key] || { best: 0, total: total, attempts: 0 };
+    rec.attempts++; rec.total = total; rec.best = Math.max(rec.best, score);
+    progress[key] = rec; safeSet(PROG_KEY, progress);
+  }
+  function progTag(key) {
+    const r = progress[key];
+    const s = el("span", "ptag");
+    if (!r) { s.classList.add("no"); s.textContent = "—"; return s; }
+    s.classList.add(r.best === r.total ? "yes" : "part");
+    s.textContent = r.best + " / " + r.total + (r.best === r.total ? " ✓" : "");
+    return s;
+  }
+  /* Item-level results for the LEQ-type and MCQ sections (keyed by question text, so reordering never breaks them) */
+  const LEQ_STORE_KEY = "apwh_u2_leq_results", MCQ_STORE_KEY = "apwh_u2_mcq_results";
+  let leqResults = safeGet(LEQ_STORE_KEY, {}), mcqResults = safeGet(MCQ_STORE_KEY, {});
+  function recordResult(store, storeKey, text, right) {
+    const r = store[text] || { correct: false, attempts: 0 };
+    r.attempts++; if (right) r.correct = true;
+    store[text] = r; safeSet(storeKey, store);
+  }
+  function bestText(key) { const r = progress[key]; return r ? " · best " + r.best + "/" + r.total : ""; }
+  function tag(correct, total, tried) {
+    const s = el("span", "ptag");
+    if (!tried) { s.classList.add("no"); s.textContent = "Not started"; return s; }
+    s.classList.add(correct === total ? "yes" : "part");
+    s.textContent = correct + " / " + total + (correct === total ? " ✓" : "");
+    return s;
+  }
+  function tile(name, correct, total, unit, numText) {
+    const t = el("div", "prog-tile");
+    t.appendChild(el("div", "pt-name", name));
+    t.appendChild(el("div", "pt-num", numText || (correct + " / " + total)));
+    t.appendChild(el("div", "pt-sub", unit));
+    const bar = el("div", "prog-bar"); const fill = document.createElement("span");
+    fill.style.width = (total ? Math.round(100 * correct / total) : 0) + "%"; bar.appendChild(fill); t.appendChild(bar);
+    return t;
+  }
+  function row(body, cells) {
+    const tr = document.createElement("tr");
+    cells.forEach(c => { const td = document.createElement("td"); if (typeof c === "string") td.textContent = c; else td.appendChild(c); tr.appendChild(td); });
+    body.appendChild(tr);
+  }
+  function renderProgress() {
+    /* paragraphs */
+    const body = document.getElementById("progBody"); body.innerHTML = "";
+    let pBest = 0, pTotal = 0;
+    PASSAGES.forEach(p => {
+      const r = progress[p.id + ":q"];
+      const total = r ? r.total : totalPoints(p);
+      pTotal += total; if (r) pBest += r.best;
+      row(body, [p.title, LEVEL_SHORT[p.level], r ? tag(r.best, r.total, true) : tag(0, total, false)]);
+    });
+    /* Historical reasoning identification */
+    const lBody = document.getElementById("leqProgBody"); lBody.innerHTML = "";
+    let lCorrect = 0, lTried = 0;
+    const mastery = el("span", "ptag " + (hriStreak.mastered ? "yes" : "no"), hriStreak.mastered ? "Mastered ✓" : "Not yet");
+    row(lBody, ["Mastery (" + STREAK_GOAL + " correct in a row)", mastery, ""]);
+    row(lBody, ["Current streak", hriStreak.current + " in a row", ""]);
+    row(lBody, ["Best streak", hriStreak.best + " in a row", ""]);
+    ["causation", "comparison", "ccot"].forEach(type => {
+      const items = HRI_ITEMS.filter(q => q.type === type);
+      const tried = items.filter(q => leqResults[q.prompt]).length, correct = items.filter(q => leqResults[q.prompt] && leqResults[q.prompt].correct).length;
+      lCorrect += correct; lTried += tried;
+      row(lBody, [TYPE_LABELS[type] + " items", tag(correct, items.length, tried > 0), tried + " of " + items.length]);
+    });
+    row(lBody, ["All items", tag(lCorrect, HRI_ITEMS.length, lTried > 0), lTried + " of " + HRI_ITEMS.length]);
+    /* MCQs */
+    const mBody = document.getElementById("mcqProgBody"); mBody.innerHTML = "";
+    let mCorrect = 0, mTried = 0;
+    PRACTICE_MCQ_SETS.forEach(set => {
+      const tried = set.questions.filter(q => mcqResults[q.q]).length, correct = set.questions.filter(q => mcqResults[q.q] && mcqResults[q.q].correct).length;
+      mCorrect += correct; mTried += tried;
+      row(mBody, [set.title, tag(correct, set.questions.length, tried > 0), tried + " of " + set.questions.length]);
+    });
+    row(mBody, ["All practice MCQs", tag(mCorrect, PMCQ_FLAT.length, mTried > 0), mTried + " of " + PMCQ_FLAT.length]);
+    /* summary tiles */
+    const tiles = document.getElementById("progTiles"); tiles.innerHTML = "";
+    tiles.appendChild(tile("Paragraph questions", pBest, pTotal, "points earned (best scores)"));
+    tiles.appendChild(tile("Historical reasoning identification", Math.min(hriStreak.best, STREAK_GOAL), STREAK_GOAL, "best streak of correct answers in a row (goal: " + STREAK_GOAL + ")", hriStreak.mastered ? "Mastered ✓" : null));
+    tiles.appendChild(tile("Practice MCQs", mCorrect, PMCQ_FLAT.length, "questions answered correctly"));
+  }
+  let resetArmed = null;
+  document.getElementById("progReset").addEventListener("click", (e) => {
+    const btn = e.currentTarget;
+    if (!resetArmed) {
+      btn.textContent = "Click again to confirm: this clears every saved score";
+      resetArmed = setTimeout(() => { resetArmed = null; btn.textContent = "Reset all progress"; }, 5000);
+      return;
+    }
+    clearTimeout(resetArmed); resetArmed = null; btn.textContent = "Reset all progress";
+    progress = {}; safeSet(PROG_KEY, progress);
+    leqResults = {}; safeSet(LEQ_STORE_KEY, leqResults);
+    hriStreak = { current: 0, best: 0, mastered: false }; safeSet(STREAK_KEY, hriStreak); renderStreak();
+    mcqResults = {}; safeSet(MCQ_STORE_KEY, mcqResults);
+    renderProgress(); renderPickers();
+  });
+
+  /* ============ DRAG-AND-DROP BOARD ENGINE ============ */
+  function createBoard(cfg) {
+    const st = { place: {}, seq: {}, n: 0, sel: null, locked: false, marks: {}, order: shuffle(cfg.units.map(u => u.id)) };
+    const unitById = {}; cfg.units.forEach(u => { unitById[u.id] = u; });
+    const zoneEls = {};
+
+    cfg.zonesEl.innerHTML = "";
+    cfg.zones.forEach((z, idx) => {
+      const zEl = el("div", "zone");
+      const head = el("div", "zone-head");
+      const name = el("div", "zone-name", z.label);
+      if (z.badge) name.appendChild(el("span", "zone-badge", "(" + z.badge + ")"));
+      head.appendChild(name);
+      if (z.hint) head.appendChild(el("div", "zone-hint", z.hint));
+      const items = el("div", "zone-items");
+      zEl.appendChild(head); zEl.appendChild(items);
+      zEl.addEventListener("dragover", e => { if (st.locked) return; e.preventDefault(); zEl.classList.add("dragover"); });
+      zEl.addEventListener("dragleave", () => zEl.classList.remove("dragover"));
+      zEl.addEventListener("drop", e => {
+        e.preventDefault(); zEl.classList.remove("dragover");
+        if (st.locked) return;
+        const id = e.dataTransfer.getData("text/plain");
+        if (unitById[id]) place(id, z.id);
+      });
+      zEl.addEventListener("click", () => { if (!st.locked && st.sel) { const id = st.sel; st.sel = null; place(id, z.id); } });
+      cfg.zonesEl.appendChild(zEl);
+      zoneEls[z.id] = items;
+      if (cfg.arrows && idx < cfg.zones.length - 1) cfg.zonesEl.appendChild(el("div", "zone-arrow", "↓"));
+    });
+
+    cfg.trayEl.ondragover = e => { if (st.locked) return; e.preventDefault(); cfg.trayEl.classList.add("dragover"); };
+    cfg.trayEl.ondragleave = () => cfg.trayEl.classList.remove("dragover");
+    cfg.trayEl.ondrop = e => {
+      e.preventDefault(); cfg.trayEl.classList.remove("dragover");
+      if (st.locked) return;
+      const id = e.dataTransfer.getData("text/plain");
+      if (unitById[id]) unplace(id);
+    };
+    cfg.trayEl.onclick = () => { if (st.sel) { st.sel = null; render(); } };
+
+    function zoneList(zid) {
+      return Object.keys(st.place).filter(id => st.place[id] === zid).sort((a, b) => st.seq[a] - st.seq[b]);
+    }
+    function place(id, zid) {
+      const zone = cfg.zones.find(z => z.id === zid);
+      const list = zoneList(zid);
+      if (zone.cap && !list.includes(id) && list.length >= zone.cap) {
+        if (zone.cap === 1) delete st.place[list[0]]; else return;
+      }
+      st.place[id] = zid; st.seq[id] = ++st.n; st.sel = null;
+      render();
+    }
+    function unplace(id) { delete st.place[id]; st.sel = null; render(); }
+
+    function chip(u, inZone, zid) {
+      const d = el("div", "dchip");
+      d.dataset.id = u.id;
+      if (cfg.showTags === true) d.appendChild(el("span", "tag", u.label));
+      d.appendChild(el("span", null, chipText(u)));
+      if (st.locked) {
+        if (st.marks[u.id] === true) { d.classList.add("correct"); d.appendChild(el("span", "mark", "✓")); }
+        else if (st.marks[u.id] === false) { d.classList.add("incorrect"); d.appendChild(el("span", "mark", "✗")); }
+        return d;
+      }
+      d.draggable = true;
+      if (st.sel === u.id) d.classList.add("selected");
+      d.addEventListener("dragstart", e => { e.dataTransfer.setData("text/plain", u.id); e.dataTransfer.effectAllowed = "move"; d.classList.add("dragging"); });
+      d.addEventListener("dragend", () => d.classList.remove("dragging"));
+      d.addEventListener("click", e => {
+        e.stopPropagation();
+        if (inZone) {
+          if (st.sel) { const s = st.sel; st.sel = null; place(s, zid); } else unplace(u.id);
+        } else { st.sel = st.sel === u.id ? null : u.id; render(); }
+      });
+      return d;
+    }
+
+    function render() {
+      cfg.trayEl.innerHTML = "";
+      const loose = st.order.filter(id => !st.place[id]);
+      if (!loose.length) cfg.trayEl.appendChild(el("div", "tray-empty", "All sentences placed."));
+      loose.forEach(id => cfg.trayEl.appendChild(chip(unitById[id], false)));
+      cfg.zones.forEach(z => {
+        const box = zoneEls[z.id]; box.innerHTML = "";
+        zoneList(z.id).forEach(id => box.appendChild(chip(unitById[id], true, z.id)));
+      });
+      if (cfg.onChange) cfg.onChange(st);
+    }
+    render();
+
+    return {
+      state: st,
+      lock(marks) { st.locked = true; st.marks = marks; st.sel = null; render(); },
+      placement() { return st.place; }
+    };
+  }
+
+  /* ============ PICKERS & FILTER ============ */
+  let originFilter = "all";
+  const state = { quizId: QUIZ_PASSAGES[0].id };
+
+  function visible(list) { return list.filter(p => originFilter === "all" || p.origin === originFilter); }
+
+  function renderFilter(containerId) {
+    const c = document.getElementById(containerId);
+    c.innerHTML = "";
+    if (!PASSAGES.some(p => p.origin === "real")) return;
+    c.appendChild(el("span", null, "Show:"));
+    [["all", "All passages"], ["real", "Real excerpts only"], ["ai", "AI-written only"]].forEach(([k, label]) => {
+      const b = el("button", "btn small" + (originFilter === k ? " on" : ""), label);
+      b.addEventListener("click", () => { originFilter = k; renderPickers(); });
+      c.appendChild(b);
+    });
+  }
+  function renderPicker(containerId, list, activeId, mode, onPick) {
+    const c = document.getElementById(containerId);
+    c.innerHTML = "";
+    const vis = visible(list);
+    if (!vis.length) c.appendChild(el("div", "tray-empty", "No passages match this filter."));
+    let lastLevel = 0;
+    vis.forEach(p => {
+      if (p.level !== lastLevel) { lastLevel = p.level; c.appendChild(el("div", "pick-group", LEVEL_NAMES[p.level])); }
+      const b = el("button", "pick" + (p.id === activeId ? " active" : ""));
+      b.appendChild(el("span", "pt", p.title));
+      b.appendChild(originBadge(p));
+      const best = el("span", "best", bestText(p.id + ":" + mode).replace(" · ", ""));
+      b.appendChild(best);
+      b.addEventListener("click", () => onPick(p.id));
+      c.appendChild(b);
+    });
+  }
+  function renderPickers() {
+    renderFilter("quizFilter");
+    renderPicker("quizPicker", QUIZ_PASSAGES, state.quizId, "q", loadQuiz);
+  }
+  function nextIn(list, id) {
+    const vis = visible(list); const pool = vis.length ? vis : list;
+    const i = pool.findIndex(p => p.id === id);
+    return pool[(i + 1) % pool.length].id;
+  }
+
+  function prevIn(list, id) {
+    const vis = visible(list); const pool = vis.length ? vis : list;
+    const i = pool.findIndex(p => p.id === id);
+    return pool[(i - 1 + pool.length) % pool.length].id;
+  }
+
+  /* ============ QUESTION MODE ============ */
+  const quizEls = {
+    title: document.getElementById("quizTitle"), source: document.getElementById("quizSource"),
+    text: document.getElementById("quizText"), note: document.getElementById("quizNote"),
+    count: document.getElementById("quizCount"), prompt: document.getElementById("quizPrompt"),
+    help: document.getElementById("quizHelp"), tray: document.getElementById("quizTray"),
+    zones: document.getElementById("quizZones"), status: document.getElementById("quizStatus"),
+    results: document.getElementById("quizResults"), check: document.getElementById("quizCheck"),
+    next: document.getElementById("quizNext")
+  };
+  let quizQ = 0, quizBoard = null;
+
+  function whyOf(p, u) { return u.why || (p.chain && p.chain.why && p.chain.why[u.id]) || ""; }
+  function totalPoints(p) { return p.questions.reduce((a, q) => a + q.parts.length, 0); }
+  function recordQ(pid, qi, pts, p) {
+    const key = pid + ":q";
+    const rec = progress[key] || { best: 0, total: 0, attempts: 0, qs: {} };
+    rec.qs = rec.qs || {};
+    rec.qs[qi] = Math.max(rec.qs[qi] || 0, pts);
+    rec.total = totalPoints(p); rec.attempts++;
+    rec.best = Object.keys(rec.qs).reduce((a, k) => a + rec.qs[k], 0);
+    progress[key] = rec; safeSet(PROG_KEY, progress);
+  }
+
+  function loadQuiz(id, qi) {
+    state.quizId = id; quizQ = qi || 0;
+    const p = PASSAGES.find(x => x.id === id);
+    quizEls.title.textContent = p.title;
+    quizEls.source.innerHTML = "";
+    quizEls.source.appendChild(originBadge(p));
+    quizEls.source.appendChild(document.createTextNode(" " + p.source));
+    renderParagraph(quizEls.text, p);
+    quizEls.note.textContent = "";
+    showQuestion();
+    renderPickers();
+  }
+
+  function showQuestion() {
+    const p = PASSAGES.find(x => x.id === state.quizId);
+    const q = p.questions[quizQ];
+    quizEls.count.textContent = "Question " + (quizQ + 1) + " of " + p.questions.length + " · " + q.parts.length + " points";
+    quizEls.prompt.textContent = q.prompt;
+    quizEls.help.textContent = "Drag one sentence into each box. Each box is worth 1 point.";
+    quizEls.status.textContent = ""; quizEls.status.className = "status";
+    quizEls.results.innerHTML = "";
+    quizEls.check.disabled = false;
+    quizEls.next.textContent = quizQ < p.questions.length - 1 ? "Next question →" : "Next passage →";
+    const zones = q.parts.map((pt, i) => ({ id: "A" + i, cap: 1, label: pt[0] }));
+    quizBoard = createBoard({ trayEl: quizEls.tray, zonesEl: quizEls.zones, zones: zones, units: p.units });
+  }
+
+  function resultRow(p, id, placed, extra) {
+    const u = p.byId[id];
+    const row = el("div", "res-item");
+    const top = el("div", "res-top");
+    const tx = el("span", "res-text"); appendWithKey(tx, u.t, u.key); top.appendChild(tx);
+    row.appendChild(top);
+    if (extra) row.appendChild(extra);
+    row.appendChild(el("div", "res-why", whyOf(p, u)));
+    if (u.key) row.appendChild(el("div", "res-keylabel", "Key part: “" + u.key + "”"));
+    return row;
+  }
+
+  quizEls.check.addEventListener("click", () => {
+    const p = PASSAGES.find(x => x.id === state.quizId);
+    const q = p.questions[quizQ];
+    const place = quizBoard.placement();
+    const slotOf = {}; Object.keys(place).forEach(id => { slotOf[id] = parseInt(place[id].slice(1), 10); });
+    const marks = {}; let pts = 0;
+    Object.keys(slotOf).forEach(id => {
+      const ok = q.parts[slotOf[id]][1].indexOf(id) >= 0;
+      marks[id] = ok; if (ok) pts++;
+    });
+    const n = q.parts.length;
+    quizBoard.lock(marks);
+    recordQ(p.id, quizQ, pts, p);
+    quizEls.check.disabled = true;
+    quizEls.status.textContent = pts + " of " + n + " points" + (pts === n ? " — full marks." : ". See the notes below.");
+    quizEls.status.className = "status " + (pts === n ? "good" : "bad");
+
+    quizEls.results.innerHTML = "";
+    const groups = [];
+    q.parts.forEach(pt => {
+      const sig = pt[0] + "|" + pt[1].join(",");
+      let g = groups.find(x => x.sig === sig);
+      if (!g) { g = { sig: sig, label: pt[0], answers: pt[1], count: 0 }; groups.push(g); }
+      g.count++;
+    });
+    groups.forEach(g => {
+      const hd = el("div", "res-keylabel", g.label + (g.count > 1 ? " (you need " + g.count + ")" : "") +
+        (g.answers.length > g.count ? " — accepted answers:" : " — the answer:"));
+      hd.style.margin = "12px 0 4px";
+      quizEls.results.appendChild(hd);
+      g.answers.forEach(id => {
+        let extra = null;
+        if (marks[id] === true) { extra = el("div", "res-line"); extra.appendChild(el("span", "ok", "✓ ")); extra.appendChild(document.createTextNode("You chose this one.")); }
+        quizEls.results.appendChild(resultRow(p, id, place[id], extra));
+      });
+    });
+    const wrong = Object.keys(slotOf).filter(id => !marks[id]);
+    if (wrong.length) {
+      const wh = el("div", "res-keylabel", "Not the answer for the box you put them in:");
+      wh.style.margin = "14px 0 4px";
+      quizEls.results.appendChild(wh);
+      wrong.forEach(id => {
+        const l = el("div", "res-line");
+        l.appendChild(el("span", "no", "✗ "));
+        l.appendChild(document.createTextNode("You put this under “" + q.parts[slotOf[id]][0] + "”, but it doesn’t fit that part of the question."));
+        quizEls.results.appendChild(resultRow(p, id, place[id], l));
+      });
+    }
+    renderPickers();
+  });
+  document.getElementById("quizReset").addEventListener("click", showQuestion);
+  document.getElementById("quizPrev").addEventListener("click", () => loadQuiz(prevIn(QUIZ_PASSAGES, state.quizId), 0));
+  quizEls.next.addEventListener("click", () => {
+    const p = PASSAGES.find(x => x.id === state.quizId);
+    if (quizQ < p.questions.length - 1) { quizQ++; showQuestion(); }
+    else loadQuiz(nextIn(QUIZ_PASSAGES, state.quizId), 0);
+  });
+
+  const PRACTICE_MCQ_SETS = [
+    {
+      title: "The Silk Roads and Caravanserais",
+      stimulus: "“On the ninth day we reached the walled inn at the edge of the salt desert. Its keepers, who are paid by the governor, stable the camels, feed the drivers, and lock the great gate at night against thieves. Merchants arriving with silk, porcelain, and tea must show their goods to the governor’s clerks, who weigh each load and collect one part in ten for the treasury. Traders from many lands sleep under the same roof; last night I heard Persian, Arabic, and the language of the Turks spoken at a single table, and a monk from the west was trading a copy of a holy book for a bolt of cloth. The road is long, but it is well kept, for the governor profits from every traveler who passes.”",
+      source: "Invented merchant’s journal, c. 1250",
+      questions: [
+        {
+          q: "This source is best used as evidence for which broader development in Eurasian trade?",
+          options: ["Rulers supported and profited from long-distance trade","The replacement of overland routes by maritime routes","The disappearance of merchants as a distinct social group","The use of paper money in place of caravans"],
+          correct: 0,
+          whyWrong: [null,"Nothing in the stimulus mentions ships or sea routes; it describes an overland road.","The stimulus centers on merchants and the taxes collected from them, so it points to their continued importance.","The stimulus mentions taxes on goods but says nothing about paper money replacing caravans."],
+          rationale: "The inn and the tax together show a state both supporting and benefiting from trade."
+        },
+        {
+          q: "Which of the following innovations most directly increased the amount of cargo traders could carry across desert regions?",
+          options: ["The lateen sail, which let ships sail against the wind","The magnetic compass, which helped sailors stay on course","Improved camel saddles that allowed heavier loads to be carried","The heavy plow, which increased farm output in northern Europe"],
+          correct: 2,
+          whyWrong: ["The lateen sail improved sea travel, not travel across deserts.","The compass helped sailors navigate; it didn’t change what camels could carry over land.",null,"The heavy plow was a farming technology in northern Europe and has no connection to desert caravans."],
+          rationale: "Better saddles let camels carry heavier loads, which directly increased overland cargo."
+        },
+        {
+          q: "Which of the following was a long-term consequence of exchange along the Silk Roads in this period?",
+          options: ["The introduction of maize and potatoes to Eurasia","The spread of technologies such as papermaking and gunpowder from China to other regions","The end of Buddhism’s spread in Central Asia","The adoption of a single common currency across Eurasia"],
+          correct: 1,
+          whyWrong: ["Maize and potatoes came from the Americas and reached Eurasia only after 1492, which is after this period.",null,"Buddhism had spread across Central Asia earlier along these routes; trade didn’t end its spread.","No single currency existed across Eurasia; different regions used different forms of money."],
+          rationale: "Chinese inventions such as paper and gunpowder traveled outward along trade networks."
+        }
+      ]
+    },
+    {
+      title: "The Mongol Peace",
+      stimulus: "“Under the Great Khan’s rule, a merchant carrying a tablet of gold, stamped with the khan’s seal, may travel from the shores of the Black Sea to the borders of Cathay without fear. At every post-station, about a day’s ride apart, the officials must supply him with lodging, food, and fresh horses; whoever refuses is punished. The khan’s officers also hunt down bandits and execute them, so that a woman carrying a purse of gold could cross these lands unharmed. Envoys, monks, and traders of many faiths pass along these roads, and the khan asks only that they pray for him and pay the tax on their goods.”",
+      source: "Invented account by a European friar traveling in Mongol lands, c. 1255",
+      questions: [
+        {
+          q: "The practice described in the stimulus is best understood as part of which of the following?",
+          options: ["The Chinese tribute system, which required foreign rulers to send gifts to the emperor","The Byzantine practice of placing the emperor above the Church","Mongol safe-conduct passes and relay stations that promoted trade and communication","Feudal obligations between lords and vassals in western Europe"],
+          correct: 2,
+          whyWrong: ["The tribute system governed relations with China’s neighbors; it did not give traveling merchants passes and stations.","That describes caesaropapism, a form of church-state relations, not trade or travel.",null,"Feudal obligations concerned landholding and military service, not safe travel for merchants."],
+          rationale: "The gold tablet and the stations match the Mongol pass and relay system that made long-distance travel safer."
+        },
+        {
+          q: "Which of the following was a direct effect of Mongol control over much of Eurasia?",
+          options: ["A sharp decline in the exchange of ideas and technologies","Greater safety and volume of trade along the Silk Roads","The permanent closing of Silk Roads routes to European merchants","A shift of nearly all trade to the Atlantic Ocean"],
+          correct: 1,
+          whyWrong: ["Mongol rule generally increased, rather than reduced, contact and exchange between regions.",null,"European merchants and envoys traveled to Mongol lands rather than being shut out.","Atlantic trade networks did not become dominant until after this period."],
+          rationale: "Unified rule made the overland routes safer, which increased trade."
+        },
+        {
+          q: "Which of the following Mongol policies most clearly encouraged cultural and religious exchange within their empire?",
+          options: ["Religious toleration of many faiths and the hiring of administrators from many cultures","Forcing all conquered peoples to adopt Buddhism","Banning foreign merchants from Mongol territory","Closing the relay stations to travelers who were not Mongols"],
+          correct: 0,
+          whyWrong: [null,"The Mongols generally tolerated many religions rather than imposing one on everyone.","The Mongols welcomed merchants because trade brought them wealth.","Foreign merchants and envoys with passes were allowed to use the relay system."],
+          rationale: "Toleration and a multicultural administration let people, faiths, and ideas mix."
+        }
+      ]
+    },
+    {
+      title: "Indian Ocean Trade",
+      stimulus: "“Each year when the winds turn from the northeast, the ships come to our harbor. They carry cotton cloth from the coast of Gujarat, blue-and-white porcelain from the markets of China, and glass beads from the lands beyond Arabia. The sailors, who are Arabs, Indians, and Persians, bargain with our merchants in the market square and pay a fee to the sultan’s harbor master. When the southwest winds rise in the summer, the ships depart, loaded with gold from the interior, ivory, and timber. The captains say that if they leave too late, the winds will not carry them home, and they must wait another year.”",
+      source: "Invented harbor official’s record, East African coast, c. 1350",
+      questions: [
+        {
+          q: "The pattern described in the stimulus was made possible primarily by which of the following?",
+          options: ["Knowledge of seasonal monsoon wind patterns","The use of steam-powered ships","A single empire’s control of every Indian Ocean port","The Grand Canal’s connection to the African coast"],
+          correct: 0,
+          whyWrong: [null,"Steam-powered ships did not exist in this period; ships used wind power.","No single empire controlled all Indian Ocean ports; the trade network was decentralized.","The Grand Canal was a Chinese waterway and did not connect to East Africa."],
+          rationale: "Ships arrived and departed with the seasonal monsoon winds."
+        },
+        {
+          q: "Which of the following innovations was most useful to sailors crossing the Indian Ocean?",
+          options: ["The caravanserai","The yam relay system","The heavy plow","The lateen sail"],
+          correct: 3,
+          whyWrong: ["Caravanserais were inns for overland caravans, not ships.","The yam relay system served messengers and travelers on land under the Mongols.","The heavy plow was a farming tool, unrelated to sea travel.",null],
+          rationale: "The triangular lateen sail let ships make better use of changing winds."
+        },
+        {
+          q: "Which of the following was a result of growing Indian Ocean trade for East African coastal cities such as Kilwa?",
+          options: ["Their absorption into the Mongol Empire","The growth of wealthy port cities where African, Arab, and Persian influences blended","A return to self-sufficient farming as trade declined","The abandonment of Islam in favor of local religions"],
+          correct: 1,
+          whyWrong: ["The Mongol Empire never extended to the East African coast.",null,"Trade grew rather than declined, and the coastal cities became prosperous because of it.","Islam spread along the coast through merchants; it was not abandoned."],
+          rationale: "Trade brought wealth and cultural blending, including Swahili language and culture."
+        }
+      ]
+    },
+    {
+      title: "Trans-Saharan Trade",
+      stimulus: "“The salt of this region is carried from the desert mines by caravans of a thousand camels. In the country of the blacks, salt is so scarce, and gold so plentiful, that merchants exchange the one for an equal weight of the other. The king of this country takes a tax of one gold dinar on each donkey-load of salt that enters his land and two dinars on each load that leaves. His capital is divided into two towns: one where the king lives with his court, and one where the Muslim merchants have built twelve mosques and keep their own judges and scholars.”",
+      source: "Invented account in the style of an Arab geographer, c. 1070",
+      questions: [
+        {
+          q: "The exchange described in the stimulus best illustrates which of the following?",
+          options: ["The spread of farming techniques through migration","Mongol regulation of trade across Eurasia","Maritime trade across the Indian Ocean","Exchange of goods abundant in one region and scarce in another"],
+          correct: 3,
+          whyWrong: ["The stimulus is about trade in salt and gold, not the spread of farming.","Nothing links this account to the Mongols, who did not control West Africa.","The account describes trade across a desert, not across the sea.",null],
+          rationale: "Salt was scarce and gold plentiful south of the desert, which is exactly what drove the trade."
+        },
+        {
+          q: "Which of the following was a political consequence of trans-Saharan trade for West African states such as Ghana and Mali?",
+          options: ["Rulers gained wealth by taxing trade, which helped them build powerful states","Merchant guilds took over the governments of these states","Their territories were absorbed by the Abbasid Caliphate","They were required to pay tribute to the Chinese emperor"],
+          correct: 0,
+          whyWrong: [null,"The stimulus shows the king taxing traders, which strengthens rulers rather than putting merchants in charge.","The Abbasid Caliphate did not rule West Africa.","China had no tribute relationship with West African states in this period."],
+          rationale: "Taxing the caravans gave rulers wealth to build and maintain strong states."
+        },
+        {
+          q: "Which of the following best explains the spread of Islam into West African cities during this period?",
+          options: ["Mongol armies conquered West Africa and imposed Islam","Crusaders from Europe brought Islam to the region","Muslim merchants traveled with caravans and settled in trading cities, and many rulers adopted Islam","Chinese naval expeditions introduced Islam to the coast"],
+          correct: 2,
+          whyWrong: ["The Mongols never conquered West Africa.","The Crusaders were European Christians who fought against Muslim states; they did not spread Islam.",null,"Chinese naval expeditions sailed the Indian Ocean and did not reach West Africa’s trans-Saharan cities."],
+          rationale: "Islam spread through trade contacts, settlement, and the conversion of rulers."
+        }
+      ]
+    },
+    {
+      title: "Mansa Musa and Cultural Exchange",
+      stimulus: "“The king of the blacks, whose realm lies far to the south of the desert, came to Cairo on his way to the holy city. His caravan was said to contain thousands of attendants, one hundred camel-loads of gold, and many horses. He gave out so much gold to the officials and the poor that the price of gold fell, and for years afterward it did not regain its former value. He spoke of the pilgrimage as a duty to God, and he asked scholars and architects from Cairo to return with him to his own country.”",
+      source: "Invented account by a Cairo official, c. 1350",
+      questions: [
+        {
+          q: "The account in the stimulus is best used as evidence for which of the following?",
+          options: ["Mali’s isolation from other Islamic societies","Egyptian conquest of Mali","Mali’s participation in trade and pilgrimage networks linking West Africa to the wider Islamic world","Mali’s dependence on tribute from China"],
+          correct: 2,
+          whyWrong: ["A king traveling to Cairo with a huge entourage is the opposite of isolation.","The account describes a visiting king, not a conquest.",null,"The account describes gold and a visit to Cairo, not any relationship with China."],
+          rationale: "A West African king reaching Cairo shows Mali tied into Islamic trade and pilgrimage networks."
+        },
+        {
+          q: "Which of the following was a cultural consequence of pilgrimages like the one described?",
+          options: ["A decline in contact among Muslim regions","The spread of ideas, art, architecture, and scholars among distant Islamic regions","The adoption of Buddhism by Mali’s rulers","The end of the use of Arabic in religious study"],
+          correct: 1,
+          whyWrong: ["Pilgrimage increased contact among distant Muslim regions.",null,"Mali’s rulers were Muslim; there is no evidence they adopted Buddhism.","Arabic remained central to religious study, and pilgrimage reinforced it."],
+          rationale: "Pilgrims carried ideas, styles, and scholars between distant parts of the Islamic world."
+        },
+        {
+          q: "A Moroccan scholar who traveled about 75,000 miles, mostly through Muslim-ruled lands, and served rulers as a judge was",
+          options: ["Marco Polo","Zheng He","Genghis Khan","Ibn Battuta"],
+          correct: 3,
+          whyWrong: ["Marco Polo was a Venetian who traveled to the Mongol court in China; he was not a Moroccan scholar.","Zheng He was a Chinese admiral who led naval voyages.","Genghis Khan was the founder of the Mongol Empire.",null],
+          rationale: "Ibn Battuta’s Rihla records his travels across the Islamic world."
+        }
+      ]
+    },
+    {
+      title: "The Black Death",
+      stimulus: "“In the month of October, ships from the Black Sea put in at our harbor. Among the sailors there were many who were sick, and within days the sickness spread to the quarter near the docks. Whole households died; the dead were carried out in carts at night and buried in pits outside the walls. By spring, the bakers, weavers, and boatmen had fallen in great numbers, the guilds could not fill their ranks, and fields outside the city went unplanted because there were too few hands to work them. Those who survived were frightened, and many asked why God had sent this punishment.”",
+      source: "Invented chronicle entry from a Mediterranean port city, c. 1348",
+      questions: [
+        {
+          q: "This source is best used as evidence for which of the following?",
+          options: ["The social and economic disruption caused by mass mortality","The success of Mongol public health policies","The decline of Mediterranean trade because of Mongol conquests","A rapid increase in the available labor supply"],
+          correct: 0,
+          whyWrong: [null,"The source describes catastrophe, not successful health policies, and doesn’t mention the Mongols.","The sickness arrived on ships, which shows trade continuing rather than collapsing because of conquest.","The stimulus describes too few workers, which is the opposite of an increase in labor."],
+          rationale: "Empty households and unharvested fields show how mass death disrupted society and the economy."
+        },
+        {
+          q: "Which of the following was a long-term economic effect of the Black Death in Europe?",
+          options: ["A surplus of labor that lowered wages","Labor shortages that raised wages and weakened the manorial system","The permanent end of long-distance trade","The rise of the Atlantic slave trade as a direct result"],
+          correct: 1,
+          whyWrong: ["The opposite happened: so many people died that workers became scarce.",null,"Long-distance trade recovered and continued; it did not permanently end.","The Atlantic slave trade developed later and was not a direct result of the plague."],
+          rationale: "Fewer workers meant higher wages and more bargaining power for peasants."
+        },
+        {
+          q: "Which of the following best explains why the plague spread so quickly across Afro-Eurasia in the fourteenth century?",
+          options: ["The collapse of all long-distance trade routes","A lack of contact between regions","Increased trade and travel along connected networks such as the Silk Roads","The invention of faster printing technology"],
+          correct: 2,
+          whyWrong: ["The plague spread because trade routes were active, not because they collapsed.","Contact between regions was high, and that is what let disease travel.",null,"Printing technology has nothing to do with how disease spread."],
+          rationale: "Busy, connected trade networks carried people, goods, and disease quickly."
+        }
+      ]
+    },
+    {
+      title: "Comparing Trade Networks",
+      stimulus: "“Between 1200 and 1450, goods and ideas moved across Afro-Eurasia along several great networks. On the Silk Roads, caravans of camels carried silk, porcelain, and paper across deserts and mountains, stopping at oasis towns and caravanserais where merchants from many lands met. In the Indian Ocean, ships rode the seasonal monsoon winds between East Africa, Arabia, India, and Southeast Asia, carrying spices, cotton, and gold. Along both routes, merchants carried more than goods: Buddhist monks, Muslim scholars, and Sufi teachers traveled with them, and religious ideas spread along the same paths as commerce. Merchants on both routes also paid fees to local rulers in exchange for protection.”",
+      source: "Invented summary in the style of a modern historian",
+      questions: [
+        {
+          q: "Which of the following was a similarity between the Silk Roads and the Indian Ocean trade network?",
+          options: ["Both relied mainly on camel caravans","Both were controlled throughout this period by a single empire","Both helped spread religions such as Islam and Buddhism","Both were used only to move luxury goods and never ideas"],
+          correct: 2,
+          whyWrong: ["Camel caravans were mainly a Silk Roads feature; the Indian Ocean network relied on ships.","Neither network was under one empire for the whole period.",null,"The stimulus itself says both routes carried religious ideas."],
+          rationale: "Both networks carried religions along with goods."
+        },
+        {
+          q: "A historian arguing that the Indian Ocean network was more decentralized than the Silk Roads under Mongol rule would most likely point out that",
+          options: ["the Mongols controlled all the ports of the Indian Ocean","Indian Ocean merchants had no contact with rulers","no government took part in Silk Roads trade","no single state controlled the Indian Ocean ports, while the Mongols united much of the Silk Roads"],
+          correct: 3,
+          whyWrong: ["The Mongols did not control the Indian Ocean ports.","Many Indian Ocean rulers taxed and protected trade, so merchants did deal with rulers.","Rulers such as the Mongols actively regulated and supported Silk Roads trade.",null],
+          rationale: "Many separate states and merchant communities shared the Indian Ocean, while the Mongols brought much of the overland network under one authority. This one leans on comparison, so double-check it.",
+          flagged: true
+        },
+        {
+          q: "Which of the following best explains why maritime trade could move larger volumes of goods than overland caravans?",
+          options: ["Ships could carry much larger loads than pack animals","Sea routes never crossed any political boundaries","Maritime trade did not depend on weather or seasons","Caravans were forbidden by most rulers"],
+          correct: 0,
+          whyWrong: [null,"Ships passed through many ports ruled by different states.","Monsoon winds and seasons strongly shaped Indian Ocean sailing.","Most rulers welcomed caravans because they brought taxes and goods."],
+          rationale: "A single ship could carry far more than a caravan of animals."
+        }
+      ]
+    },
+    {
+      title: "The Transfer of Learning",
+      stimulus: "“I have spent this winter in the city of Toledo, where the library of the Arab scholars fell into our hands when the city was taken from the Muslims. With the help of a Jewish scholar who reads Arabic, I am translating into Latin a treatise on medicine and another on algebra. The authors tell us that they have gathered the writings of the Greeks, the Persians, and the Indians, and added their own discoveries. Many students come from across the Christian lands to hear these works read aloud, for nothing like them can be found in our own libraries.”",
+      source: "Invented letter by a Christian translator in Toledo, c. 1160",
+      questions: [
+        {
+          q: "The activity described in the stimulus is best understood as an example of which of the following?",
+          options: ["The conquest of Spain by Mongol armies","Cultural transfer of knowledge from the Islamic world to Christian Europe","The spread of the Black Death through trade","China’s tribute system with its neighbors"],
+          correct: 1,
+          whyWrong: ["Mongol armies never conquered Spain.",null,"The stimulus is about translation and learning, not disease.","The tribute system concerned China’s relations with neighboring rulers, not translation in Spain."],
+          rationale: "Translating Arabic works into Latin moved Islamic-world learning into Christian Europe."
+        },
+        {
+          q: "Which of the following regions was an important channel for moving Islamic learning into western Europe?",
+          options: ["Japan and Korea","Mali and Songhai","Spain and Sicily","Great Zimbabwe and Kilwa"],
+          correct: 2,
+          whyWrong: ["Japan and Korea were in East Asia, far from the Latin West.","Mali and Songhai were West African states that traded across the Sahara; they were not the main channel to Latin Europe.",null,"Great Zimbabwe and Kilwa were African centers tied to Indian Ocean trade, not to Latin Europe’s universities."],
+          rationale: "Spain and Sicily were places where Muslim and Christian scholars met and texts were translated."
+        },
+        {
+          q: "Which of the following was a long-term consequence of this transfer of knowledge for Europe?",
+          options: ["It ended the use of Latin in Europe","It caused the Black Death","It prevented contact between Christians and Muslims","It contributed to the revival of learning that helped lead to the Renaissance"],
+          correct: 3,
+          whyWrong: ["Latin remained the language of scholarship; the translations were into Latin.","Disease and translation are unrelated; the plague spread through trade and travel.","The translations show contact between the two worlds.",null],
+          rationale: "Recovered and expanded learning helped fuel Europe’s later intellectual revival."
+        }
+      ]
+    },
+    {
+      title: "Mongol Rule and Local Cultures",
+      stimulus: "“The khan, though he descends from the conquerors who burned our cities, now prays in our mosques and has ordered the Muslim shrines repaired. He has appointed Persian ministers to measure the land and collect taxes, and he has commanded that the peasants be spared from soldiers who once took grain and animals as they pleased. At the same time he keeps the customs of the steppe: his court moves with the seasons between summer and winter pastures, and the Mongol nobles still ride at his side. It is said that he has learned our language, and he has ordered the history of our people to be written.”",
+      source: "Invented chronicle by a Persian official at a Mongol court in Persia, c. 1300",
+      questions: [
+        {
+          q: "The ruler described in the stimulus best illustrates which of the following?",
+          options: ["The Mongols’ policy of forcibly converting every conquered people","Mongol rulers often adapted to the cultures of the peoples they ruled","The Mongols’ refusal to use administrators from conquered lands","The complete isolation of Mongol rulers from local cultures"],
+          correct: 1,
+          whyWrong: ["The stimulus shows a Mongol ruler choosing Islam himself, not forcing a religion on others.",null,"The stimulus shows Persian ministers being appointed.","The ruler prays in local mosques, repairs Muslim shrines, and has learned the local language, which shows engagement with local culture."],
+          rationale: "Adopting Islam and relying on Persian officials shows adaptation to local culture."
+        },
+        {
+          q: "Which of the following was an effect of the Mongol conquests on the Abbasid Caliphate?",
+          options: ["The Mongols captured Baghdad in 1258, ending the Abbasid Caliphate","The caliphate expanded into China","The caliphate allied with the Mongols to conquer Europe","The caliphate became a tribute-paying Mongol state for several centuries"],
+          correct: 0,
+          whyWrong: [null,"The Abbasids were destroyed by Mongol power, not expanding eastward into China.","The Abbasids did not ally with the Mongols; Mongol forces ended the caliphate.","The caliphate ended in 1258 rather than continuing as a long-lasting tribute state."],
+          rationale: "The Mongol capture of Baghdad in 1258 ended the Abbasid Caliphate."
+        },
+        {
+          q: "Which of the following was a result of Mongol rule for the Russian principalities?",
+          options: ["Orthodox Christianity was banned","Russia was permanently made part of China","Russian princes took over the Mongol Empire","Russian princes paid tribute to the Mongols’ Golden Horde while keeping the Orthodox Church"],
+          correct: 3,
+          whyWrong: ["The Mongols generally tolerated Orthodox Christianity and its church leaders.","Russia was not made part of China; the Golden Horde controlled much of the region.","Russian princes were subordinate to the Mongols rather than ruling them.",null],
+          rationale: "Russian princes paid tribute to the Golden Horde, and the Orthodox Church continued."
+        }
+      ]
+    },
+    {
+      title: "The Ming Treasure Voyages",
+      stimulus: "“In the third year of Yongle, the emperor commanded the admiral to lead a great fleet to the Western Ocean. The fleet numbered more than three hundred ships, carrying over twenty thousand men, with treasure ships of enormous size, horse ships, water ships, and warships to guard them. Wherever the fleet arrived, the admiral read the emperor’s edict, presented silks, porcelain, and gifts to the local kings, and invited them to send envoys to the Chinese court. Rulers who accepted received seals of office and the emperor’s protection, and envoys from more than thirty countries were brought back to the capital with strange animals and treasures.”",
+      source: "Invented record in the style of a Ming court chronicle, c. 1405",
+      questions: [
+        {
+          q: "The voyages described are best understood as an effort to",
+          options: ["establish permanent Chinese colonies across the Indian Ocean","conquer the Indian subcontinent","show China’s power and prestige and expand tribute relationships","find a sea route to the Atlantic coast of Europe"],
+          correct: 2,
+          whyWrong: ["The fleets presented gifts and brought back envoys; they did not found colonies.","The voyages were not conquest campaigns.",null,"The fleets sailed the Indian Ocean to ports in Asia and Africa and were not searching for a route to Europe."],
+          rationale: "Gifts to rulers and envoys returning to China point to prestige and tribute relationships."
+        },
+        {
+          q: "Which of the following contributed to the Ming decision to end the voyages?",
+          options: ["The cost of the voyages and the need to defend the northern frontier","A naval defeat by Portuguese fleets","The spread of the Black Death among the crews","Mongol conquest of the Ming court"],
+          correct: 0,
+          whyWrong: [null,"The Portuguese did not reach the Indian Ocean until the late 1490s, after the voyages ended.","The Black Death was a fourteenth-century event and was not the reason the voyages ended.","The Mongols did not conquer the Ming; the Ming had overthrown Mongol rule in China."],
+          rationale: "The voyages were very expensive, and the court needed resources to defend the northern border."
+        },
+        {
+          q: "Which of the following was a consequence of the Ming ending the voyages?",
+          options: ["China conquered Japan","Chinese naval presence in the Indian Ocean declined, leaving trade routes open to other powers","Chinese merchants began colonizing East Africa","The Mongols regained control of China"],
+          correct: 1,
+          whyWrong: ["Ending the voyages did not lead to a conquest of Japan.",null,"The Ming did not colonize East Africa.","The Ming remained in power; the Mongols did not return to rule China."],
+          rationale: "Without Chinese fleets, other powers later entered Indian Ocean trade. This one leans on nuance, so double-check it.",
+          flagged: true
+        }
+      ]
+    }
+  ];
+
+  // Flatten into one ordered list, each question carrying its set's stimulus/title
+  const PMCQ_FLAT = [];
+  PRACTICE_MCQ_SETS.forEach((set, setIdx) => {
+    set.questions.forEach((q, qIdx) => {
+      PMCQ_FLAT.push({
+        setTitle: set.title, stimulus: set.stimulus, source: set.source || "",
+        setNumber: setIdx + 1, setCount: PRACTICE_MCQ_SETS.length,
+        qInSet: qIdx + 1, qInSetCount: set.questions.length,
+        q: q.q, options: q.options, correct: q.correct, rationale: q.rationale,
+        whyWrong: q.whyWrong || [], flagged: !!q.flagged
+      });
+    });
+  });
+
+  const HRI_ITEMS = [
+    {"type": "comparison", "d": 1, "prompt": "Identify ONE similarity between the roles of merchants in the Silk Roads trade and in the trans-Saharan trade.", "cues": ["similarity between", "the Silk Roads trade and in the trans-Saharan trade"], "why": "“Similarity between” two subjects (the Silk Roads and the trans-Saharan trade) is comparison.", "style": "SAQ", "part": "a"},
+    {"type": "causation", "prompt": "Evaluate the extent to which the Mongol conquests caused an increase in trade and cultural exchange across Afro-Eurasia from c. 1200 to c. 1450.", "cues": ["caused"], "why": "It asks whether one development (the Mongol conquests) produced another (more trade and exchange). “Caused” signals causation: you would explain how, and how much.", "d": 1, "style": "LEQ"},
+    {"type": "causation", "d": 1, "prompt": "Explain ONE way in which the Black Death affected the cost of labor in Europe.", "cues": ["affected the cost of labor"], "why": "It asks what one event (the Black Death) did to something else (the cost of labor). An event and its effect is causation.", "style": "SAQ", "part": "b"},
+    {"type": "comparison", "prompt": "Women in thirteenth-century Mongol society managed herds and households and sometimes took part in politics, while women in Song China faced growing Confucian restrictions. Evaluate the extent to which women’s economic roles in the two societies were alike.", "cues": ["while women in Song China", "in the two societies were alike"], "why": "The setup puts two societies side by side (“while …”), and “were alike” asks how similar they were: comparison.", "d": 1, "style": "LEQ"},
+    {"type": "ccot", "d": 2, "prompt": "Identify ONE way in which Indian Ocean trade in the 1700s was still shaped by the monsoon winds, as it had been in the 1200s.", "cues": ["still shaped by the monsoon winds", "as it had been in the 1200s"], "why": "One subject (Indian Ocean trade) followed from the 1200s to the 1700s, which crosses the 1450 boundary between AP periods. “Still … as it had been” signals continuity.", "style": "SAQ", "part": "b"},
+    {"type": "ccot", "prompt": "Evaluate the extent to which the role of merchants in Chinese society changed and remained the same from c. 1200 to c. 1750.", "cues": ["changed and remained the same", "from c. 1200 to c. 1750"], "why": "One subject (the role of merchants in Chinese society) tracked across a long span that crosses the 1450 boundary: “changed and remained the same.”", "d": 2, "style": "LEQ"},
+    {"type": "comparison", "d": 2, "prompt": "Identify ONE way in which the efforts described in Source A and Source B were alike.", "cues": ["Source A and Source B were alike"], "why": "Two sources describing two different efforts, and the question asks how they were alike: comparison.", "stimulus": "Source A: Scholars in Baghdad translated Greek and Persian works into Arabic and added discoveries of their own. Source B: Scholars in Toledo translated Arabic works into Latin and taught them to students from across Christian Europe.", "source": "Invented summaries", "style": "SAQ", "part": "a"},
+    {"type": "comparison", "prompt": "Evaluate the extent to which the Silk Roads and the Indian Ocean trade network served the same purposes for the merchants who used them from c. 1200 to c. 1450.", "cues": ["the Silk Roads and the Indian Ocean trade network", "the same purposes"], "why": "There is no word like “compare,” but two separate networks in the same period are being measured against each other: how alike were their purposes? Judging how alike two subjects were is comparison.", "d": 2, "style": "LEQ"},
+    {"type": "ccot", "prompt": "Evaluate the extent of continuity and change in the Indian Ocean trade network from c. 1200 to c. 1750.", "cues": ["continuity and change", "from c. 1200 to c. 1750"], "why": "It follows one subject (the Indian Ocean trade network) across a long span that crosses from the 1200–1450 period into the 1450–1750 period, and asks what changed and what stayed the same.", "d": 1, "style": "LEQ"},
+    {"type": "comparison", "d": 2, "prompt": "Explain ONE way in which Mongol rule in Persia handled religion differently from Mongol rule in China.", "cues": ["differently from"], "why": "“Differently from” sets two places side by side: comparison.", "style": "SAQ", "part": "c"},
+    {"type": "causation", "prompt": "Evaluate the extent to which trans-Saharan trade was responsible for the rise of powerful states in West Africa from c. 1200 to c. 1450.", "cues": ["was responsible for"], "why": "“Was responsible for” asks about a cause (trans-Saharan trade) and a result (the rise of powerful states).", "d": 2, "style": "LEQ"},
+    {"type": "causation", "prompt": "Evaluate the extent to which new technologies, such as improved saddles and the lateen sail, made possible the expansion of long-distance trade from c. 1200 to c. 1450.", "cues": ["made possible"], "why": "“Made possible” connects causes (new technologies) to a result (the expansion of long-distance trade).", "d": 2, "style": "LEQ"},
+    {"type": "comparison", "d": 3, "prompt": "Explain ONE way in which women’s influence in Mongol government contrasted with women’s roles in Song China.", "cues": ["contrasted with"], "why": "“Contrasted with” sets two societies side by side: comparison.", "style": "SAQ", "part": "b"},
+    {"type": "causation", "d": 3, "style": "LEQ", "prompt": "Evaluate the extent to which the Mongol conquests were responsible for the spread of the Black Death across Eurasia in the fourteenth century.", "cues": ["were responsible for the spread of"], "why": "“Responsible for” links one development (the Mongol conquests) to a result (the spread of the plague). How strong that link was is what the essay would argue."},
+    {"type": "ccot", "d": 3, "prompt": "Explain ONE way in which the system of serfdom in western Europe weakened between c. 1300 and c. 1700.", "cues": ["weakened", "between c. 1300 and c. 1700"], "why": "One subject (serfdom in western Europe) followed across a span that crosses the 1450 boundary. “Weakened” describes change over time.", "style": "SAQ", "part": "c"},
+    {"type": "causation", "prompt": "Evaluate the extent to which the Black Death contributed to economic changes in Europe in the fourteenth century.", "cues": ["contributed to"], "why": "“Changes” may tempt you toward continuity and change, but the prompt asks how much one event (the Black Death) contributed to a result. One event and its effects means causation.", "d": 3, "style": "LEQ"},
+    {"type": "comparison", "d": 3, "style": "LEQ", "prompt": "Evaluate the extent to which the Song dynasty and the Mongol Yuan dynasty approached the promotion of commerce in similar ways.", "cues": ["the Song dynasty and the Mongol Yuan dynasty", "in similar ways"], "why": "Two different governments are measured against each other: how alike were their approaches? Judging how alike two subjects were is comparison."},
+    {"type": "ccot", "d": 3, "prompt": "Explain ONE way in which the Hajj continued to connect Muslim communities from c. 1200 to c. 1750.", "cues": ["continued to connect", "from c. 1200 to c. 1750"], "why": "One subject (the Hajj) followed across a span that crosses the 1450 boundary. “Continued” signals continuity.", "style": "SAQ", "part": "b"},
+    {"type": "causation", "d": 2, "prompt": "Identify ONE reason why Malacca became an important port in the fifteenth century.", "cues": ["reason why Malacca became"], "why": "“Reason why … became” asks for a cause of something that happened, so it is causation.", "style": "SAQ", "part": "b"},
+    {"type": "causation", "d": 3, "prompt": "Explain ONE way in which the translation of Arabic texts in Spain contributed to the Renaissance in Europe.", "cues": ["contributed to"], "why": "“Contributed to” links a development (translation) to a result (the Renaissance): causation.", "style": "SAQ", "part": "c"},
+    {"type": "comparison", "d": 3, "prompt": "Explain ONE way in which Kilwa’s position in Indian Ocean trade resembled Venice’s position in Mediterranean trade.", "cues": ["resembled"], "why": "“Resembled” asks how two different places (Kilwa and Venice) were alike: comparison.", "style": "SAQ", "part": "b"},
+    {"type": "causation", "prompt": "Evaluate the extent to which the Mongols’ use of relay stations and safe-conduct passes accounts for the growth of trade across Eurasia in the thirteenth century.", "cues": ["accounts for"], "why": "“Accounts for” asks whether relay stations and passes explain the growth of trade: causes and a result, so causation.", "d": 3, "style": "LEQ"},
+    {"type": "causation", "d": 3, "style": "SAQ", "prompt": "Explain ONE way in which the use of paper money in Yuan China helped the Mongols govern their empire.", "cues": ["helped the Mongols govern"], "why": "A development (paper money) is linked to a result (the Mongols’ ability to govern): causation.", "part": "c"},
+    {"type": "ccot", "d": 3, "style": "LEQ", "prompt": "Evaluate the extent to which Muslim merchants continued to dominate long-distance trade in the Indian Ocean from c. 1200 to c. 1750.", "cues": ["continued to dominate", "from c. 1200 to c. 1750"], "why": "“Continued to dominate” over a long span asks about continuity. One subject (Muslim merchants in the Indian Ocean) crosses the 1450 boundary, and no comparison or cause is requested."},
+    {"type": "comparison", "d": 4, "prompt": "Identify ONE way in which pilgrimage routes in the Islamic world and Buddhist monasteries along the Silk Roads served the same function for travelers.", "cues": ["served the same function"], "why": "Two different institutions are measured against each other: how did their function match? Matching functions across two subjects is comparison, even without the word “compare.”", "style": "SAQ", "part": "a"},
+    {"type": "causation", "prompt": "Evaluate the extent to which the monsoon winds and improvements in sailing technology explain the growth of Indian Ocean trade from c. 1200 to c. 1450.", "cues": ["explain the growth of"], "why": "The prompt asks whether certain factors (monsoon winds and sailing technology) account for a result (the growth of trade). Factors plus a result is causation.", "d": 4, "style": "LEQ"},
+    {"type": "comparison", "d": 4, "prompt": "Explain ONE way in which the spread of Islam into West Africa went hand in hand with trade, much as it did in Southeast Asia.", "cues": ["much as it did in Southeast Asia"], "why": "“Much as it did in Southeast Asia” sets two regions side by side. The task is a similarity between them.", "style": "SAQ", "part": "b"},
+    {"type": "ccot", "prompt": "Evaluate the extent to which the Chinese government’s control over foreign trade stayed the same from c. 1200 to c. 1900.", "cues": ["stayed the same", "from c. 1200 to c. 1900"], "why": "One subject (government control over foreign trade in China) followed across several AP periods. “Stayed the same” signals continuity, and a long span means you must also weigh change.", "d": 3, "style": "LEQ"},
+    {"type": "causation", "d": 4, "prompt": "Identify ONE way in which the event described in the passage changed how outsiders viewed West Africa.", "cues": ["the event described in the passage", "changed how outsiders viewed"], "why": "“Changed” may tempt you toward continuity and change, but the task is what one event (the king’s visit) did to outsiders’ views: an effect, so causation.", "stimulus": "“The king of Mali arrived in Cairo with so many attendants and so much gold that the metal’s price fell for years afterward.”", "source": "Invented passage based on accounts of a West African ruler’s pilgrimage", "style": "SAQ", "part": "b"},
+    {"type": "ccot", "prompt": "Evaluate the extent to which the Silk Roads remained central to long-distance trade between Asia and Europe from c. 1200 to c. 1750.", "cues": ["remained central to", "from c. 1200 to c. 1750"], "why": "“Remained” plus a long span of time asks about continuity. One subject (the Silk Roads) is tracked from the 1200–1450 period into the 1450–1750 period; nothing is compared and no cause is being evaluated.", "d": 3, "style": "LEQ"},
+    {"type": "comparison", "prompt": "Evaluate the extent to which merchants held a higher status in Indian Ocean port cities such as Malacca than in Ming China in the fifteenth century.", "cues": ["a higher status", "than in Ming China"], "why": "“Higher … than” sets two societies side by side in the same century. That is comparison, even without the word “compare” or “different.”", "d": 3, "style": "LEQ"},
+    {"type": "ccot", "prompt": "Evaluate the extent to which the labor systems used in Europe were transformed from c. 1300 to c. 1750.", "cues": ["were transformed", "from c. 1300 to c. 1750"], "why": "“Transformed” plus a span of time, about one subject (labor systems in Europe). The span runs from the 1200–1450 period into the 1450–1750 period, so it is continuity and change.", "d": 4, "style": "LEQ"},
+    {"type": "comparison", "prompt": "Evaluate the extent to which the wealth of Kilwa and the wealth of Great Zimbabwe rested on the same foundations in the fifteenth century.", "cues": ["Kilwa and the wealth of Great Zimbabwe", "the same foundations"], "why": "Two states in the same century, and “the same foundations” asks whether their wealth came from alike sources. “Rested on” sounds causal, but the essay isn’t tracing one cause. It is lining up two subjects.", "d": 4, "style": "LEQ"},
+    {"type": "comparison", "d": 4, "style": "LEQ", "prompt": "Evaluate the extent to which Ibn Battuta’s observations of life in Mali matched his observations of life in the Delhi Sultanate.", "cues": ["matched his observations of life in the Delhi Sultanate"], "why": "“Matched” asks whether two things (his observations of Mali and of Delhi) were alike. Two different places seen by one traveler is comparison."},
+    {"type": "ccot", "d": 4, "prompt": "Explain ONE way in which the long-distance trade routes of the 1200s had been replaced by new patterns by the 1700s.", "cues": ["the long-distance trade routes of the 1200s had been replaced by new patterns by the 1700s"], "why": "One subject (long-distance trade routes) followed from the 1200s to the 1700s. “Replaced by new patterns” signals change across periods.", "style": "SAQ", "part": "c"},
+    {"type": "comparison", "prompt": "Evaluate the extent to which the spread of Islam in West Africa resembled its spread in Southeast Asia between c. 1200 and c. 1450.", "cues": ["resembled its spread in Southeast Asia"], "why": "“Resembled” asks whether two things were alike. Here the two things are different places (West Africa and Southeast Asia) in the same period.", "d": 4, "style": "LEQ"},
+    {"type": "ccot", "prompt": "Evaluate the extent to which pastoral nomads of Central Asia were reshaped, or held steady, as a political force in Eurasia from c. 1200 to c. 1750.", "cues": ["reshaped, or held steady", "from c. 1200 to c. 1750"], "why": "“Reshaped, or held steady” asks what changed and what stayed the same. One subject (Central Asian nomads as a political force) is tracked across the 1450 boundary.", "d": 5, "style": "LEQ"},
+    {"type": "ccot", "d": 4, "style": "SAQ", "prompt": "Explain ONE way in which the position of Swahili city-states in Indian Ocean trade was altered between c. 1400 and c. 1700.", "cues": ["was altered", "between c. 1400 and c. 1700"], "why": "One subject (the Swahili city-states’ position in trade) followed across a span that crosses the 1450 boundary. “Was altered” describes change over time.", "part": "b"},
+    {"type": "causation", "prompt": "Evaluate the extent to which the Ming decision to end the treasure voyages shaped the course of Indian Ocean trade in the fifteenth century.", "cues": ["shaped the course of"], "why": "“Shaped” links one decision (ending the voyages) to a result (the course of Indian Ocean trade). One event and its effects is causation.", "d": 4, "style": "LEQ"},
+    {"type": "causation", "d": 4, "style": "LEQ", "prompt": "Evaluate the extent to which religion, rather than trade, explains the growth of Timbuktu as a center of learning in the fourteenth and fifteenth centuries.", "cues": ["explains the growth of", "rather than trade"], "why": "It asks which factor (religion or trade) accounts for a result (Timbuktu’s growth as a center of learning). Competing causes and a result is causation."},
+    {"type": "comparison", "prompt": "Evaluate the extent to which Mongol rule in China and Mongol rule in Persia produced the same kind of cultural blending from c. 1200 to c. 1450.", "cues": ["Mongol rule in China and Mongol rule in Persia", "the same kind of"], "why": "“Produced” sounds causal, but the essay isn’t about what caused the blending. It asks whether two places (China and Persia) developed in the same way.", "d": 5, "style": "LEQ"},
+    {"type": "ccot", "prompt": "Evaluate the extent to which the sources of wealth and power for West African states persisted or shifted from c. 1200 to c. 1750.", "cues": ["persisted or shifted", "from c. 1200 to c. 1750"], "why": "“Persisted or shifted” over a long span is continuity and change without using those words. The span crosses the 1450 dividing line between AP periods.", "d": 4, "style": "LEQ"},
+    {"type": "ccot", "d": 5, "prompt": "Identify ONE aspect of women’s lives in China that carried on, despite political upheavals, from the Song dynasty into the Qing dynasty.", "cues": ["carried on", "from the Song dynasty into the Qing dynasty"], "why": "One subject (women’s lives in China) followed across several dynasties and AP periods. “Carried on” signals continuity.", "style": "SAQ", "part": "a"},
+    {"type": "comparison", "d": 5, "style": "LEQ", "prompt": "Evaluate the extent to which Venice and Malacca owed their success to the same circumstances in the fifteenth century.", "cues": ["Venice and Malacca", "the same circumstances"], "why": "“Owed their success to” sounds causal, but the essay isn’t tracing one cause. It asks whether two cities succeeded for alike reasons: comparison."},
+    {"type": "ccot", "prompt": "Evaluate the extent to which labor systems in the Americas persisted or shifted from c. 1450 to c. 1900.", "cues": ["persisted or shifted", "from c. 1450 to c. 1900"], "why": "One subject (labor systems in the Americas) followed across the 1450–1750 and 1750–1900 periods. “Persisted or shifted” asks what continued and what changed.", "d": 4, "style": "LEQ"},
+    {"type": "ccot", "d": 5, "style": "LEQ", "prompt": "Evaluate the extent to which political practices introduced by the Mongols, such as relay stations and religious toleration, survived in Eurasian states from c. 1300 to c. 1750.", "cues": ["survived in", "from c. 1300 to c. 1750"], "why": "“Survived” plus a long span asks what continued and what faded. One subject (Mongol practices) is followed from the Mongol era into the 1700s, crossing the 1450 boundary."},
+    {"type": "causation", "prompt": "Evaluate the extent to which trade, rather than conquest, was responsible for the spread of Islam in Southeast Asia and sub-Saharan Africa from c. 1200 to c. 1450.", "cues": ["was responsible for", "rather than conquest"], "why": "It names two regions, but the essay isn’t about how the regions are alike or different. It asks which cause (trade or conquest) was more responsible for the spread of Islam.", "d": 5, "style": "LEQ"},
+    {"type": "causation", "d": 5, "style": "LEQ", "prompt": "Evaluate the extent to which silver from the Americas, rather than developments within China, drove changes in China’s economy from c. 1450 to c. 1750.", "cues": ["drove changes in", "rather than developments within China"], "why": "“Changes” and a long span may tempt you toward continuity and change, but the essay would weigh one cause (American silver) against another (developments within China) for its effect on the economy. Competing causes and a result is causation."},
+    {"type": "comparison", "prompt": "In the fourteenth century, the Black Death struck both Europe and China. Evaluate the extent to which its social consequences in the two regions followed the same pattern.", "cues": ["both Europe and China", "followed the same pattern"], "why": "“Consequences” may suggest causation, but the question is whether the results in two regions matched. Two regions in the same period plus “the same pattern” means comparison.", "d": 5, "style": "LEQ"},
+    {"type": "causation", "d": 5, "prompt": "Explain ONE way in which the arrival of Portuguese ships in the Indian Ocean in the late 1490s altered the balance of power among the region’s ports.", "cues": ["the arrival of Portuguese ships", "altered the balance of power"], "why": "“Altered” sounds like change over time, but the task is the effect of one event (the Portuguese arrival). One event and its effect is causation, not continuity and change.", "style": "SAQ", "part": "c"}
+  ];
+
+  const TYPE_LABELS = { causation: "Causation", comparison: "Comparison", ccot: "Continuity and change" };
+  const TYPE_ORDER = ["causation", "comparison", "ccot"];
+  const SAQ_GUIDE = {
+    causation: "Name ONE cause or effect and explain the link: say how the cause produced the result, not just that both happened.",
+    comparison: "Name ONE similarity or difference and give evidence about BOTH subjects.",
+    ccot: "Name ONE continuity or change and give evidence from the start and the end of the time span."
+  };
+  const LEQ_GUIDE = {
+    causation: "Your thesis needs to make a claim about what caused (or resulted from) the development, and how much each cause or effect mattered.",
+    comparison: "Your thesis needs to make a claim about how the two things were similar and different, with a line of reasoning for why.",
+    ccot: "Your thesis needs to make a claim about what changed and what stayed the same over the whole time span, and which was stronger."
+  };
+  function appendCued(parent, text, cues) {
+    const ranges = [];
+    cues.forEach(c => { const i = text.indexOf(c); if (i >= 0) ranges.push([i, i + c.length]); });
+    ranges.sort((a, b) => a[0] - b[0]);
+    let last = 0;
+    ranges.forEach(r => {
+      if (r[0] < last) return;
+      if (r[0] > last) parent.appendChild(document.createTextNode(text.slice(last, r[0])));
+      parent.appendChild(el("mark", null, text.slice(r[0], r[1])));
+      last = r[1];
+    });
+    if (last < text.length) parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+
+  /* Quiz engine for the "what type of question is this?" section */
+  function createTypeQuiz(cfg) {
+    const $ = s => document.getElementById(cfg.prefix + s);
+    const items = cfg.items;
+    const answers = items.map(() => ({ selected: null }));
+    let idx = 0;
+    const scoreEl = $("Score"), labelEl = $("Label"), promptEl = $("Prompt"), optionsEl = $("Options");
+    const feedbackEl = $("Feedback"), prevBtn = $("Prev"), nextBtn = $("Next");
+    const stimBox = $("StimBox"), stimText = $("StimText"), stimSource = $("StimSource");
+
+    function updateScore() {
+      let answered = 0, right = 0;
+      answers.forEach((a, i) => { if (a.selected) { answered++; if (a.selected === items[i].type) right++; } });
+      scoreEl.textContent = "Score: " + right + " correct out of " + answered + " answered (" + items.length + " total)";
+    }
+    function render() {
+      const item = items[idx], st = answers[idx], done = !!st.selected;
+      labelEl.textContent = cfg.noun + " " + (idx + 1) + " of " + items.length + (item.style ? " · " + item.style + " style" : "");
+      if (stimBox) {
+        if (item.stimulus) { stimBox.style.display = "block"; stimText.textContent = item.stimulus; stimSource.textContent = item.source ? "Source: " + item.source : ""; }
+        else stimBox.style.display = "none";
+      }
+      promptEl.innerHTML = "";
+      if (item.part) promptEl.appendChild(document.createTextNode(item.part + ") "));
+      appendCued(promptEl, item.prompt, done ? item.cues : []);
+      optionsEl.innerHTML = "";
+      feedbackEl.innerHTML = "";
+      feedbackEl.className = "quiz-feedback";
+      TYPE_ORDER.forEach(key => {
+        const b = el("button", "quiz-option", TYPE_LABELS[key]);
+        if (done) {
+          b.disabled = true;
+          if (key === item.type) b.classList.add("correct");
+          if (key === st.selected && st.selected !== item.type) b.classList.add("incorrect");
+        }
+        b.addEventListener("click", () => {
+          if (answers[idx].selected) return;
+          answers[idx].selected = key;
+          if (cfg.record) cfg.record(item, key === item.type);
+          render();
+        });
+        optionsEl.appendChild(b);
+      });
+      if (done) {
+        const right = st.selected === item.type;
+        feedbackEl.className = "quiz-feedback " + (right ? "correct" : "incorrect");
+        if (!right) feedbackEl.appendChild(el("div", "mcq-wrong-line", "You picked " + TYPE_LABELS[st.selected] + ", but this is asking about " + TYPE_LABELS[item.type].toLowerCase() + "."));
+        feedbackEl.appendChild(el("div", "mcq-correct-line", (right ? "Correct: " : "The answer: ") + TYPE_LABELS[item.type] + ". " + item.why));
+        const g = cfg.guideFor(item); feedbackEl.appendChild(el("div", "leq-thesis", g.label + " " + g.text));
+        feedbackEl.appendChild(el("div", "leq-clue", "The clue words are highlighted above."));
+      }
+      prevBtn.disabled = idx === 0;
+      nextBtn.textContent = idx === items.length - 1 ? "Restart from the beginning" : "Next \u2192";
+      updateScore();
+    }
+    prevBtn.addEventListener("click", () => { if (idx > 0) { idx--; render(); } });
+    nextBtn.addEventListener("click", () => { idx = idx < items.length - 1 ? idx + 1 : 0; render(); });
+    $("Restart").addEventListener("click", () => {
+      for (let i = 0; i < answers.length; i++) answers[i] = { selected: null };
+      idx = 0; render();
+    });
+    render();
+  }
+  /* Mastery for Historical Reasoning Identification = FIVE correct answers in a row */
+  const STREAK_KEY = "apwh_u2_hri_streak", STREAK_GOAL = 5;
+  let hriStreak = safeGet(STREAK_KEY, { current: 0, best: 0, mastered: false });
+  function updateStreak(right) {
+    if (right) {
+      hriStreak.current++;
+      if (hriStreak.current > hriStreak.best) hriStreak.best = hriStreak.current;
+      if (hriStreak.current >= STREAK_GOAL) hriStreak.mastered = true;
+    } else hriStreak.current = 0;
+    safeSet(STREAK_KEY, hriStreak); renderStreak();
+  }
+  function renderStreak() {
+    const box = document.getElementById("leqStreak"); box.innerHTML = "";
+    box.appendChild(el("span", null, "Streak:"));
+    const dots = el("span", "streak-dots");
+    for (let i = 0; i < STREAK_GOAL; i++) dots.appendChild(el("span", "streak-dot" + (i < hriStreak.current ? " on" : "")));
+    box.appendChild(dots);
+    box.appendChild(el("span", null, hriStreak.current + " in a row. Goal: " + STREAK_GOAL + " in a row to show mastery."));
+    if (hriStreak.mastered) box.appendChild(el("span", "streak-mastered", "✓ Mastery reached"));
+  }
+  createTypeQuiz({
+    prefix: "leq", items: HRI_ITEMS, noun: "Item",
+    guideFor: item => item.style === "SAQ"
+      ? { label: "What a full-credit answer needs to do:", text: SAQ_GUIDE[item.type] }
+      : { label: "What your thesis would need to do:", text: LEQ_GUIDE[item.type] },
+    record: (item, right) => { recordResult(leqResults, LEQ_STORE_KEY, item.prompt, right); updateStreak(right); }
+  });
+  renderStreak();
+
+  /* ============ PRACTICE MCQs (AI-GENERATED) ============ */
+  const PMCQ_ACK_KEY = "apwh_u2_pmcq_ack_v2";
+  let pmcqIdx = 0;
+  const pmcqAnswers = PMCQ_FLAT.map(() => ({ selected: null, answered: false }));
+
+  const mcqGateEl = document.getElementById("mcqGate");
+  const mcqBodyEl = document.getElementById("mcqBody");
+  const pmcqScoreEl = document.getElementById("pmcqScore");
+  const pmcqStimulusBoxEl = document.getElementById("pmcqStimulusBox");
+  const pmcqStimulusTextEl = document.getElementById("pmcqStimulusText");
+  const pmcqSetLabelEl = document.getElementById("pmcqSetLabel");
+  const pmcqPromptEl = document.getElementById("pmcqPrompt");
+  const pmcqOptionsEl = document.getElementById("pmcqOptions");
+  const pmcqFeedbackEl = document.getElementById("pmcqFeedback");
+  const pmcqPrevBtn = document.getElementById("pmcqPrev");
+  const pmcqNextBtn = document.getElementById("pmcqNext");
+
+  function updatePmcqScore() {
+    const answered = pmcqAnswers.filter(a => a.answered);
+    let correctCount = 0;
+    pmcqAnswers.forEach((a, i) => { if (a.answered && a.selected === PMCQ_FLAT[i].correct) correctCount++; });
+    pmcqScoreEl.textContent = "Score: " + correctCount + " correct out of " + answered.length + " answered (" + PMCQ_FLAT.length + " total)";
+  }
+
+  function renderPracticeMCQ(idx) {
+    const item = PMCQ_FLAT[idx];
+    const state = pmcqAnswers[idx];
+
+    pmcqStimulusBoxEl.style.display = "block";
+    pmcqStimulusTextEl.textContent = item.stimulus;
+    document.getElementById("pmcqStimulusSource").textContent = item.source ? "Source: " + item.source : "";
+
+    pmcqSetLabelEl.textContent = "Set " + item.setNumber + " of " + item.setCount + " (" + item.setTitle + ") \u2014 Question " + item.qInSet + " of " + item.qInSetCount;
+    pmcqPromptEl.textContent = item.q;
+    pmcqOptionsEl.innerHTML = "";
+    pmcqFeedbackEl.textContent = "";
+    pmcqFeedbackEl.className = "quiz-feedback";
+
+    item.options.forEach((optText, i) => {
+      const b = document.createElement("button");
+      b.className = "quiz-option";
+      b.textContent = optText;
+      if (state.answered) {
+        b.disabled = true;
+        if (i === item.correct) b.classList.add("correct");
+        if (i === state.selected && state.selected !== item.correct) b.classList.add("incorrect");
+      }
+      b.addEventListener("click", () => {
+        if (pmcqAnswers[idx].answered) return;
+        pmcqAnswers[idx] = { selected: i, answered: true };
+        recordResult(mcqResults, MCQ_STORE_KEY, item.q, i === item.correct);
+        renderPracticeMCQ(idx);
+        updatePmcqScore();
+      });
+      pmcqOptionsEl.appendChild(b);
+    });
+
+    if (state.answered) {
+      const isRight = state.selected === item.correct;
+      pmcqFeedbackEl.innerHTML = "";
+      pmcqFeedbackEl.className = "quiz-feedback " + (isRight ? "correct" : "incorrect");
+
+      if (item.flagged) {
+        const flagLine = document.createElement("div");
+        flagLine.className = "mcq-flag-line";
+        flagLine.textContent = "⚠ This one leans on comparison/nuance — worth double-checking against your notes.";
+        pmcqFeedbackEl.appendChild(flagLine);
+      }
+
+      if (!isRight) {
+        const wrongLine = document.createElement("div");
+        wrongLine.className = "mcq-wrong-line";
+        const whyWrongText = item.whyWrong && item.whyWrong[state.selected] ? item.whyWrong[state.selected] : "";
+        wrongLine.textContent = "You picked \u201c" + item.options[state.selected] + "\u201d — " + whyWrongText;
+        pmcqFeedbackEl.appendChild(wrongLine);
+      }
+
+      const correctLine = document.createElement("div");
+      correctLine.className = "mcq-correct-line";
+      correctLine.textContent = (isRight ? "Correct: " : "Correct answer: ") + "\u201c" + item.options[item.correct] + "\u201d — " + (item.rationale || "");
+      pmcqFeedbackEl.appendChild(correctLine);
+    }
+
+    pmcqPrevBtn.disabled = idx === 0;
+    pmcqNextBtn.textContent = idx === PMCQ_FLAT.length - 1 ? "Restart from Q1" : "Next question \u2192";
+    updatePmcqScore();
+  }
+
+  pmcqPrevBtn.addEventListener("click", () => {
+    if (pmcqIdx > 0) { pmcqIdx--; renderPracticeMCQ(pmcqIdx); }
+  });
+  pmcqNextBtn.addEventListener("click", () => {
+    if (pmcqIdx < PMCQ_FLAT.length - 1) { pmcqIdx++; } else { pmcqIdx = 0; }
+    renderPracticeMCQ(pmcqIdx);
+  });
+  document.getElementById("pmcqRestart").addEventListener("click", () => {
+    for (let i = 0; i < pmcqAnswers.length; i++) pmcqAnswers[i] = { selected: null, answered: false };
+    pmcqIdx = 0;
+    renderPracticeMCQ(pmcqIdx);
+  });
+
+  document.getElementById("mcqAckBtn").addEventListener("click", () => {
+    safeSet(PMCQ_ACK_KEY, true);
+    mcqGateEl.style.display = "none";
+    mcqBodyEl.style.display = "block";
+    renderPracticeMCQ(pmcqIdx);
+  });
+
+  function initPracticeMCQGate() {
+    const acked = safeGet(PMCQ_ACK_KEY, false);
+    if (acked) {
+      mcqGateEl.style.display = "none";
+      mcqBodyEl.style.display = "block";
+      renderPracticeMCQ(pmcqIdx);
+    } else {
+      mcqGateEl.style.display = "block";
+      mcqBodyEl.style.display = "none";
+    }
+  }
+
+  /* ============ START HERE: read first, then unlock ============ */
+  const START_ACK_KEY = "apwh_u2_start_ack";
+  function setStartUnlocked(unlocked) {
+    navButtons.forEach(b => {
+      if (b.dataset.pane === "start") return;
+      b.disabled = !unlocked;
+      b.title = unlocked ? "" : "Read the Start Here page first";
+    });
+    document.querySelectorAll(".goto-btn").forEach(b => { b.disabled = !unlocked; });
+    document.getElementById("startAckBtn").textContent = unlocked ? "Continue to the Causation Toolkit" : "I’ve read this. Let’s start.";
+    document.getElementById("startAckNote").textContent = unlocked ? "" : "The other sections stay locked until you click this button.";
+  }
+  document.getElementById("startAckBtn").addEventListener("click", () => {
+    safeSet(START_ACK_KEY, true);
+    setStartUnlocked(true);
+    document.querySelector('.navbtn[data-pane="toolkit"]').click();
+  });
+  document.querySelectorAll(".goto-btn").forEach(b => b.addEventListener("click", () => {
+    const target = document.querySelector('.navbtn[data-pane="' + b.dataset.pane + '"]');
+    if (target && !target.disabled) target.click();
+  }));
+
+  /* ============ INIT ============ */
+  loadQuiz(state.quizId, 0);
+  renderProgress();
+  initPracticeMCQGate();
+  setStartUnlocked(!!safeGet(START_ACK_KEY, false));
+})();
+</script>
+</body>
+</html>
